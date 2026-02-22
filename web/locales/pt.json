@@ -1,0 +1,19 @@
+{
+  "common": {
+    "search": "Pesquisar",
+    "filter": "Filtrar",
+    "price": "Preço",
+    "location": "Localização"
+  },
+  "property": {
+    "bedrooms": "Quartos",
+    "bathrooms": "Banheiros",
+    "area": "Área",
+    "type": {
+      "apartment": "Apartamento",
+      "house": "Moradia",
+      "land": "Terreno",
+      "villa": "Vila"
+    }
+  }
+}

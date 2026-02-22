@@ -1,0 +1,44 @@
+{
+  "commands": {
+    "create-property-model": {
+      "description": "Create Django Property model with PostGIS",
+      "agent": "backend-engineer",
+      "prompt": "Create Property model with all fields including PostGIS location, features JSON, and media JSON"
+    },
+    "create-property-card": {
+      "description": "Create React PropertyCard component",
+      "agent": "frontend-engineer",
+      "prompt": "Create PropertyCard component with TypeScript, following design system (colors, spacing, shadows)"
+    },
+    "implement-whatsapp-webhook": {
+      "description": "Implement WhatsApp webhook handler",
+      "agent": "backend-engineer",
+      "prompt": "Create webhook handler for WhatsApp Business API with signature validation and lead creation"
+    },
+    "optimize-3g-loading": {
+      "description": "Optimize component for 3G loading",
+      "agent": "frontend-engineer",
+      "prompt": "Apply 3G optimization techniques: code splitting, lazy loading, progressive images, skeleton loading"
+    },
+    "setup-docker-compose": {
+      "description": "Setup Docker Compose configuration",
+      "agent": "devops-engineer",
+      "prompt": "Create docker-compose.yml with PostgreSQL+PostGIS, Redis, RabbitMQ, Django, Next.js, Nginx"
+    },
+    "create-avm-model": {
+      "description": "Create AVM prediction model",
+      "agent": "data-scientist",
+      "prompt": "Implement Hybrid AVM model with hedonic regression + KNN comparables + confidence scoring"
+    },
+    "audit-security": {
+      "description": "Audit endpoint for security",
+      "agent": "supervisor",
+      "prompt": "Check endpoint for vulnerabilities: SQL injection, XSS, CSRF, rate limiting, input validation"
+    },
+    "create-tests": {
+      "description": "Create comprehensive tests",
+      "agent": "qa-tester",
+      "prompt": "Create unit, integration, and E2E tests for the property creation flow"
+    }
+  }
+}

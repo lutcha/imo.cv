@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agent CRM Dashboard - imo.cv</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#ec7f13",
+                "background-light": "#f8f7f6",
+                "background-dark": "#221910",
+              },
+              fontFamily: {
+                "display": ["Inter", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-64 bg-white dark:bg-zinc-900 border-r border-slate-200 dark:border-zinc-800 flex flex-col shrink-0">
+<div class="p-6 flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined">domain</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">imo.cv <span class="text-primary">CRM</span></h1>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary font-semibold" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
+<span class="material-symbols-outlined">list_alt</span>
+<span>My Listings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Leads</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span>Analytics</span>
+</a>
+<div class="pt-4 pb-2 px-3 text-xs font-bold text-slate-400 uppercase tracking-wider">Management</div>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Support</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-zinc-800">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-zinc-700 bg-cover bg-center" data-alt="Professional real estate agent headshot" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuApZQzvVJNACDW6c5MwfPXn2Jb07RHa8zha0l5oZvVQSZYbT675lTbcg67RdyzhNOnBWNt7XfmvhWnXQ71tiOMEuQCjYmGbYs1xKo1g9yHBhqOev10x0UoVVqFdfFI2NOyOeAKmFU2EmrnbFyS8t5an33xvNhzyLktz1Nn5ENbKTjoSyjp9dQG1NS0Glg9lBpbnZJ2urb0NGSsraSORVq58Pe3XPV1l_JAwpjkmlWta5juY9svbIG6jpqpmhZk8ul2pltrKKdhqAas')"></div>
+<div class="flex-1 overflow-hidden">
+<p class="text-sm font-semibold truncate">Ricardo Santos</p>
+<p class="text-xs text-slate-500 truncate">Premium Agent</p>
+</div>
+</div>
+<button class="w-full py-2 bg-slate-100 dark:bg-zinc-800 rounded-lg text-sm font-medium hover:bg-slate-200 dark:hover:bg-zinc-700 transition-colors">Sign Out</button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col overflow-hidden">
+<!-- Header -->
+<header class="h-16 bg-white dark:bg-zinc-900 border-b border-slate-200 dark:border-zinc-800 px-8 flex items-center justify-between shrink-0">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-zinc-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/50 transition-all" placeholder="Search listings, leads or files..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg font-semibold text-sm hover:brightness-110 shadow-lg shadow-primary/20 transition-all">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>Add New Property</span>
+</button>
+<div class="h-8 w-px bg-slate-200 dark:bg-zinc-800 mx-2"></div>
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-zinc-800 rounded-lg relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-zinc-900"></span>
+</button>
+</div>
+</header>
+<!-- Dashboard View -->
+<div class="flex-1 overflow-y-auto p-8 space-y-8">
+<!-- Welcome Section -->
+<div>
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white">Welcome back, Ricardo</h2>
+<p class="text-slate-500">Here's what's happening with your properties in Cape Verde today.</p>
+</div>
+<!-- KPI Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white dark:bg-zinc-900 p-6 rounded-xl border border-slate-200 dark:border-zinc-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-blue-600">
+<span class="material-symbols-outlined">visibility</span>
+</div>
+<span class="text-xs font-bold text-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded-full">+12.5%</span>
+</div>
+<p class="text-slate-500 text-sm font-medium">Total Views</p>
+<p class="text-2xl font-bold mt-1">12,450</p>
+</div>
+<div class="bg-white dark:bg-zinc-900 p-6 rounded-xl border border-slate-200 dark:border-zinc-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-orange-50 dark:bg-orange-900/20 rounded-lg text-orange-600">
+<span class="material-symbols-outlined">person_add</span>
+</div>
+<span class="text-xs font-bold text-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded-full">+5.2%</span>
+</div>
+<p class="text-slate-500 text-sm font-medium">New Leads</p>
+<p class="text-2xl font-bold mt-1">86</p>
+</div>
+<div class="bg-white dark:bg-zinc-900 p-6 rounded-xl border border-slate-200 dark:border-zinc-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-purple-50 dark:bg-purple-900/20 rounded-lg text-purple-600">
+<span class="material-symbols-outlined">home_work</span>
+</div>
+<span class="text-xs font-bold text-rose-500 bg-rose-50 dark:bg-rose-900/20 px-2 py-1 rounded-full">-2.4%</span>
+</div>
+<p class="text-slate-500 text-sm font-medium">Active Listings</p>
+<p class="text-2xl font-bold mt-1">24</p>
+</div>
+<div class="bg-white dark:bg-zinc-900 p-6 rounded-xl border border-slate-200 dark:border-zinc-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg text-emerald-600">
+<span class="material-symbols-outlined">target</span>
+</div>
+<span class="text-xs font-bold text-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded-full">+8.1%</span>
+</div>
+<p class="text-slate-500 text-sm font-medium">Sales Target</p>
+<p class="text-2xl font-bold mt-1">75%</p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Lead Performance Chart Placeholder -->
+<div class="lg:col-span-2 bg-white dark:bg-zinc-900 p-6 rounded-xl border border-slate-200 dark:border-zinc-800 shadow-sm">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="font-bold text-lg">Lead Performance</h3>
+<p class="text-sm text-slate-500">Inquiries over the last 30 days</p>
+</div>
+<select class="bg-slate-50 dark:bg-zinc-800 border-none rounded-lg text-sm font-medium py-1.5 focus:ring-1 focus:ring-primary">
+<option>Last 30 Days</option>
+<option>Last 3 Months</option>
+</select>
+</div>
+<!-- Visualizing a bar chart with Tailwind -->
+<div class="flex items-end justify-between h-48 gap-2">
+<div class="w-full bg-primary/20 dark:bg-primary/10 rounded-t h-[40%] hover:bg-primary transition-colors cursor-pointer relative group">
+<span class="hidden group-hover:block absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] py-1 px-2 rounded">12</span>
+</div>
+<div class="w-full bg-primary/20 dark:bg-primary/10 rounded-t h-[60%] hover:bg-primary transition-colors cursor-pointer relative group">
+<span class="hidden group-hover:block absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] py-1 px-2 rounded">18</span>
+</div>
+<div class="w-full bg-primary rounded-t h-[85%] hover:brightness-110 transition-colors cursor-pointer relative group">
+<span class="hidden group-hover:block absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] py-1 px-2 rounded">26</span>
+</div>
+<div class="w-full bg-primary/20 dark:bg-primary/10 rounded-t h-[35%] hover:bg-primary transition-colors cursor-pointer relative group">
+<span class="hidden group-hover:block absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] py-1 px-2 rounded">10</span>
+</div>
+<div class="w-full bg-primary/20 dark:bg-primary/10 rounded-t h-[50%] hover:bg-primary transition-colors cursor-pointer relative group">
+<span class="hidden group-hover:block absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] py-1 px-2 rounded">15</span>
+</div>
+<div class="w-full bg-primary/20 dark:bg-primary/10 rounded-t h-[75%] hover:bg-primary transition-colors cursor-pointer relative group">
+<span class="hidden group-hover:block absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] py-1 px-2 rounded">22</span>
+</div>
+<div class="w-full bg-primary/20 dark:bg-primary/10 rounded-t h-[65%] hover:bg-primary transition-colors cursor-pointer relative group">
+<span class="hidden group-hover:block absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] py-1 px-2 rounded">20</span>
+</div>
+</div>
+<div class="flex justify-between mt-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest px-1">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+</div>
+<!-- Recent Activity -->
+<div class="bg-white dark:bg-zinc-900 p-6 rounded-xl border border-slate-200 dark:border-zinc-800 shadow-sm flex flex-col">
+<div class="mb-6">
+<h3 class="font-bold text-lg">Recent Activity</h3>
+<p class="text-sm text-slate-500">Live feed from your listings</p>
+</div>
+<div class="flex-1 space-y-6 overflow-y-auto pr-2">
+<!-- Activity Item -->
+<div class="flex gap-4">
+<div class="shrink-0 w-8 h-8 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</div>
+<div>
+<p class="text-sm font-medium">New inquiry on <span class="text-primary cursor-pointer hover:underline">Villa Santiago</span></p>
+<p class="text-xs text-slate-400 mt-0.5">2 minutes ago</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="shrink-0 w-8 h-8 bg-blue-100 dark:bg-blue-900/30 text-blue-600 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</div>
+<div>
+<p class="text-sm font-medium">Listing #402 was updated</p>
+<p class="text-xs text-slate-400 mt-0.5">45 minutes ago</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="shrink-0 w-8 h-8 bg-orange-100 dark:bg-orange-900/30 text-orange-600 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</div>
+<div>
+<p class="text-sm font-medium">Listing <span class="text-primary cursor-pointer hover:underline">Boa Vista Apartment</span> hit 1k views</p>
+<p class="text-xs text-slate-400 mt-0.5">2 hours ago</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="shrink-0 w-8 h-8 bg-slate-100 dark:bg-zinc-800 text-slate-500 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">person</span>
+</div>
+<div>
+<p class="text-sm font-medium">New lead assigned: Maria Silva</p>
+<p class="text-xs text-slate-400 mt-0.5">5 hours ago</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-2 text-primary font-semibold text-sm border border-primary/20 rounded-lg hover:bg-primary/5 transition-colors">
+                            View All Activity
+                        </button>
+</div>
+</div>
+<!-- Recent Listings Preview -->
+<div class="bg-white dark:bg-zinc-900 rounded-xl border border-slate-200 dark:border-zinc-800 shadow-sm overflow-hidden">
+<div class="p-6 border-b border-slate-100 dark:border-zinc-800 flex items-center justify-between">
+<h3 class="font-bold text-lg">My Recent Listings</h3>
+<a class="text-primary text-sm font-semibold hover:underline" href="#">Manage All</a>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-slate-50 dark:bg-zinc-800/50 text-slate-400 text-xs font-bold uppercase tracking-widest">
+<tr>
+<th class="px-6 py-4">Property</th>
+<th class="px-6 py-4">Location</th>
+<th class="px-6 py-4">Price</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4">Views</th>
+<th class="px-6 py-4">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-zinc-800">
+<tr class="hover:bg-slate-50 dark:hover:bg-zinc-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-10 rounded bg-slate-200 bg-cover bg-center" data-alt="Modern luxury villa with pool" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDuzg6wR0dxkBNdPcTQ8EFd69gT3qHQHDo2bubDb1r5T3znjoqWLYJ9yPQ7frum6Cv-tbOZV1KSnt-6mxrbxTt16br_nB309Yk7wPfrqjxEk7MVk70JcNFR23ak_C-i4cB1AyPDm75jO1meowc6peqC26N-UjEw9DSfiHL9cqK3L3Ojds4Z_NgpS7oqxTJ2ZLm0A33hdh5sdvKdX5P9RN6l_D9PV1heHPikHWmh35RU0Cs8CbAQewu4cFB6anHRvYny3c3Bsg27UpE')"></div>
+<span class="font-semibold text-sm">Villa Santiago Deluxe</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">Praia, Santiago</td>
+<td class="px-6 py-4 text-sm font-bold">24.500.000 CVE</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 text-[10px] font-bold rounded uppercase">Active</span>
+</td>
+<td class="px-6 py-4 text-sm">1,204</td>
+<td class="px-6 py-4">
+<button class="p-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-zinc-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-10 rounded bg-slate-200 bg-cover bg-center" data-alt="Ocean view apartment in Cape Verde" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBtay1y0Riyfg8KB0VDap04NYXqp5kZ7suO6r4ufh-VQflRNxImweXNmIOyMTQUmG99rTXcahIgEnEkB9-6h6wiwUMQtDUbQH3rnoXqbA0mpED07J9GPXRU3WTt9rcAZ19WTotntX8FVuS1jEgkwIBmqyF25hblEe_Zqrg3QCOvAlZE2lwVFLgZsJ59Egg1DiRr7e8RO0Tjy4oYuBhzyEIqt5ZL52i5GlWGbuAhcvZB59jeDGyDVBGOvc2WK448dtsBRdvLCsMmHS0')"></div>
+<span class="font-semibold text-sm">Ocean View Apartment</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">Santa Maria, Sal</td>
+<td class="px-6 py-4 text-sm font-bold">18.200.000 CVE</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-600 text-[10px] font-bold rounded uppercase">Pending</span>
+</td>
+<td class="px-6 py-4 text-sm">842</td>
+<td class="px-6 py-4">
+<button class="p-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-zinc-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-10 rounded bg-slate-200 bg-cover bg-center" data-alt="Traditional colonial style house" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBBixhHtFaNq4XeAsEjVRPGDSJ61lGdV947xrbQ3jDOAG-vRdu4_F1-Vjf5D_d8QgMcuYXefTacPJhZzT8j_gaktQhH6uWSTYSXggKpIdUxckHG3rpA9m45vnF5NQbO_DBeOjM8rw0uhUrkK52angLc6d8Z-72PZ-8S9siEXcqrsg141s_0hpCAQty8xvWfafiOStvKiYdzr4-POqJBpuFAvOln51d9Dp0FPqEFMoCoS1M8-bmBKhRbEWCNMJtUFoRFnHUMqB_Op1s')"></div>
+<span class="font-semibold text-sm">Colonial Style Estate</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">Mindelo, São Vicente</td>
+<td class="px-6 py-4 text-sm font-bold">42.000.000 CVE</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-slate-100 dark:bg-zinc-800 text-slate-500 text-[10px] font-bold rounded uppercase">Draft</span>
+</td>
+<td class="px-6 py-4 text-sm">12</td>
+<td class="px-6 py-4">
+<button class="p-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

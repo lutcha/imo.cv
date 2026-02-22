@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add Property: Media Upload | imo.cv</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec7f13",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e5e7eb;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #d1d5db;
+        }
+        .image-grid-card:hover .image-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex h-screen w-full flex-col overflow-hidden">
+<header class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 py-3 z-10 shrink-0">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-primary">
+<div class="size-8 flex items-center justify-center bg-primary rounded-lg text-white">
+<span class="material-symbols-outlined text-2xl">home_work</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-black leading-tight tracking-tight">imo.cv</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-400 text-sm font-semibold hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-semibold hover:text-primary transition-colors" href="#">Leads</a>
+<a class="text-primary text-sm font-bold border-b-2 border-primary pb-1" href="#">Properties</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-semibold hover:text-primary transition-colors" href="#">Agents</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-64 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 py-1.5 pl-10 pr-4 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Search..." type="text"/>
+</div>
+<div class="h-8 w-8 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center overflow-hidden">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB811eqYnH3R6cm_Z5fS-sNYISs5GKGjiMd9Mk7xS82rrgOvKugR4tvKlADTgG8u0BIcSrZPyq5KguO9Un8550cBK7CQLDiluXpYwAbXRB8IEVyHtC3PMOrawyOASAEaokbZIgtw2fjKyBF-nB6jF8tAYk8N4-HzkSa-MYwF3kBMFkTIofqC3XENRfLOFGubzNfBEfyQmz15HqHTmnVK2uzHiEeWCUDSfYf4QbPfTsFSC1QnSGJCQONYRsFHVI8TDCIXRLb7KIf77g"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<main class="flex-1 flex flex-col min-w-0 bg-background-light dark:bg-background-dark overflow-y-auto custom-scrollbar">
+<div class="px-6 pt-8 pb-4 max-w-5xl mx-auto w-full">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h1 class="text-2xl font-black text-slate-900 dark:text-white">Add New Property</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Step 3 of 4: High-quality media increases lead conversion by 60%.</p>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1">
+<span class="size-2.5 rounded-full bg-primary"></span>
+<span class="size-2.5 rounded-full bg-primary"></span>
+<span class="size-2.5 rounded-full bg-primary ring-4 ring-primary/20"></span>
+<span class="size-2.5 rounded-full bg-slate-200 dark:bg-slate-700"></span>
+</div>
+<span class="text-xs font-bold text-slate-400 ml-2 uppercase tracking-widest">75% Complete</span>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-8 pb-24">
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">photo_library</span>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Property Photos</h3>
+</div>
+<span class="text-xs text-slate-400 font-medium">Min. 5 photos recommended • Max 20MB per file</span>
+</div>
+<div class="border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-xl p-10 flex flex-col items-center justify-center bg-slate-50 dark:bg-slate-800/50 hover:border-primary transition-colors cursor-pointer group mb-8">
+<div class="size-16 rounded-full bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 flex items-center justify-center text-primary group-hover:scale-110 transition-transform mb-4">
+<span class="material-symbols-outlined text-3xl">cloud_upload</span>
+</div>
+<h4 class="text-slate-900 dark:text-white font-bold text-center">Click to upload or drag and drop</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm text-center mt-1">PNG, JPG or WebP images up to 4K resolution</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+<div class="image-grid-card relative aspect-square rounded-lg overflow-hidden border-2 border-primary group cursor-move">
+<img alt="Main Photo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgWkhYrUzNoWwEg8dXMfkKHiUMcWN8L3-3fSRyvaN_bf67hAIPo5ZX21Awqe_AXaBR6yEhrEel6Pl5F_4fg28pzBADdqRhvBQCaeV-1GqMkuIIuFPuD64csY7JxvUveWDGmeJ0t8VOHdYEaMROnj4tAYVrEu7s7340iUQpmGCAJ9wmvABOo26x63GqzImjVBGmZSWKJhNgcqOM2WhTUq2TOkIiWDCz-5hepiIxtmWCe7Tbx0vJrt7nERYCxYSdxjZ1RrfmOJKD1ic"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 bg-primary text-white text-[10px] font-bold rounded uppercase tracking-wider">Main Photo</div>
+<div class="image-overlay absolute inset-0 bg-black/40 opacity-0 flex items-center justify-center gap-2 transition-opacity">
+<button class="size-8 rounded-full bg-white text-slate-900 hover:text-red-500 flex items-center justify-center shadow-lg"><span class="material-symbols-outlined text-sm">delete</span></button>
+<button class="size-8 rounded-full bg-white text-slate-900 hover:text-primary flex items-center justify-center shadow-lg"><span class="material-symbols-outlined text-sm">zoom_in</span></button>
+</div>
+</div>
+<div class="image-grid-card relative aspect-square rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 group cursor-move">
+<img alt="Photo 2" class="w-full h-full object-cover grayscale-[0.5] hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB811eqYnH3R6cm_Z5fS-sNYISs5GKGjiMd9Mk7xS82rrgOvKugR4tvKlADTgG8u0BIcSrZPyq5KguO9Un8550cBK7CQLDiluXpYwAbXRB8IEVyHtC3PMOrawyOASAEaokbZIgtw2fjKyBF-nB6jF8tAYk8N4-HzkSa-MYwF3kBMFkTIofqC3XENRfLOFGubzNfBEfyQmz15HqHTmnVK2uzHiEeWCUDSfYf4QbPfTsFSC1QnSGJCQONYRsFHVI8TDCIXRLb7KIf77g"/>
+<div class="image-overlay absolute inset-0 bg-black/40 opacity-0 flex items-center justify-center gap-2 transition-opacity">
+<button class="size-8 rounded-full bg-white text-slate-900 hover:text-primary flex items-center justify-center shadow-lg"><span class="material-symbols-outlined text-sm">check_circle</span></button>
+<button class="size-8 rounded-full bg-white text-slate-900 hover:text-red-500 flex items-center justify-center shadow-lg"><span class="material-symbols-outlined text-sm">delete</span></button>
+</div>
+</div>
+<div class="image-grid-card relative aspect-square rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 group cursor-move">
+<img alt="Photo 3" class="w-full h-full object-cover grayscale-[0.5] hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgWkhYrUzNoWwEg8dXMfkKHiUMcWN8L3-3fSRyvaN_bf67hAIPo5ZX21Awqe_AXaBR6yEhrEel6Pl5F_4fg28pzBADdqRhvBQCaeV-1GqMkuIIuFPuD64csY7JxvUveWDGmeJ0t8VOHdYEaMROnj4tAYVrEu7s7340iUQpmGCAJ9wmvABOo26x63GqzImjVBGmZSWKJhNgcqOM2WhTUq2TOkIiWDCz-5hepiIxtmWCe7Tbx0vJrt7nERYCxYSdxjZ1RrfmOJKD1ic"/>
+<div class="image-overlay absolute inset-0 bg-black/40 opacity-0 flex items-center justify-center gap-2 transition-opacity">
+<button class="size-8 rounded-full bg-white text-slate-900 hover:text-primary flex items-center justify-center shadow-lg"><span class="material-symbols-outlined text-sm">check_circle</span></button>
+<button class="size-8 rounded-full bg-white text-slate-900 hover:text-red-500 flex items-center justify-center shadow-lg"><span class="material-symbols-outlined text-sm">delete</span></button>
+</div>
+</div>
+<div class="image-grid-card relative aspect-square rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 group cursor-move">
+<div class="w-full h-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-300">
+<span class="material-symbols-outlined text-4xl">pending</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-slate-200 overflow-hidden">
+<div class="bg-primary h-full w-[60%]"></div>
+</div>
+</div>
+<button class="aspect-square rounded-lg border-2 border-dashed border-slate-200 dark:border-slate-700 flex flex-col items-center justify-center gap-1 text-slate-400 hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined">add</span>
+<span class="text-[10px] font-bold uppercase">Add More</span>
+</button>
+</div>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">videocam</span>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Video Tour</h3>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">YouTube or Vimeo URL</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">link</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="https://youtube.com/watch?v=..." type="text"/>
+</div>
+<p class="mt-2 text-xs text-slate-500">Video tours significantly increase buyer engagement.</p>
+</div>
+</div>
+</section>
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">floor</span>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Floor Plans</h3>
+</div>
+<div class="border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-lg h-32 flex flex-col items-center justify-center text-slate-400 hover:border-primary hover:text-primary transition-all cursor-pointer">
+<span class="material-symbols-outlined text-2xl mb-1">upload_file</span>
+<span class="text-xs font-bold uppercase tracking-wider">Upload Floor Plan (PDF/Image)</span>
+</div>
+</section>
+</div>
+</div>
+</div>
+<div class="fixed bottom-0 left-0 right-0 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-6 py-4 z-20">
+<div class="max-w-5xl mx-auto flex items-center justify-between">
+<button class="flex items-center gap-2 px-6 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+                        Previous Step
+                    </button>
+<div class="flex items-center gap-4">
+<button class="hidden sm:block text-slate-400 text-sm font-semibold hover:text-slate-600 dark:hover:text-slate-200">Save as Draft</button>
+<button class="flex items-center gap-2 px-8 py-2.5 rounded-lg bg-primary text-white font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
+                            Next: Review &amp; Publish
+                            <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

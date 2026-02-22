@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./src
+    container_name: imocv_backend
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./src:/app
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./src/.env
+    environment:
+      - DATABASE_URL=postgres://imocv_user:imocv_pass@db:5432/imocv_db
+    depends_on:
+      - db
+      - redis
+
+  frontend:
+    build: ./web
+    container_name: imocv_frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:8000
+    depends_on:
+      - backend
+
+  db:
+    image: postgis/postgis:15-3.3
+    container_name: imocv_db
+    environment:
+      - POSTGRES_DB=imocv_db
+      - POSTGRES_USER=imocv_user
+      - POSTGRES_PASSWORD=imocv_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: imocv_redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

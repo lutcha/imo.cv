@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lead Management Kanban Board | imo.cv</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec7f13",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .kanban-column {
+            min-width: 320px;
+            max-width: 320px;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e5e7eb;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #d1d5db;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex h-screen w-full flex-col overflow-hidden">
+<!-- Top Nav Bar -->
+<header class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 py-3 z-10 shrink-0">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-primary">
+<div class="size-8 flex items-center justify-center bg-primary rounded-lg text-white">
+<span class="material-symbols-outlined text-2xl">home_work</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-black leading-tight tracking-tight">imo.cv</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-400 text-sm font-semibold hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-primary text-sm font-bold border-b-2 border-primary pb-1" href="#">Leads</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-semibold hover:text-primary transition-colors" href="#">Properties</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-semibold hover:text-primary transition-colors" href="#">Agents</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-64 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 py-1.5 pl-10 pr-4 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Search leads or properties..." type="text"/>
+</div>
+<button class="flex items-center justify-center rounded-lg p-2 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-lg p-2 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Professional profile headshot of an agent" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB811eqYnH3R6cm_Z5fS-sNYISs5GKGjiMd9Mk7xS82rrgOvKugR4tvKlADTgG8u0BIcSrZPyq5KguO9Un8550cBK7CQLDiluXpYwAbXRB8IEVyHtC3PMOrawyOASAEaokbZIgtw2fjKyBF-nB6jF8tAYk8N4-HzkSa-MYwF3kBMFkTIofqC3XENRfLOFGubzNfBEfyQmz15HqHTmnVK2uzHiEeWCUDSfYf4QbPfTsFSC1QnSGJCQONYRsFHVI8TDCIXRLb7KIf77g"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 bg-background-light dark:bg-background-dark">
+<!-- Board Header -->
+<div class="px-6 pt-6 pb-4">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h1 class="text-2xl font-black text-slate-900 dark:text-white">Lead Management</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Track and manage property inquiries across the archipelago.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined text-lg">filter_list</span>
+                            Filter
+                        </button>
+<button class="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined text-lg">add</span>
+                            New Lead
+                        </button>
+</div>
+</div>
+<!-- Quick Filters / Tabs -->
+<div class="flex items-center gap-4 mt-6 border-b border-slate-200 dark:border-slate-800 overflow-x-auto whitespace-nowrap custom-scrollbar pb-1">
+<button class="pb-3 px-1 text-sm font-bold text-primary border-b-2 border-primary">All Leads</button>
+<button class="pb-3 px-1 text-sm font-medium text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors">Residential Sales</button>
+<button class="pb-3 px-1 text-sm font-medium text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors">Commercial Leases</button>
+<button class="pb-3 px-1 text-sm font-medium text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors">Luxury Projects</button>
+<div class="ml-auto flex items-center gap-2 pb-3">
+<span class="text-xs text-slate-400 font-medium uppercase tracking-wider">Grouped by: Stage</span>
+</div>
+</div>
+</div>
+<!-- Kanban Board Area -->
+<div class="flex-1 overflow-x-auto px-6 pb-8 custom-scrollbar">
+<div class="flex gap-6 h-full min-w-max">
+<!-- New Lead Column -->
+<div class="kanban-column flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<h3 class="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+<span class="size-2 rounded-full bg-blue-500"></span>
+                                New Lead
+                                <span class="ml-1 px-1.5 py-0.5 rounded-full bg-slate-200 dark:bg-slate-800 text-[10px] text-slate-600 dark:text-slate-400">12</span>
+</h3>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">more_horiz</span>
+</button>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Card 1 -->
+<div class="group relative flex flex-col gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-sm hover:shadow-md hover:border-primary/30 transition-all cursor-grab active:cursor-grabbing">
+<div class="flex justify-between items-start">
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-tight">Luxury Villa</span>
+<span class="text-[11px] text-slate-400">2h ago</span>
+</div>
+<h4 class="font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">Arnaldo Silva</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                    Santa Maria, Sal Island
+                                </p>
+<div class="flex items-center justify-between pt-2 border-t border-slate-50 dark:border-slate-800">
+<div class="flex -space-x-2">
+<div class="size-6 rounded-full border-2 border-white dark:border-slate-900 bg-slate-200 overflow-hidden">
+<img data-alt="Small avatar of the assigned agent" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgWkhYrUzNoWwEg8dXMfkKHiUMcWN8L3-3fSRyvaN_bf67hAIPo5ZX21Awqe_AXaBR6yEhrEel6Pl5F_4fg28pzBADdqRhvBQCaeV-1GqMkuIIuFPuD64csY7JxvUveWDGmeJ0t8VOHdYEaMROnj4tAYVrEu7s7340iUQpmGCAJ9wmvABOo26x63GqzImjVBGmZSWKJhNgcqOM2WhTUq2TOkIiWDCz-5hepiIxtmWCe7Tbx0vJrt7nERYCxYSdxjZ1RrfmOJKD1ic"/>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="text-slate-400 hover:text-blue-500 transition-colors"><span class="material-symbols-outlined text-lg">mail</span></button>
+<button class="text-slate-400 hover:text-green-500 transition-colors"><span class="material-symbols-outlined text-lg">call</span></button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative flex flex-col gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-sm hover:shadow-md transition-all cursor-grab">
+<div class="flex justify-between items-start">
+<span class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 text-[10px] font-bold uppercase tracking-tight">Apartment T2</span>
+<span class="text-[11px] text-slate-400">5h ago</span>
+</div>
+<h4 class="font-bold text-slate-900 dark:text-white">Maria dos Santos</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                    Palmarejo Baixo, Praia
+                                </p>
+<div class="flex items-center justify-between pt-2 border-t border-slate-50 dark:border-slate-800">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-slate-400">priority_high</span>
+<span class="text-[10px] text-slate-400 font-medium">Medium Priority</span>
+</div>
+<div class="flex gap-2">
+<button class="text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-lg">chat</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Contacted Column -->
+<div class="kanban-column flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<h3 class="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+<span class="size-2 rounded-full bg-amber-500"></span>
+                                Contacted
+                                <span class="ml-1 px-1.5 py-0.5 rounded-full bg-slate-200 dark:bg-slate-800 text-[10px] text-slate-600 dark:text-slate-400">8</span>
+</h3>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">more_horiz</span>
+</button>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Card 3 -->
+<div class="group relative flex flex-col gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-sm hover:shadow-md transition-all cursor-grab">
+<div class="flex justify-between items-start">
+<span class="px-2 py-0.5 rounded-full bg-purple-50 dark:bg-purple-900/20 text-purple-600 text-[10px] font-bold uppercase tracking-tight">Land Plot</span>
+<span class="text-[11px] text-primary font-bold">Today</span>
+</div>
+<h4 class="font-bold text-slate-900 dark:text-white">Johnathan Miller</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                    Boa Vista Island
+                                </p>
+<div class="p-2 rounded bg-background-light dark:bg-slate-800/50 text-[11px] text-slate-600 dark:text-slate-300">
+                                    "Interested in beachfront development potential."
+                                </div>
+<div class="flex items-center justify-between pt-2 border-t border-slate-50 dark:border-slate-800">
+<span class="text-[10px] text-slate-400">Last: Email sent</span>
+<div class="flex gap-2">
+<button class="text-primary hover:text-primary/80 transition-colors"><span class="material-symbols-outlined text-lg">edit</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Viewing Scheduled Column -->
+<div class="kanban-column flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<h3 class="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+<span class="size-2 rounded-full bg-indigo-500"></span>
+                                Viewing Scheduled
+                                <span class="ml-1 px-1.5 py-0.5 rounded-full bg-slate-200 dark:bg-slate-800 text-[10px] text-slate-600 dark:text-slate-400">5</span>
+</h3>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">more_horiz</span>
+</button>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Card 4 -->
+<div class="group relative flex flex-col gap-3 rounded-xl border-l-4 border-l-indigo-500 border-y border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-sm hover:shadow-md transition-all cursor-grab">
+<div class="flex justify-between items-start">
+<span class="px-2 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 text-[10px] font-bold uppercase tracking-tight">Luxury Condo</span>
+<span class="text-[11px] text-indigo-600 font-bold">Oct 14, 15:00</span>
+</div>
+<h4 class="font-bold text-slate-900 dark:text-white">Isabel Cabral</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">calendar_month</span>
+                                    Tomorrow with Agent Alex
+                                </p>
+<div class="flex items-center justify-between pt-2 border-t border-slate-50 dark:border-slate-800">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-lg text-amber-500">star</span>
+<span class="material-symbols-outlined text-lg text-slate-200">star</span>
+</div>
+<button class="rounded bg-indigo-500 px-2 py-1 text-[10px] font-bold text-white uppercase tracking-wider">Confirm</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Negotiation Column -->
+<div class="kanban-column flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<h3 class="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+<span class="size-2 rounded-full bg-orange-500"></span>
+                                Negotiation
+                                <span class="ml-1 px-1.5 py-0.5 rounded-full bg-slate-200 dark:bg-slate-800 text-[10px] text-slate-600 dark:text-slate-400">3</span>
+</h3>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">more_horiz</span>
+</button>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Card 5 -->
+<div class="group relative flex flex-col gap-3 rounded-xl border border-orange-200 dark:border-orange-900/30 bg-orange-50/30 dark:bg-orange-900/10 p-4 shadow-sm hover:shadow-md transition-all cursor-grab">
+<div class="flex justify-between items-start">
+<span class="px-2 py-0.5 rounded-full bg-primary text-white text-[10px] font-bold uppercase tracking-tight">Pending Offer</span>
+<span class="text-[11px] text-orange-600 font-bold">€245,000</span>
+</div>
+<h4 class="font-bold text-slate-900 dark:text-white">Mateus Lopes</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">description</span>
+                                    Counter-offer sent yesterday
+                                </p>
+<div class="w-full bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[75%] rounded-full"></div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-800">
+<span class="text-[10px] text-slate-400">Probability: 75%</span>
+<span class="material-symbols-outlined text-lg text-primary">handshake</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Closed Column -->
+<div class="kanban-column flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<h3 class="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+<span class="size-2 rounded-full bg-emerald-500"></span>
+                                Closed
+                                <span class="ml-1 px-1.5 py-0.5 rounded-full bg-slate-200 dark:bg-slate-800 text-[10px] text-slate-600 dark:text-slate-400">15</span>
+</h3>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">more_horiz</span>
+</button>
+</div>
+<div class="flex flex-col gap-3 opacity-60 hover:opacity-100 transition-opacity">
+<div class="flex flex-col gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-sm grayscale hover:grayscale-0 transition-all">
+<div class="flex justify-between items-start">
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 text-[10px] font-bold uppercase tracking-tight">Won</span>
+<span class="text-[11px] text-slate-400">Oct 10</span>
+</div>
+<h4 class="font-bold text-slate-900 dark:text-white">Elena Rodriguez</h4>
+<div class="flex items-center justify-between pt-2">
+<span class="text-[10px] font-bold text-emerald-600">DEAL SIGNED</span>
+<span class="material-symbols-outlined text-lg text-emerald-500">verified</span>
+</div>
+</div>
+</div>
+<div class="border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-xl h-24 flex items-center justify-center text-slate-400 text-xs font-medium">
+                            Drop cards here to close
+                        </div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

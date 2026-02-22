@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Market Intelligence &amp; Analytics | imo.cv CRM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#0f172a",
+                        "surface-dark": "#1e293b",
+                        "border-dark": "#334155",
+                        "emerald": "#10b981",
+                        "rose": "#f43f5e"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .chart-gradient-blue { background: linear-gradient(180deg, rgba(19, 91, 236, 0.1) 0%, rgba(19, 91, 236, 0) 100%); }
+        .heatmap-cell-high { background-color: rgba(19, 91, 236, 0.9); }
+        .heatmap-cell-med { background-color: rgba(19, 91, 236, 0.5); }
+        .heatmap-cell-low { background-color: rgba(19, 91, 236, 0.2); }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-64 border-r border-slate-200 dark:border-border-dark flex flex-col bg-white dark:bg-background-dark">
+<div class="p-6 flex items-center gap-3">
+<div class="bg-primary p-1.5 rounded-lg text-white">
+<span class="material-symbols-outlined text-2xl">analytics</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight">imo.cv <span class="text-primary">CRM</span></h1>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-surface-dark transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-surface-dark transition-colors" href="#">
+<span class="material-symbols-outlined">apartment</span>
+<span class="font-medium">Properties</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-medium">Market Intelligence</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-surface-dark transition-colors" href="#">
+<span class="material-symbols-outlined">person_search</span>
+<span class="font-medium">Leads</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-surface-dark transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-medium">Reports</span>
+</a>
+</nav>
+<div class="p-4 mt-auto border-t border-slate-200 dark:border-border-dark">
+<div class="flex items-center gap-3 p-2">
+<div class="size-10 rounded-full bg-slate-300 dark:bg-surface-dark overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile avatar of a professional analyst" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_kwr9uD_U3cwVyzVedZ5tL48llDHHhEC1iaWyWNR2WfDTYTOtVqSLHIbO-lRicTx1N3lqf3hPRWFa7aQea4ecRq8_EsCjPX35-BGLSBN_wEJm4JWExJNEicmEonY2d_kpPXbffd9n1iJvqIF5-sZJygsHE6QL0L-na5QcBTs08StzfPah6AT__g3HL7Ze-T0QPx7T7lJpeM3rdJA5TPQyWcTL_jtMU1C9mw4urjPpGh-xUFfGXb10iTEY4w-zlnGPhFOE3N4nIZE"/>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold">Ricardo Silva</span>
+<span class="text-xs text-slate-500">Market Lead</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto bg-slate-50 dark:bg-background-dark/50">
+<!-- Top Header -->
+<header class="sticky top-0 z-10 flex items-center justify-between px-8 py-4 bg-white dark:bg-background-dark border-b border-slate-200 dark:border-border-dark">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 bg-slate-100 dark:bg-surface-dark px-3 py-1.5 rounded-lg border border-slate-200 dark:border-border-dark">
+<span class="material-symbols-outlined text-primary text-sm">location_on</span>
+<span class="font-semibold text-sm">Santiago Island</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+<div class="h-6 w-px bg-slate-300 dark:bg-border-dark"></div>
+<span class="text-slate-500 text-sm font-medium">Last updated: Today, 08:42 AM</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark px-4 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-xl">grid_view</span>
+<span class="text-sm font-bold tracking-tight">Export Excel</span>
+</button>
+<button class="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+<span class="material-symbols-outlined text-xl">picture_as_pdf</span>
+<span class="text-sm font-bold tracking-tight">Export PDF</span>
+</button>
+</div>
+</header>
+<div class="p-8 max-w-7xl mx-auto space-y-8">
+<!-- Page Title -->
+<div class="flex items-end justify-between">
+<div>
+<h2 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight italic">Market Intelligence</h2>
+<p class="text-slate-500 dark:text-slate-400 mt-1">Real-time demographic and transactional data analysis for Santiago region.</p>
+</div>
+<div class="flex gap-2">
+<button class="bg-primary/10 text-primary px-3 py-1.5 rounded-md text-sm font-bold">12 Months</button>
+<button class="text-slate-500 px-3 py-1.5 rounded-md text-sm font-medium hover:bg-slate-200 dark:hover:bg-surface-dark">YTD</button>
+<button class="text-slate-500 px-3 py-1.5 rounded-md text-sm font-medium hover:bg-slate-200 dark:hover:bg-surface-dark">5 Years</button>
+</div>
+</div>
+<!-- KPI Ribbon -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white dark:bg-surface-dark p-6 rounded-xl border border-slate-200 dark:border-border-dark shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<span class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-wider">Avg Price per m²</span>
+<span class="bg-emerald/10 text-emerald text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_up</span> 4.5%
+                            </span>
+</div>
+<div class="text-2xl font-black text-slate-900 dark:text-white tracking-tight">€1,240.00</div>
+<div class="mt-4 w-full bg-slate-100 dark:bg-background-dark h-1 rounded-full overflow-hidden">
+<div class="bg-emerald w-[75%] h-full"></div>
+</div>
+</div>
+<div class="bg-white dark:bg-surface-dark p-6 rounded-xl border border-slate-200 dark:border-border-dark shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<span class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-wider">Median List Price</span>
+<span class="bg-rose/10 text-rose text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_down</span> 2.1%
+                            </span>
+</div>
+<div class="text-2xl font-black text-slate-900 dark:text-white tracking-tight">€145,000</div>
+<div class="mt-4 w-full bg-slate-100 dark:bg-background-dark h-1 rounded-full overflow-hidden">
+<div class="bg-rose w-[45%] h-full"></div>
+</div>
+</div>
+<div class="bg-white dark:bg-surface-dark p-6 rounded-xl border border-slate-200 dark:border-border-dark shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<span class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-wider">Inventory Count</span>
+<span class="bg-emerald/10 text-emerald text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_up</span> 12%
+                            </span>
+</div>
+<div class="text-2xl font-black text-slate-900 dark:text-white tracking-tight">842 Units</div>
+<div class="mt-4 w-full bg-slate-100 dark:bg-background-dark h-1 rounded-full overflow-hidden">
+<div class="bg-primary w-[62%] h-full"></div>
+</div>
+</div>
+<div class="bg-white dark:bg-surface-dark p-6 rounded-xl border border-slate-200 dark:border-border-dark shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<span class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-wider">Absorption Rate</span>
+<span class="bg-emerald/10 text-emerald text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_up</span> 1.2%
+                            </span>
+</div>
+<div class="text-2xl font-black text-slate-900 dark:text-white tracking-tight">12.4%</div>
+<div class="mt-4 w-full bg-slate-100 dark:bg-background-dark h-1 rounded-full overflow-hidden">
+<div class="bg-primary w-[24%] h-full"></div>
+</div>
+</div>
+</div>
+<!-- Charts Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Line Chart Area -->
+<div class="lg:col-span-2 bg-white dark:bg-surface-dark p-6 rounded-xl border border-slate-200 dark:border-border-dark shadow-sm">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="text-lg font-bold">Price Evolution</h3>
+<p class="text-sm text-slate-500">Benchmark: Santiago vs National Average</p>
+</div>
+<div class="flex gap-4 text-xs font-bold uppercase">
+<div class="flex items-center gap-2"><span class="size-2 bg-primary rounded-full"></span> Santiago</div>
+<div class="flex items-center gap-2"><span class="size-2 bg-slate-300 dark:bg-slate-600 rounded-full"></span> National</div>
+</div>
+</div>
+<div class="h-64 relative flex items-end justify-between gap-1">
+<!-- Mock Line Chart Visualization -->
+<div class="w-full absolute inset-0 flex items-end h-full">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 400 100">
+<path d="M0,80 Q50,70 100,75 T200,45 T300,55 T400,30" fill="none" stroke="#135bec" stroke-width="3"></path>
+<path d="M0,85 Q50,82 100,88 T200,70 T300,75 T400,60" fill="none" stroke="#64748b" stroke-dasharray="4" stroke-width="2"></path>
+</svg>
+</div>
+<!-- X-Axis Labels -->
+<div class="flex justify-between w-full mt-4 text-[10px] font-bold text-slate-400">
+<span>JAN</span><span>MAR</span><span>MAY</span><span>JUL</span><span>SEP</span><span>NOV</span><span>DEC</span>
+</div>
+</div>
+</div>
+<!-- Pie Chart Area -->
+<div class="bg-white dark:bg-surface-dark p-6 rounded-xl border border-slate-200 dark:border-border-dark shadow-sm">
+<h3 class="text-lg font-bold mb-1">Property Types</h3>
+<p class="text-sm text-slate-500 mb-8">Inventory distribution</p>
+<div class="relative size-48 mx-auto flex items-center justify-center">
+<svg class="size-full transform -rotate-90" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="#334155" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="#135bec" stroke-dasharray="65 100" stroke-linecap="round" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="#10b981" stroke-dasharray="25 100" stroke-dashoffset="-65" stroke-linecap="round" stroke-width="4"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="text-2xl font-black">842</span>
+<span class="text-[10px] font-bold text-slate-500">TOTAL</span>
+</div>
+</div>
+<div class="mt-8 space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 text-sm">
+<span class="size-3 bg-primary rounded-sm"></span>
+<span>Apartments</span>
+</div>
+<span class="font-bold">65%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 text-sm">
+<span class="size-3 bg-emerald rounded-sm"></span>
+<span>Villas</span>
+</div>
+<span class="font-bold">25%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 text-sm">
+<span class="size-3 bg-slate-500 rounded-sm"></span>
+<span>Land/Others</span>
+</div>
+<span class="font-bold">10%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Heatmap and Neighborhoods -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Price Heatmap Grid -->
+<div class="bg-white dark:bg-surface-dark p-6 rounded-xl border border-slate-200 dark:border-border-dark shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-lg font-bold">Price Density Map</h3>
+<button class="text-primary text-sm font-bold flex items-center gap-1">
+                                Open Interactive Map <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+<div class="grid grid-cols-8 gap-1 aspect-video rounded-lg overflow-hidden border border-slate-200 dark:border-border-dark">
+<!-- Mock Heatmap Cells -->
+<div class="heatmap-cell-low"></div><div class="heatmap-cell-med"></div><div class="heatmap-cell-high"></div><div class="heatmap-cell-med"></div>
+<div class="heatmap-cell-high"></div><div class="heatmap-cell-high"></div><div class="heatmap-cell-med"></div><div class="heatmap-cell-low"></div>
+<div class="heatmap-cell-med"></div><div class="heatmap-cell-high"></div><div class="heatmap-cell-high"></div><div class="heatmap-cell-high"></div>
+<div class="heatmap-cell-high"></div><div class="heatmap-cell-high"></div><div class="heatmap-cell-high"></div><div class="heatmap-cell-med"></div>
+<div class="heatmap-cell-high"></div><div class="heatmap-cell-high"></div><div class="heatmap-cell-high"></div><div class="heatmap-cell-high"></div>
+<div class="heatmap-cell-med"></div><div class="heatmap-cell-low"></div><div class="heatmap-cell-low"></div><div class="heatmap-cell-low"></div>
+<div class="heatmap-cell-low"></div><div class="heatmap-cell-med"></div><div class="heatmap-cell-high"></div><div class="heatmap-cell-high"></div>
+<div class="heatmap-cell-high"></div><div class="heatmap-cell-high"></div><div class="heatmap-cell-high"></div><div class="heatmap-cell-med"></div>
+</div>
+<div class="mt-4 flex items-center justify-between text-xs font-bold text-slate-500 uppercase">
+<span>Low Interest</span>
+<div class="flex-1 mx-4 h-2 bg-gradient-to-r from-blue-200 to-primary rounded-full"></div>
+<span>High Volume</span>
+</div>
+</div>
+<!-- Comparison Table -->
+<div class="bg-white dark:bg-surface-dark p-6 rounded-xl border border-slate-200 dark:border-border-dark shadow-sm">
+<h3 class="text-lg font-bold mb-4">Top Performing Districts</h3>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="text-[10px] font-black text-slate-400 uppercase tracking-widest border-b border-slate-100 dark:border-border-dark">
+<tr>
+<th class="py-3">Neighborhood</th>
+<th class="py-3">Avg Price</th>
+<th class="py-3">MoM Trend</th>
+<th class="py-3 text-right">Absorption</th>
+</tr>
+</thead>
+<tbody class="text-sm font-medium">
+<tr class="border-b border-slate-50 dark:border-border-dark/50">
+<td class="py-4 font-bold">Plateau</td>
+<td class="py-4">€1,850/m²</td>
+<td class="py-4 text-emerald">+8.2%</td>
+<td class="py-4 text-right">18.4%</td>
+</tr>
+<tr class="border-b border-slate-50 dark:border-border-dark/50">
+<td class="py-4 font-bold">Palmarejo</td>
+<td class="py-4">€1,420/m²</td>
+<td class="py-4 text-emerald">+3.1%</td>
+<td class="py-4 text-right">14.2%</td>
+</tr>
+<tr class="border-b border-slate-50 dark:border-border-dark/50">
+<td class="py-4 font-bold">Achada Sto Antonio</td>
+<td class="py-4">€1,100/m²</td>
+<td class="py-4 text-rose">-1.2%</td>
+<td class="py-4 text-right">9.8%</td>
+</tr>
+<tr>
+<td class="py-4 font-bold">Cidadela</td>
+<td class="py-4">€2,100/m²</td>
+<td class="py-4 text-emerald">+5.4%</td>
+<td class="py-4 text-right">22.1%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Meta -->
+<footer class="p-8 border-t border-slate-200 dark:border-border-dark flex justify-between items-center text-xs text-slate-500">
+<p>© 2024 imo.cv Real Estate CRM. All Rights Reserved. Data sources include City Hall records and CRM internal transactions.</p>
+<div class="flex gap-4">
+<a class="hover:text-primary underline underline-offset-4" href="#">Terms of Data Usage</a>
+<a class="hover:text-primary underline underline-offset-4" href="#">API Documentation</a>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

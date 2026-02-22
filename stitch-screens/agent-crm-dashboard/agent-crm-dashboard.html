@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agent CRM: Data Intelligence Hub - imo.cv</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --primary-blue: #1e3a8a;
+            --primary-blue-hover: #1e40af;
+            --golden-sand: #fde68a;
+            --golden-sand-dark: #f59e0b;
+            --neutral-50: #f9fafb;
+            --neutral-100: #f3f4f6;
+            --neutral-200: #e5e7eb;
+            --sidebar-bg: #0f172a;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--neutral-50);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+        }
+        .kpi-card-highlight {
+            border-top: 4px solid var(--golden-sand);
+        }
+        .pipeline-step {
+            @apply flex-1 relative px-4 py-3 text-center text-xs font-semibold uppercase tracking-wider border-r border-white last:border-r-0;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#1e3a8a",
+                "accent": "#fde68a",
+                "neutral-bg": "#f9fafb"
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="text-slate-900 font-sans antialiased">
+<div class="flex h-screen overflow-hidden">
+<aside class="w-64 bg-[var(--sidebar-bg)] text-white flex flex-col shrink-0">
+<div class="p-6 flex items-center gap-3 border-b border-slate-700/50">
+<div class="w-9 h-9 bg-accent rounded flex items-center justify-center text-primary">
+<span class="material-symbols-outlined font-bold">hub</span>
+</div>
+<div>
+<h1 class="text-lg font-bold tracking-tight">imo.cv</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-semibold">Data Intelligence</p>
+</div>
+</div>
+<nav class="flex-1 px-3 mt-6 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-white bg-blue-600/20 border-l-2 border-accent font-medium transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm">Hub Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-slate-400 hover:text-white hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-sm">Performance</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-slate-400 hover:text-white hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="text-sm">Lead Pipeline</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-slate-400 hover:text-white hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-sm">Inventory</span>
+</a>
+<div class="pt-8 pb-2 px-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest">Advanced Tools</div>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-slate-400 hover:text-white hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="text-sm">Market Intelligence</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-slate-400 hover:text-white hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined">settings_suggest</span>
+<span class="text-sm">CRM Config</span>
+</a>
+</nav>
+<div class="p-4 bg-slate-900/50 border-t border-slate-700/50">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-lg bg-slate-700 bg-cover bg-center border border-slate-600" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuApZQzvVJNACDW6c5MwfPXn2Jb07RHa8zha0l5oZvVQSZYbT675lTbcg67RdyzhNOnBWNt7XfmvhWnXQ71tiOMEuQCjYmGbYs1xKo1g9yHBhqOev10x0UoVVqFdfFI2NOyOeAKmFU2EmrnbFyS8t5an33xvNhzyLktz1Nn5ENbKTjoSyjp9dQG1NS0Glg9lBpbnZJ2urb0NGSsraSORVq58Pe3XPV1l_JAwpjkmlWta5juY9svbIG6jpqpmhZk8ul2pltrKKdhqAas')"></div>
+<div class="flex-1 overflow-hidden">
+<p class="text-sm font-semibold truncate">Ricardo Santos</p>
+<p class="text-[10px] text-accent font-bold uppercase">Senior Advisor</p>
+</div>
+</div>
+<button class="w-full py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-xs font-semibold transition-colors">LOGOUT</button>
+</div>
+</aside>
+<main class="flex-1 flex flex-col overflow-hidden">
+<header class="h-16 bg-white border-b border-slate-200 px-8 flex items-center justify-between shrink-0">
+<div class="flex items-center gap-8 flex-1">
+<h2 class="text-sm font-bold text-slate-500 uppercase tracking-widest">Dashboard</h2>
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-full pl-10 pr-4 py-1.5 bg-[var(--neutral-100)] border-none rounded text-xs focus:ring-1 focus:ring-primary/30 transition-all" placeholder="Search data points, leads, or listings..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded font-bold text-xs hover:bg-blue-900 shadow-sm transition-all uppercase tracking-wide">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>Create Listing</span>
+</button>
+<div class="h-8 w-px bg-slate-200 mx-2"></div>
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<div class="flex-1 overflow-y-auto p-8 space-y-8">
+<div class="flex items-end justify-between">
+<div>
+<h2 class="text-2xl font-light text-slate-800">Intelligence <span class="font-bold">Summary</span></h2>
+<p class="text-sm text-slate-500 mt-1">Real-time performance analytics for Cape Verde operations.</p>
+</div>
+<div class="flex gap-2">
+<div class="bg-white border border-slate-200 rounded px-3 py-1.5 flex items-center gap-2 text-xs font-semibold text-slate-600">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span> Live Market Feed
+                    </div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white p-6 rounded shadow-sm border border-slate-200 kpi-card-highlight">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Total Impressions</span>
+<span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">+14.2%</span>
+</div>
+<p class="text-3xl font-light text-slate-900 tracking-tight">24,812</p>
+<div class="mt-4 h-1 w-full bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[70%]"></div>
+</div>
+</div>
+<div class="bg-white p-6 rounded shadow-sm border border-slate-200 kpi-card-highlight">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Qualified Leads</span>
+<span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">+8.4%</span>
+</div>
+<p class="text-3xl font-light text-slate-900 tracking-tight">142</p>
+<div class="mt-4 h-1 w-full bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-accent w-[45%]"></div>
+</div>
+</div>
+<div class="bg-white p-6 rounded shadow-sm border border-slate-200 kpi-card-highlight">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Active Inventory</span>
+<span class="text-[10px] font-bold text-slate-400 bg-slate-50 px-1.5 py-0.5 rounded">STABLE</span>
+</div>
+<p class="text-3xl font-light text-slate-900 tracking-tight">38</p>
+<div class="mt-4 h-1 w-full bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-slate-400 w-[60%]"></div>
+</div>
+</div>
+<div class="bg-white p-6 rounded shadow-sm border border-slate-200 kpi-card-highlight">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Conversion Rate</span>
+<span class="text-[10px] font-bold text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded">-1.2%</span>
+</div>
+<p class="text-3xl font-light text-slate-900 tracking-tight">4.2%</p>
+<div class="mt-4 h-1 w-full bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[32%]"></div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded border border-slate-200 shadow-sm overflow-hidden">
+<div class="p-4 border-b border-slate-200 bg-[var(--neutral-100)] flex items-center justify-between">
+<h3 class="text-xs font-bold uppercase tracking-[0.15em] text-slate-600">Lead Pipeline Velocity</h3>
+<span class="text-[10px] font-bold text-primary">Total Pipeline: 42.5M CVE</span>
+</div>
+<div class="flex bg-white">
+<div class="pipeline-step bg-blue-50 text-primary">
+<div class="mb-1 text-[10px]">New Inquiries</div>
+<div class="text-lg font-bold">45</div>
+</div>
+<div class="pipeline-step bg-blue-100 text-blue-800">
+<div class="mb-1 text-[10px]">Contacted</div>
+<div class="text-lg font-bold">28</div>
+</div>
+<div class="pipeline-step bg-blue-200 text-blue-900">
+<div class="mb-1 text-[10px]">Viewing Scheduled</div>
+<div class="text-lg font-bold">12</div>
+</div>
+<div class="pipeline-step bg-accent text-amber-900">
+<div class="mb-1 text-[10px]">Negotiation</div>
+<div class="text-lg font-bold">5</div>
+</div>
+<div class="pipeline-step bg-emerald-100 text-emerald-800 border-r-0">
+<div class="mb-1 text-[10px]">Closed</div>
+<div class="text-lg font-bold">3</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 bg-white p-6 rounded border border-slate-200 shadow-sm">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="font-bold text-sm uppercase tracking-wider text-slate-700">Market Engagement</h3>
+<p class="text-xs text-slate-400 mt-0.5">Performance over the last 14 business days</p>
+</div>
+<div class="flex gap-2">
+<button class="px-3 py-1 text-[10px] font-bold bg-slate-100 rounded text-slate-600">WEEKLY</button>
+<button class="px-3 py-1 text-[10px] font-bold bg-primary rounded text-white shadow-sm">MONTHLY</button>
+</div>
+</div>
+<div class="flex items-end justify-between h-48 gap-3 px-2">
+<div class="flex-1 bg-slate-100 rounded-t h-[45%] relative group hover:bg-accent transition-colors"></div>
+<div class="flex-1 bg-slate-100 rounded-t h-[65%] relative group hover:bg-accent transition-colors"></div>
+<div class="flex-1 bg-primary rounded-t h-[80%] relative group hover:bg-primary-hover transition-colors"></div>
+<div class="flex-1 bg-slate-100 rounded-t h-[35%] relative group hover:bg-accent transition-colors"></div>
+<div class="flex-1 bg-slate-100 rounded-t h-[55%] relative group hover:bg-accent transition-colors"></div>
+<div class="flex-1 bg-slate-100 rounded-t h-[75%] relative group hover:bg-accent transition-colors"></div>
+<div class="flex-1 bg-slate-100 rounded-t h-[40%] relative group hover:bg-accent transition-colors"></div>
+<div class="flex-1 bg-primary rounded-t h-[95%] relative group hover:bg-primary-hover transition-colors"></div>
+<div class="flex-1 bg-slate-100 rounded-t h-[60%] relative group hover:bg-accent transition-colors"></div>
+<div class="flex-1 bg-slate-100 rounded-t h-[30%] relative group hover:bg-accent transition-colors"></div>
+</div>
+<div class="flex justify-between mt-4 text-[9px] font-bold text-slate-400 uppercase tracking-widest border-t border-slate-100 pt-4">
+<span>Period Start</span>
+<span>Mid Cycle</span>
+<span>Current Day</span>
+</div>
+</div>
+<div class="bg-white p-6 rounded border border-slate-200 shadow-sm">
+<div class="mb-6">
+<h3 class="font-bold text-sm uppercase tracking-wider text-slate-700">Data Feed</h3>
+<p class="text-xs text-slate-400 mt-0.5">Latest system triggers</p>
+</div>
+<div class="space-y-5">
+<div class="flex gap-4 items-start">
+<div class="w-2 h-2 rounded-full bg-accent mt-1.5 shrink-0"></div>
+<div>
+<p class="text-xs font-semibold text-slate-800">High-intent lead: Maria Silva</p>
+<p class="text-[10px] text-slate-400 mt-0.5 font-medium">Viewed 'Villa Santiago' 4 times in 1 hour</p>
+<p class="text-[9px] text-slate-300 mt-1 uppercase font-bold">12m ago</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="w-2 h-2 rounded-full bg-primary mt-1.5 shrink-0"></div>
+<div>
+<p class="text-xs font-semibold text-slate-800">Inventory Update: Sal Island</p>
+<p class="text-[10px] text-slate-400 mt-0.5 font-medium">Property #1042 price reduced by 5%</p>
+<p class="text-[9px] text-slate-300 mt-1 uppercase font-bold">45m ago</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="w-2 h-2 rounded-full bg-slate-200 mt-1.5 shrink-0"></div>
+<div>
+<p class="text-xs font-semibold text-slate-800">System Notification</p>
+<p class="text-[10px] text-slate-400 mt-0.5 font-medium">Backup of monthly analytics completed</p>
+<p class="text-[9px] text-slate-300 mt-1 uppercase font-bold">2h ago</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-2 border border-slate-200 text-[10px] font-bold text-slate-500 uppercase tracking-widest rounded hover:bg-slate-50 transition-colors">
+                        Full Activity Log
+                    </button>
+</div>
+</div>
+<div class="bg-white rounded border border-slate-200 shadow-sm overflow-hidden">
+<div class="px-6 py-4 bg-[var(--neutral-50)] border-b border-slate-200 flex items-center justify-between">
+<h3 class="font-bold text-sm uppercase tracking-widest text-slate-700">Priority Inventory</h3>
+<div class="flex gap-2">
+<button class="text-xs font-bold text-primary hover:underline">Export CSV</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-[var(--neutral-100)] text-slate-500 text-[10px] font-bold uppercase tracking-widest border-b border-slate-200">
+<tr>
+<th class="px-6 py-4">Ref. ID</th>
+<th class="px-6 py-4">Asset Details</th>
+<th class="px-6 py-4">Location</th>
+<th class="px-6 py-4">Valuation</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4 text-right">Engagement</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 text-sm">
+<tr class="hover:bg-[var(--neutral-50)] transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-slate-400">#VS-092</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-8 rounded bg-slate-200 bg-cover bg-center border border-slate-200" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDuzg6wR0dxkBNdPcTQ8EFd69gT3qHQHDo2bubDb1r5T3znjoqWLYJ9yPQ7frum6Cv-tbOZV1KSnt-6mxrbxTt16br_nB309Yk7wPfrqjxEk7MVk70JcNFR23ak_C-i4cB1AyPDm75jO1meowc6peqC26N-UjEw9DSfiHL9cqK3L3Ojds4Z_NgpS7oqxTJ2ZLm0A33hdh5sdvKdX5P9RN6l_D9PV1heHPikHWmh35RU0Cs8CbAQewu4cFB6anHRvYny3c3Bsg27UpE')"></div>
+<div>
+<p class="font-bold text-slate-800">Villa Santiago Deluxe</p>
+<p class="text-[10px] text-slate-400">Luxury Tier</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-slate-500 text-xs">Praia, Santiago</td>
+<td class="px-6 py-4 font-bold text-slate-700">24.5M CVE</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 bg-emerald-50 text-emerald-600 text-[9px] font-bold rounded uppercase border border-emerald-100">Live</span>
+</td>
+<td class="px-6 py-4 text-right font-mono text-xs text-slate-600">1,204 <span class="text-emerald-500">↑</span></td>
+</tr>
+<tr class="hover:bg-[var(--neutral-50)] transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-slate-400">#OV-412</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-8 rounded bg-slate-200 bg-cover bg-center border border-slate-200" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBtay1y0Riyfg8KB0VDap04NYXqp5kZ7suO6r4ufh-VQflRNxImweXNmIOyMTQUmG99rTXcahIgEnEkB9-6h6wiwUMQtDUbQH3rnoXqbA0mpED07J9GPXRU3WTt9rcAZ19WTotntX8FVuS1jEgkwIBmqyF25hblEe_Zqrg3QCOvAlZE2lwVFLgZsJ59Egg1DiRr7e8RO0Tjy4oYuBhzyEIqt5ZL52i5GlWGbuAhcvZB59jeDGyDVBGOvc2WK448dtsBRdvLCsMmHS0')"></div>
+<div>
+<p class="font-bold text-slate-800">Ocean View Apt.</p>
+<p class="text-[10px] text-slate-400">Prime Waterfront</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-slate-500 text-xs">Santa Maria, Sal</td>
+<td class="px-6 py-4 font-bold text-slate-700">18.2M CVE</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 bg-accent text-amber-800 text-[9px] font-bold rounded uppercase border border-amber-200">Pending</span>
+</td>
+<td class="px-6 py-4 text-right font-mono text-xs text-slate-600">842 <span class="text-slate-400">→</span></td>
+</tr>
+<tr class="hover:bg-[var(--neutral-50)] transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-slate-400">#CS-005</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-8 rounded bg-slate-200 bg-cover bg-center border border-slate-200" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBBixhHtFaNq4XeAsEjVRPGDSJ61lGdV947xrbQ3jDOAG-vRdu4_F1-Vjf5D_d8QgMcuYXefTacPJhZzT8j_gaktQhH6uWSTYSXggKpIdUxckHG3rpA9m45vnF5NQbO_DBeOjM8rw0uhUrkK52angLc6d8Z-72PZ-8S9siEXcqrsg141s_0hpCAQty8xvWfafiOStvKiYdzr4-POqJBpuFAvOln51d9Dp0FPqEFMoCoS1M8-bmBKhRbEWCNMJtUFoRFnHUMqB_Op1s')"></div>
+<div>
+<p class="font-bold text-slate-800">Colonial Estate</p>
+<p class="text-[10px] text-slate-400">Heritage Property</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-slate-500 text-xs">Mindelo, S. Vicente</td>
+<td class="px-6 py-4 font-bold text-slate-700">42.0M CVE</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 bg-slate-100 text-slate-500 text-[9px] font-bold rounded uppercase border border-slate-200">Archive</span>
+</td>
+<td class="px-6 py-4 text-right font-mono text-xs text-slate-600">12 <span class="text-rose-400">↓</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-[var(--neutral-100)] border-t border-slate-200 text-center">
+<button class="text-xs font-bold text-slate-500 hover:text-primary transition-colors uppercase tracking-widest">Load Comprehensive Inventory Data</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

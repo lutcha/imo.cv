@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Maintenance Requests | imo.cv CRM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec7f13",
+                        "ocean": "#1a5f7a",
+                        "sand": "#f4e4bc",
+                        "terracotta": "#c66b3d",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#1a1510",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.4rem",
+                        "lg": "0.6rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body { font-family: 'Inter', sans-serif; }
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display h-screen flex flex-col overflow-hidden">
+<header class="h-16 flex-shrink-0 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 flex items-center justify-between z-30">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2">
+<div class="bg-primary p-1 rounded-lg text-white">
+<span class="material-symbols-outlined text-xl">home_work</span>
+</div>
+<h1 class="text-xl font-black tracking-tight text-slate-900 dark:text-white">imo<span class="text-primary">.cv</span></h1>
+</div>
+<nav class="hidden lg:flex items-center gap-6">
+<a class="text-sm font-medium text-slate-500 hover:text-primary transition-colors" href="#">Properties</a>
+<a class="text-sm font-bold text-primary border-b-2 border-primary py-5" href="#">Maintenance</a>
+<a class="text-sm font-medium text-slate-500 hover:text-primary transition-colors" href="#">Owners</a>
+<a class="text-sm font-medium text-slate-500 hover:text-primary transition-colors" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="pl-9 pr-4 py-1.5 bg-slate-100 dark:bg-slate-800 border-none rounded-full text-sm w-64 focus:ring-2 focus:ring-primary/20" placeholder="Search requests..." type="text"/>
+</div>
+<button class="relative p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-900"></span>
+</button>
+<div class="h-8 w-8 rounded-full bg-terracotta flex items-center justify-center text-white font-bold text-xs">AD</div>
+</div>
+</header>
+<main class="flex-1 flex overflow-hidden">
+<aside class="w-full md:w-[400px] flex-shrink-0 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col h-full z-20">
+<div class="p-4 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center bg-white dark:bg-slate-900">
+<h2 class="font-bold text-lg">Active Requests</h2>
+<div class="flex gap-2">
+<button class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"><span class="material-symbols-outlined text-xl">filter_list</span></button>
+<button class="p-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"><span class="material-symbols-outlined text-xl">add</span></button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar">
+<div class="p-4 border-b border-slate-100 dark:border-slate-800 bg-primary/5 border-l-4 border-l-primary cursor-pointer">
+<div class="flex justify-between items-start mb-1">
+<span class="px-2 py-0.5 rounded bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 text-[10px] font-black uppercase tracking-wider">Urgent</span>
+<span class="text-xs text-slate-400">2h ago</span>
+</div>
+<h3 class="font-bold text-slate-900 dark:text-white mb-1">Pool Pump Failure</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-3 line-clamp-1">Main filtration system stopped working. Water turning cloudy.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-slate-400">location_on</span>
+<span class="text-xs font-medium">Ocean View Villa #42</span>
+</div>
+<span class="text-xs font-bold text-primary">In Progress</span>
+</div>
+</div>
+<div class="p-4 border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors">
+<div class="flex justify-between items-start mb-1">
+<span class="px-2 py-0.5 rounded bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400 text-[10px] font-black uppercase tracking-wider">High</span>
+<span class="text-xs text-slate-400">5h ago</span>
+</div>
+<h3 class="font-bold text-slate-900 dark:text-white mb-1">Elevator B - Periodic Maintenance</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-3 line-clamp-1">Scheduled inspection and lubrication of cables.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-slate-400">location_on</span>
+<span class="text-xs font-medium">Porto Grande Residence</span>
+</div>
+<span class="text-xs font-bold text-slate-500">Scheduled</span>
+</div>
+</div>
+<div class="p-4 border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors">
+<div class="flex justify-between items-start mb-1">
+<span class="px-2 py-0.5 rounded bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[10px] font-black uppercase tracking-wider">Medium</span>
+<span class="text-xs text-slate-400">Yesterday</span>
+</div>
+<h3 class="font-bold text-slate-900 dark:text-white mb-1">Hallway Light Replacements</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-3 line-clamp-1">Multiple LED panels on the 3rd floor are flickering.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-slate-400">location_on</span>
+<span class="text-xs font-medium">Cape Sands Block C</span>
+</div>
+<span class="text-xs font-bold text-blue-500">Open</span>
+</div>
+</div>
+<div class="p-4 border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors">
+<div class="flex justify-between items-start mb-1">
+<span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-400 text-[10px] font-black uppercase tracking-wider">Low</span>
+<span class="text-xs text-slate-400">Aug 22</span>
+</div>
+<h3 class="font-bold text-slate-900 dark:text-white mb-1">Garden Bench Repair</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-3 line-clamp-1">Broken slat on the wooden bench near the main entrance.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-slate-400">location_on</span>
+<span class="text-xs font-medium">Sal Oasis Resort</span>
+</div>
+<span class="text-xs font-bold text-green-600">Waiting for Parts</span>
+</div>
+</div>
+</div>
+</aside>
+<section class="flex-1 flex flex-col bg-background-light dark:bg-background-dark overflow-y-auto custom-scrollbar">
+<div class="bg-white dark:bg-slate-900 p-6 border-b border-slate-200 dark:border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4 sticky top-0 z-10">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-3">
+<h2 class="text-2xl font-black text-slate-900 dark:text-white">Pool Pump Failure</h2>
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">REQ-4209</span>
+</div>
+<div class="flex items-center gap-4 text-sm text-slate-500">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-lg">home</span>
+<span>Ocean View Villa, Unit 42</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-lg">calendar_today</span>
+<span>Created: Aug 24, 2024 · 09:15 AM</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<select class="text-sm font-bold border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 rounded-lg px-4 py-2 ring-primary/20 focus:ring-2">
+<option>Update Status: In Progress</option>
+<option>Mark as Completed</option>
+<option>Put on Hold</option>
+<option>Cancel Request</option>
+</select>
+<button class="bg-primary text-white font-bold px-6 py-2 rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                        Save Changes
+                    </button>
+</div>
+</div>
+<div class="p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 space-y-6">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
+<h3 class="font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">image</span>
+                            Issue Evidence
+                        </h3>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+<div class="aspect-video rounded-xl overflow-hidden group relative">
+<img alt="Broken Pump" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaRDC8D1juKSnpytxb3rvC_wc5WLapYNoELDMjQ_giSPWVKNZzw9eWScX9f4r83rdIRYcDjQmiYrdr0q5s6dzUgg5xpVw2D00M1PRcS8Di10HLJ5cWfQJyQoe8KYS5t4Pm-Uoq-OLNbi61npmxzwWAsB1ZpyLQekVKFkooUQih-KxNK-GCe34PLGm8ESND94FgdHhHEJUfLobOrdisZkyCM0Wl6s91b5MlUwWvP4TkbQPzfAV5Jh8V9Pn9uPKtx6TgSZYubhxRs_4"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white">zoom_in</span>
+</div>
+</div>
+<div class="aspect-video rounded-xl overflow-hidden group relative">
+<img alt="Water Condition" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzNuRtUQG8AXeOgdBepKQpIo-un_nJz-rz3V7EL9G7YHwoaw_MhFL4n3BGHeHt_ipgesUHLsuH8oMVosLG9ZepoEWUWR7fKWNq4gDe3AHnZuABigGh_BpF6a2PvQa8QTerwQ2IaU9hhw7EdGoUiYRzL21RTHV5l8EzBdsG0Sp2oVNIxPCiM1oFYelSABwsNRbcFO2gHd10QUJm80eqo7GAgE2lGV35JkIlZzCZfzwZSq_Y-XDgNoVhUNCoSOem43O8j4Byagr3Q-k"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white">zoom_in</span>
+</div>
+</div>
+<div class="aspect-video rounded-xl border-2 border-dashed border-slate-200 dark:border-slate-700 flex flex-col items-center justify-center gap-2 text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">add_photo_alternate</span>
+<span class="text-xs font-bold uppercase">Add Photo</span>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
+<h3 class="font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">description</span>
+                            Description &amp; Details
+                        </h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
+                            The owner reported a humming sound from the equipment room followed by a total shutdown of the pool filtration cycle. Water clarity has noticeably decreased over the last 4 hours. Manual override does not engage the motor. Likely an electrical fault or seized motor.
+                        </p>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-slate-50 dark:bg-slate-800 p-3 rounded-lg">
+<div class="text-[10px] uppercase font-black text-slate-400 mb-1">Request Type</div>
+<div class="text-sm font-bold">Electrical / Plumbing</div>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800 p-3 rounded-lg">
+<div class="text-[10px] uppercase font-black text-slate-400 mb-1">Priority</div>
+<div class="text-sm font-bold text-red-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">priority_high</span> Urgent
+                                </div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
+<h3 class="font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">history</span>
+                            Status History
+                        </h3>
+<div class="space-y-6 relative before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-100 dark:before:bg-slate-800">
+<div class="relative pl-8">
+<div class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-primary border-4 border-white dark:border-slate-900 shadow-sm"></div>
+<div class="flex justify-between items-start">
+<div>
+<p class="text-sm font-bold">Status changed to <span class="text-primary">In Progress</span></p>
+<p class="text-xs text-slate-500">by Administration (Marco S.)</p>
+</div>
+<span class="text-xs text-slate-400">1h ago</span>
+</div>
+</div>
+<div class="relative pl-8">
+<div class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-700 border-4 border-white dark:border-slate-900 shadow-sm"></div>
+<div class="flex justify-between items-start">
+<div>
+<p class="text-sm font-bold">Technician Assigned: <span class="text-slate-900 dark:text-white">Carlos Mendes</span></p>
+<p class="text-xs text-slate-500">System automatic assignment</p>
+</div>
+<span class="text-xs text-slate-400">2h ago</span>
+</div>
+</div>
+<div class="relative pl-8">
+<div class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-700 border-4 border-white dark:border-slate-900 shadow-sm"></div>
+<div class="flex justify-between items-start">
+<div>
+<p class="text-sm font-bold">Request Created</p>
+<p class="text-xs text-slate-500">by Owner (João Silva)</p>
+</div>
+<span class="text-xs text-slate-400">Aug 24, 09:15 AM</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
+<h3 class="font-bold mb-4 text-sm uppercase tracking-wider text-slate-400">Assigned Technician</h3>
+<div class="flex items-center gap-4">
+<div class="h-14 w-14 rounded-xl bg-ocean flex items-center justify-center text-white text-xl font-bold">CM</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Carlos Mendes</h4>
+<p class="text-xs text-slate-500">Senior Electrician • External</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-yellow-500 fill-1">star</span>
+<span class="text-xs font-bold text-slate-600 dark:text-slate-300">4.9 (124 jobs)</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-4">
+<button class="flex items-center justify-center gap-2 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined text-sm">call</span> Call
+                            </button>
+<button class="flex items-center justify-center gap-2 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined text-sm">mail</span> Message
+                            </button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 flex flex-col h-[500px] rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+<div class="p-4 border-b border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/30">
+<h3 class="font-bold text-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">chat</span>
+                                Update Owner
+                            </h3>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar">
+<div class="flex flex-col items-start max-w-[85%]">
+<div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-2xl rounded-tl-none text-sm text-slate-800 dark:text-slate-200">
+                                    Hello, any update on the pool pump? The guests are arriving tomorrow and I really need this fixed today.
+                                </div>
+<span class="text-[10px] text-slate-400 mt-1 ml-1">Owner • 10:30 AM</span>
+</div>
+<div class="flex flex-col items-end max-w-[85%] ml-auto">
+<div class="bg-primary p-3 rounded-2xl rounded-tr-none text-sm text-white">
+                                    We've dispatched Carlos Mendes, our senior electrician. He's currently on-site assessing the motor. We will keep you updated.
+                                </div>
+<span class="text-[10px] text-slate-400 mt-1 mr-1">Admin • 11:45 AM</span>
+</div>
+<div class="flex flex-col items-start max-w-[85%]">
+<div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-2xl rounded-tl-none text-sm text-slate-800 dark:text-slate-200">
+                                    Thank you. Please let me know if any parts are needed.
+                                </div>
+<span class="text-[10px] text-slate-400 mt-1 ml-1">Owner • 12:05 PM</span>
+</div>
+</div>
+<div class="p-4 border-t border-slate-100 dark:border-slate-800">
+<div class="relative">
+<textarea class="w-full pl-4 pr-12 py-3 bg-slate-100 dark:bg-slate-800 border-none rounded-xl text-sm focus:ring-primary/20 resize-none" placeholder="Send update to unit owner..." rows="2"></textarea>
+<button class="absolute right-3 bottom-3 text-primary hover:text-primary/80 transition-colors">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+<div class="flex items-center gap-4 mt-2 px-1">
+<button class="text-slate-400 hover:text-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-lg">attach_file</span>
+</button>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="rounded text-primary focus:ring-primary h-3.5 w-3.5 border-slate-300" type="checkbox"/>
+<span class="text-[11px] text-slate-500 font-medium">Send as SMS/WhatsApp</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="h-8 bg-slate-900 text-slate-400 text-[10px] px-6 flex items-center justify-between flex-shrink-0 z-30">
+<div class="flex items-center gap-4 uppercase font-bold tracking-widest">
+<span class="flex items-center gap-1"><span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span> System Online</span>
+<span>Cape Verde (GMT-1)</span>
+</div>
+<div>
+            © 2024 imo.cv Maintenance Management Portal
+        </div>
+</footer>
+
+</body></html>

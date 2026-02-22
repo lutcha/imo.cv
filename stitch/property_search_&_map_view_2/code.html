@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Smart Search: Interactive Map &amp; Filters | imo.cv</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-blue": "#2563EB",
+                        "atlantic-blue": "#1E40AF",
+                        "golden-sand": "#F59E0B",
+                        "primary-green": "#10B981",
+                        "slate-background": "#F8FAFC",
+                    },
+                    fontFamily: {
+                        "sans": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.375rem", "lg": "0.5rem", "xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply font-sans;
+            }
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 5px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #cbd5e1;
+        }
+        .price-slider-track {
+            background: linear-gradient(to right, #1E40AF 0%, #1E40AF 60%, #E2E8F0 60%, #E2E8F0 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-background dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased overflow-hidden h-screen flex flex-col">
+<header class="h-16 flex items-center justify-between px-6 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 z-50 shrink-0">
+<div class="flex items-center gap-10">
+<div class="flex items-center gap-2 text-primary-blue">
+<span class="material-symbols-outlined text-3xl font-bold">domain</span>
+<h1 class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">imo<span class="text-primary-blue">.cv</span></h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-semibold text-primary-blue border-b-2 border-primary-blue pb-5 pt-5 mt-1" href="#">Buy</a>
+<a class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary-blue transition-colors" href="#">Rent</a>
+<a class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary-blue transition-colors" href="#">Agents</a>
+<a class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary-blue transition-colors" href="#">CRM Portal</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block w-80">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+<input class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary-blue/20 focus:border-primary-blue outline-none transition-all" placeholder="Search by island or city..." type="text"/>
+</div>
+<button class="bg-slate-900 dark:bg-white dark:text-slate-900 text-white text-sm font-bold px-5 py-2.5 rounded-xl hover:opacity-90 transition-opacity">
+            List Property
+        </button>
+<div class="h-10 w-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-700 cursor-pointer">
+<img alt="Profile" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2lH7dSAjZ7Og4RYWi1le9GivFmLlpSUtwNoiOEwl4ijWFG2z5-wrhKX5UkZsVKFomfPFvdwcKf1tFSsL1xFKuGnY6a_fJJ9nI4RA9qD06mZ9j3F7-85fb0VpelPdVM9uwcYGzkCKeILfGAAJcBWqmtZTsBTZ5eUGGnr_NNpD4RbvjavzGhHu0_Q1iew5UAQ65oTIqHSwzKcqmUC2ERU_Y7QzM1_9BxaduAh0cAJwj74_7YyXa39oloa8DgsYAXg-3eC-8Y5F8WYY"/>
+</div>
+</div>
+</header>
+<main class="flex-1 flex overflow-hidden">
+<section class="w-full lg:w-[560px] xl:w-[640px] flex flex-col bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 h-full relative z-10">
+<div class="p-5 border-b border-slate-100 dark:border-slate-800 space-y-5 shrink-0">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">Cape Verde Properties</h2>
+<p class="text-xs text-slate-500 font-medium">128 verified listings available</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-400 hover:text-primary-blue hover:bg-slate-50 rounded-lg transition-colors">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+<button class="p-2 text-primary-blue bg-blue-50 rounded-lg">
+<span class="material-symbols-outlined font-fill">view_list</span>
+</button>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex flex-wrap gap-2">
+<button class="flex items-center gap-2 px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-semibold hover:border-primary-blue hover:text-primary-blue transition-all bg-white dark:bg-slate-900">
+                        Island
+                        <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 border border-primary-blue bg-blue-50 dark:bg-blue-900/20 text-primary-blue rounded-xl text-sm font-semibold transition-all">
+                        Type: Villa
+                        <span class="material-symbols-outlined text-sm">close</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-semibold hover:border-primary-blue transition-all bg-white dark:bg-slate-900">
+                        Beds
+                        <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-slate-900 dark:bg-slate-700 text-white rounded-xl text-sm font-semibold">
+<span class="material-symbols-outlined text-sm">tune</span>
+                        Filters
+                    </button>
+</div>
+<div class="px-2 pt-2">
+<div class="flex justify-between items-center mb-3">
+<span class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">Price Range</span>
+<span class="text-xs font-bold text-primary-blue">€50k — €500k+</span>
+</div>
+<div class="relative h-1.5 w-full bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="absolute h-full bg-atlantic-blue w-2/3 left-[10%]"></div>
+</div>
+<div class="relative w-full h-0">
+<div class="absolute -top-3 left-[10%] w-4 h-4 bg-white border-2 border-atlantic-blue rounded-full shadow-md cursor-pointer"></div>
+<div class="absolute -top-3 left-[76%] w-4 h-4 bg-white border-2 border-atlantic-blue rounded-full shadow-md cursor-pointer"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-5 space-y-5 bg-slate-background dark:bg-slate-950/50">
+<div class="group flex flex-col sm:flex-row gap-5 p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl hover:shadow-xl hover:border-primary-blue/30 transition-all cursor-pointer">
+<div class="w-full sm:w-56 h-44 shrink-0 relative rounded-xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIrX92yR5-FfvjTzNrhwJRwnMd6WL7-7vzc2xXj7Q7hLw-8wCCygg9KVLG3z5WWIps0VtUFH_3IidFaKPnMDriYuNBemBArtsvAlFZhLvHxdVUAcnIdDEWDMeySFM4TQOm1AMMh01vrYtMh6r8p7yFIap2DidkvEWThR5o6gmPwpP7bFaXN_vYSjOn-FsjlCqkQuAGvlAfow_mxMxoOA7mmBvSjIL8XkbRjcWvtvK0F0BEkLbf1hGyDJHvjuSpUeFzHCXPmwp6_UU"/>
+<div class="absolute top-3 left-3 bg-primary-green text-white text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-widest shadow-lg flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span> Verified
+                    </div>
+<button class="absolute top-3 right-3 p-2 bg-white/90 backdrop-blur rounded-full text-slate-900 hover:text-red-500 transition-colors shadow-md">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+</div>
+<div class="flex-1 flex flex-col py-0.5">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">€345,000</h3>
+<span class="bg-blue-50 dark:bg-blue-900/20 text-primary-blue px-2 py-1 rounded-md text-[10px] font-bold uppercase">Beachfront</span>
+</div>
+<p class="text-base font-semibold text-slate-700 dark:text-slate-300 mb-1">Luxury Beach Villa, Santa Maria</p>
+<div class="flex items-center gap-1 text-slate-400 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-xs font-medium">Sal Island, Cape Verde</span>
+</div>
+<div class="mt-auto flex items-center gap-6 border-t border-slate-50 dark:border-slate-800 pt-4 text-slate-500">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg text-primary-blue">bed</span>
+<span class="text-xs font-bold">3 Beds</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg text-primary-blue">bathtub</span>
+<span class="text-xs font-bold">2 Baths</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg text-primary-blue">square_foot</span>
+<span class="text-xs font-bold">180m²</span>
+</div>
+</div>
+</div>
+</div>
+<div class="group flex flex-col sm:flex-row gap-5 p-4 bg-blue-50/50 dark:bg-primary-blue/5 border-2 border-primary-blue rounded-2xl shadow-xl transition-all cursor-pointer">
+<div class="w-full sm:w-56 h-44 shrink-0 relative rounded-xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbfe13-AxUyzQtuyMdne2QlReIMUzIwaWxB_GtbK234sWRq2vbqQCOZrhBSpzbJVbRV_tbAE4w4zt2zxFNDJC9GyaCcqCUHqVWHCJ2XNDed7iOlGBdnfPObwYm3wNEwVbUODLzlk0bYPx6n4kVZe_5Jyc_QF88v_BJ4Gk0Wq9rfeRzVY1sUzRPM8LtcCmteBxdIlJ1kBCCBtP7rkDy8L4avZCsQH7-5crcNAfC42sZn7IBnUE37N5IjBJBn5SzvLa_RNX7Hv-TK-k"/>
+<div class="absolute top-3 left-3 bg-slate-900/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-widest backdrop-blur shadow-lg">Featured</div>
+<button class="absolute top-3 right-3 p-2 bg-primary-blue rounded-full text-white shadow-md">
+<span class="material-symbols-outlined text-xl font-fill">favorite</span>
+</button>
+</div>
+<div class="flex-1 flex flex-col py-0.5">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">€189,000</h3>
+<span class="bg-primary-green/10 text-primary-green px-2 py-1 rounded-md text-[10px] font-bold uppercase">New Listing</span>
+</div>
+<p class="text-base font-semibold text-slate-700 dark:text-slate-300 mb-1">Ocean View Penthouse</p>
+<div class="flex items-center gap-1 text-slate-400 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-xs font-medium">Plateau, Praia, Santiago</span>
+</div>
+<div class="mt-auto flex items-center gap-6 border-t border-blue-100 dark:border-slate-800 pt-4 text-slate-600">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg text-primary-blue">bed</span>
+<span class="text-xs font-bold">2 Beds</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg text-primary-blue">bathtub</span>
+<span class="text-xs font-bold">2 Baths</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg text-primary-blue">square_foot</span>
+<span class="text-xs font-bold">120m²</span>
+</div>
+</div>
+</div>
+</div>
+<div class="group flex flex-col sm:flex-row gap-5 p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl hover:shadow-xl hover:border-primary-blue/30 transition-all cursor-pointer">
+<div class="w-full sm:w-56 h-44 shrink-0 relative rounded-xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW5XhfryM18GAU36tBkrpW10l2_9FLGuF4L8MPLi-oDCj7dufgTvOPz34R6YmB0xyaroDQQa1bdT-9XAQir0S8Z_K0LV9SpQOlSDqLDDc6UYZeaGWteO09OCwfbc1K3kq7kC1wNiy8P2FYRiPRYPq-UdDWS4E1BbDp97rwGPTr3ryNRUJE9J_CBMzVsmiohSvUoV6F4rOCZUFeEYWG8YwqdGRpuQffhj-HZX2-g6a7Htn1E6qKyAXOtn3Zfnb6s2tEBQJ7Dcy-tkU"/>
+<div class="absolute top-3 left-3 bg-primary-green text-white text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-widest shadow-lg flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span> Verified
+                    </div>
+<button class="absolute top-3 right-3 p-2 bg-white/90 backdrop-blur rounded-full text-slate-900 hover:text-red-500 transition-colors shadow-md">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+</div>
+<div class="flex-1 flex flex-col py-0.5">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">€275,000</h3>
+<span class="bg-red-50 text-red-600 px-2 py-1 rounded-md text-[10px] font-bold uppercase">-15%</span>
+</div>
+<p class="text-base font-semibold text-slate-700 dark:text-slate-300 mb-1">Restored Colonial Estate</p>
+<div class="flex items-center gap-1 text-slate-400 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-xs font-medium">Mindelo, São Vicente</span>
+</div>
+<div class="mt-auto flex items-center gap-6 border-t border-slate-50 dark:border-slate-800 pt-4 text-slate-500">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg text-primary-blue">bed</span>
+<span class="text-xs font-bold">4 Beds</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg text-primary-blue">bathtub</span>
+<span class="text-xs font-bold">3 Baths</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg text-primary-blue">square_foot</span>
+<span class="text-xs font-bold">250m²</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-5 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center justify-between shrink-0">
+<button class="px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-500 flex items-center gap-1 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+<span class="text-xs font-bold">Previous</span>
+</button>
+<div class="flex items-center gap-1">
+<span class="text-sm font-bold bg-primary-blue text-white w-9 h-9 flex items-center justify-center rounded-xl shadow-md">1</span>
+<span class="text-sm font-semibold text-slate-600 w-9 h-9 flex items-center justify-center rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">2</span>
+<span class="text-sm font-semibold text-slate-600 w-9 h-9 flex items-center justify-center rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">3</span>
+<span class="text-sm font-medium text-slate-400 w-9 h-9 flex items-center justify-center">...</span>
+<span class="text-sm font-semibold text-slate-600 w-9 h-9 flex items-center justify-center rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">12</span>
+</div>
+<button class="px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-500 flex items-center gap-1 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="text-xs font-bold">Next</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</section>
+<section class="flex-1 relative bg-slate-200 dark:bg-slate-900 overflow-hidden">
+<div class="absolute inset-0 grayscale-[0.2] contrast-[1.1]" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAYwr7QHOEkJQEFRoDRLtWbGhar8THIUe00qeDBcOjfXD7fcbvXmRC00SGi5do1NJq9MWkwtDf6Z9n7PrItyP3Wkk93rUITX4pMbZOc2tDzJ8pkWEvjYwyToYhSmDsQzbcu9U2CQdNb3FD2gm8FA4He1Obwd7h-3Qh0hBW3h3TdUssXeGtP1hxckQgM5qYEDOaVE-cmFRAvxylHeyTDZOe_8_3bAMUgDde9vhCgzuCvUtajA8cs1pThvqEGvavpCR_KcC_wAZwq3wA"); background-size: cover; background-position: center;'>
+<div class="absolute top-[30%] left-[45%] group cursor-pointer">
+<div class="bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-700 px-3 py-1.5 rounded-xl shadow-xl flex items-center gap-1 group-hover:bg-golden-sand group-hover:border-golden-sand group-hover:text-white transition-all duration-300">
+<span class="text-xs font-extrabold">€345k</span>
+</div>
+<div class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-white dark:border-t-slate-900 mx-auto -mt-[2px] group-hover:border-t-golden-sand transition-colors duration-300"></div>
+</div>
+<div class="absolute top-[52%] left-[58%] group cursor-pointer z-30">
+<div class="bg-golden-sand text-white border-2 border-white px-4 py-2 rounded-2xl shadow-[0_10px_25px_-5px_rgba(245,158,11,0.5)] flex items-center gap-1.5 scale-110 transition-transform">
+<span class="text-[13px] font-extrabold">€189k</span>
+<span class="material-symbols-outlined text-[16px] font-fill">verified</span>
+</div>
+<div class="w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[10px] border-t-golden-sand mx-auto -mt-[2px]"></div>
+</div>
+<div class="absolute top-[25%] left-[22%] group cursor-pointer">
+<div class="bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-700 px-3 py-1.5 rounded-xl shadow-xl flex items-center gap-1 group-hover:bg-golden-sand group-hover:border-golden-sand group-hover:text-white transition-all duration-300">
+<span class="text-xs font-extrabold">€275k</span>
+</div>
+<div class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-white dark:border-t-slate-900 mx-auto -mt-[2px] group-hover:border-t-golden-sand transition-colors duration-300"></div>
+</div>
+<div class="absolute top-[42%] left-[68%] group cursor-pointer">
+<div class="bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-700 px-3 py-1.5 rounded-xl shadow-xl flex items-center gap-1 group-hover:bg-golden-sand group-hover:border-golden-sand group-hover:text-white transition-all duration-300">
+<span class="text-xs font-extrabold">€85k</span>
+</div>
+<div class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-white dark:border-t-slate-900 mx-auto -mt-[2px] group-hover:border-t-golden-sand transition-colors duration-300"></div>
+</div>
+<div class="absolute top-[18%] left-[45%] pointer-events-none">
+<div class="bg-slate-900/40 backdrop-blur-sm text-white px-3 py-0.5 rounded-full text-[9px] font-black uppercase tracking-[0.2em]">Sal Island</div>
+</div>
+<div class="absolute top-[68%] left-[55%] pointer-events-none">
+<div class="bg-slate-900/40 backdrop-blur-sm text-white px-3 py-0.5 rounded-full text-[9px] font-black uppercase tracking-[0.2em]">Santiago</div>
+</div>
+<div class="absolute top-[22%] left-[12%] pointer-events-none">
+<div class="bg-slate-900/40 backdrop-blur-sm text-white px-3 py-0.5 rounded-full text-[9px] font-black uppercase tracking-[0.2em]">São Vicente</div>
+</div>
+</div>
+<div class="absolute top-6 left-1/2 -translate-x-1/2 flex items-center gap-3">
+<button class="bg-white dark:bg-slate-900 text-primary-blue px-6 py-2.5 rounded-full shadow-2xl border border-slate-100 dark:border-slate-800 text-sm font-bold flex items-center gap-2 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+<span class="w-2 h-2 rounded-full bg-primary-blue animate-pulse"></span>
+                Sal
+            </button>
+<button class="bg-white/90 dark:bg-slate-900/90 backdrop-blur px-6 py-2.5 rounded-full shadow-lg border border-slate-100 dark:border-slate-800 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary-blue transition-all">
+                Santiago
+            </button>
+<button class="bg-white/90 dark:bg-slate-900/90 backdrop-blur px-6 py-2.5 rounded-full shadow-lg border border-slate-100 dark:border-slate-800 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary-blue transition-all">
+                Boa Vista
+            </button>
+</div>
+<div class="absolute bottom-8 right-8 flex flex-col gap-3">
+<div class="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl overflow-hidden border border-slate-100 dark:border-slate-800 flex flex-col">
+<button class="w-12 h-12 flex items-center justify-center hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 border-b border-slate-50 dark:border-slate-800 transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors">
+<span class="material-symbols-outlined">remove</span>
+</button>
+</div>
+<button class="w-12 h-12 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl flex items-center justify-center hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-100 dark:border-slate-800 transition-colors">
+<span class="material-symbols-outlined">near_me</span>
+</button>
+</div>
+<div class="absolute bottom-8 left-8">
+<button class="bg-atlantic-blue text-white px-5 py-3 rounded-2xl flex items-center gap-3 text-xs font-bold shadow-2xl hover:opacity-95 transition-opacity">
+<span class="material-symbols-outlined text-base">layers</span>
+                Satellite View
+            </button>
+</div>
+</section>
+</main>
+<div class="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+<button class="bg-atlantic-blue text-white rounded-full px-8 py-4 flex items-center gap-3 shadow-2xl font-bold border-2 border-white/20">
+<span class="material-symbols-outlined">map</span>
+        Interactive Map
+    </button>
+</div>
+
+</body></html>

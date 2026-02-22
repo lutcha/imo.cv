@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add Property: Basic Info | imo.cv</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec7f13",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            input[type="number"]::-webkit-inner-spin-button,
+            input[type="number"]::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e5e7eb;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex h-screen w-full flex-col overflow-hidden">
+<header class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 py-3 z-10 shrink-0">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-primary">
+<div class="size-8 flex items-center justify-center bg-primary rounded-lg text-white">
+<span class="material-symbols-outlined text-2xl">home_work</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-black leading-tight tracking-tight">imo.cv</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-400 text-sm font-semibold hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-semibold hover:text-primary transition-colors" href="#">Leads</a>
+<a class="text-primary text-sm font-bold border-b-2 border-primary pb-1" href="#">Properties</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-semibold hover:text-primary transition-colors" href="#">Agents</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-64 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 py-1.5 pl-10 pr-4 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Search..." type="text"/>
+</div>
+<button class="flex items-center justify-center rounded-lg p-2 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB811eqYnH3R6cm_Z5fS-sNYISs5GKGjiMd9Mk7xS82rrgOvKugR4tvKlADTgG8u0BIcSrZPyq5KguO9Un8550cBK7CQLDiluXpYwAbXRB8IEVyHtC3PMOrawyOASAEaokbZIgtw2fjKyBF-nB6jF8tAYk8N4-HzkSa-MYwF3kBMFkTIofqC3XENRfLOFGubzNfBEfyQmz15HqHTmnVK2uzHiEeWCUDSfYf4QbPfTsFSC1QnSGJCQONYRsFHVI8TDCIXRLb7KIf77g"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<main class="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark custom-scrollbar">
+<div class="max-w-4xl mx-auto px-6 py-8">
+<div class="mb-8">
+<h1 class="text-2xl font-black text-slate-900 dark:text-white">Add New Property</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Fill in the details to list a new property on the marketplace.</p>
+</div>
+<div class="relative mb-10">
+<div class="absolute top-5 left-0 w-full h-0.5 bg-slate-200 dark:bg-slate-800 -z-0"></div>
+<div class="relative z-10 flex justify-between">
+<div class="flex flex-col items-center gap-2">
+<div class="size-10 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg shadow-primary/30">
+                                1
+                            </div>
+<span class="text-xs font-bold text-primary uppercase tracking-wider">Basic Info</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="size-10 rounded-full bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 text-slate-400 flex items-center justify-center font-bold">
+                                2
+                            </div>
+<span class="text-xs font-medium text-slate-400 uppercase tracking-wider">Location</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="size-10 rounded-full bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 text-slate-400 flex items-center justify-center font-bold">
+                                3
+                            </div>
+<span class="text-xs font-medium text-slate-400 uppercase tracking-wider">Photos &amp; Media</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="size-10 rounded-full bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 text-slate-400 flex items-center justify-center font-bold">
+                                4
+                            </div>
+<span class="text-xs font-medium text-slate-400 uppercase tracking-wider">Details</span>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm p-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="md:col-span-2">
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2" for="title">Property Title</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-3 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" id="title" placeholder="e.g. Modern Villa with Atlantic Ocean View" type="text"/>
+<p class="mt-1.5 text-[11px] text-slate-400">Use a descriptive title that highlights the property's best feature.</p>
+</div>
+<div>
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2" for="type">Property Type</label>
+<div class="relative">
+<select class="w-full appearance-none rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-3 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all cursor-pointer" id="type">
+<option value="">Select type...</option>
+<option value="apartment">Apartment</option>
+<option value="villa">Villa / House</option>
+<option value="land">Land Plot</option>
+<option value="commercial">Commercial</option>
+<option value="penthouse">Penthouse</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+</div>
+</div>
+<div>
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Listing Type</label>
+<div class="grid grid-cols-2 gap-2 p-1 bg-slate-100 dark:bg-slate-800 rounded-lg">
+<button class="py-2 text-sm font-bold rounded-md bg-white dark:bg-slate-700 text-primary shadow-sm ring-1 ring-slate-200 dark:ring-slate-600 transition-all">For Sale</button>
+<button class="py-2 text-sm font-medium rounded-md text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-all">For Rent</button>
+</div>
+</div>
+<div class="md:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="md:col-span-2">
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2" for="price">Price</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">€</span>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 pl-8 pr-4 py-3 text-sm font-semibold focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" id="price" placeholder="0.00" type="number"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Currency</label>
+<div class="grid grid-cols-2 gap-2 h-[46px] p-1 bg-slate-100 dark:bg-slate-800 rounded-lg">
+<button class="text-xs font-bold rounded-md bg-white dark:bg-slate-700 text-primary shadow-sm">EUR</button>
+<button class="text-xs font-medium rounded-md text-slate-500">CVE</button>
+</div>
+</div>
+</div>
+<div class="md:col-span-2">
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2" for="description">Description</label>
+<textarea class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-3 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all min-h-[160px] resize-none" id="description" placeholder="Describe the property's main features, surrounding area, and any unique selling points..."></textarea>
+<div class="mt-2 flex justify-between items-center">
+<p class="text-[11px] text-slate-400">Minimum 100 characters recommended.</p>
+<span class="text-[11px] text-slate-400 font-medium">0 / 2000</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 flex items-center justify-between border-t border-slate-200 dark:border-slate-800 pt-8">
+<button class="flex items-center gap-2 px-6 py-2.5 text-sm font-bold text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
+                        Cancel
+                    </button>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 rounded-lg bg-primary px-8 py-3 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
+                            Next Step
+                            <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

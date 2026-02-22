@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add Property: Location (Step 2) | imo.cv</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec7f13",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .step-active { @apply text-primary border-primary; }
+            .step-completed { @apply text-emerald-500 border-emerald-500; }
+            .step-inactive { @apply text-slate-400 border-slate-200 dark:border-slate-800; }
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e5e7eb;
+            border-radius: 10px;
+        }
+        .map-grid {
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex h-screen w-full flex-col overflow-hidden">
+<header class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 py-3 z-10 shrink-0">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-primary">
+<div class="size-8 flex items-center justify-center bg-primary rounded-lg text-white">
+<span class="material-symbols-outlined text-2xl">home_work</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-black leading-tight tracking-tight">imo.cv</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-400 text-sm font-semibold hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-semibold hover:text-primary transition-colors" href="#">Leads</a>
+<a class="text-primary text-sm font-bold border-b-2 border-primary pb-1" href="#">Properties</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-semibold hover:text-primary transition-colors" href="#">Agents</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center rounded-lg p-2 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Agent profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB811eqYnH3R6cm_Z5fS-sNYISs5GKGjiMd9Mk7xS82rrgOvKugR4tvKlADTgG8u0BIcSrZPyq5KguO9Un8550cBK7CQLDiluXpYwAbXRB8IEVyHtC3PMOrawyOASAEaokbZIgtw2fjKyBF-nB6jF8tAYk8N4-HzkSa-MYwF3kBMFkTIofqC3XENRfLOFGubzNfBEfyQmz15HqHTmnVK2uzHiEeWCUDSfYf4QbPfTsFSC1QnSGJCQONYRsFHVI8TDCIXRLb7KIf77g"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<aside class="w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 hidden lg:block overflow-y-auto">
+<div class="space-y-8">
+<div>
+<h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-6">Listing Progress</h3>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="size-8 rounded-full border-2 step-completed flex items-center justify-center bg-emerald-50 dark:bg-emerald-900/20">
+<span class="material-symbols-outlined text-lg">check</span>
+</div>
+<span class="text-sm font-bold text-slate-500">Basic Info</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="size-8 rounded-full border-2 step-active flex items-center justify-center bg-primary/10">
+<span class="text-sm font-black">02</span>
+</div>
+<span class="text-sm font-bold text-slate-900 dark:text-white">Location</span>
+</div>
+<div class="flex items-center gap-4 opacity-50">
+<div class="size-8 rounded-full border-2 step-inactive flex items-center justify-center">
+<span class="text-sm font-black">03</span>
+</div>
+<span class="text-sm font-bold text-slate-400">Features</span>
+</div>
+<div class="flex items-center gap-4 opacity-50">
+<div class="size-8 rounded-full border-2 step-inactive flex items-center justify-center">
+<span class="text-sm font-black">04</span>
+</div>
+<span class="text-sm font-bold text-slate-400">Media</span>
+</div>
+<div class="flex items-center gap-4 opacity-50">
+<div class="size-8 rounded-full border-2 step-inactive flex items-center justify-center">
+<span class="text-sm font-black">05</span>
+</div>
+<span class="text-sm font-bold text-slate-400">Review</span>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-100 dark:border-slate-800">
+<div class="bg-primary/5 rounded-xl p-4">
+<h4 class="text-xs font-bold text-primary uppercase mb-2">Pro Tip</h4>
+<p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Exact pin locations increase property visibility by 40% in search results.</p>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 overflow-y-auto bg-slate-50 dark:bg-background-dark custom-scrollbar">
+<div class="max-w-4xl mx-auto py-10 px-6">
+<div class="mb-8">
+<div class="flex items-center gap-2 text-slate-400 text-xs font-bold uppercase tracking-wider mb-2">
+<span>Step 2 of 5</span>
+<span class="size-1 rounded-full bg-slate-300"></span>
+<span>Property Location</span>
+</div>
+<h1 class="text-3xl font-black text-slate-900 dark:text-white">Where is this property located?</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-2">Help buyers find the property by providing accurate location details.</p>
+</div>
+<div class="space-y-8">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="col-span-1 md:col-span-2">
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Search Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-12 pr-4 py-3 rounded-xl border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 focus:ring-primary focus:border-primary transition-all" placeholder="Enter street, neighborhood, or building name..." type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Island</label>
+<select class="w-full px-4 py-3 rounded-xl border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 focus:ring-primary focus:border-primary transition-all">
+<option value="">Select Island</option>
+<option selected="" value="sal">Sal Island</option>
+<option value="santiago">Santiago</option>
+<option value="sao_vicente">São Vicente</option>
+<option value="boa_vista">Boa Vista</option>
+<option value="fogo">Fogo</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">City / Area</label>
+<select class="w-full px-4 py-3 rounded-xl border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 focus:ring-primary focus:border-primary transition-all">
+<option value="">Select Area</option>
+<option selected="" value="santa_maria">Santa Maria</option>
+<option value="espargos">Espargos</option>
+<option value="murdeira">Murdeira</option>
+</select>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white">Precise Location</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400">Drag the pin to the exact property position.</p>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined text-lg">my_location</span>
+</button>
+<button class="p-2 rounded-lg bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined text-lg">layers</span>
+</button>
+</div>
+</div>
+<div class="relative w-full h-[400px] rounded-xl overflow-hidden bg-slate-200 dark:bg-slate-800 map-grid">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="relative group cursor-pointer">
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] font-bold py-1 px-2 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                                            Drop Pin Here
+                                        </div>
+<div class="flex flex-col items-center">
+<div class="size-10 bg-primary rounded-full flex items-center justify-center text-white border-2 border-white shadow-xl animate-bounce">
+<span class="material-symbols-outlined text-xl">location_on</span>
+</div>
+<div class="size-2 bg-black/20 rounded-full blur-[2px] mt-1"></div>
+</div>
+</div>
+<div class="absolute inset-0 pointer-events-none opacity-40">
+<div class="absolute top-[20%] left-[10%] w-48 h-32 border-2 border-slate-300 rounded-lg"></div>
+<div class="absolute top-[40%] right-[15%] w-64 h-24 border-2 border-slate-300 rounded-lg"></div>
+<div class="absolute bottom-[10%] left-[30%] w-32 h-32 border-2 border-slate-300 rounded-lg"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent"></div>
+</div>
+</div>
+<div class="absolute bottom-4 left-4 flex flex-col gap-1">
+<button class="size-8 bg-white dark:bg-slate-900 rounded-t-lg border-b border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-primary">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+<button class="size-8 bg-white dark:bg-slate-900 rounded-b-lg flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-primary">
+<span class="material-symbols-outlined text-lg">remove</span>
+</button>
+</div>
+<div class="absolute bottom-4 right-4 bg-white/90 dark:bg-slate-900/90 px-2 py-1 rounded text-[10px] font-medium text-slate-500">
+                                    Lat: 16.5982° N, Lon: 22.9067° W
+                                </div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-6 border-t border-slate-200 dark:border-slate-800">
+<button class="flex items-center gap-2 px-6 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+                                Previous Step
+                            </button>
+<div class="flex gap-4">
+<button class="px-6 py-3 rounded-xl text-sm font-bold text-slate-500 hover:text-slate-700 transition-colors">
+                                    Save Draft
+                                </button>
+<button class="flex items-center gap-2 px-8 py-3 rounded-xl bg-primary text-sm font-bold text-white shadow-lg shadow-primary/30 hover:bg-primary/90 transition-all">
+                                    Next: Features
+                                    <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>imo.cv | Real Estate Marketplace Cape Verde</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec7f13",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center gap-2">
+<div class="bg-primary p-1.5 rounded-lg text-white">
+<span class="material-symbols-outlined text-2xl">home_work</span>
+</div>
+<h1 class="text-2xl font-black tracking-tight text-slate-900 dark:text-white">imo<span class="text-primary">.cv</span></h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Buy</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Rent</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Holiday</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Agents</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">About</a>
+</nav>
+<div class="flex items-center gap-3">
+<button class="hidden lg:flex items-center gap-2 text-sm font-bold px-4 py-2 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-all">
+<span class="material-symbols-outlined text-lg">login</span>
+                        Agent Login
+                    </button>
+<button class="bg-primary text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                        List Property
+                    </button>
+</div>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative h-[640px] flex items-center justify-center hero-gradient" data-alt="Luxury coastal villa overlooking the turquoise Cape Verde ocean">
+<div class="max-w-4xl w-full px-4 text-center">
+<h2 class="text-white text-4xl md:text-6xl font-black mb-6 leading-tight drop-shadow-lg">
+                Find Your Paradise in Cape Verde
+            </h2>
+<p class="text-white/90 text-lg md:text-xl mb-10 font-medium drop-shadow-md">
+                The leading marketplace for premium property listings across the islands.
+            </p>
+<!-- Search Console -->
+<div class="bg-white dark:bg-background-dark p-2 md:p-3 rounded-2xl shadow-2xl max-w-5xl mx-auto">
+<div class="flex flex-col md:flex-row gap-2">
+<div class="flex-1 flex flex-col md:flex-row">
+<!-- Location Input -->
+<div class="flex-1 relative group border-b md:border-b-0 md:border-r border-slate-100 dark:border-slate-800">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">location_on</span>
+<select class="w-full pl-12 pr-4 py-4 bg-transparent border-none focus:ring-0 text-slate-700 dark:text-slate-200 font-medium appearance-none cursor-pointer">
+<option>Select Island (Sal, Santiago...)</option>
+<option>Sal Island</option>
+<option>Santiago</option>
+<option>Boa Vista</option>
+<option>São Vicente</option>
+</select>
+</div>
+<!-- Property Type -->
+<div class="flex-1 relative group border-b md:border-b-0 md:border-r border-slate-100 dark:border-slate-800">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">apartment</span>
+<select class="w-full pl-12 pr-4 py-4 bg-transparent border-none focus:ring-0 text-slate-700 dark:text-slate-200 font-medium appearance-none cursor-pointer">
+<option>Property Type</option>
+<option>Apartment</option>
+<option>Villa</option>
+<option>Land</option>
+<option>Commercial</option>
+</select>
+</div>
+<!-- Price Range -->
+<div class="flex-1 relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">payments</span>
+<select class="w-full pl-12 pr-4 py-4 bg-transparent border-none focus:ring-0 text-slate-700 dark:text-slate-200 font-medium appearance-none cursor-pointer">
+<option>Price Range</option>
+<option>€100k - €250k</option>
+<option>€250k - €500k</option>
+<option>€500k+</option>
+</select>
+</div>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-4 rounded-xl flex items-center justify-center gap-2 transition-all shrink-0">
+<span class="material-symbols-outlined">search</span>
+                        Search Properties
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Popular Island Categories -->
+<section class="py-16 bg-white dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-end mb-10">
+<div>
+<h3 class="text-3xl font-black text-slate-900 dark:text-white">Explore the Islands</h3>
+<p class="text-slate-500 mt-2">Discover unique investment opportunities across the archipelago.</p>
+</div>
+<a class="text-primary font-bold flex items-center gap-1 hover:underline" href="#">
+                    View All Islands <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<!-- Island Card -->
+<div class="relative h-48 rounded-2xl overflow-hidden group cursor-pointer">
+<img alt="Sal Island" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Sun-drenched beaches and resorts of Sal Island" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3NpCJPtFLCUoL0sXEpQcq7HQc4gMMlpGCzSX0x152eFfrJFy8H7O5WryQ6aK2mhHhIDCSfywYCaagutDgiry1UY7v-vVpqfSnmvZ-ccPwNaweugVXIOFIfbK56Y3hnS5N7nVvuVPtkaT8xynVVp-Oz-86PSQhuO59BGM0O9dNjk1ND9qImEGXbcAdMV_27mMXwhcbftgNQoOzEhMHjm6yTMYcvOHJsdQZkBFTqqFBbakgxKMkQz4I2znktI4_VeMreUWEkQH7AX4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<h4 class="text-white font-bold text-xl">Sal</h4>
+<p class="text-white/80 text-sm">240 Properties</p>
+</div>
+</div>
+<!-- Island Card -->
+<div class="relative h-48 rounded-2xl overflow-hidden group cursor-pointer">
+<img alt="Santiago" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="The lush mountains and capital city of Santiago Island" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCW5Y0u3Zs_q_McmgQWVcC2aJV8vbZaQcu5ia_E_Z7VzgvQ9fwlRXZM3XjyKKiH42FMk_SWXFdW8Xib8fw6omLbGkdceFnUrn6o6n4R_sVKFpIvVSsHKA5E452LA66U0paqSufaXvMTIXDyg8VPyBckcq5dSNR-Q4Pv8LFjaYSrhTyzBOmGGptj5PJLothbIGy7ER-jSUESmawEVFpsrH692m1ztOWl1du2MJQkHDxqtIKJGws2z7sk84piF44JQAO-h1wKyLA8MY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<h4 class="text-white font-bold text-xl">Santiago</h4>
+<p class="text-white/80 text-sm">180 Properties</p>
+</div>
+</div>
+<!-- Island Card -->
+<div class="relative h-48 rounded-2xl overflow-hidden group cursor-pointer">
+<img alt="Boa Vista" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Expansive sand dunes and turquoise waters of Boa Vista" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT3PmkykdE44kF4gDIDTWIOq_hJaJg1WcYt3ceSoirhZrxbGq5K29WwvnRQ2pFloXwrCZ4tsMtgcRObnnVxnSHgDikNDo5IJA7uRdXdaNrPidm0hYX46UMvpGUtz3CDiqdGoHJzf3JO0_mC4IQRXaUmVasO0Tj2y_gsg7T4Re8zpJH-ZA9ClQy1sApH-TzvXFPUYxkju69aKot8ak5CYSgHzpv3xadmuQ0KmKB3BNHheP3LhoTaCS_vAc9qyuMXTfQjU0bB4K9MgA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<h4 class="text-white font-bold text-xl">Boa Vista</h4>
+<p class="text-white/80 text-sm">95 Properties</p>
+</div>
+</div>
+<!-- Island Card -->
+<div class="relative h-48 rounded-2xl overflow-hidden group cursor-pointer">
+<img alt="Sao Vicente" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Cultural port city of Mindelo in Sao Vicente" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGFgzdr2sMtQwdUzpGjyVvOfGxN2swRPsXyxpn-2k4JahEFEVr2FFiV23EYgN1Waqa6ju_bdZujfmQ6Pwbf-AU1x9x0JpryWpbqq7E1bUC5hkBxDxd9xJZdWD86dpwI2kHcxFX6iBwFoa97_Yi3uX-2Homio2cUWIiEn1q-2rCHp07TJXgooRtdKp3sdgK_Moa0DlGzFhkprckIGV0HlWdHpwAwefHBKIytLHYZrUZ55x_wqSF-UXTCI12hwtlPu3FFnR_GcJ8Jik"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<h4 class="text-white font-bold text-xl">São Vicente</h4>
+<p class="text-white/80 text-sm">115 Properties</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Properties Grid -->
+<section class="py-16 bg-background-light dark:bg-background-dark/50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
+<h3 class="text-3xl font-black text-slate-900 dark:text-white">Featured Properties</h3>
+<div class="flex bg-slate-200 dark:bg-slate-800 p-1 rounded-xl">
+<button class="px-6 py-2 bg-white dark:bg-slate-700 text-slate-900 dark:text-white rounded-lg text-sm font-bold shadow-sm">All</button>
+<button class="px-6 py-2 text-slate-500 text-sm font-bold hover:text-slate-700 dark:hover:text-slate-300">Sales</button>
+<button class="px-6 py-2 text-slate-500 text-sm font-bold hover:text-slate-700 dark:hover:text-slate-300">Rentals</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Property Card 1 -->
+<div class="bg-white dark:bg-background-dark rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 group shadow-sm hover:shadow-xl transition-all">
+<div class="relative h-64 overflow-hidden">
+<img alt="Luxury Villa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern luxury villa with infinity pool and palm trees" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaRDC8D1juKSnpytxb3rvC_wc5WLapYNoELDMjQ_giSPWVKNZzw9eWScX9f4r83rdIRYcDjQmiYrdr0q5s6dzUgg5xpVw2D00M1PRcS8Di10HLJ5cWfQJyQoe8KYS5t4Pm-Uoq-OLNbi61npmxzwWAsB1ZpyLQekVKFkooUQih-KxNK-GCe34PLGm8ESND94FgdHhHEJUfLobOrdisZkyCM0Wl6s91b5MlUwWvP4TkbQPzfAV5Jh8V9Pn9uPKtx6TgSZYubhxRs_4"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-xs font-black px-3 py-1.5 rounded-full uppercase tracking-wider">Featured</div>
+<div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm dark:bg-background-dark/90 px-3 py-1 rounded-lg text-slate-900 dark:text-white font-black text-lg">€450,000</div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-1 text-primary mb-2">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-xs font-bold uppercase tracking-wide">Santa Maria, Sal</span>
+</div>
+<h4 class="text-xl font-bold text-slate-900 dark:text-white mb-4 line-clamp-1">Ocean View Luxury Estate</h4>
+<div class="grid grid-cols-3 border-t border-slate-50 dark:border-slate-800 pt-4 gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">bed</span>
+<span class="text-sm font-medium">4 Beds</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">bathtub</span>
+<span class="text-sm font-medium">3 Baths</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">square_foot</span>
+<span class="text-sm font-medium">320m²</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Property Card 2 -->
+<div class="bg-white dark:bg-background-dark rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 group shadow-sm hover:shadow-xl transition-all">
+<div class="relative h-64 overflow-hidden">
+<img alt="Penthouse" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Contemporary penthouse with glass balcony overlooking the city" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzNuRtUQG8AXeOgdBepKQpIo-un_nJz-rz3V7EL9G7YHwoaw_MhFL4n3BGHeHt_ipgesUHLsuH8oMVosLG9ZepoEWUWR7fKWNq4gDe3AHnZuABigGh_BpF6a2PvQa8QTerwQ2IaU9hhw7EdGoUiYRzL21RTHV5l8EzBdsG0Sp2oVNIxPCiM1oFYelSABwsNRbcFO2gHd10QUJm80eqo7GAgE2lGV35JkIlZzCZfzwZSq_Y-XDgNoVhUNCoSOem43O8j4Byagr3Q-k"/>
+<div class="absolute top-4 left-4 bg-slate-900 text-white text-xs font-black px-3 py-1.5 rounded-full uppercase tracking-wider">New</div>
+<div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm dark:bg-background-dark/90 px-3 py-1 rounded-lg text-slate-900 dark:text-white font-black text-lg">€185,000</div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-1 text-primary mb-2">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-xs font-bold uppercase tracking-wide">Praia, Santiago</span>
+</div>
+<h4 class="text-xl font-bold text-slate-900 dark:text-white mb-4 line-clamp-1">Modern City Center Penthouse</h4>
+<div class="grid grid-cols-3 border-t border-slate-50 dark:border-slate-800 pt-4 gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">bed</span>
+<span class="text-sm font-medium">2 Beds</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">bathtub</span>
+<span class="text-sm font-medium">2 Baths</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">square_foot</span>
+<span class="text-sm font-medium">115m²</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Property Card 3 -->
+<div class="bg-white dark:bg-background-dark rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 group shadow-sm hover:shadow-xl transition-all">
+<div class="relative h-64 overflow-hidden">
+<img alt="Beachfront Villa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Minimalist beachfront villa with direct access to white sand" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjsGIyokxJxw9XjSxkZ9fKHByHZdigsMO7Bi_17PFAVTGKtu6NCWqSZvKE3mZIKHyZ-C7ybj6y_sUzqHNh-KQy-PQUZDuHUYNx54t9W84pgBBjdQxQhQlzaKqRGz0PX8Ct4wpbq1Z9JKQ4QqvvfFWjzzL_Ck0XUT5-8Ihi8LgYpZfdNYTBi97nn-lmuVdIW7WICYUAuD-zqaGVJSdV8SRTUxBK0V17pkbfltPlfYGT8OdiNecJIKj6duPrARNAQhVU2wZQkecwNCU"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-xs font-black px-3 py-1.5 rounded-full uppercase tracking-wider">Hot Deal</div>
+<div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm dark:bg-background-dark/90 px-3 py-1 rounded-lg text-slate-900 dark:text-white font-black text-lg">€295,000</div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-1 text-primary mb-2">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-xs font-bold uppercase tracking-wide">Praia de Chaves, Boa Vista</span>
+</div>
+<h4 class="text-xl font-bold text-slate-900 dark:text-white mb-4 line-clamp-1">Minimalist Beachfront Villa</h4>
+<div class="grid grid-cols-3 border-t border-slate-50 dark:border-slate-800 pt-4 gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">bed</span>
+<span class="text-sm font-medium">3 Beds</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">bathtub</span>
+<span class="text-sm font-medium">2 Baths</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">square_foot</span>
+<span class="text-sm font-medium">210m²</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center">
+<button class="bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all font-bold px-10 py-3 rounded-xl">
+                    View More Properties
+                </button>
+</div>
+</div>
+</section>
+<!-- CRM / Agents Section -->
+<section class="py-20 bg-primary/10 dark:bg-primary/5">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col lg:flex-row items-center gap-16">
+<div class="lg:w-1/2">
+<img alt="Agent CRM Dashboard" class="rounded-3xl shadow-2xl" data-alt="A professional real estate agent using a property management CRM dashboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB06lMQgReGN4V3iM30QpiE_sjHkikFDEcaVtmPy9EaDNDAnkeUXDbviP3E8WbwIg2w7WzBti5eRWpM2pTA68tR_6xxkCe2HrVD4kd2FU_Rw7o6AbZKCgk4yYoWxdB_dgoJkHwwgENP_GGr9Cj9hAv0navU0j-cHl_czj1ohgDuRhmEjq--P8gTPh98SDC-wAf-40rCW9TxbfzUohAiUdhLI1q09TeMKr8n9tN0OZIAcbHnEF6DEq5F--GP5UWsnQJCM1gPtJGLRds"/>
+</div>
+<div class="lg:w-1/2 space-y-6">
+<span class="text-primary font-black uppercase tracking-widest text-sm">For Professionals</span>
+<h3 class="text-4xl font-black text-slate-900 dark:text-white leading-tight">
+                        Grow your agency with the imo.cv ecosystem
+                    </h3>
+<p class="text-slate-600 dark:text-slate-400 text-lg">
+                        Access the most advanced real estate CRM in Cape Verde. Manage your listings, track leads, and reach buyers globally through our integrated platform.
+                    </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary bg-primary/20 p-1 rounded-full text-lg">check</span>
+<span class="font-semibold">Automated Multi-Channel Listing Sync</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary bg-primary/20 p-1 rounded-full text-lg">check</span>
+<span class="font-semibold">Advanced Lead Management &amp; Analytics</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary bg-primary/20 p-1 rounded-full text-lg">check</span>
+<span class="font-semibold">Verified Professional Badge</span>
+</li>
+</ul>
+<div class="flex gap-4 pt-4">
+<button class="bg-primary text-white font-bold px-8 py-3 rounded-xl shadow-lg shadow-primary/30">Get Started</button>
+<button class="bg-white dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 font-bold px-8 py-3 rounded-xl">Learn More</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-slate-900 text-slate-400 py-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 text-white mb-6">
+<div class="bg-primary p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-xl">home_work</span>
+</div>
+<h2 class="text-2xl font-black tracking-tight">imo<span class="text-primary">.cv</span></h2>
+</div>
+<p class="text-sm leading-relaxed">
+                        Connecting global investors with local paradise. The definitive real estate marketplace for the Cape Verde Islands.
+                    </p>
+<div class="flex gap-4 mt-6">
+<a class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">mail</span>
+</a>
+</div>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Marketplace</h5>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Buy Property</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Rentals</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Holiday Stays</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Land &amp; Development</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Islands</h5>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Sal Listings</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Santiago Listings</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Boa Vista Listings</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">São Vicente Listings</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Company</h5>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact Support</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">For Agents</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+<p>© 2024 imo.cv. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">Cookie Policy</a>
+<a class="hover:text-white transition-colors" href="#">Agent Conduct</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
