@@ -31,7 +31,8 @@
     "noResults": "Aucun bien trouvé. Ajustez les filtres.",
     "useSliders": "Curseurs",
     "exactValues": "Valeurs exactes",
-    "searchButton": "Rechercher"
+    "searchButton": "Rechercher",
+    "placeholderLocation": "Île, ville ou zone"
   },
   "property": {
     "bedrooms": "Chambres",
@@ -47,13 +48,46 @@
   "nav": {
     "home": "Accueil",
     "search": "Recherche",
+    "buy": "Acheter",
+    "rent": "Louer",
+    "vacation": "Location vacances",
+    "newConstruction": "Nouvelles constructions",
+    "agents": "Agents",
     "agentArea": "Espace Agent",
+    "listProperty": "Annoncer un bien",
     "login": "Connexion",
     "register": "S'inscrire",
     "dashboard": "Tableau de bord",
     "properties": "Biens",
     "leads": "Prospects",
     "settings": "Paramètres"
+  },
+  "home": {
+    "heroTitle": "Marché immobilier du Cap-Vert",
+    "heroSubtitle": "Le plus grand agrégateur national. Recherche par carte, favoris et contact avec des agents vérifiés.",
+    "viewListings": "Voir les biens",
+    "searchOnMap": "Rechercher sur la carte",
+    "feature1Title": "Recherche intelligente",
+    "feature1Desc": "Filtrez par île, prix, chambres et plus. Résultats en carte ou liste.",
+    "feature2Title": "Agents vérifiés",
+    "feature2Desc": "Contactez directement agents et agences de confiance dans tout l'archipel.",
+    "feature3Title": "100% gratuit",
+    "feature3Desc": "Pour acheteurs et locataires. Sans frais cachés.",
+    "featuredTitle": "Biens en vedette",
+    "viewAll": "Tout voir",
+    "ctaAgentTitle": "Vous êtes agent ou agence ?",
+    "ctaAgentDesc": "Rejoignez la plateforme et diffusez vos biens dans tout le pays.",
+    "ctaAgentButton": "Espace Agent",
+    "listProperty": "Annoncer un bien"
+  },
+  "footer": {
+    "searchProperties": "Rechercher des biens",
+    "about": "À propos",
+    "contact": "Contact",
+    "blog": "Blog",
+    "tagline": "Le plus grand agrégateur national. Recherchez, comparez et trouvez votre bien au Cap-Vert.",
+    "copyright": "Tous droits réservés.",
+    "agentArea": "Espace Agent"
   },
   "registerProperty": {
     "title": "Enregistrer un bien",
@@ -67,7 +101,8 @@
     "listingType": "Type de transaction",
     "rent": "Location",
     "sale": "Vente",
-    "vacation": "Vacances",
+    "vacation": "Location vacances",
+    "newConstruction": "Nouvelle construction",
     "address": "Adresse",
     "addressPlaceholder": "Rue, numéro, île…",
     "latitude": "Latitude",
@@ -91,5 +126,109 @@
     "successMessage": "Le bien a été enregistré en brouillon. Vous pouvez le modifier dans la liste.",
     "viewList": "Voir la liste des biens",
     "errorSubmit": "Erreur lors de l'enregistrement. Réessayez."
+  },
+  "solutions": {
+    "badge": "Plateforme B2B",
+    "title": "Solutions pour chaque besoin",
+    "subtitle": "Outils professionnels pour agences, gestionnaires de copropriétés et investisseurs du marché immobilier cap-verdien.",
+    "footer": "Tous les plans incluent le support en portugais. Sans frais d'installation.",
+    "crm": {
+      "title": "CRM pour Agences",
+      "description": "Plateforme complète pour la gestion des biens, prospects et clients. Augmentez votre taux de conversion avec un entonnoir visuel.",
+      "feat1": "Tableau de bord en temps réel",
+      "feat2": "Entonnoir Kanban",
+      "feat3": "Gestion des prospects WhatsApp",
+      "feat4": "Rapports de conversion",
+      "plan1f1": "5 biens",
+      "plan1f2": "CRM basique",
+      "plan1f3": "3 utilisateurs",
+      "plan2f1": "Biens illimités",
+      "plan2f2": "Analytics avancé",
+      "plan2f3": "Pipeline complet"
+    },
+    "condo": {
+      "title": "Gestion de Copropriété",
+      "description": "Système complet pour administrateurs de copropriétés. Simplifiez la facturation, la communication et les assemblées.",
+      "feat1": "Paiement de charges en ligne",
+      "feat2": "Réservation d'espaces communs",
+      "feat3": "Rapports financiers",
+      "feat4": "Vote numérique en assemblée",
+      "perUnit": "par unité/mois",
+      "plan1f1": "Gestion des unités",
+      "plan1f2": "Émission de factures",
+      "plan1f3": "Communication centralisée",
+      "plan2f1": "Tout dans Basique",
+      "plan2f2": "Rapports financiers",
+      "plan2f3": "Système de vote"
+    },
+    "mi": {
+      "title": "Market Intelligence",
+      "description": "Données et analyses exclusives du marché immobilier cap-verdien. Prenez des décisions d'investissement éclairées.",
+      "feat1": "Indice de prix par île",
+      "feat2": "Cartes de chaleur de la demande",
+      "feat3": "Rapports trimestriels",
+      "feat4": "Tendances du marché",
+      "plan1f1": "Accès basique",
+      "plan1f2": "1 rapport/mois",
+      "plan1f3": "Données par île",
+      "plan2f1": "Accès complet",
+      "plan2f2": "Rapports personnalisés",
+      "plan2f3": "API de données"
+    }
+  },
+  "agent": {
+    "dashboard": {
+      "title": "Tableau de bord",
+      "addProperty": "Ajouter un bien",
+      "kpiActiveProperties": "Biens actifs",
+      "kpiActiveLeads": "Prospects actifs",
+      "kpiClosedDeals": "Affaires conclues (mois)",
+      "kpiRevenue": "Revenus (mois)",
+      "loadingKpis": "Chargement des indicateurs…",
+      "errorKpis": "Erreur lors du chargement. Réessayez."
+    },
+    "leads": {
+      "title": "Pipeline de prospects",
+      "newLead": "Nouveau prospect",
+      "hint": "Glissez les cartes entre les colonnes pour mettre à jour le statut. Cliquez sur un prospect pour les détails et interactions."
+    },
+    "leadDetail": {
+      "backToPipeline": "Retour au pipeline",
+      "notFound": "Prospect introuvable.",
+      "loading": "Chargement…",
+      "email": "E-mail",
+      "phone": "Téléphone",
+      "status": "Statut",
+      "priority": "Priorité",
+      "propertyOfInterest": "Bien concerné",
+      "notes": "Notes",
+      "source": "Source",
+      "newInteraction": "Nouvelle interaction",
+      "interactionType": "Type",
+      "summary": "Résumé",
+      "summaryPlaceholder": "Résumé de l'interaction",
+      "description": "Description",
+      "descriptionPlaceholder": "Détails optionnels",
+      "followUp": "Prochain suivi",
+      "registerInteraction": "Enregistrer l'interaction",
+      "saving": "Enregistrement…",
+      "interactionHistory": "Historique des interactions",
+      "noInteractions": "Aucune interaction pour l'instant.",
+      "followUpLabel": "Suivi",
+      "typeCall": "Appel",
+      "typeEmail": "E-mail",
+      "typeWhatsapp": "WhatsApp",
+      "typeMeeting": "Réunion",
+      "typeVisit": "Visite du bien",
+      "typeOther": "Autre"
+    },
+    "kanban": {
+      "new": "Nouveaux",
+      "contacted": "Contactés",
+      "visitScheduled": "Visite programmée",
+      "proposalSent": "Proposition envoyée",
+      "closedWon": "Gagnés",
+      "closedLost": "Perdus"
+    }
   }
 }

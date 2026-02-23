@@ -1,0 +1,90 @@
+{
+  "description": "URLs extraídas dos ecrãs Stitch (Property Details, Search, etc.) para fotos de imóveis temáticas. Correr download-property-images.ps1 para guardar em web/public/images/properties/.",
+  "projectTitle": "Lead Management Kanban Board",
+  "projectId": "1418745328101826450",
+  "screensReferenced": [
+    "Property Details Page (PDP)",
+    "Property Search & Map View",
+    "Property Listing Success & Preview"
+  ],
+  "images": [
+    {
+      "slug": "villa-exterior",
+      "type": "villa",
+      "alt": "Main shot of luxury modern villa exterior",
+      "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuCE46VzUx9ORl266vBbwuo_5JzPdnvmDpqLv_K4GtPeV2I2u9bFHjGWELDoS3xa04TLx_vDnmlFcn-I9mNR4LzbEpcWkZ-9TjCbu_pbSBgmEo-pdv6_Z6XUL_Fh2zeesjtkyB0nykVHkWLlJ82QCTba-Dz5q11b0QqHpkzpuQPkA93qn4h4L8YT7fYuMSUeRLyB2GDpzdZB7majbX1l6ocHMkqOvQB5_QBeT3dh3D7S9e676sLqXc2NQbC9mdr3sq3YczwoTGV5wGE"
+    },
+    {
+      "slug": "villa-living-room",
+      "type": "villa",
+      "alt": "Modern interior living room overlooking the ocean",
+      "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuABHgE1CRV3bvJbaL-aI2_BKxOGC1BfaXAO-kvHv-PgeaH9piclGIRRA1u2_Xaf5VRRURMDaKa085JIFZkfLR5imjArlGlef9rlNKjR0IDLkOYP0z42k6JLi5VxYNwTOTRmuAnWuk4aXLBx5uJozKY68XtJLIz393SBbRtLj4RNh4ng16R1AYF_HgdfzmRmYCi864P7lyNYxp7kLIiIi1lnqYEzu34dtZeXQEH8Guq6VodPNSF8SaK9tztneUXoXyWX-tbciNQMQMM"
+    },
+    {
+      "slug": "villa-pool",
+      "type": "villa",
+      "alt": "Private swimming pool terrace at sunset",
+      "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuAPe6aZs6yauC2q2bLntGGKoIo-_bc2_86uAlH5LWNqYKJddeCd479mBaCTqS9jM75NdTAEjL6AcGwykUsYdqltl8Z2ruo5V7aT3SRGYScs_sEKNnzvCIAlRgn2S-iHnb748sscctIB5rF-edwVeWK6t_omX0xqoRReBCpD1fQEMKtxbQ5QomdnBgkArU0jM6Gixp9WJ3ygk_Si9oSe7lP-g5bUYCuqhKW3NapM2fVE7DL2WGb1xosz2XKEPS_E5so9YY406y0F_RU"
+    },
+    {
+      "slug": "villa-bedroom",
+      "type": "villa",
+      "alt": "Minimalist modern bedroom with white linens",
+      "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuDD6o1k5fDm0eY-WeZPCHNfZuhDZAkEwTXrhp2B1R2MhLgvWaDqlHs6FbkLkJQuf12AVhhoobqmoeu3ksu_q5dcUJDCGzTLosueEe2KIzQPjaYW0pdFMMHMheZ96eZ5e80BxnqwN5ruUPKjAVByWUzcQpnTVJ574nO1bTH-r2iieMwOeQCgt37fYkcO7j9KMD0ns3sZ_0SOO7Aw4FuzCOFgdgRY2UswzutHyPEDMGOvfLkHWM15lREiCa-Vj_fJqGd1Liqof3WEGoU"
+    },
+    {
+      "slug": "villa-kitchen",
+      "type": "villa",
+      "alt": "High-end kitchen with marble countertops",
+      "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuBhN_Rdmfxv96Z3RUX0goxib4Ld6LoN0tHTc9SQdjmY01iZsZSLrx9YEpcHTHpk7tbyxEteguEJXriD1EhumQaau0yT_yDDn75czkVsbsPn8m_3lo5AUWRVrb9-PZddzMs9Et8_Wx0ZzqQs0K8YZhmTR90gHxEDiBUydUv-h8XSHtU1lVv0Ubwciw8AxzSF_hVkCJwibvqRjCZeZAvpivFgxZQ7FvfolxFilGopUg_abiwAn__xcOmZ5WScYGqNEWb2iZuy77PhQ_Q"
+    },
+    {
+      "slug": "villa-modern-pool",
+      "type": "villa",
+      "alt": "Luxury villa with pool",
+      "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuC9wm0UAk2Q58HpkH0TM1AtuFcTWScYbD1cppNHq1BwwBngPzWuMJ0RXL6kV5gaqXe7LIHamMESBm_sDwg5FYr6BH5umhRGAn--E_h26-eVsBOp88QLARA_pCBlwhLH4eGp_3n-VUdigJb7wbOAG0rF6sjDmqik1vAYExHmBF2d1izImNF0bllFgwb-IupvUlObvHUM8BhemYjbYBVZgzx-XE5cNnLo7Jf8FnfVVAPonKM-MhqrJeRtz-8dqoVfRo7mZKuH-5OOAA0"
+    },
+    {
+      "slug": "villa-sal",
+      "type": "villa",
+      "alt": "Modern villa with pool in Sal Island",
+      "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuCIrX92yR5-FfvjTzNrhwJRwnMd6WL7-7vzc2xXj7Q7hLw-8wCCygg9KVLG3z5WWIps0VtUFH_3IidFaKPnMDriYuNBemBArtsvAlFZhLvHxdVUAcnIdDEWDMeySFM4TQOm1AMMh01vrYtMh6r8p7yFIap2DidkvEWThR5o6gmPwpP7bFaXN_vYSjOn-FsjlCqkQuAGvlAfow_mxMxoOA7mmBvSjIL8XkbRjcWvtvK0F0BEkLbf1hGyDJHvjuSpUeFzHCXPmwp6_UU"
+    },
+    {
+      "slug": "villa-traditional",
+      "type": "villa",
+      "alt": "Traditional style villa with pool",
+      "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuBcaDap4qgw0MpS9cY4wYxICok3Kxf5N7PwtgQyp3hr4xkSomTgLi9xYExjfNqjzHHUJQE2UV3-UAcm27ar2X5v_dCL5EEqxsWeQVwDDK10-2UM_88wdNT25EVgM7kwYwxlog07Hl6pFYO218mQ2SCDmP5AeYiFNb5Lox8Umg5ETXM4DWHPFhq-5fJULJ8JM0Uea2eCv4Rp3mYeBVvpC-yhhcrGSbK9HDMoAbEfCWaphQVUTWWSQaqerfWUkaWMsJ3m279w4rWgijo"
+    },
+    {
+      "slug": "villa-luxury-exterior",
+      "type": "villa",
+      "alt": "Minimalist luxury villa exterior",
+      "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuDNEHd8oLBlsL9zcsAiy9Pnr2p_2G5VFEgdwOpZywQ1E_pU_2j3GFn3QMyJYROvqssk8bxr32E_W7kIfQyXkd1VZNoKKQWKnVhczJbWi6NTVx1KGWaoNynSkf5u9Byo4t1cBqjd8iF_upNlZtWBwhYrHtfKUYE-lxfJh-gmoDuXgWaQSeU8JeRDjvPl8A89kgCUGAYaIDXHI7nkj9fh_gdn6_3VQGrZs85kuC_QThgsVGGjZrqAE-RC67Y5PHT-2XgKvPcamBfKyCE"
+    },
+    {
+      "slug": "apartment-beachfront",
+      "type": "apartment",
+      "alt": "Beachfront apartment with balcony",
+      "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuAuhd3RHcrHimo53DopNIxl2j3kYq0FptB4MKLQSqlxqjPwUMc6Q0b25ijiC2uRqghV_kDi1BeoD6QtVUTExaw2Xn0aJbTTrvQZySc5swnKz8p5_C2oyWEmo6OZTptLGPWEE7MUC4OIY5kBnzfh5JFJ4nqgHxT5N6NeTO2dE_3M54RkdHG-vvgpo6CGDch9262jVgrYhnZpSj0KqCmLJ5DA9TQkZFyswjza8u1hB9PxtgrAowGIIkrPrB-_j0AbHcT7kRML0Pw5nyg"
+    },
+    {
+      "slug": "apartment-ocean-view",
+      "type": "apartment",
+      "alt": "Ocean view apartment in Praia Santiago",
+      "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuCbfe13-AxUyzQtuyMdne2QlReIMUzIwaWxB_GtbK234sWRq2vbqQCOZrhBSpzbJVbRV_tbAE4w4zt2zxFNDJC9GyaCcqCUHqVWHCJ2XNDed7iOlGBdnfPObwYm3wNEwVbUODLzlk0bYPx6n4kVZe_5Jyc_QF88v_BJ4Gk0Wq9rfeRzVY1sUzRPM8LtcCmteBxdIlJ1kBCCBtP7rkDy8L4avZCsQH7-5crcNAfC42sZn7IBnUE37N5IjBJBn5SzvLa_RNX7Hv-TK-k"
+    },
+    {
+      "slug": "house-mindelo",
+      "type": "house",
+      "alt": "Historical renovated home in Mindelo Sao Vicente",
+      "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuBW5XhfryM18GAU36tBkrpW10l2_9FLGuF4L8MPLi-oDCj7dufgTvOPz34R6YmB0xyaroDQQa1bdT-9XAQir0S8Z_K0LV9SpQOlSDqLDDc6UYZeaGWteO09OCwfbc1K3kq7kC1wNiy8P2FYRiPRYPq-UdDWS4E1BbDp97rwGPTr3ryNRUJE9J_CBMzVsmiohSvUoV6F4rOCZUFeEYWG8YwqdGRpuQffhj-HZX2-g6a7Htn1E6qKyAXOtn3Zfnb6s2tEBQJ7Dcy-tkU"
+    },
+    {
+      "slug": "land-coastal",
+      "type": "land",
+      "alt": "Coastal plot of land for development in Boa Vista",
+      "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuBamoy7_WMjLnxv1A6d0y2T83i1tGdlyNZ9lrKMKwu7LAEFUt-14XPxPDTFLKxRR5dWSPPYkRTW_FopbygCdH70XatHZT9nw3JBJvgNwFUZ5VaValhBp_ILQgEErVOlXXNxZFriyp0my-zxI7KXmAaG8g-1VDxmGi83fxBbqPn-fWf2rgxXawUJ3SnY_AzadqIqjUYmpdR_swJQJ8qS6VKQehS-fm_LTt4wBOcTk0LYixnLhHoQLJe6JG0jw5Ri4mCyYefbTHuUHEg"
+    }
+  ]
+}

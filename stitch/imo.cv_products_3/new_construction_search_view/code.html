@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>New Construction Search | imo.cv Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#134dec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101522",
+                        "slate-custom": "#64748b",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 py-3 flex items-center justify-between">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl font-bold">domain</span>
+<h1 class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white uppercase">imo.cv <span class="text-primary/70 font-medium lowercase">Marketplace</span></h1>
+</div>
+<nav class="hidden lg:flex items-center gap-6">
+<a class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Buy</a>
+<a class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Rent</a>
+<a class="text-sm font-semibold text-primary border-b-2 border-primary pb-1" href="#">Obras Novas</a>
+<a class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Developers</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+<input class="pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-lg text-sm w-64 focus:ring-2 focus:ring-primary" placeholder="Search developments..." type="text"/>
+</div>
+<button class="bg-primary text-white px-5 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:bg-blue-700 transition-all">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+                Post Listing
+            </button>
+<div class="size-10 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden border-2 border-primary/20">
+<img alt="User" data-alt="User profile avatar portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx1JXWCHb45vxaUXsJPbLW_VWiBWVPX3mB_ED_zkcRXcUkEHae7rblvxhgFz_XJy4uxNENfMh_dAmQO8hizbXW4PtctHfSY9FM9Hwo5ymYZ3rKX2wnTZw4ak2VgcJ2t0RByE7zv--8KSF9Wwysd5Lnqr_jtkW7Mt8wpOBN7A0K7cqlMqN8dekLSjPXtDugU38YGb9t2zRd_wOn__s4HbPE1d8Okp1Y2PDXX5nPwqEqoAz5RwpUEYF2aMsrIiD9oYT_rbaQEVyQi10"/>
+</div>
+</div>
+</header>
+<!-- Filter Bar -->
+<div class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 py-3 overflow-x-auto hide-scrollbar">
+<div class="flex items-center gap-3 min-w-max">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm font-medium hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-lg text-primary">foundation</span>
+                Construction Stage
+                <span class="material-symbols-outlined text-lg">keyboard_arrow_down</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm font-medium hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-lg text-primary">business</span>
+                Developer
+                <span class="material-symbols-outlined text-lg">keyboard_arrow_down</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm font-medium hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-lg text-primary">event</span>
+                Completion Date
+                <span class="material-symbols-outlined text-lg">keyboard_arrow_down</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm font-medium hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-lg text-primary">payments</span>
+                Price Range
+                <span class="material-symbols-outlined text-lg">keyboard_arrow_down</span>
+</button>
+<div class="h-6 w-px bg-slate-200 dark:bg-slate-700 mx-2"></div>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg text-primary font-bold text-sm hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-lg">tune</span>
+                More Filters
+            </button>
+</div>
+</div>
+<!-- Main Content: Split View -->
+<main class="flex h-[calc(100vh-124px)] overflow-hidden">
+<!-- Left Column: Results -->
+<section class="w-full lg:w-[480px] xl:w-[560px] h-full overflow-y-auto bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800">
+<div class="p-6">
+<div class="flex items-center justify-between mb-6">
+<div>
+<h2 class="text-2xl font-extrabold tracking-tight">Obras Novas em Santiago</h2>
+<p class="text-slate-500 text-sm">42 newly built developments found</p>
+</div>
+<button class="text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">sort</span>
+</button>
+</div>
+<!-- Development Cards Container -->
+<div class="space-y-6">
+<!-- Card 1 -->
+<div class="group border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:shadow-xl hover:shadow-primary/5 transition-all bg-white dark:bg-slate-800">
+<div class="relative h-56 overflow-hidden">
+<img alt="Ocean View Residences" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern 3D architectural render of oceanfront apartment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC_YprFo1gEVOpNg-i7A0K1moM_RHVWwwuKEFaO7gbsoYP-qCmbG9z19KTnyLfehsR8nP5WDNqtNmRM94gqpCRbzkKriN4io8xH9NM1FNWMJsBhUqxjF1ZK39yVIwTi4VnXDc0Ge3S8DEfB9rfdl4bQQzPlX5VOC-vAdndzLCmJkiIiaiOIbrAgXrNOiWRKC5rq8XoccNQVSeVBR5H4D_aABBCoDRYHlLKEQE6l87pJmJ8m_kDgTrmUtn1u-WptPdH1THXHyW4PK4"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-primary/90 text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Finishing Stage</span>
+<span class="bg-emerald-500/90 text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Q4 2024</span>
+</div>
+<div class="absolute bottom-3 right-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm p-1 rounded-lg">
+<img alt="Developer Logo" class="h-6 w-auto" data-alt="Corporate developer logo placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ-Bo8lmqLkoIoe1uKzKLk1fU5BHgMgZjCH9MMZUqsNWte10_bw9q4T5k00SWwlIgAgqfNbbW_k4tOCXWw9-9mYzshf6BqoL8f7ZdhwwBp4ycMc6wf2VjPoShKKZXGI2ztehUy6_1WcRVV0C3AsRpog85yGRYFlzTvEZ43g526DwipyHoJoXVZ_RjGIfGdDeQtuOE9kr7rlVLKrW0P35fF-5FK4o7EuLM3OSXvtwrPbuTTOfQxpKRYRqOsHV-MSPcaTXQdie9A_kc"/>
+</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-lg font-bold group-hover:text-primary transition-colors leading-tight">Ocean View Residences</h3>
+<p class="text-slate-500 text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                        Prainha, Praia • BuildCorp CV
+                                    </p>
+</div>
+<div class="text-right">
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">Starting from</p>
+<p class="text-primary font-extrabold text-lg">12.500.000 CVE</p>
+</div>
+</div>
+<div class="mt-4 space-y-2">
+<div class="flex justify-between text-xs font-bold">
+<span class="text-slate-600 dark:text-slate-400">Construction Progress</span>
+<span class="text-primary">85%</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div class="mt-5 pt-4 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between">
+<div class="flex gap-4">
+<div class="flex items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined text-lg">bed</span>
+<span class="text-xs font-semibold">T2 - T4</span>
+</div>
+<div class="flex items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined text-lg">pool</span>
+<span class="text-xs font-semibold">Clubhouse</span>
+</div>
+</div>
+<button class="text-primary font-bold text-sm flex items-center gap-1 hover:underline">
+                                    Details
+                                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:shadow-xl hover:shadow-primary/5 transition-all bg-white dark:bg-slate-800">
+<div class="relative h-56 overflow-hidden">
+<img alt="Santiago Skyline Suites" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="3D render of a technical modern complex with structural foundation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw5aFEs8h4btq2s4flJx5Vvf4lGLlzXQWn0xWxc4NL77V75zg_ptUq6M3iEtmBM7Ema-sGcG2m28UOOk63OGvB0I5uegSJB0Q4smGlXpygtTkLvAAt22OMcCxjEYgPDllzKiop-BOUR_YgnGs5MQxDYAxbyK0cDKqYJvw75qmiAf51rZnT0lEhbNzUQaHjac0yP-xlpPVQPEe8RP2EkIOYx4T3s4zjQvpUTFSEC-Kr4hXxy7gb8ImVKR8ABBA7qgvmjpimfPxlcsI"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-amber-500/90 text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Foundation Stage</span>
+<span class="bg-slate-500/90 text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Q2 2026</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-lg font-bold group-hover:text-primary transition-colors leading-tight">Santiago Skyline Suites</h3>
+<p class="text-slate-500 text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                        Achada Santo António • Atlantic Devs
+                                    </p>
+</div>
+<div class="text-right">
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">Starting from</p>
+<p class="text-primary font-extrabold text-lg">9.800.000 CVE</p>
+</div>
+</div>
+<div class="mt-4 space-y-2">
+<div class="flex justify-between text-xs font-bold">
+<span class="text-slate-600 dark:text-slate-400">Construction Progress</span>
+<span class="text-primary">15%</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 15%"></div>
+</div>
+</div>
+<div class="mt-5 pt-4 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between">
+<div class="flex gap-4">
+<div class="flex items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined text-lg">home</span>
+<span class="text-xs font-semibold">Lofts - T2</span>
+</div>
+<div class="flex items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined text-lg">fitness_center</span>
+<span class="text-xs font-semibold">Gym</span>
+</div>
+</div>
+<button class="text-primary font-bold text-sm flex items-center gap-1 hover:underline">
+                                    Details
+                                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:shadow-xl hover:shadow-primary/5 transition-all bg-white dark:bg-slate-800">
+<div class="relative h-56 overflow-hidden">
+<img alt="Planalto Premium" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="High-end skyscraper render in Cape Verde" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwGyCmRVvXEWXo-aC0SlNYEgXvpw1QGqDwvC2zbxhKTglZ5fjcVnKB4ymwnwj1sy8FxxRW9cLrpAntX6bsHNHYfAvz2HrvJk8lxmD-NLB5woLVEvpf8m1rwdsGBy_v3UCA7Mz3JJhgW8WJedEgjIaHGIcXciU6gb0XjN3ZWl8tNPPLqP8KVPWXfMfrjQ2Qy35MMLAf-A4om60d1p10VsCUqI-0IwJKtteaVwbnDU2FGEbLu1YE5lnmnojVNT16era616UwmqPz5Z8"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-blue-600/90 text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Structural Phase</span>
+<span class="bg-emerald-500/90 text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Q1 2025</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-lg font-bold group-hover:text-primary transition-colors leading-tight">Planalto Premium</h3>
+<p class="text-slate-500 text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                        Palmarejo Baixo • Cape Homes
+                                    </p>
+</div>
+<div class="text-right">
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">Starting from</p>
+<p class="text-primary font-extrabold text-lg">15.200.000 CVE</p>
+</div>
+</div>
+<div class="mt-4 space-y-2">
+<div class="flex justify-between text-xs font-bold">
+<span class="text-slate-600 dark:text-slate-400">Construction Progress</span>
+<span class="text-primary">45%</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 45%"></div>
+</div>
+</div>
+<div class="mt-5 pt-4 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between">
+<div class="flex gap-4">
+<div class="flex items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined text-lg">garage</span>
+<span class="text-xs font-semibold">2 Parking</span>
+</div>
+<div class="flex items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined text-lg">security</span>
+<span class="text-xs font-semibold">24h CCTV</span>
+</div>
+</div>
+<button class="text-primary font-bold text-sm flex items-center gap-1 hover:underline">
+                                    Details
+                                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Column: Map -->
+<section class="hidden lg:block flex-1 relative bg-slate-200 dark:bg-slate-800">
+<!-- Simulated Map View -->
+<div class="absolute inset-0 grayscale contrast-125 opacity-40 mix-blend-multiply pointer-events-none" data-alt="Monochrome topographical map of Santiago island" data-location="Santiago, Cape Verde" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDR4IuK89Vfupks3o81M0_aZmuSvCSUOhQqGOxm5s3UXlsrJXbIPjx2D8qWvfcbVPZy_HdEdkVJF-sWUS_FvcEgNT9dp7wxRlfXEERufW5QKgUk6HJcYMuV_jCRnyuRK2ZltD1feTsI4Ubb-UsZCN8Amw9W50YMhuCMSZJP2EbfzRTLj4zq8EniNxjhMWYr9Cc8_VRvFH8CwAYDvzIiMq0QPwCPprX9vVhxWm6CX7XCVNiSXNUG7w026bad6OvMm7fpemw0hoswBq4'); background-size: cover; background-position: center;">
+</div>
+<div class="absolute inset-0 bg-primary/5"></div>
+<!-- Map Controls -->
+<div class="absolute top-4 right-4 flex flex-col gap-2">
+<button class="bg-white dark:bg-slate-900 size-10 rounded-lg shadow-lg flex items-center justify-center hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="bg-white dark:bg-slate-900 size-10 rounded-lg shadow-lg flex items-center justify-center hover:text-primary transition-colors">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<button class="bg-white dark:bg-slate-900 size-10 rounded-lg shadow-lg flex items-center justify-center hover:text-primary transition-colors mt-4">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+</div>
+<!-- Custom Map Pins (Simulated) -->
+<!-- Prainha Area -->
+<div class="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2">
+<div class="relative group cursor-pointer">
+<div class="bg-primary text-white font-bold text-xs px-2 py-1 rounded shadow-lg flex items-center gap-1 animate-pulse">
+<span class="material-symbols-outlined text-sm">home</span>
+                        Ocean View
+                    </div>
+<div class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-primary mx-auto"></div>
+</div>
+</div>
+<!-- Cluster Pin -->
+<div class="absolute top-[60%] left-[45%]">
+<div class="bg-primary/20 p-4 rounded-full border border-primary/40 flex items-center justify-center">
+<div class="size-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm shadow-xl">
+                        12
+                    </div>
+</div>
+</div>
+<!-- Achada area -->
+<div class="absolute top-[40%] left-[40%]">
+<div class="relative group cursor-pointer opacity-80">
+<div class="bg-slate-900 text-white font-bold text-xs px-2 py-1 rounded shadow-lg flex items-center gap-1">
+                        Achada Skyline
+                    </div>
+<div class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-slate-900 mx-auto"></div>
+</div>
+</div>
+<!-- Map Legend/Overlay -->
+<div class="absolute bottom-6 left-6 right-6">
+<div class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-4 rounded-xl border border-white/20 shadow-2xl flex items-center justify-between">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="size-3 rounded-full bg-primary"></span>
+<span class="text-xs font-bold uppercase tracking-tight">Active Project</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="size-3 rounded-full bg-amber-500"></span>
+<span class="text-xs font-bold uppercase tracking-tight">Foundation</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="size-3 rounded-full bg-emerald-500"></span>
+<span class="text-xs font-bold uppercase tracking-tight">Ready Soon</span>
+</div>
+</div>
+<div class="hidden md:block">
+<p class="text-[10px] text-slate-500 font-medium">Map data © 2024 CartoCV. Satellite imagery from Airbus.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Mobile Action Button (Only visible on small screens) -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 lg:hidden">
+<button class="bg-slate-900 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 font-bold transition-transform active:scale-95">
+<span class="material-symbols-outlined">map</span>
+            Show Map
+        </button>
+</div>
+</body></html>

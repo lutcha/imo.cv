@@ -31,7 +31,8 @@
     "noResults": "No properties found. Adjust filters.",
     "useSliders": "Sliders",
     "exactValues": "Exact values",
-    "searchButton": "Search"
+    "searchButton": "Search",
+    "placeholderLocation": "Island, city or area"
   },
   "property": {
     "bedrooms": "Bedrooms",
@@ -47,13 +48,46 @@
   "nav": {
     "home": "Home",
     "search": "Search",
+    "buy": "Buy",
+    "rent": "Rent",
+    "vacation": "Holiday Rentals",
+    "newConstruction": "New Construction",
+    "agents": "Agents",
     "agentArea": "Agent Area",
+    "listProperty": "List property",
     "login": "Log in",
     "register": "Register",
     "dashboard": "Dashboard",
     "properties": "Properties",
     "leads": "Leads",
     "settings": "Settings"
+  },
+  "home": {
+    "heroTitle": "Property Market Cape Verde",
+    "heroSubtitle": "The largest national aggregator. Search by map, save favourites and contact verified agents.",
+    "viewListings": "View listings",
+    "searchOnMap": "Search on map",
+    "feature1Title": "Smart search",
+    "feature1Desc": "Filter by island, price, bedrooms and more. View results on map or list.",
+    "feature2Title": "Verified agents",
+    "feature2Desc": "Contact agents and trusted agencies across the archipelago directly.",
+    "feature3Title": "100% free",
+    "feature3Desc": "For buyers and tenants. No hidden costs.",
+    "featuredTitle": "Featured properties",
+    "viewAll": "View all",
+    "ctaAgentTitle": "Are you an agent or agency?",
+    "ctaAgentDesc": "Join the platform and promote your properties across the country.",
+    "ctaAgentButton": "Agent Area",
+    "listProperty": "List property"
+  },
+  "footer": {
+    "searchProperties": "Search properties",
+    "about": "About us",
+    "contact": "Contact",
+    "blog": "Blog",
+    "tagline": "The largest national aggregator. Search, compare and find your property in Cape Verde.",
+    "copyright": "All rights reserved.",
+    "agentArea": "Agent Area"
   },
   "registerProperty": {
     "title": "Register property",
@@ -67,7 +101,8 @@
     "listingType": "Listing type",
     "rent": "Rent",
     "sale": "Sale",
-    "vacation": "Vacation",
+    "vacation": "Vacation rental",
+    "newConstruction": "New construction",
     "address": "Address",
     "addressPlaceholder": "Street, number, island…",
     "latitude": "Latitude",
@@ -91,5 +126,109 @@
     "successMessage": "The property was saved as draft. You can edit it in the properties list.",
     "viewList": "View properties list",
     "errorSubmit": "Error registering. Please try again."
+  },
+  "solutions": {
+    "badge": "B2B Platform",
+    "title": "Solutions for every need",
+    "subtitle": "Professional tools for agencies, condominium managers and investors in the Cape Verde real estate market.",
+    "footer": "All plans include Portuguese support. No setup costs.",
+    "crm": {
+      "title": "CRM for Agencies",
+      "description": "Complete platform for managing properties, leads and clients. Boost your conversion rate with a visual sales funnel.",
+      "feat1": "Real-time performance dashboard",
+      "feat2": "Kanban sales funnel",
+      "feat3": "WhatsApp lead management",
+      "feat4": "Conversion reports",
+      "plan1f1": "5 properties",
+      "plan1f2": "Basic CRM",
+      "plan1f3": "3 users",
+      "plan2f1": "Unlimited properties",
+      "plan2f2": "Advanced analytics",
+      "plan2f3": "Full pipeline"
+    },
+    "condo": {
+      "title": "Condominium Management",
+      "description": "Complete system for condominium administrators. Simplify billing, communication and meetings.",
+      "feat1": "Online fee payments",
+      "feat2": "Common area booking",
+      "feat3": "Financial reports",
+      "feat4": "Digital voting",
+      "perUnit": "per unit/month",
+      "plan1f1": "Unit management",
+      "plan1f2": "Invoice generation",
+      "plan1f3": "Central communication",
+      "plan2f1": "Everything in Basic",
+      "plan2f2": "Financial reports",
+      "plan2f3": "Voting system"
+    },
+    "mi": {
+      "title": "Market Intelligence",
+      "description": "Exclusive data and insights on the Cape Verde real estate market. Make informed investment decisions.",
+      "feat1": "Price index by island",
+      "feat2": "Demand heatmaps",
+      "feat3": "Quarterly reports",
+      "feat4": "Market trends",
+      "plan1f1": "Basic access",
+      "plan1f2": "1 report/month",
+      "plan1f3": "Data by island",
+      "plan2f1": "Full access",
+      "plan2f2": "Custom reports",
+      "plan2f3": "Data API"
+    }
+  },
+  "agent": {
+    "dashboard": {
+      "title": "Dashboard",
+      "addProperty": "Add property",
+      "kpiActiveProperties": "Active properties",
+      "kpiActiveLeads": "Active leads",
+      "kpiClosedDeals": "Closed deals (month)",
+      "kpiRevenue": "Revenue (month)",
+      "loadingKpis": "Loading KPIs…",
+      "errorKpis": "Error loading metrics. Please try again."
+    },
+    "leads": {
+      "title": "Lead pipeline",
+      "newLead": "New lead",
+      "hint": "Drag cards between columns to update status. Click a lead to view details and interactions."
+    },
+    "leadDetail": {
+      "backToPipeline": "Back to pipeline",
+      "notFound": "Lead not found.",
+      "loading": "Loading…",
+      "email": "Email",
+      "phone": "Phone",
+      "status": "Status",
+      "priority": "Priority",
+      "propertyOfInterest": "Property of interest",
+      "notes": "Notes",
+      "source": "Source",
+      "newInteraction": "New interaction",
+      "interactionType": "Type",
+      "summary": "Summary",
+      "summaryPlaceholder": "Interaction summary",
+      "description": "Description",
+      "descriptionPlaceholder": "Optional details",
+      "followUp": "Next follow-up",
+      "registerInteraction": "Log interaction",
+      "saving": "Saving…",
+      "interactionHistory": "Interaction history",
+      "noInteractions": "No interactions yet.",
+      "followUpLabel": "Follow-up",
+      "typeCall": "Call",
+      "typeEmail": "Email",
+      "typeWhatsapp": "WhatsApp",
+      "typeMeeting": "Meeting",
+      "typeVisit": "Property visit",
+      "typeOther": "Other"
+    },
+    "kanban": {
+      "new": "New",
+      "contacted": "Contacted",
+      "visitScheduled": "Visit scheduled",
+      "proposalSent": "Proposal sent",
+      "closedWon": "Won",
+      "closedLost": "Lost"
+    }
   }
 }

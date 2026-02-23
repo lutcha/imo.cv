@@ -56,6 +56,8 @@ INSTALLED_APPS = [
     'properties',
     'leads',
     'crm',
+    'analytics',
+    'condominiums',
 ]
 
 SHARED_APPS = (
@@ -72,6 +74,8 @@ SHARED_APPS = (
     'django.contrib.admin',
     'django.contrib.staticfiles',
     'django.contrib.gis',
+    'rest_framework',
+    'rest_framework_simplejwt',
 )
 
 TENANT_APPS = (
@@ -82,6 +86,7 @@ TENANT_APPS = (
     'properties',
     'leads',
     'crm',
+    'condominiums',
     'rest_framework',
     'rest_framework_gis',
 )
@@ -183,3 +188,25 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # Custom User Model
 AUTH_USER_MODEL = 'core.User'
+
+# Django does NOT redirect /api/foo → /api/foo/ because Next.js proxy
+# strips trailing slashes (308) before forwarding to Django, making the
+# APPEND_SLASH redirect produce a broken Location header.
+APPEND_SLASH = False
+
+# Django REST Framework
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 24,
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+}
+
+from datetime import timedelta
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
+    'AUTH_HEADER_TYPES': ('Bearer',),
+}

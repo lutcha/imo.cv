@@ -31,7 +31,8 @@
     "noResults": "Nenhum imóvel encontrado. Ajuste os filtros.",
     "useSliders": "Sliders",
     "exactValues": "Valores exatos",
-    "searchButton": "Pesquisar"
+    "searchButton": "Pesquisar",
+    "placeholderLocation": "Ilha, cidade ou zona"
   },
   "property": {
     "bedrooms": "Quartos",
@@ -47,13 +48,46 @@
   "nav": {
     "home": "Início",
     "search": "Pesquisar",
+    "buy": "Comprar",
+    "rent": "Arrendar",
+    "vacation": "Férias",
+    "newConstruction": "Novas Construções",
+    "agents": "Agentes",
     "agentArea": "Área Agente",
+    "listProperty": "Anunciar imóvel",
     "login": "Entrar",
     "register": "Registar",
     "dashboard": "Dashboard",
     "properties": "Imóveis",
     "leads": "Leads",
     "settings": "Configurações"
+  },
+  "home": {
+    "heroTitle": "Mercado Imobiliário de Cabo Verde",
+    "heroSubtitle": "O maior agregador nacional. Pesquisa por mapa, guarda favoritos e contacta agentes verificados.",
+    "viewListings": "Ver imóveis",
+    "searchOnMap": "Pesquisar no mapa",
+    "feature1Title": "Pesquisa inteligente",
+    "feature1Desc": "Filtra por ilha, preço, quartos e muito mais. Vê resultados no mapa ou em lista.",
+    "feature2Title": "Agentes verificados",
+    "feature2Desc": "Contacta diretamente agentes e agências de confiança em todo o arquipélago.",
+    "feature3Title": "100% gratuito",
+    "feature3Desc": "Para compradores e arrendatários. Sem custos ocultos.",
+    "featuredTitle": "Imóveis em destaque",
+    "viewAll": "Ver todos",
+    "ctaAgentTitle": "És agente ou agência?",
+    "ctaAgentDesc": "Junta-te à plataforma e divulga os teus imóveis em todo o país.",
+    "ctaAgentButton": "Área Agente",
+    "listProperty": "Anunciar imóvel"
+  },
+  "footer": {
+    "searchProperties": "Pesquisar imóveis",
+    "about": "Sobre nós",
+    "contact": "Contacto",
+    "blog": "Blog",
+    "tagline": "O maior agregador nacional. Pesquisa, compara e encontra o teu imóvel em Cabo Verde.",
+    "copyright": "Todos os direitos reservados.",
+    "agentArea": "Área Agente"
   },
   "registerProperty": {
     "title": "Registar imóvel",
@@ -68,6 +102,7 @@
     "rent": "Arrendamento",
     "sale": "Venda",
     "vacation": "Férias",
+    "newConstruction": "Novas Construções",
     "address": "Morada",
     "addressPlaceholder": "Rua, número, ilha…",
     "latitude": "Latitude",
@@ -91,5 +126,109 @@
     "successMessage": "O imóvel foi guardado como rascunho. Pode editá-lo na lista de imóveis.",
     "viewList": "Ver lista de imóveis",
     "errorSubmit": "Erro ao registar. Tente novamente."
+  },
+  "solutions": {
+    "badge": "Plataforma B2B",
+    "title": "Soluções para cada necessidade",
+    "subtitle": "Ferramentas profissionais para agências, administradores de condomínios e investidores do mercado imobiliário cabo-verdiano.",
+    "footer": "Todos os planos incluem suporte em português. Sem custos de implementação.",
+    "crm": {
+      "title": "CRM para Agências",
+      "description": "Plataforma completa para gestão de imóveis, leads e clientes. Aumenta a tua taxa de conversão com um funil de vendas visual.",
+      "feat1": "Dashboard de desempenho em tempo real",
+      "feat2": "Funil de vendas Kanban",
+      "feat3": "Gestão de leads por WhatsApp",
+      "feat4": "Relatórios de conversão",
+      "plan1f1": "5 imóveis",
+      "plan1f2": "CRM básico",
+      "plan1f3": "3 utilizadores",
+      "plan2f1": "Imóveis ilimitados",
+      "plan2f2": "Analytics avançado",
+      "plan2f3": "Pipeline completo"
+    },
+    "condo": {
+      "title": "Gestão de Condomínios",
+      "description": "Sistema completo para administradores de condomínios. Simplifica cobranças, comunicação e assembleias.",
+      "feat1": "Pagamento de quotas online",
+      "feat2": "Reserva de áreas comuns",
+      "feat3": "Relatórios financeiros",
+      "feat4": "Votação digital em assembleias",
+      "perUnit": "por unidade/mês",
+      "plan1f1": "Gestão de unidades",
+      "plan1f2": "Emissão de faturas",
+      "plan1f3": "Comunicação centralizada",
+      "plan2f1": "Tudo no Básico",
+      "plan2f2": "Relatórios financeiros",
+      "plan2f3": "Sistema de votação"
+    },
+    "mi": {
+      "title": "Market Intelligence",
+      "description": "Dados e insights exclusivos do mercado imobiliário de Cabo Verde. Toma decisões de investimento informadas.",
+      "feat1": "Índice de preços por ilha",
+      "feat2": "Heatmaps de demanda",
+      "feat3": "Relatórios trimestrais",
+      "feat4": "Tendências de mercado",
+      "plan1f1": "Acesso básico",
+      "plan1f2": "1 relatório/mês",
+      "plan1f3": "Dados por ilha",
+      "plan2f1": "Acesso completo",
+      "plan2f2": "Relatórios personalizados",
+      "plan2f3": "API de dados"
+    }
+  },
+  "agent": {
+    "dashboard": {
+      "title": "Dashboard",
+      "addProperty": "Adicionar imóvel",
+      "kpiActiveProperties": "Imóveis ativos",
+      "kpiActiveLeads": "Leads ativos",
+      "kpiClosedDeals": "Negócios fechados (mês)",
+      "kpiRevenue": "Receita (mês)",
+      "loadingKpis": "A carregar KPIs…",
+      "errorKpis": "Erro ao carregar indicadores. Tente novamente."
+    },
+    "leads": {
+      "title": "Pipeline de leads",
+      "newLead": "Novo lead",
+      "hint": "Arrasta os cartões entre colunas para atualizar o estado. Clica num lead para ver detalhe e interações."
+    },
+    "leadDetail": {
+      "backToPipeline": "Voltar ao pipeline",
+      "notFound": "Lead não encontrado.",
+      "loading": "A carregar…",
+      "email": "E-mail",
+      "phone": "Telefone",
+      "status": "Estado",
+      "priority": "Prioridade",
+      "propertyOfInterest": "Imóvel de interesse",
+      "notes": "Notas",
+      "source": "Origem",
+      "newInteraction": "Nova interação",
+      "interactionType": "Tipo",
+      "summary": "Resumo",
+      "summaryPlaceholder": "Resumo da interação",
+      "description": "Descrição",
+      "descriptionPlaceholder": "Detalhes opcionais",
+      "followUp": "Próximo follow-up",
+      "registerInteraction": "Registar interação",
+      "saving": "A guardar…",
+      "interactionHistory": "Histórico de interações",
+      "noInteractions": "Ainda não há interações.",
+      "followUpLabel": "Follow-up",
+      "typeCall": "Chamada",
+      "typeEmail": "E-mail",
+      "typeWhatsapp": "WhatsApp",
+      "typeMeeting": "Reunião",
+      "typeVisit": "Visita ao imóvel",
+      "typeOther": "Outro"
+    },
+    "kanban": {
+      "new": "Novos",
+      "contacted": "Contactados",
+      "visitScheduled": "Visita agendada",
+      "proposalSent": "Proposta enviada",
+      "closedWon": "Ganhos",
+      "closedLost": "Perdidos"
+    }
   }
 }

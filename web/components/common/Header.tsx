@@ -1,13 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import {
   Bars3Icon,
   XMarkIcon,
   UserCircleIcon,
   SunIcon,
   MoonIcon,
+  ChevronDownIcon,
 } from '@heroicons/react/24/outline';
 import { useAuthStore } from '@/lib/store/authStore';
 import { useUIStore } from '@/lib/store/uiStore';
@@ -21,10 +22,68 @@ interface HeaderProps {
   transparent?: boolean;
 }
 
-const LOCALES = [{ code: 'pt' as const, label: 'PT' }, { code: 'en' as const, label: 'EN' }, { code: 'fr' as const, label: 'FR' }];
+const LOCALES = [
+  { code: 'pt' as const, label: 'PT' },
+  { code: 'en' as const, label: 'EN' },
+  { code: 'fr' as const, label: 'FR' },
+];
+
+const SOLUTIONS = [
+  { href: '/solucoes/crm', label: 'CRM para Agências', color: '#005baa' },
+  { href: '/solucoes/condominios', label: 'Gestão de Condomínios', color: '#008542' },
+  { href: '/solucoes/market-intelligence', label: 'Market Intelligence', color: '#1e3b8a' },
+];
+
+function SolucoesDropdown() {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    }
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, []);
+
+  return (
+    <div ref={ref} className="relative hidden lg:block">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className="flex items-center gap-1 text-sm text-gray-600 transition-colors hover:text-[#005baa] dark:text-gray-400 dark:hover:text-white"
+      >
+        Soluções
+        <ChevronDownIcon
+          className={`h-3.5 w-3.5 transition-transform duration-150 ${open ? 'rotate-180' : ''}`}
+        />
+      </button>
+
+      {open && (
+        <div className="absolute left-0 top-full z-50 mt-2 w-56 rounded-xl border border-gray-200 bg-white py-2 shadow-lg dark:border-gray-700 dark:bg-gray-900">
+          {SOLUTIONS.map((s) => (
+            <Link
+              key={s.href}
+              href={s.href}
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 transition-colors hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-800"
+            >
+              <span
+                className="inline-block h-2 w-2 rounded-full"
+                style={{ backgroundColor: s.color }}
+              />
+              {s.label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export function Header({ variant = 'public', transparent = false }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileSolucoesOpen, setMobileSolucoesOpen] = useState(false);
   const { user, logout } = useAuthStore();
   const { t, locale, setLocale } = useTranslation();
   const isAgent = variant === 'agent' && user;
@@ -41,71 +100,108 @@ export function Header({ variant = 'public', transparent = false }: HeaderProps)
       )}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
+        {/* Logo */}
         <Link
           href="/"
-          className="text-xl font-bold text-imo-dark dark:text-primary-blue-300"
+          className="shrink-0 text-xl font-black"
+          style={{ color: '#005baa' }}
         >
           imo.cv
         </Link>
 
-        {/* Desktop: inline search (public only, hidden on small) */}
+        {/* Desktop: inline search (public only) */}
         {variant === 'public' && (
           <div className="hidden flex-1 max-w-xl lg:block">
             <SearchBar variant="inline" />
           </div>
         )}
 
-        <nav className="flex items-center gap-2 sm:gap-4">
+        <nav className="flex items-center gap-2 sm:gap-3">
           {variant === 'public' && (
             <>
+              {/* Soluções dropdown */}
+              <SolucoesDropdown />
+
               <Link
-                href="/search"
-                className="hidden text-gray-600 hover:text-imo-primary dark:text-gray-400 dark:hover:text-primary-blue-400 sm:inline"
+                href="/search?listing_type=sale"
+                className="hidden text-sm text-gray-600 hover:text-[#005baa] dark:text-gray-400 dark:hover:text-white sm:inline"
               >
-                {t('nav.search')}
+                {t('nav.buy')}
               </Link>
               <Link
-                href="/agente"
-                className="text-gray-600 hover:text-imo-primary dark:text-gray-400 dark:hover:text-primary-blue-400"
+                href="/search?listing_type=rent"
+                className="hidden text-sm text-gray-600 hover:text-[#005baa] dark:text-gray-400 dark:hover:text-white sm:inline"
+              >
+                {t('nav.rent')}
+              </Link>
+              <Link
+                href="/ferias"
+                className="hidden text-sm text-gray-600 hover:text-[#005baa] dark:text-gray-400 dark:hover:text-white xl:inline"
+              >
+                {t('nav.vacation') ?? 'Férias'}
+              </Link>
+              <Link
+                href="/simuladores"
+                className="hidden text-sm text-gray-600 hover:text-[#005baa] dark:text-gray-400 dark:hover:text-white xl:inline"
+              >
+                Simuladores
+              </Link>
+              <Link
+                href="/agente/login"
+                className="hidden text-sm text-gray-600 hover:text-[#005baa] dark:text-gray-400 dark:hover:text-white md:inline"
               >
                 {t('nav.agentArea')}
               </Link>
+              {/* Primary CTA — imo-orange */}
+              <Link
+                href={user ? '/agente/imoveis/novo' : '/agente/login'}
+                className="hidden sm:inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-bold text-white shadow-sm transition-all hover:brightness-110"
+                style={{ backgroundColor: '#ec7f13' }}
+              >
+                Começar agora
+              </Link>
             </>
           )}
+
           {isAgent && (
             <>
               <Link
                 href="/agente"
-                className="text-gray-600 hover:text-imo-primary dark:text-gray-400"
+                className="text-sm text-gray-600 hover:text-[#005baa] dark:text-gray-400"
               >
                 {t('nav.dashboard')}
               </Link>
               <Link
                 href="/agente/imoveis"
-                className="text-gray-600 hover:text-imo-primary dark:text-gray-400"
+                className="text-sm text-gray-600 hover:text-[#005baa] dark:text-gray-400"
               >
                 {t('nav.properties')}
               </Link>
               <Link
                 href="/agente/leads"
-                className="text-gray-600 hover:text-imo-primary dark:text-gray-400"
+                className="text-sm text-gray-600 hover:text-[#005baa] dark:text-gray-400"
               >
                 {t('nav.leads')}
               </Link>
             </>
           )}
-          <div className="flex items-center gap-0.5 rounded-lg border border-gray-200 bg-gray-50 p-0.5 dark:border-gray-600 dark:bg-gray-800" role="group" aria-label="Idioma">
+
+          {/* Locale switcher */}
+          <div
+            className="flex items-center gap-0.5 rounded-lg border border-gray-200 bg-gray-50 p-0.5 dark:border-gray-600 dark:bg-gray-800"
+            role="group"
+            aria-label="Idioma"
+          >
             {LOCALES.map(({ code, label }) => (
               <button
                 key={code}
                 type="button"
                 onClick={() => setLocale(code)}
-                aria-label={code === 'pt' ? 'Português' : code === 'en' ? 'English' : 'Français'}
                 aria-pressed={locale === code}
                 className={cn(
                   'rounded px-2 py-1 text-xs font-medium transition',
                   locale === code
-                    ? 'bg-white text-primary-blue-600 shadow dark:bg-gray-700 dark:text-primary-blue-400'
+                    ? 'bg-white text-[#005baa] shadow dark:bg-gray-700 dark:text-blue-400'
                     : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white'
                 )}
               >
@@ -113,58 +209,44 @@ export function Header({ variant = 'public', transparent = false }: HeaderProps)
               </button>
             ))}
           </div>
+
+          {/* Dark mode toggle */}
           <button
             type="button"
             onClick={toggleDarkMode}
             className="rounded-lg p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800"
             aria-label={darkMode ? 'Modo claro' : 'Modo escuro'}
           >
-            {darkMode ? (
-              <SunIcon className="h-5 w-5" />
-            ) : (
-              <MoonIcon className="h-5 w-5" />
-            )}
+            {darkMode ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}
           </button>
+
+          {/* Auth */}
           {user ? (
             <div className="flex items-center gap-2">
               <span className="hidden text-sm text-gray-600 dark:text-gray-400 sm:inline">
                 {user.name}
               </span>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => logout()}
-                className="flex items-center gap-1"
-              >
+              <Button variant="ghost" size="sm" onClick={() => logout()} className="flex items-center gap-1">
                 <UserCircleIcon className="h-5 w-5" />
                 Sair
               </Button>
             </div>
           ) : (
-            <>
-              <Link href="/agente/login">
-                <Button variant="ghost" size="sm">
-                  {t('nav.login')}
-                </Button>
-              </Link>
-              <Link href="/agente/login">
-                <Button variant="primary" size="sm">
-                  {t('nav.register')}
-                </Button>
-              </Link>
-            </>
+            <Link href="/agente/login">
+              <Button variant="ghost" size="sm">
+                {t('nav.login')}
+              </Button>
+            </Link>
           )}
+
+          {/* Mobile menu toggle */}
           <button
             type="button"
             className="rounded-lg p-2 text-gray-600 lg:hidden"
             onClick={() => setMobileOpen((o) => !o)}
             aria-label={mobileOpen ? 'Fechar menu' : 'Abrir menu'}
           >
-            {mobileOpen ? (
-              <XMarkIcon className="h-6 w-6" />
-            ) : (
-              <Bars3Icon className="h-6 w-6" />
-            )}
+            {mobileOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
           </button>
         </nav>
       </div>
@@ -174,24 +256,89 @@ export function Header({ variant = 'public', transparent = false }: HeaderProps)
         <div className="border-t border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900 lg:hidden">
           <div className="space-y-1 px-4 py-3">
             {variant === 'public' && (
-              <div className="pb-2">
-                <SearchBar variant="inline" />
-              </div>
+              <>
+                <div className="pb-2">
+                  <SearchBar variant="inline" />
+                </div>
+
+                {/* Soluções accordion in mobile */}
+                <button
+                  type="button"
+                  className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                  onClick={() => setMobileSolucoesOpen((o) => !o)}
+                >
+                  <span className="font-medium">Soluções</span>
+                  <ChevronDownIcon
+                    className={`h-4 w-4 transition-transform ${mobileSolucoesOpen ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                {mobileSolucoesOpen && (
+                  <div className="ml-3 space-y-1 border-l-2 pl-3" style={{ borderColor: '#005baa' }}>
+                    {SOLUTIONS.map((s) => (
+                      <Link
+                        key={s.href}
+                        href={s.href}
+                        className="block rounded-lg px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300"
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        {s.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+
+                <Link
+                  href="/search?listing_type=sale"
+                  className="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {t('nav.buy')}
+                </Link>
+                <Link
+                  href="/search?listing_type=rent"
+                  className="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {t('nav.rent')}
+                </Link>
+                <Link
+                  href="/ferias"
+                  className="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {t('nav.vacation') ?? 'Férias'}
+                </Link>
+                <Link
+                  href="/obras-novas"
+                  className="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {t('nav.newConstruction') ?? 'Novas Construções'}
+                </Link>
+                <Link
+                  href="/simuladores"
+                  className="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Simuladores
+                </Link>
+                <Link
+                  href="/agente/login"
+                  className="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {t('nav.agentArea')}
+                </Link>
+                <Link
+                  href={user ? '/agente/imoveis/novo' : '/agente/login'}
+                  className="block rounded-lg px-3 py-2 text-center font-bold text-white"
+                  style={{ backgroundColor: '#ec7f13' }}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Começar agora
+                </Link>
+              </>
             )}
-            <Link
-              href="/search"
-              className="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
-              onClick={() => setMobileOpen(false)}
-            >
-              {t('nav.search')}
-            </Link>
-            <Link
-              href="/agente"
-              className="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
-              onClick={() => setMobileOpen(false)}
-            >
-              {t('nav.agentArea')}
-            </Link>
           </div>
         </div>
       )}

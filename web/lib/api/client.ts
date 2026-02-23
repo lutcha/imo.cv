@@ -1,9 +1,38 @@
 import axios from 'axios';
 
+// Browser: proxy through Next.js rewrite at /api/backend → Django /api
+// Server (SSR): direct call to Django, must include /api prefix
+const SSR_API_BASE =
+  (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000') + '/api';
+
 const API_BASE_URL =
-  typeof window !== 'undefined'
-    ? '/api/backend'
-    : process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+  typeof window !== 'undefined' ? '/api/backend' : SSR_API_BASE;
+
+/**
+ * Server-side GET using native fetch.
+ *
+ * Axios uses the legacy `url.parse()` in its Node.js http adapter which
+ * triggers DEP0169 on Node 22+.  On the server we bypass axios entirely and
+ * hit the Django API directly with the WHATWG URL + fetch APIs.
+ */
+export async function ssrGet<T>(
+  path: string,
+  params?: Record<string, string | number | boolean | undefined>
+): Promise<T> {
+  const base = SSR_API_BASE.replace(/\/$/, '');
+  const urlObj = new URL(base + (path.startsWith('/') ? path : `/${path}`));
+  if (params) {
+    for (const [k, v] of Object.entries(params)) {
+      if (v !== undefined) urlObj.searchParams.set(k, String(v));
+    }
+  }
+  const res = await fetch(urlObj.toString(), {
+    headers: { Accept: 'application/json' },
+    cache: 'no-store',
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status} – ${path}`);
+  return res.json() as Promise<T>;
+}
 
 export const apiClient = axios.create({
   baseURL: typeof window !== 'undefined' ? '' : API_BASE_URL,

@@ -1,6 +1,6 @@
-// Cabo Verde (lat, lon) for Leaflet; GeoJSON uses [lon, lat]
+// Cape Verde center coordinates
 export const mapboxConfig = {
-  defaultCenter: [15.1152, -23.5138] as [number, number],
-  defaultZoom: 9,
-  style: 'mapbox://styles/mapbox/light-v11',
+  defaultCenter: [16.0, -24.0] as [number, number],
+  defaultZoom: 8,
+  token: process.env.NEXT_PUBLIC_MAPBOX_TOKEN || '',
 };

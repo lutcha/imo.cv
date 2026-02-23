@@ -6,23 +6,34 @@ import { HeartIcon, ShareIcon } from '@heroicons/react/24/outline';
 import { formatPrice, formatArea } from '@/lib/utils/formatters';
 import type { PropertyListItem } from '@/types/property';
 import { cn } from '@/lib/utils/helpers';
+import { getThemedImages, getFallbackPicsum } from '@/lib/utils/propertyImages';
 
 interface PropertyCardProps {
   property: PropertyListItem;
   variant?: 'grid' | 'list' | 'compact';
   showActions?: boolean;
   onClick?: () => void;
+  /** Set for first card in list to improve LCP */
+  priority?: boolean;
 }
 
-const placeholderImage = '/images/placeholder-property.svg';
+/** Uma imagem temática por tipo de imóvel ou fallback picsum. */
+function getPlaceholderImage(id: string, propertyType?: string | null): string {
+  const themed = getThemedImages(id, 1, propertyType);
+  if (themed[0]?.startsWith('/')) return themed[0];
+  return getFallbackPicsum(id, 1)[0];
+}
 
 export function PropertyCard({
   property,
   variant = 'grid',
   showActions = true,
+  priority = false,
 }: PropertyCardProps) {
   const href = `/property/${property.id}`;
-  const imageUrl = (property as { main_image?: string }).main_image || placeholderImage;
+  const imageUrl =
+    (property as { main_image?: string }).main_image ||
+    getPlaceholderImage(String(property.id), (property as { property_type?: string }).property_type);
   const isList = variant === 'list';
   const isCompact = variant === 'compact';
 
@@ -38,11 +49,12 @@ export function PropertyCard({
         {/* Next/Image requires width/height or fill; use img for external/placeholder for now */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={imageUrl?.startsWith('http') ? imageUrl : placeholderImage}
+          src={imageUrl}
           alt={property.title}
           className="h-full w-full object-cover transition group-hover:scale-105"
-          loading="lazy"
+          loading={priority ? 'eager' : 'lazy'}
           decoding="async"
+          fetchPriority={priority ? 'high' : undefined}
         />
         {property.featured && (
           <span className="absolute left-2 top-2 rounded bg-primary-gold-500 px-2 py-0.5 text-xs font-medium text-white">

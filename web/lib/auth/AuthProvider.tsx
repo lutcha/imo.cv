@@ -1,11 +1,9 @@
 'use client';
 
 import { createContext, useContext, useMemo } from 'react';
-import { useAuthStore } from '@/lib/store/authStore';
+import { useAuthStore, type AuthState } from '@/lib/store/authStore';
 
-type AuthContextValue = ReturnType<typeof useAuthStore>;
-
-const AuthContext = createContext<AuthContextValue | null>(null);
+const AuthContext = createContext<AuthState | null>(null);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const store = useAuthStore();
@@ -13,7 +11,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
-export function useAuth() {
+export function useAuth(): AuthState {
   const ctx = useContext(AuthContext);
   if (!ctx) throw new Error('useAuth must be used within AuthProvider');
   return ctx;

@@ -1,0 +1,241 @@
+Summary,Description,Issue Type,Priority,Labels,Component,Story Points,Depends On
+[BE-001] Endpoint GET /api/health (DB + Redis),"Criar endpoint de health check para rollback e monitorização. Resposta JSON com status e checks (database, redis).
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Highest,backend defensivo api,Backend,2,
+[BE-002] Health: check opcional Celery,"Incluir no health check indicador opcional do estado do Celery (worker/fila).
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,backend defensivo api,Backend,1,BE-001
+[BE-003] Modelo e storage de Feature Flags,"Persistência de feature flags (DB ou config) para rollback sem redeploy. Ex.: new_search_v2, avm_beta.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Highest,backend defensivo arquitetura,Backend,2,
+[BE-004] API de leitura de Feature Flags (pública),"GET /api/feature-flags/ retorna JSON com estado das flags para o frontend. Cacheável.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Highest,backend defensivo api,Backend,1,BE-003
+[BE-005] API de escrita de Feature Flags (admin),"Endpoint protegido para ativar/desativar flags (rollback rápido). Apenas admin/superuser.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,backend defensivo api,Backend,1,BE-003
+[BE-006] Teste isolamento multi-tenant – Properties,"Teste: agência B não vê/altera imóveis da agência A. 404/403 em GET de recurso de outra agência.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Highest,backend testes defensivo,Backend,2,
+[BE-007] Teste isolamento multi-tenant – Leads,"Teste: agência B não acede a leads da agência A.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Highest,backend testes defensivo,Backend,1,
+[BE-008] Teste resiliência: API sem Redis,"Quando Redis indisponível, endpoints principais retornam 200 com dados válidos (sem cache).
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,backend testes defensivo,Backend,2,
+[BE-009] Documentar passos de rollback no README/runbook,"Secção Rollback em docs/README: desativar flags, validar /api/health, referência script DevOps.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Medium,backend defensivo,Backend,1,
+[BE-010] Adicionar campo usage ao modelo Property,"Campo opcional usage (sale, long_term_rental, short_term_rental, pre_sale). Migração reversível.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,backend arquitetura,Backend,2,
+[BE-011] Adicionar campo type_specific_data (JSON) ao Property,"JSONField para dados por tipologia (férias, new_development, etc.). Opcional.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,backend arquitetura,Backend,1,
+[BE-012] Estender PropertyType/ListingType conforme v02,"Alinhar choices à arquitetura v02 (residential, land, short_term_rental, etc.) de forma incremental.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Medium,backend arquitetura,Backend,5,
+[BE-013] App short_term_rental – modelos,"Criar app Django com modelos para alojamento local (preços sazonais, min noites, taxa limpeza).
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,backend arquitetura,Backend,5,
+[BE-014] API mínima para short-term rental,"Endpoints para listar/filtrar imóveis de férias (ilha, datas, min_noites).
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,backend api,Backend,2,BE-013
+[BE-015] App new_developments – modelos (projeto + unidades),"Modelos NewDevelopment e DevelopmentUnit. Migrações e admin básico.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,backend arquitetura,Backend,5,
+[BE-016] API mínima para novas construções,"GET /api/new-developments/ e detalhe por id. Filtros por ilha e estado.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,backend api,Backend,2,BE-015
+[BE-017] App ou endpoints financing – simulador e lead,"POST /api/financing/simulate/ e /api/financing/pre-approval-lead/. Validação e rate limit opcional.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,backend api arquitetura,Backend,5,
+[BE-018] Endpoint validação concelhos por ilha,"GET /api/geo/municipalities/?island=X retorna concelhos válidos. Cacheável.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,backend api,Backend,1,
+[BE-019] Validação backend: concelho pertence à ilha,"Serializer/model clean: ValidationError se municipality inválido para a island.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Medium,backend defensivo,Backend,1,
+[BE-020] WhatsApp webhook documentado e estável,"Documentação do webhook (URL, assinatura, exemplos). Teste de verificação e tratamento de erros.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Medium,backend api,Backend,2,
+[BE-021] Fallback WhatsApp → SMS (configuração),"Config e ponto de integração para envio SMS quando WhatsApp falhar. Provider opcional.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Low,backend defensivo,Backend,2,
+[FE-001] Leitura de feature flags (env + API),"Helper/hook useFeatureFlags() a partir de NEXT_PUBLIC_FF_* e opcionalmente API. Documentar flags.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Highest,frontend defensivo,Frontend,2,
+"[FE-002] next.config: webpack produção, turbopack só dev","Build de produção usa webpack; turbopack apenas em development. Documentado.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,frontend defensivo,Frontend,1,
+[FE-003] Revisão Server/Client – página detalhe imóvel,"Evitar hydration mismatch: dados no Server Component; window/browser em 'use client' com props.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,frontend defensivo,Frontend,2,
+[FE-004] Revisão Server/Client – página pesquisa,"Mesma revisão para search: client components para mapa e interações; dados iniciais no servidor.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,frontend defensivo,Frontend,2,
+[FE-005] Componente AdaptiveImage,"Imagem que ajusta quality por navigator.connection.effectiveType (2g/3g/4g). Piloto em detalhe imóvel.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Highest,frontend defensivo ux,Frontend,2,
+[FE-006] Fallback do mapa (Mapbox falha ou timeout),"Timeout configurável; em falha mostrar lista ou mapa estático. Sem crash.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,frontend defensivo ux,Frontend,2,
+[FE-007] lib/validation/cv-localization.ts,"formatCurrencyCVE e validateMunicipality. Constantes ilhas/concelhos. Testes opcionais.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Highest,frontend defensivo,Frontend,2,
+[FE-008] Uso de cv-localization em formulários e exibição,"Integrar formatCurrencyCVE e validateMunicipality em forms e exibição de preços.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,frontend defensivo ux,Frontend,1,FE-007
+[FE-009] Cache crítico (ilhas/concelhos + offline),"Cache para dados estáticos e página/componente offline. Documentar estratégia.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,frontend defensivo,Frontend,5,
+[FE-010] Queue de leads offline (IndexedDB + envio ao reconectar),"Guardar lead em IndexedDB se offline; enviar ao ficar online. Toast informativo.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,frontend defensivo ux,Frontend,5,
+[FE-011] Página pública /credito-habitacao,"Rota que usa CreditSimulator. Metadata e i18n (PT/EN/FR).
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Highest,frontend ux,Frontend,1,
+[FE-012] Página Férias – conteúdo e listagem mínima,"Conteúdo estático e listagem quando API existir. Placeholder e link para pesquisa.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Medium,frontend ux,Frontend,2,
+[FE-013] Página Obras novas – conteúdo e listagem mínima,"Idem para novas construções. Conteúdo e metadata; listagem se API existir.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Medium,frontend ux,Frontend,2,
+[FE-014] Formulário Novo imóvel por tipologia,"Campos condicionais por tipo/uso (residencial, terreno, férias, novo projeto). Alinhado à API.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Medium,frontend ux arquitetura,Frontend,5,
+[FE-015] Revisão labels e mensagens de erro (PT/EN/FR),"Formulários e erros traduzidos nos três idiomas. Chaves i18n verificadas.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,frontend ux,Frontend,2,
+[FE-016] Skip link e landmarks em novas páginas,"credito-habitacao, ferias, obras-novas com skip link e main/nav. Navegação por teclado.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Medium,frontend ux,Frontend,1,
+[SV-001] Checklist defensivo por PR (documento),"Checklist Fases 1-3 do doc defensivo em docs/ ou .cursor/rules. Referência INSTRUÇÕES_DEFENSIVAS.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Highest,supervisor defensivo processo,Supervisor,2,
+[SV-002] Regras de escalação – documento,"Documentar quando pedir aprovação humana: DB, multi-tenant, infra, WhatsApp. Ligado ao checklist.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Highest,supervisor defensivo processo,Supervisor,1,
+[SV-003] Template de Health Dashboard,"Estrutura e fontes para dashboard: uptime, error rate, LCP/TTI, WhatsApp, leads, tenants. Referência BE-001.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,supervisor defensivo,Supervisor,2,BE-001
+[SV-004] Template de relatório semanal,"Template markdown: resumo, saúde, progresso, bloqueios, riscos, escalações, prioridades. Instruções de preenchimento.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,supervisor processo,Supervisor,1,
+[SV-005] Integrar checklist defensivo ao fluxo de PR,"Template de PR ou CONTRIBUTING com link ao checklist. Opcional: bot que comenta checklist.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Medium,supervisor processo,Supervisor,1,SV-001
+[SV-006] Primeira auditoria de qualidade (baseline),"Relatório: cobertura de testes, áreas sem testes, 3-5 melhorias prioritárias. Partilhar com equipa.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Medium,supervisor qualidade,Supervisor,2,
+[QA-001] E2E – Fluxo público: Homepage → Busca → Detalhe → Contacto,"Playwright: homepage, busca, detalhe imóvel, contacto (WhatsApp ou form). Configurável baseURL.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Highest,qa e2e defensivo,QA,5,
+[QA-002] E2E – Fluxo agente: Login → Dashboard → Imóveis → Novo imóvel,"Login, dashboard, listagem imóveis, novo imóvel. Credenciais em env/fixture. Dados isolados.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Highest,qa e2e defensivo,QA,5,
+[QA-003] E2E – Fluxo agente: Leads / Pipeline,"Após login, Leads/Pipeline. Kanban visível; opcional arrastar lead. Estável.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,qa e2e,QA,2,QA-002
+[QA-004] E2E – Fluxo condomínios,"Login, Condomínios, listar e abrir condomínio (unidades/quotas). Fixtures documentadas.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,qa e2e,QA,2,
+[QA-005] Teste segurança – SQL injection nos filtros de busca,"Payloads maliciosos nos params de busca. Resposta 400 ou segura; nunca 500 ou dados de outros tenants.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Highest,qa segurança defensivo,QA,2,
+[QA-006] Teste segurança – XSS em descrição de imóvel,"Descrição com script/img onerror. No detalhe público não deve executar. Documentar resultado.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Highest,qa segurança defensivo,QA,1,
+[QA-007] Teste segurança – CSRF em formulários contacto/lead,"Verificar token CSRF ou SameSite. Submissão de origem não autorizada deve falhar.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,qa segurança,QA,1,
+[QA-008] Teste isolamento multi-tenant (API + UI),"Agência B não acede a dados da agência A. API e UI. Pode complementar BE-006/BE-007.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Highest,qa segurança defensivo,QA,2,
+[QA-009] Teste resiliência – API indisponível,"API em baixo: mensagem clara e retry; sem crash. Teste manual ou automatizado.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,qa defensivo resiliência,QA,2,
+[QA-010] Teste resiliência – Fallback do mapa,"Mapbox falha: fallback ativo (lista/mapa estático). Depende FE-006.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,qa defensivo resiliência,QA,1,FE-006
+[QA-011] Lighthouse – Performance em 3G simulada,"LCP e TTI com throttling 3G. Alvo LCP<2.5s, TTI<4s. Relatório e recomendações.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,qa performance defensivo,QA,2,
+[QA-012] Lighthouse – Acessibilidade (WCAG 2.1 AA),"Score e issues em homepage, pesquisa, detalhe, login, dashboard. Correções prioritárias.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,qa acessibilidade ux,QA,2,
+[QA-013] Integrar E2E no CI (smoke público),"Job no CI que corre E2E (ex. Playwright) contra preview/staging. Smoke: homepage e busca. Falha = pipeline falha.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Highest,qa ci defensivo,QA,5,QA-001
+[QA-014] Smoke E2E para canal agente e admin no CI,"Jobs: E2E agente (login+dashboard), E2E admin (login+dashboard). Credenciais em secrets.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,qa ci,QA,2,"QA-002, QA-013"
+[DO-001] Script rollback.sh,"Desativar flags, reverter containers, limpar Redis, validar health. Variáveis em env. Testado em staging.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Highest,devops defensivo rollback,DevOps,5,"BE-001, BE-005"
+[DO-002] Runbook de rollback (documento),"Quando fazer rollback, passos (incl. DO-001), validação, contacto. Referência protocolo crise 5min.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Highest,devops defensivo documentação,DevOps,2,DO-001
+[DO-003] Integrar health check no pipeline de deploy,"Após deploy: GET /api/health com retry. Falhar deploy se health não ok.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,devops defensivo ci,DevOps,2,BE-001
+[DO-004] Alertas pós-deploy (48h) – error rate e uptime,"Alerta error rate >5%; alerta se health falhar N vezes. Documentar dashboards.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,devops defensivo monitorização,DevOps,5,
+[DO-005] Alertas – LCP/TTI e WhatsApp delivery,"RUM: LCP>3s, TTI>4s. WhatsApp: taxa entrega <95%. Documentar.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Medium,devops monitorização,DevOps,2,
+[DO-006] Processo deploy staging com flag desativada,"Documentar: deploy staging → testes → aprovação → prod com flags desativadas. Um ciclo executado.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,devops defensivo processo,DevOps,1,
+[DO-007] Canary deploy (5% tráfego),"Mecanismo e procedimento para canary. Opcional/futuro.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Medium,devops defensivo,DevOps,8,
+[DO-008] Backups de base de dados – teste de restore,"Backups configurados; teste de restore em não-prod. Documento de procedimento de restore.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Highest,devops defensivo backup,DevOps,5,
+[DO-009] Health check PostgreSQL e Redis no monitor,"Check conectividade PG e Redis; alerta se falhar. Intervalo configurado.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,devops monitorização,DevOps,2,
+[UX-001] Documento de Design System (tokens únicos),"Cores, tipografia, espaçamento, radius em doc e variáveis CSS. Referência ux-ui-designer.md e teal.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Highest,ux design-system,UX/UI,5,
+[UX-002] Revisão mobile – botões e inputs (thumb-friendly),"Min 44px toque; espaçamento. Sem alterar API dos componentes.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,ux mobile acessibilidade,UX/UI,2,
+"[UX-003] Guia de estados: loading, offline, erro de API","Doc com Loading, Offline, Error. Microcopy PT/EN/FR (Sem conexão, Guardado para enviar, Tente novamente).
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,ux design-system defensivo,UX/UI,2,
+[UX-004] Especificação ou wireframes – página /credito-habitacao,"Layout, título, CreditSimulator, CTA. Mobile first. Entregável para FE-011.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Medium,ux especificação,UX/UI,1,
+[UX-005] Especificação – listagem/detalhe Férias e Obras novas,"Férias: listagem e detalhe. Obras: projetos e unidades. Para FE-012, FE-013 e Backend.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Medium,ux especificação,UX/UI,2,
+[UX-006] Especificação – formulário novo imóvel por tipologia,"Fluxo e campos por tipo (residencial, terreno, férias, novo projeto). Alinhado v02 e FE-014.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Medium,ux especificação arquitetura,UX/UI,2,
+[UX-007] Checklist a11y para novos componentes,"Checklist WCAG 2.1 AA: contraste, foco, labels, landmarks. Integrado ao processo.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,ux acessibilidade,UX/UI,1,
+[UX-008] Revisão contraste e foco em páginas críticas,"Elementos com contraste insuficiente e focus visible. Propostas de correção.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Medium,ux acessibilidade,UX/UI,2,
+[DS-001] AVM atrás de feature flag (avm_beta),"Backend e frontend só ativam AVM se flag avm_beta. Desativável no rollback. Documentado.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Highest,data-science defensivo avm,Data Scientist,2,"BE-003, BE-004"
+[DS-002] Pipeline de dados para AVM,"Extrair Property (e transações) para treino. Feature store ou dataset. Documentação de campos.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,data-science avm pipeline,Data Scientist,5,
+[DS-003] Modelo AVM – versão inicial (hedónico + comparables),"Modelo com validação por ilha. Output: estimativa + intervalo. Serializado e versionado.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,data-science avm modelo,Data Scientist,8,
+[DS-004] API POST /api/avm/estimate,"Input: características imóvel. Output: estimate, confidence_interval, comparables. Só se flag ativa. Rate limit.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,High,data-science avm api,Data Scientist,5,"DS-001, DS-003"
+[DS-005] Frontend – uso do AVM no detalhe ou formulário novo imóvel,"Componente que chama AVM; texto Estimativa. Só visível com flag. Fallback se API falhar.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Medium,data-science avm frontend,Data Scientist,2,"DS-004, FE-001"
+[DS-006] Métricas de uso e qualidade do AVM,"Log de pedidos (sem dados pessoais). Se houver preços realizados: MAE/MAPE. Documentação.
+
+Critérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",Task,Medium,data-science avm monitorização,Data Scientist,2,DS-004

@@ -5,33 +5,53 @@ import { motion } from 'framer-motion';
 import type { Lead, LeadStage } from '@/types/lead';
 import { LEAD_STATUS_TO_STAGE } from '@/types/lead';
 import { cn } from '@/lib/utils/helpers';
+import { useLocale } from '@/lib/i18n/LocaleContext';
 
-const STAGES: { id: LeadStage; label: string }[] = [
-  { id: 'new', label: 'Novos' },
-  { id: 'contacted', label: 'Contactados' },
-  { id: 'visit_scheduled', label: 'Visita agendada' },
-  { id: 'proposal_sent', label: 'Proposta enviada' },
-  { id: 'closed_won', label: 'Ganhos' },
-  { id: 'closed_lost', label: 'Perdidos' },
+const STAGE_KEYS: { id: LeadStage; key: string }[] = [
+  { id: 'new', key: 'agent.kanban.new' },
+  { id: 'contacted', key: 'agent.kanban.contacted' },
+  { id: 'visit_scheduled', key: 'agent.kanban.visitScheduled' },
+  { id: 'proposal_sent', key: 'agent.kanban.proposalSent' },
+  { id: 'closed_won', key: 'agent.kanban.closedWon' },
+  { id: 'closed_lost', key: 'agent.kanban.closedLost' },
 ];
 
 interface PipelineKanbanProps {
   leads: Lead[];
   onLeadUpdate?: (lead: Lead) => void;
   onLeadClick?: (lead: Lead) => void;
+  onStatusChange?: (lead: Lead, newStage: LeadStage) => void;
 }
 
 function LeadCard({
   lead,
+  stageId,
   onClick,
+  isDragging,
+  onDragStart: notifyDragStart,
+  onDragEnd: notifyDragEnd,
 }: {
   lead: Lead;
+  stageId: LeadStage;
   onClick?: () => void;
+  isDragging?: boolean;
+  onDragStart?: () => void;
+  onDragEnd?: () => void;
 }) {
   return (
     <motion.div
       layout
-      className="cursor-pointer rounded-lg border border-gray-200 bg-white p-3 shadow-sm transition hover:shadow dark:border-gray-600 dark:bg-gray-800"
+      draggable
+      onDragStart={(e: any) => {
+        e.dataTransfer?.setData('application/json', JSON.stringify({ leadId: lead.id, stageId }));
+        if (e.dataTransfer) e.dataTransfer.effectAllowed = 'move';
+        notifyDragStart?.();
+      }}
+      onDragEnd={notifyDragEnd}
+      className={cn(
+        'cursor-grab rounded-lg border border-gray-200 bg-white p-3 shadow-sm transition hover:shadow active:cursor-grabbing dark:border-gray-600 dark:bg-gray-800',
+        isDragging && 'opacity-50'
+      )}
       onClick={onClick}
       whileHover={{ y: -2 }}
     >
@@ -64,10 +84,13 @@ export function PipelineKanban({
   leads,
   onLeadUpdate,
   onLeadClick,
+  onStatusChange,
 }: PipelineKanbanProps) {
-  const [draggedLead, setDraggedLead] = useState<Lead | null>(null);
+  const { t } = useLocale();
+  const [draggedLeadId, setDraggedLeadId] = useState<string | number | null>(null);
+  const stages = STAGE_KEYS.map(({ id, key }) => ({ id, label: t(key) }));
 
-  const leadsByStage = STAGES.reduce<Record<LeadStage, Lead[]>>(
+  const leadsByStage = stages.reduce<Record<LeadStage, Lead[]>>(
     (acc, { id }) => {
       acc[id] = leads.filter((l) => LEAD_STATUS_TO_STAGE[l.status] === id);
       return acc;
@@ -75,12 +98,36 @@ export function PipelineKanban({
     {} as Record<LeadStage, Lead[]>
   );
 
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+  };
+
+  const handleDrop = (e: React.DragEvent, targetStageId: LeadStage) => {
+    e.preventDefault();
+    setDraggedLeadId(null);
+    try {
+      const json = e.dataTransfer.getData('application/json');
+      const { leadId, stageId: fromStageId } = JSON.parse(json) as { leadId: string | number; stageId: LeadStage };
+      if (fromStageId === targetStageId) return;
+      const lead = leads.find((l) => l.id === leadId);
+      if (lead && onStatusChange) onStatusChange(lead, targetStageId);
+    } catch {
+      // ignore invalid drop data
+    }
+  };
+
+  const handleDragStart = (leadId: string | number) => setDraggedLeadId(leadId);
+  const handleDragEnd = () => setDraggedLeadId(null);
+
   return (
     <div className="flex gap-4 overflow-x-auto pb-4">
-      {STAGES.map(({ id, label }) => (
+      {stages.map(({ id, label }) => (
         <div
           key={id}
           className="min-w-[280px] flex-1 rounded-xl border border-gray-200 bg-gray-50/50 dark:border-gray-700 dark:bg-gray-900/50"
+          onDragOver={handleDragOver}
+          onDrop={(e) => handleDrop(e, id)}
         >
           <div className="flex items-center justify-between border-b border-gray-200 p-3 dark:border-gray-700">
             <h3 className="font-semibold text-gray-900 dark:text-white">
@@ -95,7 +142,11 @@ export function PipelineKanban({
               <LeadCard
                 key={lead.id}
                 lead={lead}
+                stageId={id}
                 onClick={() => onLeadClick?.(lead)}
+                isDragging={draggedLeadId === lead.id}
+                onDragStart={() => handleDragStart(lead.id)}
+                onDragEnd={handleDragEnd}
               />
             ))}
           </div>

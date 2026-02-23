@@ -29,3 +29,15 @@ export function useUpdateLead(id: string) {
     },
   });
 }
+
+export function useUpdateLeadMutation() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ id, payload }: { id: string; payload: Partial<Lead> }) =>
+      leadsApi.update(id, payload),
+    onSuccess: (_, { id }) => {
+      queryClient.invalidateQueries({ queryKey: ['leads'] });
+      queryClient.invalidateQueries({ queryKey: ['lead', id] });
+    },
+  });
+}

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agent Media &amp; Photo Editor | imo.cv CRM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#0a0f14",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #283039;
+            border-radius: 10px;
+        }
+        .immersive-bg {
+            background: radial-gradient(circle at center, #1a2430 0%, #0a0f14 100%);
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-slate-100 antialiased h-screen flex flex-col overflow-hidden">
+<header class="absolute top-0 left-0 right-0 flex items-center justify-between px-6 py-4 bg-gradient-to-b from-black/80 to-transparent z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8 flex items-center justify-center bg-primary/20 rounded-lg backdrop-blur-md">
+<span class="material-symbols-outlined text-primary">photo_camera_back</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-tight">imo.cv CRM</h2>
+</div>
+<div class="hidden md:flex items-center gap-2">
+<span class="text-slate-500 text-xs font-medium uppercase tracking-widest">Media Management</span>
+<span class="material-symbols-outlined text-[14px] text-slate-600">chevron_right</span>
+<span class="text-white text-xs font-bold uppercase tracking-widest">Villa in Sal - Ref: 042</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-white text-xs font-bold transition-all border border-white/10 backdrop-blur-md">
+<span class="material-symbols-outlined text-[18px]">airplane_ticket</span>
+            Add Drone Footage
+        </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-white text-xs font-bold transition-all border border-white/10 backdrop-blur-md">
+<span class="material-symbols-outlined text-[18px]">360</span>
+            360 Tour
+        </button>
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold transition-all hover:bg-primary/90 shadow-lg shadow-primary/40">
+<span>Save Changes</span>
+</button>
+</div>
+</header>
+<main class="flex-1 relative flex flex-col immersive-bg overflow-hidden">
+<div class="absolute inset-0 flex items-center justify-center p-12 lg:p-24">
+<div class="relative w-full h-full max-w-6xl group">
+<img class="w-full h-full object-contain rounded-lg shadow-2xl shadow-black/50" data-alt="Luxury white villa with blue pool in Sal, Cape Verde" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIUJfHREj0DoMiA-BacpTt2dnaf8XHa1TKDk2zcRrvlWHRg6u-w_WLqxilKD1uWf50Zcp39OY8Ceo_hGbo80qzLlIkgFbZB9sQzdl57enQh-77zbfRUexyNudqS7JNMF0U0Wa59vspA9aSIS7knPn-nvFAQ5UGcHe-wINjo32OS4chl3QKtHIrnuoxLCLvm1gO03YRqD0elroGzSp7AELalxbb3jITwe-IgeiKyiRVDjab9O23rnfmPgyneZKIjbq7PnDWhbwk-rw"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-primary text-white text-[10px] font-bold px-2.5 py-1 rounded shadow-lg uppercase tracking-wider">Main Photo</span>
+<span class="bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1 rounded shadow-lg uppercase tracking-wider">HDR</span>
+</div>
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="bg-black/40 hover:bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-full text-xs font-bold flex items-center gap-2 border border-white/10">
+<span class="material-symbols-outlined text-[18px]">zoom_in</span> Fullscreen
+                </button>
+<button class="bg-black/40 hover:bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-full text-xs font-bold flex items-center gap-2 border border-white/10">
+<span class="material-symbols-outlined text-[18px]">history</span> Compare Original
+                </button>
+</div>
+</div>
+</div>
+<aside class="absolute right-6 top-24 bottom-24 w-80 bg-slate-950/80 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl flex flex-col z-40">
+<div class="p-6 border-b border-white/10">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[24px] font-fill">magic_button</span>
+<h3 class="text-white font-bold text-lg tracking-tight">AI Enhance Tool</h3>
+</div>
+<button class="text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<p class="text-slate-400 text-[11px] leading-relaxed">Proprietary engine optimized for Cape Verde's intense sunlight.</p>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-8">
+<div>
+<span class="text-slate-500 text-[10px] font-bold uppercase tracking-widest block mb-4">Presets</span>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex flex-col items-center justify-center p-4 rounded-xl bg-primary/20 border border-primary/40 text-primary shadow-inner">
+<span class="material-symbols-outlined mb-2">wb_sunny</span>
+<span class="text-[10px] font-bold">Sal Lighting</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined mb-2 text-slate-400">nights_stay</span>
+<span class="text-[10px] font-bold">Golden Hour</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined mb-2 text-slate-400">water_drop</span>
+<span class="text-[10px] font-bold">Ocean Blue</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined mb-2 text-slate-400">auto_awesome</span>
+<span class="text-[10px] font-bold">Luxe Crisp</span>
+</button>
+</div>
+</div>
+<div class="space-y-6">
+<span class="text-slate-500 text-[10px] font-bold uppercase tracking-widest block">Manual Adjustments</span>
+<div class="space-y-5">
+<div class="space-y-3">
+<div class="flex justify-between text-xs">
+<label class="text-slate-300 flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-slate-500">light_mode</span> Brightness</label>
+<span class="text-primary font-bold">+15</span>
+</div>
+<input class="w-full h-1 bg-white/10 rounded-lg appearance-none cursor-pointer accent-primary" type="range" value="65"/>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-xs">
+<label class="text-slate-300 flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-slate-500">contrast</span> Contrast</label>
+<span class="text-slate-500 font-bold">0</span>
+</div>
+<input class="w-full h-1 bg-white/10 rounded-lg appearance-none cursor-pointer accent-primary" type="range" value="50"/>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-xs">
+<label class="text-slate-300 flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-slate-500">palette</span> Saturation</label>
+<span class="text-primary font-bold">+8</span>
+</div>
+<input class="w-full h-1 bg-white/10 rounded-lg appearance-none cursor-pointer accent-primary" type="range" value="58"/>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-xs">
+<label class="text-slate-300 flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-slate-500">details</span> Sharpness</label>
+<span class="text-slate-500 font-bold">0</span>
+</div>
+<input class="w-full h-1 bg-white/10 rounded-lg appearance-none cursor-pointer accent-primary" type="range" value="50"/>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 bg-black/40 border-t border-white/10 rounded-b-2xl">
+<button class="w-full flex items-center justify-center gap-2 bg-primary text-white py-3.5 rounded-xl font-bold text-sm shadow-xl shadow-primary/30 hover:scale-[1.02] active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[20px]">auto_fix_high</span>
+                Apply AI Presets
+            </button>
+<button class="w-full text-slate-500 text-xs font-semibold hover:text-white transition-all py-3 mt-1">Reset to original</button>
+</div>
+</aside>
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-fit max-w-[80vw] bg-slate-900/60 backdrop-blur-md border border-white/10 rounded-2xl p-2 flex items-center gap-2 z-40">
+<div class="flex items-center gap-2 overflow-x-auto custom-scrollbar px-2 max-w-full">
+<div class="relative flex-shrink-0 size-16 rounded-lg ring-2 ring-primary overflow-hidden cursor-pointer">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIUJfHREj0DoMiA-BacpTt2dnaf8XHa1TKDk2zcRrvlWHRg6u-w_WLqxilKD1uWf50Zcp39OY8Ceo_hGbo80qzLlIkgFbZB9sQzdl57enQh-77zbfRUexyNudqS7JNMF0U0Wa59vspA9aSIS7knPn-nvFAQ5UGcHe-wINjo32OS4chl3QKtHIrnuoxLCLvm1gO03YRqD0elroGzSp7AELalxbb3jITwe-IgeiKyiRVDjab9O23rnfmPgyneZKIjbq7PnDWhbwk-rw"/>
+</div>
+<div class="relative flex-shrink-0 size-16 rounded-lg bg-slate-800 hover:ring-2 hover:ring-white/20 overflow-hidden cursor-pointer transition-all">
+<img class="w-full h-full object-cover opacity-60 hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6mvgwG3GcImPUEYiua1vAOFftseWXakt1TL-y-8LG7vCEBO54t6FRsz6aXkFWWhdp9-vf3h8aEwyZM6mfR9FCzpMmncnVrwnKc3pEw93O4YL9wMFE1B6cVGKYo1d1ZutYOFBmc8EUbSpV2RqtuR9rUtI6M_07in-pRiu_5cYjcdOA2KaPcThOhS0miag3v1FT-FHsY5XJXdshlShHJb6DfudDJkbZ-AT5p_a8K5ARADkccwnrNz1Ly_lb6q_tnHMG_zyTr9QhqKk"/>
+</div>
+<div class="relative flex-shrink-0 size-16 rounded-lg bg-slate-800 hover:ring-2 hover:ring-white/20 overflow-hidden cursor-pointer transition-all">
+<img class="w-full h-full object-cover opacity-60 hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKGYISfTr3SfRtHpFxw2Wmu4EVOJhzXOsMbM7KdU-TDrj8IHvnEtFRnCO0iVLXH94jChW27LhHDgAFIjb0IfjarTaZblybrzHi_MHxvCYXMc3ySkJpYUDErLq1FJXVTaP0aXy6fdKT7XH84HiLPuaqawolAfSg5D59nBoV72O57GMlkzUUh70PEx8P9cosTaURpPJ8L9W7hx2qZ3SdHxEtDk2Hn953jJB9I82HXl22oMPPgG-GlWoFwEEwi2r-ZZbwuU9wI6NhNYY"/>
+</div>
+<div class="relative flex-shrink-0 size-16 rounded-lg bg-slate-800 hover:ring-2 hover:ring-white/20 overflow-hidden cursor-pointer transition-all">
+<img class="w-full h-full object-cover opacity-60 hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ49LHbbWiA3EVBHLEAbJCrxHd-_57-jqjwCqxJJc3WtaN2k7HFuffO-0Ndm41PQYfYcwbPENDCV1_qSRi7FSQS-k19xgLMfO-gkxxBkn2iDEhrL61jJohokOziSInfVZOjyAt7YmzRyZKhRdkJqkcfOnHQJkk5_8xZES3g1osPuYMm4k1P1uq1AeFVZ8TCpjYJMkiiKQTzqK3aMEZARhZb710UbPRFCETgv8M-J-HvWEfFkrOPR5t_MSxagDHLJcnl7dZN9cuVnI"/>
+</div>
+<div class="relative flex-shrink-0 size-16 rounded-lg bg-slate-800 hover:ring-2 hover:ring-white/20 overflow-hidden cursor-pointer transition-all">
+<img class="w-full h-full object-cover opacity-60 hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO-W3ztNhDTujjawchuqbMIfZKj1HAug-K-afc4p5yL963PuPSplD-9f2uXBt6NSSEnaE46TPr9Dc4NZCJ38TkWyowJ4EX3toMTa6Acgcq475xrcnYP6j0ohCaKkcKsoInbAiNktIvaa0BatDx-NO092AIx6cmCyUUP29ZnBlKKUOf-hCuDpGWw9X--kywNrKlFwGhXeZuCpkO4--OQwPNejEpk0sZbsce5aXV5oTjEE_q0cs10tpk5prTeiTdY0tZz7yC955nRiY"/>
+</div>
+<div class="relative flex-shrink-0 size-16 rounded-lg bg-slate-800 hover:ring-2 hover:ring-white/20 overflow-hidden cursor-pointer transition-all">
+<img class="w-full h-full object-cover opacity-60 hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw6zDbCuF6tB-1gxEODv8zK3SqB3x8IjRYhp69k_U7loXWPPewCSxRxDPEtWkr_gvrgw1RkPeZPew_Xg6hdLZY9-1llLj1dY7uHvziFe_cpCbPKZvgB91gE-YfZGvxU7VBdtwYDOmwOjCbrCEbEgW3xQgSpjZyyK9kYdeILZHKv8mm6azBp8CVrfSftJAANIiCdVSE_h2TEHhhzzAC-B-ZfR-baJAPwM9YFzy6Tmv_zDYdtOSLFkmVKVIQl0EnwXddA-gpZQUzRE8"/>
+</div>
+<div class="flex-shrink-0 size-16 rounded-lg border-2 border-dashed border-white/20 flex flex-col items-center justify-center bg-white/5 hover:bg-white/10 hover:border-primary/50 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-[20px] text-slate-500">add</span>
+</div>
+</div>
+<div class="w-px h-8 bg-white/10 mx-1"></div>
+<button class="p-2 text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+</main>
+<footer class="h-8 border-t border-white/5 bg-slate-950 px-4 flex items-center justify-between text-[10px] font-medium text-slate-500 uppercase tracking-widest z-50">
+<div class="flex gap-6">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"></span> System Ready</span>
+<span>Listing: V-SAL-042</span>
+<span class="text-primary/80">Editing: main_facade.jpg</span>
+</div>
+<div>
+<span>imo.cv CRM v2.4.0 • Cape Verde Real Estate Platform</span>
+</div>
+</footer>
+
+</body></html>

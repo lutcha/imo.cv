@@ -1,0 +1,10 @@
+{
+  "name": "imo.cv – Mercado Imobiliário de Cabo Verde",
+  "short_name": "imo.cv",
+  "description": "O maior agregador nacional. Pesquisa, compara e encontra o teu imóvel em Cabo Verde.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0d9488",
+  "lang": "pt-CV"
+}

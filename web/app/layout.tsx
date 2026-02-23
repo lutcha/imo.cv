@@ -3,8 +3,11 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { AuthProvider } from '@/lib/auth/AuthProvider';
 import { QueryProvider } from '@/lib/providers/QueryProvider';
+import { HydrationProvider } from '@/lib/providers/HydrationProvider';
 import { ThemeInit } from '@/components/common/ThemeInit';
 import { LocaleProvider } from '@/lib/i18n/LocaleContext';
+import { NavigationProgress } from '@/components/common/NavigationProgress';
+import { OfflineToast } from '@/components/common/OfflineToast';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -12,6 +15,7 @@ export const metadata: Metadata = {
   title: 'imo.cv – Mercado Imobiliário de Cabo Verde',
   description:
     'O maior agregador nacional. Pesquisa, compara e encontra o teu imóvel em Cabo Verde.',
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({
@@ -31,8 +35,15 @@ export default function RootLayout({
         <QueryProvider>
           <AuthProvider>
             <LocaleProvider>
-              <ThemeInit />
-              {children}
+              {/* Triggers Zustand-persist rehydration from localStorage on the
+                  client. Must wrap everything so auth state is available before
+                  any protected layout renders. */}
+              <HydrationProvider>
+                <ThemeInit />
+                <NavigationProgress />
+                <OfflineToast />
+                {children}
+              </HydrationProvider>
             </LocaleProvider>
           </AuthProvider>
         </QueryProvider>

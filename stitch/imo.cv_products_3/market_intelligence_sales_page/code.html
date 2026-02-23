@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html lang="pt"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>imo.cv Market Intelligence | Dados Reais do Mercado Imobiliário</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1e3b8a",
+                        "accent": "#f59e0b",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#121620",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .heatmap-gradient {
+            background: radial-gradient(circle at 30% 40%, rgba(245, 158, 11, 0.4) 0%, transparent 40%),
+                        radial-gradient(circle at 70% 60%, rgba(245, 158, 11, 0.3) 0%, transparent 50%),
+                        rgba(30, 59, 138, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex h-16 items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">insights</span>
+<span class="text-xl font-black tracking-tight text-primary">imo.cv <span class="font-normal text-slate-500">Intelligence</span></span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#solucoes">Soluções</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#dados">Dados</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#precos">Preços</a>
+<button class="bg-primary text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-blue-800 transition-all">Pedir Acesso</button>
+<button class="text-slate-600 dark:text-slate-400 text-sm font-bold hover:text-primary">Login</button>
+</nav>
+<div class="md:hidden">
+<span class="material-symbols-outlined">menu</span>
+</div>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative overflow-hidden pt-16 pb-24 lg:pt-32 lg:pb-40 border-b border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div class="relative z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-6">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+                            Dados Oficiais e Atualizados
+                        </div>
+<h1 class="text-4xl lg:text-6xl font-black text-slate-900 dark:text-white leading-[1.1] mb-6">
+                            Decisões Inteligentes baseadas em <span class="text-primary">Dados Reais</span> do Mercado de Cabo Verde
+                        </h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 mb-10 max-w-xl leading-relaxed">
+                            Reduza o risco e maximize o retorno do seu investimento imobiliário com a plataforma de inteligência de dados mais precisa do arquipélago.
+                        </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-primary/30 transition-all flex items-center justify-center gap-2">
+                                Aceder aos Dados Agora
+                                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all">
+                                Agendar Demo
+                            </button>
+</div>
+</div>
+<div class="relative">
+<!-- Financial Interface Placeholder -->
+<div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-2xl p-4 @container overflow-hidden">
+<div class="flex items-center justify-between mb-4 border-b border-slate-100 dark:border-slate-800 pb-4">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-red-400"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+<div class="w-3 h-3 rounded-full bg-green-400"></div>
+</div>
+<div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Live Market Dashboard</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="h-32 rounded-lg bg-slate-50 dark:bg-slate-800 p-3 flex flex-col justify-between">
+<span class="text-[10px] font-bold text-slate-500 uppercase">Avg. Price m² Praia</span>
+<div class="text-2xl font-black text-primary">145.000 <span class="text-xs font-normal">CVE</span></div>
+<div class="text-xs font-bold text-green-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span> +12.4%
+                                    </div>
+</div>
+<div class="h-32 rounded-lg bg-slate-50 dark:border-slate-800 p-3 flex flex-col justify-between">
+<span class="text-[10px] font-bold text-slate-500 uppercase">Yield Médio</span>
+<div class="text-2xl font-black text-accent">8.2%</div>
+<div class="text-xs font-bold text-slate-400">Histórico 12 meses</div>
+</div>
+<div class="col-span-2 h-48 rounded-lg bg-slate-50 dark:bg-slate-800 p-3 relative overflow-hidden">
+<div class="absolute inset-0 opacity-20 bg-[radial-gradient(#1e3b8a_1px,transparent_1px)] [background-size:16px_16px]"></div>
+<div class="flex justify-between items-end h-full px-4 gap-2">
+<div class="w-full bg-primary/20 h-1/2 rounded-t"></div>
+<div class="w-full bg-primary/30 h-2/3 rounded-t"></div>
+<div class="w-full bg-primary/40 h-1/3 rounded-t"></div>
+<div class="w-full bg-primary/50 h-3/4 rounded-t"></div>
+<div class="w-full bg-primary/60 h-2/3 rounded-t"></div>
+<div class="w-full bg-primary h-full rounded-t"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative background elements -->
+<div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-primary/5 blur-3xl rounded-full"></div>
+<div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-accent/5 blur-3xl rounded-full"></div>
+</section>
+<!-- Solutions Section -->
+<section class="py-24 bg-white dark:bg-background-dark" id="solucoes">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">Soluções Estratégicas para Investidores</h2>
+<p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Transformamos dados complexos em insights acionáveis para o seu próximo empreendimento.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- ROI Card -->
+<div class="p-8 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 hover:border-primary/30 transition-all group">
+<div class="w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center mb-6 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">Análise de ROI</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Calcule o potencial de retorno dos seus projetos com precisão matemática, considerando taxas de ocupação e valorização real.</p>
+</div>
+<!-- Prices Card -->
+<div class="p-8 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 hover:border-primary/30 transition-all group">
+<div class="w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center mb-6 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">map</span>
+</div>
+<h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">Índice de Preços por Ilha</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Acesso a dados comparativos detalhados de todas as ilhas, identificando disparidades e oportunidades de arbitragem geográfica.</p>
+</div>
+<!-- Trends Card -->
+<div class="p-8 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 hover:border-primary/30 transition-all group">
+<div class="w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center mb-6 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">Tendências de Procura</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Entenda o que os compradores nacionais e internacionais estão à procura em tempo real através de padrões de busca refinados.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Data Preview Section -->
+<section class="py-24 bg-background-light dark:bg-background-dark" id="dados">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-3xl font-black mb-6 tracking-tight">Visualize a Força dos Nossos Dados</h2>
+<p class="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                            Nossa tecnologia processa milhares de transações e listagens diariamente para oferecer uma visão microscópica do mercado.
+                        </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 font-semibold text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-accent">check_circle</span>
+                                Mapas de calor de densidade de preços
+                            </li>
+<li class="flex items-center gap-3 font-semibold text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-accent">check_circle</span>
+                                Séries temporais de valorização (24+ meses)
+                            </li>
+<li class="flex items-center gap-3 font-semibold text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-accent">check_circle</span>
+                                Filtros avançados por tipologia e bairro
+                            </li>
+</ul>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<!-- Heatmap Mockup -->
+<div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 shadow-xl">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-bold text-sm">Heatmap de Preços: Praia</h4>
+<span class="text-[10px] px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 font-bold uppercase tracking-wider">Altos Padrões</span>
+</div>
+<div class="aspect-video heatmap-gradient rounded-lg border border-slate-100 dark:border-slate-800 relative overflow-hidden flex items-center justify-center" data-location="Praia, Cabo Verde" style="">
+<div class="absolute inset-0 grid grid-cols-12 grid-rows-8 opacity-20">
+<!-- Grid lines for map look -->
+<div class="border-r border-b border-slate-300 dark:border-slate-600 col-span-12 row-span-8"></div>
+</div>
+<div class="text-primary text-xs font-bold bg-white/90 px-3 py-1 rounded-full shadow-sm z-10 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span> Palmarejo Baixo
+                                </div>
+</div>
+</div>
+<!-- Line Chart Mockup -->
+<div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 shadow-xl">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-bold text-sm">Valorização de Propriedades (24 Meses)</h4>
+<div class="flex gap-2">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-accent"></div>
+</div>
+</div>
+<div class="h-32 flex items-end gap-1">
+<div class="flex-1 bg-primary/10 rounded-t h-[40%]"></div>
+<div class="flex-1 bg-primary/15 rounded-t h-[45%]"></div>
+<div class="flex-1 bg-primary/20 rounded-t h-[42%]"></div>
+<div class="flex-1 bg-primary/25 rounded-t h-[50%]"></div>
+<div class="flex-1 bg-primary/30 rounded-t h-[55%]"></div>
+<div class="flex-1 bg-primary/35 rounded-t h-[52%]"></div>
+<div class="flex-1 bg-primary/40 rounded-t h-[60%]"></div>
+<div class="flex-1 bg-primary/45 rounded-t h-[65%]"></div>
+<div class="flex-1 bg-primary/50 rounded-t h-[70%]"></div>
+<div class="flex-1 bg-primary/60 rounded-t h-[75%]"></div>
+<div class="flex-1 bg-primary/80 rounded-t h-[85%]"></div>
+<div class="flex-1 bg-primary rounded-t h-[100%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-24 bg-white dark:bg-background-dark" id="precos">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Planos de Acesso</h2>
+<p class="text-slate-600 dark:text-slate-400">Escolha a profundidade de dados que o seu negócio exige.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+<!-- Essential Plan -->
+<div class="rounded-2xl border border-slate-200 dark:border-slate-700 p-8 flex flex-col bg-slate-50/30 dark:bg-slate-900/30">
+<h3 class="text-xl font-bold mb-2">Essential</h3>
+<p class="text-slate-500 text-sm mb-6">Para investidores individuais e pequenos gestores.</p>
+<div class="mb-8">
+<span class="text-4xl font-black">10.000</span>
+<span class="text-slate-500 font-semibold">CVE/mês</span>
+</div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-primary text-lg">check</span>
+                                Acesso a Dashboard de Preços
+                            </li>
+<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-primary text-lg">check</span>
+                                Mapas de Calor Básicos
+                            </li>
+<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-primary text-lg">check</span>
+                                1 Relatório mensal em PDF
+                            </li>
+</ul>
+<button class="w-full py-3 rounded-lg border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all">Começar Agora</button>
+</div>
+<!-- Professional Plan -->
+<div class="rounded-2xl border-2 border-primary p-8 flex flex-col relative bg-white dark:bg-slate-900 shadow-2xl scale-105">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-white text-[10px] font-black uppercase px-4 py-1 rounded-full tracking-widest">
+                            Mais Popular
+                        </div>
+<h3 class="text-xl font-bold mb-2">Professional</h3>
+<p class="text-slate-500 text-sm mb-6">Para promotores imobiliários e grandes imobiliárias.</p>
+<div class="mb-8">
+<span class="text-4xl font-black">25.000</span>
+<span class="text-slate-500 font-semibold">CVE/mês</span>
+</div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center gap-3 text-sm font-semibold">
+<span class="material-symbols-outlined text-accent text-lg">check_circle</span>
+                                Tudo no plano Essential
+                            </li>
+<li class="flex items-center gap-3 text-sm font-semibold">
+<span class="material-symbols-outlined text-accent text-lg">check_circle</span>
+                                Acesso Completo à API
+                            </li>
+<li class="flex items-center gap-3 text-sm font-semibold">
+<span class="material-symbols-outlined text-accent text-lg">check_circle</span>
+                                Relatórios Customizados Ilimitados
+                            </li>
+<li class="flex items-center gap-3 text-sm font-semibold">
+<span class="material-symbols-outlined text-accent text-lg">check_circle</span>
+                                Suporte Prioritário 24/7
+                            </li>
+</ul>
+<button class="w-full py-3 rounded-lg bg-primary text-white font-bold hover:bg-blue-800 transition-all shadow-lg shadow-primary/20">Aderir ao Professional</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust & Credibility -->
+<section class="py-24 bg-primary text-white overflow-hidden relative">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+<div class="flex justify-center mb-8">
+<div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full border border-white/20">
+<span class="material-symbols-outlined text-accent">verified</span>
+<span class="text-sm font-bold uppercase tracking-widest">Fonte de Dados Verificada</span>
+</div>
+</div>
+<blockquote class="max-w-3xl mx-auto mb-12">
+<p class="text-2xl lg:text-3xl font-medium leading-relaxed italic mb-8">
+                        "O imo.cv Market Intelligence mudou completamente a forma como avaliamos novos terrenos. Agora, as nossas propostas são baseadas em fatos, não em intuição. O ROI dos nossos últimos projetos subiu 15% graças a estes dados."
+                    </p>
+<footer class="flex items-center justify-center gap-4">
+<div class="w-16 h-16 rounded-full bg-slate-200 border-4 border-white/20 overflow-hidden" data-alt="Portrait of a professional business executive" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBxGg7r8yZuD2WqitslVfFAANwQ9DY_pl5s9ansrz7t3spquOfCt1Mj2kZU5c0f7Os36ENacqTXNVtr1GFvIQJ0sFrdJC4VVsm4ib6FRmRAZc8TfH4h0e03b-vSuyj4gjYwzyhNmH518hfuF1ejVfmR1mVvtdWjYTARrbwlB6Ka1RhX0hxgttdGYCX8tzBK7XLeVX9fqXk4CFeVxxY2vprLM-unblUuK55tNdkCUQ62WRRGLDCC70zb1LwMbWwEeVyyT_zGICQamew')"></div>
+<div class="text-left">
+<div class="font-bold text-lg">Eng. Carlos Silva</div>
+<div class="text-primary-200 text-sm opacity-80 text-white/70">CEO, Cabo Verde Developers Group</div>
+</div>
+</footer>
+</blockquote>
+</div>
+<!-- Pattern background -->
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
+</section>
+<!-- Final CTA -->
+<section class="py-20 text-center">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl font-black mb-6">Pronto para liderar o mercado?</h2>
+<p class="text-slate-600 dark:text-slate-400 mb-10 text-lg">Não deixe o seu investimento ao acaso. Use a inteligência ao seu favor.</p>
+<button class="bg-primary text-white px-10 py-5 rounded-xl font-black text-xl hover:scale-105 transition-transform shadow-xl shadow-primary/20">
+                    Aceder aos Dados Agora
+                </button>
+</div>
+</section>
+</main>
+<footer class="bg-slate-50 dark:bg-slate-900 py-12 border-t border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-2 opacity-50">
+<span class="material-symbols-outlined text-2xl">insights</span>
+<span class="text-lg font-black tracking-tight">imo.cv Intelligence</span>
+</div>
+<div class="flex gap-8 text-sm text-slate-500 font-medium">
+<a class="hover:text-primary transition-colors" href="#">Privacidade</a>
+<a class="hover:text-primary transition-colors" href="#">Termos de Uso</a>
+<a class="hover:text-primary transition-colors" href="#">Contato</a>
+</div>
+<div class="text-sm text-slate-400">
+                    © 2024 imo.cv. Todos os direitos reservados.
+                </div>
+</div>
+</div>
+</footer>
+</body></html>

@@ -15,12 +15,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+from rest_framework_simplejwt.views import TokenRefreshView
+from core.auth_views import login_view
 
+# Use re_path with optional trailing slash so the Next.js proxy works:
+# Next.js 308-redirects /api/backend/foo/ → /api/backend/foo (strips slash),
+# the rewrite forwards to /api/foo (no slash), so Django must accept both.
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/agencies/', include('agencies.urls')),
-    path('api/properties/', include('properties.urls')),
-    path('api/leads/', include('leads.urls')),
-    path('api/crm/', include('crm.urls')),
+    # Auth
+    re_path(r'^api/auth/login/?$', login_view, name='auth-login'),
+    re_path(r'^api/auth/refresh/?$', TokenRefreshView.as_view(), name='auth-refresh'),
+    # App APIs
+    re_path(r'^api/agencies/?', include('agencies.urls')),
+    re_path(r'^api/properties/?', include('properties.urls')),
+    re_path(r'^api/leads/?', include('leads.urls')),
+    re_path(r'^api/crm/?', include('crm.urls')),
+    re_path(r'^api/analytics/?', include('analytics.urls')),
+    re_path(r'^api/condominiums/?', include('condominiums.urls')),
 ]

@@ -1,29 +1,31 @@
-version: '3.8'
-
 services:
   backend:
     build: ./src
     container_name: imocv_backend
-    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - ./src:/app
     ports:
       - "8000:8000"
     env_file:
       - ./src/.env
-    environment:
-      - DATABASE_URL=postgres://imocv_user:imocv_pass@db:5432/imocv_db
     depends_on:
       - db
       - redis
 
   frontend:
-    build: ./web
+    build:
+      context: ./web
+      target: dev
     container_name: imocv_frontend
+    volumes:
+      - ./web:/app
+      - /app/node_modules
+      - /app/.next
     ports:
       - "3000:3000"
     environment:
       - NEXT_PUBLIC_API_URL=http://backend:8000
+      - NODE_ENV=development
     depends_on:
       - backend
 

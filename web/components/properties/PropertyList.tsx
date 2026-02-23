@@ -27,12 +27,12 @@ export default async function PropertyList({
 
         return (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {properties.map((property: any) => (
+                {properties.map((property: any, index: number) => (
                     <Suspense
                         key={property.id}
                         fallback={<SkeletonCard />}
                     >
-                        <PropertyCard property={property} />
+                        <PropertyCard property={property} priority={index === 0} />
                     </Suspense>
                 ))}
             </div>

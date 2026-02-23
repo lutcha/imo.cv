@@ -23,7 +23,7 @@ export const leadsApi = {
     return data;
   },
 
-  create: async (payload: Omit<Lead, 'id' | 'created_at' | 'updated_at'>): Promise<Lead> => {
+  create: async (payload: Record<string, string>): Promise<Lead> => {
     const { data } = await apiClient.post<Lead>('/leads/', payload);
     return data;
   },

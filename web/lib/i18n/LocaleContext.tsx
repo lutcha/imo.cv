@@ -22,12 +22,18 @@ type LocaleContextValue = {
   t: (key: string) => string;
 };
 
+import { LOCALE_COOKIE_NAME } from './constants';
+
 const defaultLocale: Locale = 'pt';
 const STORAGE_KEY = 'imocv-locale';
 
 function getStoredLocale(): Locale {
   if (typeof window === 'undefined') return defaultLocale;
-  const stored = localStorage.getItem(STORAGE_KEY) as Locale | null;
+  let stored = localStorage.getItem(STORAGE_KEY) as Locale | null;
+  if (!stored && typeof document !== 'undefined') {
+    const match = document.cookie.match(new RegExp(`(?:^|; )${LOCALE_COOKIE_NAME}=([^;]*)`));
+    stored = (match?.[1] ?? null) as Locale | null;
+  }
   if (stored && (stored === 'pt' || stored === 'en' || stored === 'fr'))
     return stored;
   return defaultLocale;
@@ -58,6 +64,7 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
     setLocaleState(newLocale);
     if (typeof window !== 'undefined') {
       localStorage.setItem(STORAGE_KEY, newLocale);
+      document.cookie = `${LOCALE_COOKIE_NAME}=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
       document.documentElement.lang = newLocale === 'fr' ? 'fr' : newLocale === 'en' ? 'en' : 'pt-CV';
     }
   }, []);

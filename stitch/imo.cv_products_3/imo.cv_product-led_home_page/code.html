@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="pt"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>imo.cv - A plataforma imobiliária oficial de Cabo Verde</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#ec7f13",
+                "background-light": "#f8f7f6",
+                "background-dark": "#221910",
+                "brand-blue": "#005baa",
+                "brand-green": "#008542",
+              },
+              fontFamily: {
+                "display": ["Inter", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-gradient {
+            background: linear-gradient(135deg, #005baa 0%, #008542 100%);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<!-- Header / Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md px-4 md:px-10 py-3">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-2 group cursor-pointer">
+<div class="bg-primary text-white p-1 rounded-lg">
+<span class="material-symbols-outlined text-2xl block">domain</span>
+</div>
+<h1 class="text-xl font-black tracking-tight text-slate-900 dark:text-white">imo.cv</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Soluções</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Preços</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Sobre</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden sm:block text-sm font-semibold px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">Entrar</button>
+<button class="bg-primary text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:brightness-110 transition-all shadow-sm">
+                    Começar agora
+                </button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="hero-gradient relative py-20 px-4 overflow-hidden">
+<div class="max-w-5xl mx-auto text-center relative z-10">
+<div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-white text-xs font-bold mb-6 border border-white/20">
+<span class="flex h-2 w-2 rounded-full bg-primary"></span>
+                    PLATAFORMA LÍDER EM CABO VERDE
+                </div>
+<h1 class="text-white text-4xl md:text-6xl font-black leading-tight tracking-tight mb-6">
+                    A plataforma imobiliária oficial de Cabo Verde
+                </h1>
+<p class="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+                    Profissionalizando o mercado imobiliário com transparência, tecnologia e dados para agências, condomínios e investidores.
+                </p>
+<div class="flex flex-wrap justify-center gap-4">
+<button class="flex items-center gap-2 bg-brand-blue text-white px-8 py-4 rounded-xl font-bold hover:scale-105 transition-transform shadow-lg">
+<span class="material-symbols-outlined">apartment</span>
+                        Para Agências
+                    </button>
+<button class="flex items-center gap-2 bg-brand-green text-white px-8 py-4 rounded-xl font-bold hover:scale-105 transition-transform shadow-lg">
+<span class="material-symbols-outlined">groups</span>
+                        Condomínios
+                    </button>
+<button class="flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-bold hover:scale-105 transition-transform shadow-lg">
+<span class="material-symbols-outlined">trending_up</span>
+                        Investidores
+                    </button>
+</div>
+</div>
+<!-- Decorative Pattern (CSS only) -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+</section>
+<!-- Solutions Grid -->
+<section class="py-24 px-4 max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-black text-slate-900 dark:text-white mb-4">Nossas Soluções</h2>
+<p class="text-slate-600 dark:text-slate-400">Ferramentas desenhadas especificamente para o contexto cabo-verdiano.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- CRM Agências -->
+<div class="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col hover:border-brand-blue/50 transition-colors">
+<div class="text-brand-blue mb-6">
+<span class="material-symbols-outlined text-4xl">real_estate_agent</span>
+</div>
+<h3 class="text-xl font-bold mb-2">CRM para Agências</h3>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-3xl font-black">4.500</span>
+<span class="text-sm font-semibold text-slate-500 uppercase tracking-wider">CVE/mês</span>
+</div>
+<ul class="space-y-4 mb-8 flex-grow">
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-brand-green">check_circle</span>
+                            Gestão centralizada de Leads
+                        </li>
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-brand-green">check_circle</span>
+                            Publicação em Portais Globais
+                        </li>
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-brand-green">check_circle</span>
+                            Relatórios Automáticos de Vendas
+                        </li>
+<li class="flex items-center gap-3 text-sm text-slate-400">
+<span class="material-symbols-outlined text-brand-green">check_circle</span>
+                            Acesso Mobile para Corretores
+                        </li>
+</ul>
+<button class="w-full py-3 px-4 rounded-lg bg-slate-100 dark:bg-slate-800 font-bold hover:bg-brand-blue hover:text-white transition-all">Saber Mais</button>
+</div>
+<!-- Gestão Condomínios -->
+<div class="bg-white dark:bg-slate-900 p-8 rounded-2xl border-2 border-primary shadow-xl flex flex-col relative transform scale-105">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Mais Popular</div>
+<div class="text-primary mb-6">
+<span class="material-symbols-outlined text-4xl">home_work</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Gestão de Condomínios</h3>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-3xl font-black">500</span>
+<span class="text-sm font-semibold text-slate-500 uppercase tracking-wider">CVE/unidade</span>
+</div>
+<ul class="space-y-4 mb-8 flex-grow">
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-brand-green">check_circle</span>
+                            Transparência Financeira Real
+                        </li>
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-brand-green">check_circle</span>
+                            App Exclusiva para Moradores
+                        </li>
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-brand-green">check_circle</span>
+                            Gestão de Manutenção Preventiva
+                        </li>
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-brand-green">check_circle</span>
+                            Emissão de Faturas Automática
+                        </li>
+</ul>
+<button class="w-full py-3 px-4 rounded-lg bg-primary text-white font-bold hover:brightness-110 transition-all shadow-md">Saber Mais</button>
+</div>
+<!-- Market Intelligence -->
+<div class="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col hover:border-primary/50 transition-colors">
+<div class="text-slate-700 dark:text-slate-300 mb-6">
+<span class="material-symbols-outlined text-4xl">insights</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Market Intelligence</h3>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-3xl font-black">10.000</span>
+<span class="text-sm font-semibold text-slate-500 uppercase tracking-wider">CVE/mês</span>
+</div>
+<ul class="space-y-4 mb-8 flex-grow">
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-brand-green">check_circle</span>
+                            Dados Reais do Mercado Local
+                        </li>
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-brand-green">check_circle</span>
+                            Análise de ROI por Ilha
+                        </li>
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-brand-green">check_circle</span>
+                            Relatórios de Benchmarking
+                        </li>
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-brand-green">check_circle</span>
+                            API para Desenvolvedores
+                        </li>
+</ul>
+<button class="w-full py-3 px-4 rounded-lg bg-slate-100 dark:bg-slate-800 font-bold hover:bg-slate-900 hover:text-white transition-all">Saber Mais</button>
+</div>
+</div>
+</section>
+<!-- Trust Section / Testimonials -->
+<section class="bg-slate-100 dark:bg-slate-950 py-24 px-4">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-black text-slate-900 dark:text-white mb-4">Confiança em todas as Ilhas</h2>
+<p class="text-slate-600 dark:text-slate-400">Junte-se a centenas de profissionais que já transformaram sua gestão.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Testimonial 1 -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-4 mb-4">
+<img class="w-12 h-12 rounded-full bg-slate-100" data-alt="Portrait of a professional man smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB-rghDpceKznsu8I1-Hxmnzm14HiB5mf9qEUFUalfiO62EbVGYlwIyXpGeIx-p0waZKBqcEoUrj7e0fbPFV4VVY8ByxbZa2CTOT-OGkaaPlzjt_s0wvzGQEd6tiAwoTR1tqB580_JR9O0P0p_8HTF3yFcutD9RAlP4429OwS-EmQMWdULooncmsZ0Wh4ULSbtSe2O5I-SwAtcqbNhBQfs5tGeZMtKCRsebsXcSAGeux2wdxrCxpz74coHlUVbZYCq9nE5RNgvXRQ"/>
+<div>
+<h4 class="font-bold text-sm">Carlos Silva</h4>
+<span class="bg-brand-blue/10 text-brand-blue text-[10px] font-black px-2 py-0.5 rounded uppercase">Sal</span>
+</div>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-400 italic">"O CRM da imo.cv mudou a forma como gerimos os nossos investidores europeus. A transparência é total."</p>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-4 mb-4">
+<img class="w-12 h-12 rounded-full bg-slate-100" data-alt="Portrait of a professional woman smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXhxLPICMPiAhGBAJm55rLI38LE4C0digmyrS55tRdlI-YdEBHfpdYdUDGof1pnYNi43kp_fgcP3xtsZca8W1JZx1FyJHMqvStsgGgPcySqKXz7KzQHv7RleSSVvdD_96a1EC2JUD-40i_freT4f0wGk1n1_JckONrwFx3uuyuLeagjF0ylPuAevAIvIFGfaCSEr2C7S7u34tc3QdcLm-NVKxvKJUKT0CLr6zNBRcM5xIH728zhV1jhWsdgdkMNXnG2bCFuwatvWs"/>
+<div>
+<h4 class="font-bold text-sm">Maria Varela</h4>
+<span class="bg-brand-green/10 text-brand-green text-[10px] font-black px-2 py-0.5 rounded uppercase">Santiago</span>
+</div>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-400 italic">"A gestão de condomínios era um caos até usarmos a imo.cv. Hoje os moradores pagam as quotas pela App."</p>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-4 mb-4">
+<img class="w-12 h-12 rounded-full bg-slate-100" data-alt="Portrait of a young real estate agent" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKpA7Ag6iucle7YCqk_olKZrfViM8Zcn-v5H1MxWHKCeioUrmXY87wPbD2x58LLGgMRkKE4dEwhCJ2zZJI9fPNmEcOjbT_Ej4CGZOCPjC7JSAArxBMB855RV_HdGhdA0RY4FA3NSxQVxbkSgD3-676_NkokrkMHzo4oUWU7ogX9ZPlbGZuwXi7tO8mHhIDlbNG7o6r5bBozqVvWHpoEf6_Nyzyku_-OyxNeO9WlJ0dl5zeAOIJdr7H53tzbYgiPqmkMPIcetbDZUA"/>
+<div>
+<h4 class="font-bold text-sm">António Lopes</h4>
+<span class="bg-primary/10 text-primary text-[10px] font-black px-2 py-0.5 rounded uppercase">Boa Vista</span>
+</div>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-400 italic">"Os dados de Market Intelligence são vitais para as nossas decisões de novos empreendimentos turísticos."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-24 px-4 max-w-3xl mx-auto">
+<h2 class="text-3xl font-black text-center mb-12">Perguntas Frequentes</h2>
+<div class="space-y-4">
+<details class="group bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800" open="">
+<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+<span class="font-bold">A plataforma funciona sem internet estável?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Sim, a imo.cv foi desenhada para o contexto local. Possuímos um modo offline para as apps de campo e o carregamento web é otimizado para ligações 3G.
+                    </div>
+</details>
+<details class="group bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+<span class="font-bold">Como é feito o pagamento das mensalidades?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Aceitamos Vinti4, transferência bancária para o BCA ou Caixa, e pagamentos via cartão internacional para investidores estrangeiros.
+                    </div>
+</details>
+<details class="group bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+<span class="font-bold">Existe apoio técnico local?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Sim! Temos equipas de suporte na Praia e Mindelo disponíveis de Segunda a Sábado para formação e ajuda técnica presencial se necessário.
+                    </div>
+</details>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-background-dark text-slate-400 py-16 px-4">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="space-y-4">
+<div class="flex items-center gap-2 text-white">
+<span class="material-symbols-outlined text-primary text-2xl">domain</span>
+<span class="text-xl font-black">imo.cv</span>
+</div>
+<p class="text-sm">A maior infraestrutura tecnológica para o mercado imobiliário em Cabo Verde.</p>
+</div>
+<div>
+<h5 class="text-white font-bold mb-4">Soluções</h5>
+<ul class="space-y-2 text-sm">
+<li><a class="hover:text-primary" href="#">CRM Agências</a></li>
+<li><a class="hover:text-primary" href="#">Gestão de Condomínios</a></li>
+<li><a class="hover:text-primary" href="#">Market Intelligence</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-4">Empresa</h5>
+<ul class="space-y-2 text-sm">
+<li><a class="hover:text-primary" href="#">Sobre Nós</a></li>
+<li><a class="hover:text-primary" href="#">Termos de Uso</a></li>
+<li><a class="hover:text-primary" href="#">Contacto</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-4">Newsletter</h5>
+<div class="flex gap-2">
+<input class="bg-slate-800 border-none rounded-lg text-sm flex-grow" placeholder="Seu email" type="email"/>
+<button class="bg-primary text-white p-2 rounded-lg">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-slate-800 text-center text-xs">
+                © 2024 imo.cv - Professionalizing Cape Verde Real Estate.
+            </div>
+</footer>
+</main>
+</body></html>

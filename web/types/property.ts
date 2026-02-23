@@ -4,7 +4,7 @@ export interface GeoJsonPoint {
   coordinates: [number, number]; // [lon, lat]
 }
 
-export type ListingType = 'sale' | 'rent';
+export type ListingType = 'sale' | 'rent' | 'vacation' | 'new_construction';
 export type PropertyType =
   | 'apartment'
   | 'house'
@@ -57,3 +57,5 @@ export type Property = PropertyListItem | PropertyDetail;
 export function isPropertyDetail(p: Property): p is PropertyDetail {
   return 'description' in p && 'status' in p;
 }
+
+export type { PaginatedResponse } from '@/types/api';

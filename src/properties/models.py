@@ -11,6 +11,11 @@ class Property(models.Model):
         TERRENO = 'TERRENO', 'Terreno'
         COMERCIAL = 'COMERCIAL', 'Comercial'
 
+    class ListingType(models.TextChoices):
+        VENDA = 'VENDA', 'Venda'
+        ARRENDAMENTO = 'ARRENDAMENTO', 'Arrendamento'
+        FERIAS = 'FERIAS', 'Férias'
+
     class Status(models.TextChoices):
         RASCUNHO = 'RASCUNHO', 'Rascunho'
         PUBLICADO = 'PUBLICADO', 'Publicado'
@@ -43,7 +48,13 @@ class Property(models.Model):
 
     title = models.CharField(max_length=255)
     description = models.TextField()
-    
+
+    listing_type = models.CharField(
+        max_length=20,
+        choices=ListingType.choices,
+        default=ListingType.VENDA
+    )
+
     property_type = models.CharField(
         max_length=20,
         choices=PropertyType.choices,

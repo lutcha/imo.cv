@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agent Media &amp; Photo Editor | imo.cv CRM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #283039;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased h-screen flex flex-col overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-6 py-3 bg-white dark:bg-background-dark z-20">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8 flex items-center justify-center bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">photo_camera_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">imo.cv CRM</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-primary text-sm font-semibold border-b-2 border-primary py-4 -mb-4" href="#">Listings</a>
+<a class="text-slate-600 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Contacts</a>
+<a class="text-slate-600 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-4">
+<label class="hidden lg:flex flex-col min-w-40 h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-slate-400 flex border-none bg-slate-100 dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-slate-100 dark:bg-slate-800 focus:ring-0 text-sm placeholder:text-slate-400 px-3 rounded-r-lg" placeholder="Find listing or photo..."/>
+</div>
+</label>
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold transition-all hover:bg-primary/90 shadow-lg shadow-primary/20">
+<span class="truncate">Save Changes</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-primary/20" data-alt="Professional real estate agent headshot portrait" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCfNhwO-bSncWHxbXKqeRVcVgvPCtZeJ2h_lKkFppBJwozvq0OY7GaWkB-xsZvXzWyq5RsmvCi7Eo_nIbNn5_05p0aPnQa9y6WfDdmCGJKlqcrK_2lQlPreFv5mMg5mEP3V0pLL4-mu0QRGlRkgwuoxxKHvpMn2rnRtcZ01PT38uP-ZjgHEPH69wCVLa5RCJ2fRJ8r0zbnFhQZtuWaNws2GWXvde1WMl6PPkTS5JYV1gaJHSJHRkBWhbSjZbtVkAbC7xoJ5e-dABP0");'></div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark p-6 custom-scrollbar">
+<!-- Breadcrumbs & Title -->
+<div class="flex flex-wrap items-center gap-2 mb-4">
+<a class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider hover:text-primary" href="#">Listings</a>
+<span class="material-symbols-outlined text-[14px] text-slate-400">chevron_right</span>
+<span class="text-slate-900 dark:text-white text-xs font-bold uppercase tracking-wider">Villa in Sal - Ref: 042</span>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+<div>
+<h1 class="text-slate-900 dark:text-white text-3xl font-black tracking-tight mb-1">Media Management</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Curating high-end visuals for the Oceanfront Luxury Collection</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2.5 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 rounded-lg text-slate-900 dark:text-white text-sm font-bold transition-all">
+<span class="material-symbols-outlined text-[18px]">airplane_ticket</span>
+                        Add Drone Footage
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2.5 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 rounded-lg text-slate-900 dark:text-white text-sm font-bold transition-all">
+<span class="material-symbols-outlined text-[18px]">360</span>
+                        360 Tour
+                    </button>
+</div>
+</div>
+<!-- Media Filter Tabs -->
+<div class="flex border-b border-slate-200 dark:border-slate-800 mb-6 overflow-x-auto whitespace-nowrap">
+<button class="flex items-center gap-2 px-6 py-3 border-b-2 border-primary text-primary font-bold text-sm">
+<span class="material-symbols-outlined text-[20px]">image</span> Photos <span class="text-[10px] bg-primary/10 px-1.5 py-0.5 rounded ml-1">12</span>
+</button>
+<button class="flex items-center gap-2 px-6 py-3 border-b-2 border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-all">
+<span class="material-symbols-outlined text-[20px]">videocam</span> Videos <span class="text-[10px] bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded ml-1">2</span>
+</button>
+<button class="flex items-center gap-2 px-6 py-3 border-b-2 border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-all">
+<span class="material-symbols-outlined text-[20px]">airplanemode_active</span> Drone
+                </button>
+<button class="flex items-center gap-2 px-6 py-3 border-b-2 border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-all">
+<span class="material-symbols-outlined text-[20px]">view_in_ar</span> 360 Tours
+                </button>
+</div>
+<!-- Image Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+<!-- Main Photo Card -->
+<div class="relative group aspect-[3/2] rounded-xl overflow-hidden ring-4 ring-primary bg-slate-800">
+<img class="w-full h-full object-cover" data-alt="Luxury white villa with blue pool in Sal, Cape Verde" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIUJfHREj0DoMiA-BacpTt2dnaf8XHa1TKDk2zcRrvlWHRg6u-w_WLqxilKD1uWf50Zcp39OY8Ceo_hGbo80qzLlIkgFbZB9sQzdl57enQh-77zbfRUexyNudqS7JNMF0U0Wa59vspA9aSIS7knPn-nvFAQ5UGcHe-wINjo32OS4chl3QKtHIrnuoxLCLvm1gO03YRqD0elroGzSp7AELalxbb3jITwe-IgeiKyiRVDjab9O23rnfmPgyneZKIjbq7PnDWhbwk-rw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+<div class="flex justify-between items-center">
+<button class="text-white bg-red-500/80 p-1.5 rounded-md hover:bg-red-600"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+<div class="flex gap-2">
+<button class="text-white bg-slate-900/80 p-1.5 rounded-md hover:bg-primary"><span class="material-symbols-outlined text-[18px]">rotate_right</span></button>
+<button class="text-white bg-slate-900/80 p-1.5 rounded-md hover:bg-primary"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+</div>
+</div>
+</div>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-primary text-white text-[10px] font-bold px-2 py-1 rounded shadow-lg uppercase tracking-wider">Main Photo</span>
+<span class="bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded shadow-lg uppercase tracking-wider">HDR</span>
+</div>
+</div>
+<!-- Regular Photo Card 1 -->
+<div class="relative group aspect-[3/2] rounded-xl overflow-hidden bg-slate-800 hover:ring-2 hover:ring-primary/50 transition-all cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="Modern villa interior living room with ocean view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6mvgwG3GcImPUEYiua1vAOFftseWXakt1TL-y-8LG7vCEBO54t6FRsz6aXkFWWhdp9-vf3h8aEwyZM6mfR9FCzpMmncnVrwnKc3pEw93O4YL9wMFE1B6cVGKYo1d1ZutYOFBmc8EUbSpV2RqtuR9rUtI6M_07in-pRiu_5cYjcdOA2KaPcThOhS0miag3v1FT-FHsY5XJXdshlShHJb6DfudDJkbZ-AT5p_a8K5ARADkccwnrNz1Ly_lb6q_tnHMG_zyTr9QhqKk"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+<button class="bg-primary text-white px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 shadow-xl">
+<span class="material-symbols-outlined text-[16px]">check_circle</span> Main
+                        </button>
+</div>
+</div>
+<!-- Regular Photo Card 2 -->
+<div class="relative group aspect-[3/2] rounded-xl overflow-hidden bg-slate-800 hover:ring-2 hover:ring-primary/50 transition-all cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="High-end kitchen with marble countertops" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKGYISfTr3SfRtHpFxw2Wmu4EVOJhzXOsMbM7KdU-TDrj8IHvnEtFRnCO0iVLXH94jChW27LhHDgAFIjb0IfjarTaZblybrzHi_MHxvCYXMc3ySkJpYUDErLq1FJXVTaP0aXy6fdKT7XH84HiLPuaqawolAfSg5D59nBoV72O57GMlkzUUh70PEx8P9cosTaURpPJ8L9W7hx2qZ3SdHxEtDk2Hn953jJB9I82HXl22oMPPgG-GlWoFwEEwi2r-ZZbwuU9wI6NhNYY"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white text-slate-900 px-3 py-1.5 rounded-lg text-xs font-bold shadow-xl">Set as Main</button>
+</div>
+</div>
+<!-- Regular Photo Card 3 -->
+<div class="relative group aspect-[3/2] rounded-xl overflow-hidden bg-slate-800 hover:ring-2 hover:ring-primary/50 transition-all cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="Luxury bedroom with large glass windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ49LHbbWiA3EVBHLEAbJCrxHd-_57-jqjwCqxJJc3WtaN2k7HFuffO-0Ndm41PQYfYcwbPENDCV1_qSRi7FSQS-k19xgLMfO-gkxxBkn2iDEhrL61jJohokOziSInfVZOjyAt7YmzRyZKhRdkJqkcfOnHQJkk5_8xZES3g1osPuYMm4k1P1uq1AeFVZ8TCpjYJMkiiKQTzqK3aMEZARhZb710UbPRFCETgv8M-J-HvWEfFkrOPR5t_MSxagDHLJcnl7dZN9cuVnI"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white text-slate-900 px-3 py-1.5 rounded-lg text-xs font-bold shadow-xl">Set as Main</button>
+</div>
+</div>
+<!-- Regular Photo Card 4 -->
+<div class="relative group aspect-[3/2] rounded-xl overflow-hidden bg-slate-800 hover:ring-2 hover:ring-primary/50 transition-all cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="Luxury bathroom with freestanding tub" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO-W3ztNhDTujjawchuqbMIfZKj1HAug-K-afc4p5yL963PuPSplD-9f2uXBt6NSSEnaE46TPr9Dc4NZCJ38TkWyowJ4EX3toMTa6Acgcq475xrcnYP6j0ohCaKkcKsoInbAiNktIvaa0BatDx-NO092AIx6cmCyUUP29ZnBlKKUOf-hCuDpGWw9X--kywNrKlFwGhXeZuCpkO4--OQwPNejEpk0sZbsce5aXV5oTjEE_q0cs10tpk5prTeiTdY0tZz7yC955nRiY"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white text-slate-900 px-3 py-1.5 rounded-lg text-xs font-bold shadow-xl">Set as Main</button>
+</div>
+</div>
+<!-- Regular Photo Card 5 -->
+<div class="relative group aspect-[3/2] rounded-xl overflow-hidden bg-slate-800 hover:ring-2 hover:ring-primary/50 transition-all cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="Backyard patio area with outdoor dining" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw6zDbCuF6tB-1gxEODv8zK3SqB3x8IjRYhp69k_U7loXWPPewCSxRxDPEtWkr_gvrgw1RkPeZPew_Xg6hdLZY9-1llLj1dY7uHvziFe_cpCbPKZvgB91gE-YfZGvxU7VBdtwYDOmwOjCbrCEbEgW3xQgSpjZyyK9kYdeILZHKv8mm6azBp8CVrfSftJAANIiCdVSE_h2TEHhhzzAC-B-ZfR-baJAPwM9YFzy6Tmv_zDYdtOSLFkmVKVIQl0EnwXddA-gpZQUzRE8"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white text-slate-900 px-3 py-1.5 rounded-lg text-xs font-bold shadow-xl">Set as Main</button>
+</div>
+</div>
+<!-- Upload Placeholder -->
+<div class="aspect-[3/2] rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 flex flex-col items-center justify-center bg-slate-50 dark:bg-slate-800/50 hover:border-primary hover:bg-primary/5 transition-all group cursor-pointer">
+<span class="material-symbols-outlined text-[32px] text-slate-400 group-hover:text-primary mb-2">add_a_photo</span>
+<span class="text-slate-500 dark:text-slate-400 text-sm font-bold group-hover:text-primary">Upload Photos</span>
+<span class="text-slate-400 dark:text-slate-500 text-[10px] mt-1 uppercase tracking-widest">JPG, PNG up to 20MB</span>
+</div>
+</div>
+</main>
+<!-- Right Sidebar: AI Enhance Tool -->
+<aside class="w-80 border-l border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark overflow-y-auto custom-scrollbar flex flex-col">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-2 text-primary mb-1">
+<span class="material-symbols-outlined text-[20px] font-fill">magic_button</span>
+<h3 class="text-slate-900 dark:text-white font-bold text-lg">AI Enhance Tool</h3>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs">Proprietary engine optimized for Cape Verde's intense sunlight.</p>
+</div>
+<div class="p-6 flex flex-col gap-8">
+<!-- Preset Buttons -->
+<div>
+<span class="text-slate-400 text-[10px] font-bold uppercase tracking-widest block mb-4">Presets</span>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex flex-col items-center justify-center p-3 rounded-lg bg-primary/10 border border-primary/20 text-primary">
+<span class="material-symbols-outlined mb-1">wb_sunny</span>
+<span class="text-[11px] font-bold">Sal Lighting</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-lg bg-slate-100 dark:bg-slate-800 border border-transparent hover:border-slate-300 dark:hover:border-slate-600">
+<span class="material-symbols-outlined mb-1 text-slate-500 dark:text-slate-300">nights_stay</span>
+<span class="text-[11px] font-bold">Golden Hour</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-lg bg-slate-100 dark:bg-slate-800 border border-transparent hover:border-slate-300 dark:hover:border-slate-600">
+<span class="material-symbols-outlined mb-1 text-slate-500 dark:text-slate-300">water_drop</span>
+<span class="text-[11px] font-bold">Ocean Blue</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-lg bg-slate-100 dark:bg-slate-800 border border-transparent hover:border-slate-300 dark:hover:border-slate-600">
+<span class="material-symbols-outlined mb-1 text-slate-500 dark:text-slate-300">auto_awesome</span>
+<span class="text-[11px] font-bold">Luxe Crisp</span>
+</button>
+</div>
+</div>
+<!-- Manual Adjustments -->
+<div class="flex flex-col gap-6">
+<span class="text-slate-400 text-[10px] font-bold uppercase tracking-widest block">Manual Adjustments</span>
+<div class="space-y-4">
+<div class="space-y-3">
+<div class="flex justify-between text-xs font-semibold">
+<label class="text-slate-600 dark:text-slate-300 flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">light_mode</span> Brightness</label>
+<span class="text-primary">+15</span>
+</div>
+<input class="w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-primary" type="range"/>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-xs font-semibold">
+<label class="text-slate-600 dark:text-slate-300 flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">contrast</span> Contrast</label>
+<span class="text-slate-500">0</span>
+</div>
+<input class="w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-primary" type="range"/>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-xs font-semibold">
+<label class="text-slate-600 dark:text-slate-300 flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">palette</span> Saturation</label>
+<span class="text-primary">+8</span>
+</div>
+<input class="w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-primary" type="range"/>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-xs font-semibold">
+<label class="text-slate-600 dark:text-slate-300 flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">details</span> Sharpness</label>
+<span class="text-slate-500">0</span>
+</div>
+<input class="w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-primary" type="range"/>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-auto p-6 space-y-3 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/30">
+<button class="w-full flex items-center justify-center gap-2 bg-primary text-white py-3 rounded-lg font-bold text-sm shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[20px]">auto_fix_high</span>
+                    Apply AI Presets
+                </button>
+<button class="w-full text-slate-500 dark:text-slate-400 text-xs font-semibold hover:text-slate-900 dark:hover:text-white transition-all py-1">Reset to original</button>
+</div>
+</aside>
+</div>
+<!-- Status Bar -->
+<footer class="h-8 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark px-4 flex items-center justify-between text-[10px] font-medium text-slate-400 uppercase tracking-widest z-20">
+<div class="flex gap-4">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-green-500"></span> System Ready</span>
+<span>Listing: V-SAL-042</span>
+</div>
+<div>
+<span>imo.cv CRM v2.4.0 • Cape Verde Real Estate Platform</span>
+</div>
+</footer>
+</body></html>

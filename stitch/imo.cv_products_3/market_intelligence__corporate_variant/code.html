@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html lang="pt-CV"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>imo.cv | Market Intelligence: Corporate Variant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.symbols.google.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#134dec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101522",
+                        "success-green": "#07883d",
+                        "accent-gold": "#b3944d",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .chart-gradient {
+            background: linear-gradient(180deg, rgba(19, 77, 236, 0.1) 0%, rgba(19, 77, 236, 0) 100%);
+        }
+        .gold-border {
+            border-image: linear-gradient(to bottom right, #b3944d, #d4af37) 1;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<div class="flex items-center gap-2">
+<div class="p-2 bg-primary rounded-lg text-white">
+<span class="material-symbols-outlined text-2xl">analytics</span>
+</div>
+<span class="text-2xl font-800 tracking-tight text-slate-900 dark:text-white uppercase">imo.cv</span>
+</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Relatórios</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Consultoria</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Metodologia</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Preços</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">Entrar</button>
+<button class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
+                        Falar com Especialista
+                    </button>
+</div>
+</div>
+</div>
+</header>
+<main>
+<!-- Split Hero Section -->
+<section class="relative overflow-hidden pt-12 pb-20 lg:pt-24 lg:pb-32 border-b border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<!-- Left Column: Content -->
+<div class="flex flex-col gap-8">
+<div class="inline-flex items-center gap-2 bg-accent-gold/10 text-accent-gold px-3 py-1 rounded-full border border-accent-gold/20 w-fit">
+<span class="material-symbols-outlined text-sm font-bold">verified</span>
+<span class="text-xs font-bold uppercase tracking-wider">Benchmark Oficial do Mercado</span>
+</div>
+<h1 class="text-5xl lg:text-6xl font-800 leading-[1.1] tracking-tight text-slate-900 dark:text-white">
+                            A sua Vantagem <span class="text-primary">Competitiva</span> no Mercado de Cabo Verde
+                        </h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed">
+                            Decisões institucionais baseadas em dados reais de alta fidelidade. Aceda ao único índice oficial de performance económica e imobiliária do arquipélago.
+                        </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-white px-8 py-4 rounded-xl text-base font-bold flex items-center gap-2 hover:scale-[1.02] transition-transform">
+                                Aceder ao Dashboard
+                                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-8 py-4 rounded-xl text-base font-bold hover:bg-slate-50 transition-colors">
+                                Ver Amostra PDF
+                            </button>
+</div>
+<!-- Quick Stats Mini Row -->
+<div class="flex gap-8 pt-4 border-t border-slate-200 dark:border-slate-800">
+<div>
+<p class="text-2xl font-bold text-slate-900 dark:text-white">500k+</p>
+<p class="text-xs font-semibold text-slate-500 uppercase tracking-widest">Data Points / Mês</p>
+</div>
+<div>
+<p class="text-2xl font-bold text-slate-900 dark:text-white">98%</p>
+<p class="text-xs font-semibold text-slate-500 uppercase tracking-widest">Cobertura Nacional</p>
+</div>
+<div>
+<p class="text-2xl font-bold text-slate-900 dark:text-white">24/7</p>
+<p class="text-xs font-semibold text-slate-500 uppercase tracking-widest">Atualização Live</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Interactive Visual -->
+<div class="relative group">
+<!-- Decorative Elements -->
+<div class="absolute -top-12 -right-12 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-12 -left-12 w-64 h-64 bg-accent-gold/10 rounded-full blur-3xl"></div>
+<!-- Main Card -->
+<div class="relative bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white">Price Index: Residential</h3>
+<p class="text-xs text-slate-500">Últimos 12 meses • Nacional</p>
+</div>
+<div class="bg-success-green/10 text-success-green px-2 py-1 rounded text-xs font-bold">
+                                    +2.4% MoM
+                                </div>
+</div>
+<!-- Mockup Chart Area -->
+<div class="h-64 chart-gradient relative px-4 flex items-end">
+<div class="w-full h-full absolute top-0 left-0 bg-center bg-no-repeat bg-cover opacity-10 grayscale" data-alt="Corporate building reflections background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC2D_4Sz2iXMufQ2N0DZr3-ZN69xZsB9glWfq9nKDDAli1eBY8V7VUk5iuPODb3V8RIRJKj8xSayPJiwoS7siyEsBd3zrNAQOT4Ex80ji6zoqQSdqqRcRgXPPvc-eKtl4Cs6x_CynTo5ZXEC5XJmQdrWSAa__Lj7-jG7VbAtSQG3X5G7PGzMGlcLAXxkdPRnusnjOYck5aKwBmAlfT0SQEUHkjho4Aq_RYT55aWc7fn7hGYZ9-NUYyjVnrCzylw-cMQqMn66c3eaws');"></div>
+<svg class="w-full h-48 text-primary" preserveaspectratio="none" viewbox="0 0 400 100">
+<path d="M0,80 L40,75 L80,85 L120,60 L160,65 L200,40 L240,45 L280,20 L320,25 L360,10 L400,5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="4"></path>
+<path d="M0,80 L40,75 L80,85 L120,60 L160,65 L200,40 L240,45 L280,20 L320,25 L360,10 L400,5 L400,100 L0,100 Z" fill="rgba(19, 77, 236, 0.05)"></path>
+</svg>
+<!-- Floating Data Point -->
+<div class="absolute top-1/4 right-1/4 bg-slate-900 text-white p-2 rounded shadow-xl text-[10px] font-bold">
+                                    Q4 2023: 142.5 pts
+                                </div>
+</div>
+<!-- Footer Data -->
+<div class="p-6 bg-slate-50 dark:bg-slate-800/50 grid grid-cols-3 gap-4">
+<div class="flex flex-col gap-1">
+<span class="text-[10px] uppercase font-bold text-slate-400">Yield Médio</span>
+<span class="font-bold text-slate-900 dark:text-white text-sm">6.8%</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] uppercase font-bold text-slate-400">Absorção</span>
+<span class="font-bold text-slate-900 dark:text-white text-sm">84 dias</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] uppercase font-bold text-slate-400">Volume</span>
+<span class="font-bold text-slate-900 dark:text-white text-sm">€42.1M</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Institutional Services Section -->
+<section class="py-24 bg-white dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div class="max-w-2xl">
+<h2 class="text-primary text-sm font-bold uppercase tracking-[0.2em] mb-4">Serviços Institucionais</h2>
+<h3 class="text-4xl font-800 text-slate-900 dark:text-white leading-tight">
+                            Market Intelligence de Elite para Investidores Estratégicos
+                        </h3>
+</div>
+<p class="text-slate-500 dark:text-slate-400 max-w-sm">
+                        Transformamos dados granulares em insights acionáveis, garantindo que o seu capital seja aplicado com a máxima segurança e rentabilidade.
+                    </p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Quarterly Reports -->
+<div class="group p-8 rounded-2xl bg-background-light dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all flex flex-col justify-between min-h-[400px]">
+<div>
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined font-bold">menu_book</span>
+</div>
+<h4 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Relatórios Trimestrais</h4>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                                Análises profundas sobre a evolução do mercado, tendências de preços e projeções macroeconómicas oficiais do arquipélago.
+                            </p>
+<ul class="space-y-3">
+<li class="flex items-center gap-2 text-sm text-slate-500 font-medium">
+<span class="material-symbols-outlined text-success-green text-sm font-bold">check_circle</span>
+                                    Análise de Preço por Ilha
+                                </li>
+<li class="flex items-center gap-2 text-sm text-slate-500 font-medium">
+<span class="material-symbols-outlined text-success-green text-sm font-bold">check_circle</span>
+                                    Pipeline de Novos Projetos
+                                </li>
+<li class="flex items-center gap-2 text-sm text-slate-500 font-medium">
+<span class="material-symbols-outlined text-success-green text-sm font-bold">check_circle</span>
+                                    Indicadores de Liquidez
+                                </li>
+</ul>
+</div>
+<button class="mt-8 text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">
+                            Baixar Amostra PDF <span class="material-symbols-outlined text-sm">download</span>
+</button>
+</div>
+<!-- Custom Consulting -->
+<div class="group p-8 rounded-2xl bg-background-light dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all flex flex-col justify-between min-h-[400px]">
+<div>
+<div class="w-12 h-12 bg-accent-gold/10 rounded-lg flex items-center justify-center text-accent-gold mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined font-bold">handshake</span>
+</div>
+<h4 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Consultoria Estratégica</h4>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                                Apoio personalizado para grandes investimentos imobiliários e análise de viabilidade económica tailor-made.
+                            </p>
+<ul class="space-y-3">
+<li class="flex items-center gap-2 text-sm text-slate-500 font-medium">
+<span class="material-symbols-outlined text-success-green text-sm font-bold">check_circle</span>
+                                    Due Diligence de Mercado
+                                </li>
+<li class="flex items-center gap-2 text-sm text-slate-500 font-medium">
+<span class="material-symbols-outlined text-success-green text-sm font-bold">check_circle</span>
+                                    Site Selection Strategy
+                                </li>
+<li class="flex items-center gap-2 text-sm text-slate-500 font-medium">
+<span class="material-symbols-outlined text-success-green text-sm font-bold">check_circle</span>
+                                    Risk Assessment Reports
+                                </li>
+</ul>
+</div>
+<button class="mt-8 text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">
+                            Agendar Reunião <span class="material-symbols-outlined text-sm">calendar_today</span>
+</button>
+</div>
+<!-- API & Data Access -->
+<div class="group p-8 rounded-2xl bg-slate-900 text-white border border-slate-800 transition-all flex flex-col justify-between min-h-[400px]">
+<div>
+<div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined font-bold">database</span>
+</div>
+<h4 class="text-2xl font-bold mb-4">Acesso Live via API</h4>
+<p class="text-slate-400 leading-relaxed mb-6">
+                                Integre os dados oficiais do mercado de Cabo Verde diretamente nos seus sistemas de gestão ou CRM imobiliário.
+                            </p>
+<div class="bg-white/5 rounded-lg p-4 font-mono text-[10px] text-slate-300">
+<code>GET /api/v1/market/index?island=sal</code><br/>
+<code>{ "status": "200", "growth": "+2.4%" }</code>
+</div>
+</div>
+<button class="mt-8 text-white font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all opacity-80 hover:opacity-100">
+                            Documentação Técnica <span class="material-symbols-outlined text-sm">code</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust & Logos -->
+<section class="py-16 border-t border-slate-200 dark:border-slate-800 bg-background-light dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 mb-10">Parceiros e Entidades Oficiais</p>
+<div class="flex flex-wrap justify-center items-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all">
+<div class="text-2xl font-900 text-slate-700 dark:text-slate-300 italic">BANCO CENTRAL</div>
+<div class="text-2xl font-900 text-slate-700 dark:text-slate-300 tracking-tighter">GOV.CV</div>
+<div class="text-2xl font-900 text-slate-700 dark:text-slate-300">INE.CV</div>
+<div class="text-2xl font-900 text-slate-700 dark:text-slate-300">ECOWAS BANK</div>
+<div class="text-2xl font-900 text-slate-700 dark:text-slate-300">PROEMPRESA</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 bg-primary relative overflow-hidden">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.1),transparent)]"></div>
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+<h2 class="text-4xl md:text-5xl font-800 text-white mb-8">
+                    Pronto para dominar o mercado de Cabo Verde?
+                </h2>
+<p class="text-lg text-white/80 mb-10 max-w-2xl mx-auto">
+                    Junte-se às principais instituições financeiras e investidores internacionais que já utilizam a imo.cv para guiar as suas decisões.
+                </p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="bg-white text-primary px-10 py-5 rounded-xl font-bold text-lg shadow-2xl hover:bg-slate-50 transition-colors">
+                        Começar Agora Grátis
+                    </button>
+<button class="bg-primary border-2 border-white/30 text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-white/10 transition-colors">
+                        Solicitar Demo Corporate
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-slate-900 text-white pt-20 pb-10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-2 md:col-span-1 flex flex-col gap-6">
+<div class="flex items-center gap-2">
+<div class="p-1.5 bg-primary rounded text-white">
+<span class="material-symbols-outlined text-xl">analytics</span>
+</div>
+<span class="text-xl font-800 tracking-tight uppercase">imo.cv</span>
+</div>
+<p class="text-sm text-slate-400 leading-relaxed">
+                        A plataforma líder de Market Intelligence imobiliário e económico em Cabo Verde. Transparência, dados e autoridade.
+                    </p>
+</div>
+<div>
+<h5 class="font-bold mb-6 text-sm uppercase tracking-widest text-slate-500">Produtos</h5>
+<ul class="space-y-4 text-sm font-semibold text-slate-300">
+<li><a class="hover:text-primary transition-colors" href="#">Relatórios de Mercado</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Preços por Localidade</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Análise de Rendibilidade</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Soluções Enterprise</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6 text-sm uppercase tracking-widest text-slate-500">Recursos</h5>
+<ul class="space-y-4 text-sm font-semibold text-slate-300">
+<li><a class="hover:text-primary transition-colors" href="#">Metodologia de Dados</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Blog &amp; Notícias</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Suporte ao Cliente</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">API Docs</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6 text-sm uppercase tracking-widest text-slate-500">Contacto</h5>
+<ul class="space-y-4 text-sm font-semibold text-slate-300">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-500 text-sm">mail</span>
+                            info@imo.cv
+                        </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-500 text-sm">location_on</span>
+                            Cidade da Praia, Cabo Verde
+                        </li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-xs text-slate-500 font-medium">
+                    © 2024 imo.cv Market Intelligence. Todos os direitos reservados.
+                </p>
+<div class="flex gap-6 text-xs text-slate-500 font-medium">
+<a class="hover:text-white" href="#">Termos de Uso</a>
+<a class="hover:text-white" href="#">Política de Privacidade</a>
+<a class="hover:text-white" href="#">Compliance</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

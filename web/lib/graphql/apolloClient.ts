@@ -1,30 +1,12 @@
 'use client';
 
-import {
-  ApolloClient,
-  InMemoryCache,
-  HttpLink,
-  ApolloProvider as ApolloProviderClient,
-} from '@apollo/client';
+import React from 'react';
 
-const graphqlUri =
-  typeof window !== 'undefined'
-    ? '/graphql'
-    : `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/graphql`;
+// Apollo/GraphQL is reserved for future use.
+// Currently the app uses REST APIs via axios.
 
-const httpLink = new HttpLink({
-  uri: graphqlUri,
-  credentials: 'same-origin',
-});
-
-export const apolloClient = new ApolloClient({
-  link: httpLink,
-  cache: new InMemoryCache(),
-  defaultOptions: {
-    watchQuery: { fetchPolicy: 'cache-and-network' },
-  },
-});
+export const apolloClient = null;
 
 export function ApolloProvider({ children }: { children: React.ReactNode }) {
-  return <ApolloProviderClient client={apolloClient}>{children}</ApolloProviderClient>;
+  return children as React.ReactElement;
 }

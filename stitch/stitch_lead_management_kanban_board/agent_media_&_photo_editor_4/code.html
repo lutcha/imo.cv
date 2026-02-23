@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agent Media &amp; Photo Editor | imo.cv CRM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3b82f6",
+                        "slate-950": "#0f172a",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 10px;
+        }
+        .table-row-hover:hover {
+            background-color: rgba(59, 130, 246, 0.05);
+        }
+        .dark .table-row-hover:hover {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-700 dark:text-slate-300 antialiased h-screen flex flex-col overflow-hidden">
+<header class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 px-6 py-3 bg-white dark:bg-slate-950 z-20">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-slate-900 dark:text-white">
+<div class="size-8 flex items-center justify-center bg-slate-100 dark:bg-slate-800 rounded-lg">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">analytics</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight">imo.cv CRM</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-slate-900 dark:text-white text-sm font-semibold border-b-2 border-primary py-4 -mb-4" href="#">Listings</a>
+<a class="text-slate-500 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">Contacts</a>
+<a class="text-slate-500 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<label class="hidden lg:flex flex-col min-w-40 h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-slate-400 flex border-none bg-slate-100 dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-slate-100 dark:bg-slate-800 focus:ring-0 text-sm placeholder:text-slate-400 px-3 rounded-r-lg" placeholder="Find listing or photo..."/>
+</div>
+</label>
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-slate-800 dark:bg-blue-600 text-white text-sm font-bold transition-all hover:bg-slate-900 dark:hover:bg-blue-500 shadow-sm">
+<span class="truncate">Save Changes</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-slate-200 dark:ring-slate-700" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCfNhwO-bSncWHxbXKqeRVcVgvPCtZeJ2h_lKkFppBJwozvq0OY7GaWkB-xsZvXzWyq5RsmvCi7Eo_nIbNn5_05p0aPnQa9y6WfDdmCGJKlqcrK_2lQlPreFv5mMg5mEP3V0pLL4-mu0QRGlRkgwuoxxKHvpMn2rnRtcZ01PT38uP-ZjgHEPH69wCVLa5RCJ2fRJ8r0zbnFhQZtuWaNws2GWXvde1WMl6PPkTS5JYV1gaJHSJHRkBWhbSjZbtVkAbC7xoJ5e-dABP0");'></div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<main class="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6 custom-scrollbar">
+<div class="flex flex-wrap items-center gap-2 mb-4">
+<a class="text-slate-400 dark:text-slate-500 text-[10px] font-bold uppercase tracking-widest hover:text-primary" href="#">Listings</a>
+<span class="material-symbols-outlined text-[12px] text-slate-300 dark:text-slate-600">chevron_right</span>
+<span class="text-slate-500 dark:text-slate-400 text-[10px] font-bold uppercase tracking-widest">Villa in Sal - Ref: 042</span>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+<div>
+<h1 class="text-slate-900 dark:text-white text-2xl font-bold tracking-tight mb-1">Media Management</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Curating high-end visuals for the Oceanfront Luxury Collection</p>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-slate-700 dark:text-slate-300 text-xs font-bold transition-all border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-[18px]">airplane_ticket</span>
+                    Add Drone Footage
+                </button>
+<button class="flex items-center gap-2 px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-slate-700 dark:text-slate-300 text-xs font-bold transition-all border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-[18px]">360</span>
+                    360 Tour
+                </button>
+</div>
+</div>
+<div class="flex border-b border-slate-200 dark:border-slate-800 mb-6 overflow-x-auto whitespace-nowrap">
+<button class="flex items-center gap-2 px-4 py-3 border-b-2 border-primary text-slate-900 dark:text-white font-bold text-xs uppercase tracking-wider">
+<span class="material-symbols-outlined text-[18px]">image</span> Photos <span class="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-500 px-1.5 py-0.5 rounded ml-1">12</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-3 border-b-2 border-transparent text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white font-medium text-xs uppercase tracking-wider transition-all">
+<span class="material-symbols-outlined text-[18px]">videocam</span> Videos <span class="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-500 px-1.5 py-0.5 rounded ml-1">2</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-3 border-b-2 border-transparent text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white font-medium text-xs uppercase tracking-wider transition-all">
+<span class="material-symbols-outlined text-[18px]">airplanemode_active</span> Drone
+            </button>
+<button class="flex items-center gap-2 px-4 py-3 border-b-2 border-transparent text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white font-medium text-xs uppercase tracking-wider transition-all">
+<span class="material-symbols-outlined text-[18px]">view_in_ar</span> 360 Tours
+            </button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-separate border-spacing-0">
+<thead>
+<tr class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 border-b border-slate-200 dark:border-slate-800">
+<th class="px-4 py-3 border-b border-slate-200 dark:border-slate-800 font-bold">Media</th>
+<th class="px-4 py-3 border-b border-slate-200 dark:border-slate-800 font-bold">File Name <span class="material-symbols-outlined text-[14px] align-middle ml-1">arrow_drop_down</span></th>
+<th class="px-4 py-3 border-b border-slate-200 dark:border-slate-800 font-bold">Dimensions</th>
+<th class="px-4 py-3 border-b border-slate-200 dark:border-slate-800 font-bold">Size</th>
+<th class="px-4 py-3 border-b border-slate-200 dark:border-slate-800 font-bold">Upload Date</th>
+<th class="px-4 py-3 border-b border-slate-200 dark:border-slate-800 font-bold">Status</th>
+<th class="px-4 py-3 border-b border-slate-200 dark:border-slate-800 text-right font-bold">Actions</th>
+</tr>
+</thead>
+<tbody class="text-sm divide-y divide-slate-100 dark:divide-slate-800/50">
+<tr class="table-row-hover transition-colors">
+<td class="px-4 py-3">
+<div class="relative size-14 rounded overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm bg-slate-100 dark:bg-slate-800">
+<img alt="Main View" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIUJfHREj0DoMiA-BacpTt2dnaf8XHa1TKDk2zcRrvlWHRg6u-w_WLqxilKD1uWf50Zcp39OY8Ceo_hGbo80qzLlIkgFbZB9sQzdl57enQh-77zbfRUexyNudqS7JNMF0U0Wa59vspA9aSIS7knPn-nvFAQ5UGcHe-wINjo32OS4chl3QKtHIrnuoxLCLvm1gO03YRqD0elroGzSp7AELalxbb3jITwe-IgeiKyiRVDjab9O23rnfmPgyneZKIjbq7PnDWhbwk-rw"/>
+<div class="absolute inset-0 ring-1 ring-inset ring-black/5"></div>
+</div>
+</td>
+<td class="px-4 py-3 font-semibold text-slate-900 dark:text-slate-200">villa-main-exterior.jpg</td>
+<td class="px-4 py-3 text-slate-500 font-medium">4032 x 3024</td>
+<td class="px-4 py-3 text-slate-500 font-medium">4.2 MB</td>
+<td class="px-4 py-3 text-slate-500 font-medium">Oct 12, 2023</td>
+<td class="px-4 py-3">
+<div class="flex gap-2">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300">Main Photo</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-slate-100 dark:bg-slate-800 text-slate-500">HDR</span>
+</div>
+</td>
+<td class="px-4 py-3 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-1.5 text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+<button class="p-1.5 text-slate-400 hover:text-red-500 transition-colors"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+<button class="p-1.5 text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</div>
+</td>
+</tr>
+<tr class="table-row-hover transition-colors">
+<td class="px-4 py-3">
+<div class="size-14 rounded overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800">
+<img alt="Living Room" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6mvgwG3GcImPUEYiua1vAOFftseWXakt1TL-y-8LG7vCEBO54t6FRsz6aXkFWWhdp9-vf3h8aEwyZM6mfR9FCzpMmncnVrwnKc3pEw93O4YL9wMFE1B6cVGKYo1d1ZutYOFBmc8EUbSpV2RqtuR9rUtI6M_07in-pRiu_5cYjcdOA2KaPcThOhS0miag3v1FT-FHsY5XJXdshlShHJb6DfudDJkbZ-AT5p_a8K5ARADkccwnrNz1Ly_lb6q_tnHMG_zyTr9QhqKk"/>
+</div>
+</td>
+<td class="px-4 py-3 font-semibold text-slate-900 dark:text-slate-200">living-room-ocean-view.jpg</td>
+<td class="px-4 py-3 text-slate-500 font-medium">3840 x 2160</td>
+<td class="px-4 py-3 text-slate-500 font-medium">3.8 MB</td>
+<td class="px-4 py-3 text-slate-500 font-medium">Oct 12, 2023</td>
+<td class="px-4 py-3">
+<button class="text-[10px] font-bold uppercase text-slate-400 hover:text-blue-500 transition-colors">Set as Main</button>
+</td>
+<td class="px-4 py-3 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-1.5 text-slate-400 hover:text-blue-500 transition-colors"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+<button class="p-1.5 text-slate-400 hover:text-red-500 transition-colors"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+<button class="p-1.5 text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</div>
+</td>
+</tr>
+<tr class="table-row-hover transition-colors">
+<td class="px-4 py-3">
+<div class="size-14 rounded overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800">
+<img alt="Kitchen" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKGYISfTr3SfRtHpFxw2Wmu4EVOJhzXOsMbM7KdU-TDrj8IHvnEtFRnCO0iVLXH94jChW27LhHDgAFIjb0IfjarTaZblybrzHi_MHxvCYXMc3ySkJpYUDErLq1FJXVTaP0aXy6fdKT7XH84HiLPuaqawolAfSg5D59nBoV72O57GMlkzUUh70PEx8P9cosTaURpPJ8L9W7hx2qZ3SdHxEtDk2Hn953jJB9I82HXl22oMPPgG-GlWoFwEEwi2r-ZZbwuU9wI6NhNYY"/>
+</div>
+</td>
+<td class="px-4 py-3 font-semibold text-slate-900 dark:text-slate-200">modern-kitchen-marble.jpg</td>
+<td class="px-4 py-3 text-slate-500 font-medium">3840 x 2160</td>
+<td class="px-4 py-3 text-slate-500 font-medium">2.9 MB</td>
+<td class="px-4 py-3 text-slate-500 font-medium">Oct 12, 2023</td>
+<td class="px-4 py-3">
+<button class="text-[10px] font-bold uppercase text-slate-400 hover:text-blue-500 transition-colors">Set as Main</button>
+</td>
+<td class="px-4 py-3 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-1.5 text-slate-400 hover:text-blue-500 transition-colors"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+<button class="p-1.5 text-slate-400 hover:text-red-500 transition-colors"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+<button class="p-1.5 text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</div>
+</td>
+</tr>
+<tr class="table-row-hover transition-colors">
+<td class="px-4 py-3">
+<div class="size-14 rounded overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800">
+<img alt="Bedroom" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ49LHbbWiA3EVBHLEAbJCrxHd-_57-jqjwCqxJJc3WtaN2k7HFuffO-0Ndm41PQYfYcwbPENDCV1_qSRi7FSQS-k19xgLMfO-gkxxBkn2iDEhrL61jJohokOziSInfVZOjyAt7YmzRyZKhRdkJqkcfOnHQJkk5_8xZES3g1osPuYMm4k1P1uq1AeFVZ8TCpjYJMkiiKQTzqK3aMEZARhZb710UbPRFCETgv8M-J-HvWEfFkrOPR5t_MSxagDHLJcnl7dZN9cuVnI"/>
+</div>
+</td>
+<td class="px-4 py-3 font-semibold text-slate-900 dark:text-slate-200">master-suite-window.jpg</td>
+<td class="px-4 py-3 text-slate-500 font-medium">5120 x 2880</td>
+<td class="px-4 py-3 text-slate-500 font-medium">5.1 MB</td>
+<td class="px-4 py-3 text-slate-500 font-medium">Oct 13, 2023</td>
+<td class="px-4 py-3">
+<button class="text-[10px] font-bold uppercase text-slate-400 hover:text-blue-500 transition-colors">Set as Main</button>
+</td>
+<td class="px-4 py-3 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-1.5 text-slate-400 hover:text-blue-500 transition-colors"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+<button class="p-1.5 text-slate-400 hover:text-red-500 transition-colors"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+<button class="p-1.5 text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</div>
+</td>
+</tr>
+<tr class="table-row-hover transition-colors">
+<td class="px-4 py-3">
+<div class="size-14 rounded overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800">
+<img alt="Bathroom" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO-W3ztNhDTujjawchuqbMIfZKj1HAug-K-afc4p5yL963PuPSplD-9f2uXBt6NSSEnaE46TPr9Dc4NZCJ38TkWyowJ4EX3toMTa6Acgcq475xrcnYP6j0ohCaKkcKsoInbAiNktIvaa0BatDx-NO092AIx6cmCyUUP29ZnBlKKUOf-hCuDpGWw9X--kywNrKlFwGhXeZuCpkO4--OQwPNejEpk0sZbsce5aXV5oTjEE_q0cs10tpk5prTeiTdY0tZz7yC955nRiY"/>
+</div>
+</td>
+<td class="px-4 py-3 font-semibold text-slate-900 dark:text-slate-200">bathroom-spa.jpg</td>
+<td class="px-4 py-3 text-slate-500 font-medium">4032 x 3024</td>
+<td class="px-4 py-3 text-slate-500 font-medium">2.1 MB</td>
+<td class="px-4 py-3 text-slate-500 font-medium">Oct 13, 2023</td>
+<td class="px-4 py-3">
+<button class="text-[10px] font-bold uppercase text-slate-400 hover:text-blue-500 transition-colors">Set as Main</button>
+</td>
+<td class="px-4 py-3 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-1.5 text-slate-400 hover:text-blue-500 transition-colors"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+<button class="p-1.5 text-slate-400 hover:text-red-500 transition-colors"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+<button class="p-1.5 text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<button class="w-full mt-4 flex items-center justify-center gap-3 py-6 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-lg bg-slate-50/50 dark:bg-slate-900/20 hover:border-primary/50 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">add_a_photo</span>
+<div class="text-left">
+<span class="block text-slate-600 dark:text-slate-400 text-sm font-bold">Upload New Media</span>
+<span class="block text-slate-400 text-[10px] uppercase tracking-widest">JPG, PNG, MP4 up to 50MB</span>
+</div>
+</button>
+</main>
+<aside class="w-80 border-l border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 overflow-y-auto custom-scrollbar flex flex-col">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+<div class="flex items-center gap-2 text-slate-900 dark:text-white mb-1">
+<span class="material-symbols-outlined text-[20px] font-fill text-blue-500">magic_button</span>
+<h3 class="font-bold text-base">AI Enhance Tool</h3>
+</div>
+<p class="text-slate-500 dark:text-slate-500 text-[11px] leading-relaxed">Proprietary engine optimized for Cape Verde's intense sunlight.</p>
+</div>
+<div class="p-6 flex flex-col gap-8">
+<div>
+<span class="text-slate-400 dark:text-slate-600 text-[10px] font-bold uppercase tracking-widest block mb-4">Presets</span>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex flex-col items-center justify-center p-3 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 text-blue-600 dark:text-blue-400">
+<span class="material-symbols-outlined mb-1">wb_sunny</span>
+<span class="text-[11px] font-bold">Sal Lighting</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-colors">
+<span class="material-symbols-outlined mb-1 text-slate-400">nights_stay</span>
+<span class="text-[11px] font-bold text-slate-600 dark:text-slate-400">Golden Hour</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-colors">
+<span class="material-symbols-outlined mb-1 text-slate-400">water_drop</span>
+<span class="text-[11px] font-bold text-slate-600 dark:text-slate-400">Ocean Blue</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-colors">
+<span class="material-symbols-outlined mb-1 text-slate-400">auto_awesome</span>
+<span class="text-[11px] font-bold text-slate-600 dark:text-slate-400">Luxe Crisp</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<span class="text-slate-400 dark:text-slate-600 text-[10px] font-bold uppercase tracking-widest block">Manual Adjustments</span>
+<div class="space-y-4">
+<div class="space-y-3">
+<div class="flex justify-between text-[11px] font-bold uppercase tracking-tight">
+<label class="text-slate-500 dark:text-slate-400 flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">light_mode</span> Brightness</label>
+<span class="text-blue-600 dark:text-blue-400">+15</span>
+</div>
+<input class="w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-600" type="range" value="65"/>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-[11px] font-bold uppercase tracking-tight">
+<label class="text-slate-500 dark:text-slate-400 flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">contrast</span> Contrast</label>
+<span class="text-slate-400">0</span>
+</div>
+<input class="w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-600" type="range" value="50"/>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-[11px] font-bold uppercase tracking-tight">
+<label class="text-slate-500 dark:text-slate-400 flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">palette</span> Saturation</label>
+<span class="text-blue-600 dark:text-blue-400">+8</span>
+</div>
+<input class="w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-600" type="range" value="58"/>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-[11px] font-bold uppercase tracking-tight">
+<label class="text-slate-500 dark:text-slate-400 flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">details</span> Sharpness</label>
+<span class="text-slate-400">0</span>
+</div>
+<input class="w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-600" type="range" value="50"/>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-auto p-6 space-y-3 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+<button class="w-full flex items-center justify-center gap-2 bg-slate-900 dark:bg-blue-600 text-white py-2.5 rounded-lg font-bold text-xs shadow-sm hover:bg-slate-800 dark:hover:bg-blue-500 transition-all uppercase tracking-wider">
+<span class="material-symbols-outlined text-[18px]">auto_fix_high</span>
+                Apply AI Presets
+            </button>
+<button class="w-full text-slate-400 dark:text-slate-500 text-[10px] font-bold uppercase tracking-widest hover:text-slate-600 dark:hover:text-slate-300 transition-all py-1">Reset to original</button>
+</div>
+</aside>
+</div>
+<footer class="h-8 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 flex items-center justify-between text-[10px] font-bold text-slate-400 uppercase tracking-widest z-20">
+<div class="flex gap-6">
+<span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> System Ready</span>
+<span>Listing: V-SAL-042</span>
+<span>Storage: 42.5 MB / 1 GB</span>
+</div>
+<div class="flex gap-4">
+<span>imo.cv CRM v2.4.0</span>
+<span class="text-slate-300 dark:text-slate-700">|</span>
+<span>Cape Verde Real Estate Platform</span>
+</div>
+</footer>
+
+</body></html>

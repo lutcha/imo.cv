@@ -2,7 +2,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import CRMInteractionViewSet
 
-router = DefaultRouter()
+router = DefaultRouter()  # default trailing_slash='/' works with skipTrailingSlashRedirect:true
 router.register(r'', CRMInteractionViewSet)
 
 urlpatterns = [

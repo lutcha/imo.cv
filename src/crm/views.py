@@ -10,25 +10,17 @@ class CRMInteractionViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         user = self.request.user
         qs = CRMInteraction.objects.all()
-        
+
         # Filter by lead_id if provided in query params
         lead_id = self.request.query_params.get('lead', None)
         if lead_id:
             qs = qs.filter(lead_id=lead_id)
-            
-        if user.role == 'SYSTEM_ADMIN':
-            return qs
-            
-        if hasattr(user, 'agency') and user.agency:
-            return qs.filter(agency=user.agency)
-            
-        return CRMInteraction.objects.none()
+
+        # Non-admin: only interactions for leads assigned to this user
+        if getattr(user, 'role', None) != 'SYSTEM_ADMIN':
+            qs = qs.filter(lead__assigned_to=user)
+
+        return qs
 
     def perform_create(self, serializer):
-        if self.request.user.is_authenticated and hasattr(self.request.user, 'agency'):
-            serializer.save(
-                agency=self.request.user.agency,
-                agent=self.request.user
-            )
-        else:
-            serializer.save(agent=self.request.user)
+        serializer.save(agent=self.request.user)

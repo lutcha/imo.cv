@@ -13,6 +13,8 @@ export const ISLANDS = [
 export const LISTING_TYPES = [
   { value: 'sale', label: 'Venda' },
   { value: 'rent', label: 'Arrendamento' },
+  { value: 'vacation', label: 'Férias' },
+  { value: 'new_construction', label: 'Obras Novas' },
 ] as const;
 
 /** Limites para sliders de pesquisa (CVE) */

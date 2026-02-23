@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>imo.cv Marketplace | Premium Real Estate Mix</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec7f13",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .property-card-hover:hover .property-image {
+            transform: scale(1.05);
+        }
+        .property-image {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200/60 dark:border-white/10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Logo & Brand -->
+<div class="flex items-center gap-10">
+<div class="flex items-center gap-2 group cursor-pointer">
+<div class="p-1.5 bg-primary rounded-lg text-white">
+<span class="material-symbols-outlined block text-2xl">database</span>
+</div>
+<h1 class="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white">imo<span class="text-primary">.cv</span></h1>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-semibold text-primary" href="#">Marketplace</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Properties</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">About</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+</div>
+<!-- Search and Profile -->
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-slate-100 dark:bg-white/5 border border-transparent focus-within:border-primary/50 focus-within:bg-white transition-all rounded-xl px-4 py-2 w-72">
+<span class="material-symbols-outlined text-slate-400 text-xl">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-slate-400" placeholder="Search by island or type..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-5 py-2.5 bg-primary text-white text-sm font-bold rounded-xl shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all active:scale-95">
+                        Sign In
+                    </button>
+<div class="h-10 w-10 rounded-full border-2 border-slate-200 dark:border-white/10 bg-cover bg-center cursor-pointer hover:border-primary transition-all" data-alt="User profile avatar close up" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD7o-44j5Fw9E3ktv7K0Yd7qXYhyqpjteHmt8Fzf4GJunYGDYBlLRg1-NGUMhk0IjUkvi1wk--3K2OUTrA_dPaALj4R7SRXq-NUo7NFeFiEHxT1CiWWgYoB-YvNMupJgFfaPtoda3hUH_HhCtEy9aRY_-SE7w7zEgbNvrVrcaHlWwJLYnbxw5waR51iEjmnYkUGT_Gn_f9DbHJs5PPPCEPss1XLDQVWN2jV46WZJ5Xqn0BIFAIBNhFRjVY0x2Asc_jlDpbYarvCh8Y')"></div>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 py-12">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div class="max-w-2xl">
+<div class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest mb-3">
+<span class="w-8 h-[2px] bg-primary"></span>
+                    Premium Real Estate Mix
+                </div>
+<h2 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white leading-[1.1] mb-4">
+                    Ultra-Realistic <br/>Marketplace Listings.
+                </h2>
+<p class="text-lg text-slate-600 dark:text-slate-400 font-medium">
+                    Discover hand-picked premium properties across Fogo, Mindelo, and the stunning coastlines.
+                </p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl text-sm font-semibold hover:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-xl">filter_list</span>
+                    Filters
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl text-sm font-semibold hover:border-primary/50 transition-all">
+                    Sort: Featured
+                    <span class="material-symbols-outlined text-xl">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Property Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+<!-- Card 1: Fogo Villa -->
+<div class="group/design-root property-card-hover flex flex-col gap-5 cursor-pointer">
+<div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl shadow-slate-200/50 dark:shadow-none">
+<div class="absolute inset-0 z-10 bg-gradient-to-t from-black/40 to-transparent"></div>
+<!-- HD Badge -->
+<div class="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-primary rounded-full text-[10px] font-black uppercase tracking-tighter text-white">
+<span class="material-symbols-outlined text-xs">hd</span>
+                        High-Definition
+                    </div>
+<!-- Favorite Button -->
+<button class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-primary transition-all">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+<!-- Image -->
+<div class="property-image w-full h-full bg-center bg-cover bg-no-repeat" data-alt="Rustic luxury eco-villa overlooking volcanic landscape" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3PwXe0CVXnHrk9oHU1yiv0iIpWk5qgIuVd50qk1hMyKaoVBren2bGk6-1kxQBjHTMkNaDOZ_1FPI_lTfUKAYzxxeOIBUPa8iNSVGs6t8ytgNs9oUWmGwMO-od54_yPLBmPLeCye_ragFimOmYhC8_eDNOyJEYy-4hRGJ-M7LQH6mSrTWGXrlPrHWC1WPEcZTCs5GkKtEN9OIjRJy--1QWTwsXAmSQRJ7HJ9Ne9FkiDM4gf7fbBpLnV26fABIHfQ0ZfkAWmTGww4s')"></div>
+</div>
+<div class="flex flex-col gap-2 px-1">
+<div class="flex items-center justify-between">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover/design-root:text-primary transition-colors">Rustic Eco-Villa</h3>
+<span class="text-xl font-black text-slate-900 dark:text-white">€450,000</span>
+</div>
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm font-medium">
+<span class="material-symbols-outlined text-base">location_on</span>
+                        Fogo, Cape Verde
+                    </div>
+<div class="flex items-center gap-4 mt-2 py-3 border-t border-slate-100 dark:border-white/5">
+<div class="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-lg text-primary">bed</span> 3 Beds
+                        </div>
+<div class="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-lg text-primary">shower</span> 2 Baths
+                        </div>
+<div class="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-lg text-primary">square_foot</span> 240 m²
+                        </div>
+</div>
+</div>
+</div>
+<!-- Card 2: Mindelo Studio -->
+<div class="group/design-root property-card-hover flex flex-col gap-5 cursor-pointer">
+<div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl shadow-slate-200/50 dark:shadow-none">
+<div class="absolute inset-0 z-10 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-primary rounded-full text-[10px] font-black uppercase tracking-tighter text-white">
+<span class="material-symbols-outlined text-xs">hd</span>
+                        High-Definition
+                    </div>
+<button class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-primary transition-all">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+<div class="property-image w-full h-full bg-center bg-cover bg-no-repeat" data-alt="Modern minimal studio apartment with city views" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCxp9sVaeSIRU2Hu_gbJvqBDiRaoTvnhfFSruVjG4ds1y_wzsxCu-SG5qTYSzC6utnvzfcUjredRNV59aU1G8A4z5-EFeyjiB-vJbEVRcf2oCcQhBzihcFyp4ccMRI63n81hOXwVjeb9d9xGMytDXjMJFke62olgadWRxHVSzijd9ZsWhfaSrol4RoUPypYfZFrGsE3QU74pJVDYZaOdC35mjg9ZNSAqyWmAG3oAxv5VxmIOa2r9pW77QogFA5D15tykmANdsBrKnU')"></div>
+</div>
+<div class="flex flex-col gap-2 px-1">
+<div class="flex items-center justify-between">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover/design-root:text-primary transition-colors">Sleek Modern Studio</h3>
+<span class="text-xl font-black text-slate-900 dark:text-white">€125,000</span>
+</div>
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm font-medium">
+<span class="material-symbols-outlined text-base">location_on</span>
+                        Mindelo, São Vicente
+                    </div>
+<div class="flex items-center gap-4 mt-2 py-3 border-t border-slate-100 dark:border-white/5">
+<div class="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-lg text-primary">apartment</span> 1 Loft
+                        </div>
+<div class="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-lg text-primary">shower</span> 1 Bath
+                        </div>
+<div class="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-lg text-primary">square_foot</span> 55 m²
+                        </div>
+</div>
+</div>
+</div>
+<!-- Card 3: Seaside Plot -->
+<div class="group/design-root property-card-hover flex flex-col gap-5 cursor-pointer">
+<div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl shadow-slate-200/50 dark:shadow-none">
+<div class="absolute inset-0 z-10 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-primary rounded-full text-[10px] font-black uppercase tracking-tighter text-white">
+<span class="material-symbols-outlined text-xs">hd</span>
+                        High-Definition
+                    </div>
+<button class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-primary transition-all">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+<div class="property-image w-full h-full bg-center bg-cover bg-no-repeat" data-alt="Pristine coastal land plot with turquoise water view" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDLLHa27qCnBzccTH7hG97nAxQkxusyU2eRx3XYRauP9LcEg8JEzkRI39C2REFMgEpqrWvOx4p7-ozyvmG7K92d2-jSIxpwg8DryLjIuXetita8czaUvrV1FJJATi3WFNhRRbSbyDQeKJrYlxNYbWqfUb4bSua1N7JRO66lq6WI4g4Kfq5gLaPIWhZbNgloGfig5kfO-S-B2ZXQppEfaIt9opixjWMEzgZIcKr5erz2vM1ColHLpuBYRaRuzACrbtWbraukB2EN-HM')"></div>
+</div>
+<div class="flex flex-col gap-2 px-1">
+<div class="flex items-center justify-between">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover/design-root:text-primary transition-colors">Pristine Seaside Plot</h3>
+<span class="text-xl font-black text-slate-900 dark:text-white">€280,000</span>
+</div>
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm font-medium">
+<span class="material-symbols-outlined text-base">location_on</span>
+                        Sal, Cape Verde
+                    </div>
+<div class="flex items-center gap-4 mt-2 py-3 border-t border-slate-100 dark:border-white/5">
+<div class="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-lg text-primary">terrain</span> Land
+                        </div>
+<div class="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-lg text-primary">beach_access</span> Beachfront
+                        </div>
+<div class="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-lg text-primary">square_foot</span> 1200 m²
+                        </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section Footer / Pagination -->
+<div class="mt-20 flex flex-col items-center gap-6">
+<p class="text-sm font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Showing 3 of 42 high-end listings</p>
+<button class="group flex items-center gap-3 px-8 py-4 bg-white dark:bg-white/5 border-2 border-slate-200 dark:border-white/10 rounded-2xl text-lg font-bold hover:border-primary hover:text-primary transition-all">
+                Load More Premium Results
+                <span class="material-symbols-outlined group-hover:translate-y-1 transition-transform">expand_more</span>
+</button>
+</div>
+</main>
+<!-- Map Preview Toggle -->
+<div class="fixed bottom-10 left-1/2 -translate-x-1/2 z-40">
+<button class="flex items-center gap-3 px-6 py-3.5 bg-slate-900 text-white dark:bg-primary dark:text-white rounded-full shadow-2xl hover:scale-105 transition-all">
+<span class="material-symbols-outlined">map</span>
+<span class="text-sm font-bold">Show Map View</span>
+</button>
+</div>
+<footer class="mt-32 border-t border-slate-200 dark:border-white/10 py-16 bg-white dark:bg-black/20">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<div class="p-1 bg-primary rounded text-white">
+<span class="material-symbols-outlined block text-xl">database</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">imo.cv</span>
+</div>
+<p class="text-sm text-slate-500 leading-relaxed">The premier real estate marketplace for the Cape Verde islands, focusing on luxury, sustainability, and investment potential.</p>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-6">Discover</h4>
+<ul class="flex flex-col gap-4 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">New Developments</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Island Guides</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Investment ROI</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Eco-Living</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-6">Company</h4>
+<ul class="flex flex-col gap-4 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Success Stories</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Press</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-6">Stay Updated</h4>
+<div class="flex flex-col gap-4">
+<div class="flex bg-slate-100 dark:bg-white/5 rounded-xl p-1.5 border border-slate-200 dark:border-white/10">
+<input class="bg-transparent border-none focus:ring-0 text-sm flex-1 px-3" placeholder="Email address" type="email"/>
+<button class="bg-primary text-white p-2 rounded-lg">
+<span class="material-symbols-outlined block">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-slate-100 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-semibold text-slate-400">
+<p>© 2024 imo.cv Marketplace. All rights reserved.</p>
+<div class="flex items-center gap-6">
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Terms of Service</a>
+<a class="hover:text-primary" href="#">Cookies</a>
+</div>
+</div>
+</footer>
+</body></html>

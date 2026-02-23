@@ -27,8 +27,8 @@ export default function SearchFilters({
     };
 
     return (
-        <div className="mb-6">
+        <section className="mb-6" aria-label="Filtros de pesquisa">
             <SearchBar variant="sidebar" defaultValues={filters} />
-        </div>
+        </section>
     );
 }

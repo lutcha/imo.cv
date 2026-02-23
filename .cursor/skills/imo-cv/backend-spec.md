@@ -9,6 +9,7 @@ backend/
 ├── crm/                  # Lead, Interaction; views, serializers, pipeline
 ├── analytics/            # models, views, pricing_engine, market_data
 ├── whatsapp/             # views, webhooks, templates, client
+├── condominiums/         # Condominium, Unit, Fee, MaintenanceRequest, Notice (TENANT_APPS)
 ├── utils/                # geolocation, currency, validators
 └── celery_app.py
 ```
@@ -35,6 +36,7 @@ backend/
 - Auth: POST login, register, refresh (JWT).
 - Properties: GET/POST list, GET/PUT/PATCH/DELETE detail; GET search with query params (island, municipality, property_type, min/max price, area, bedrooms, bathrooms, features, radius, point, sort). Response: results + aggregations + heatmap_data.
 - Leads: CRUD + pipeline, scoring.
+- Condominiums (tenant-scoped): GET/POST `/api/condominiums/`; detail `/{id}/`; nested: `/{id}/units/`, `/{id}/fees/` (filtros: period, status, unit), `/{id}/maintenance-requests/`, `/{id}/notices/`. Autenticação obrigatória.
 
 ## Celery
 

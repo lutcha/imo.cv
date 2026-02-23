@@ -1,0 +1,1766 @@
+[
+  {
+    "summary": "[BE-001] Endpoint GET /api/health (DB + Redis)",
+    "description": "Criar endpoint de health check para rollback e monitorização. Resposta JSON com status e checks (database, redis).\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Highest"
+    },
+    "labels": [
+      "backend",
+      "defensivo",
+      "api"
+    ],
+    "components": [
+      {
+        "name": "Backend"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[BE-002] Health: check opcional Celery",
+    "description": "Incluir no health check indicador opcional do estado do Celery (worker/fila).\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "backend",
+      "defensivo",
+      "api"
+    ],
+    "components": [
+      {
+        "name": "Backend"
+      }
+    ],
+    "storyPoints": 1,
+    "depends_on": [
+      "BE-001"
+    ]
+  },
+  {
+    "summary": "[BE-003] Modelo e storage de Feature Flags",
+    "description": "Persistência de feature flags (DB ou config) para rollback sem redeploy. Ex.: new_search_v2, avm_beta.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Highest"
+    },
+    "labels": [
+      "backend",
+      "defensivo",
+      "arquitetura"
+    ],
+    "components": [
+      {
+        "name": "Backend"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[BE-004] API de leitura de Feature Flags (pública)",
+    "description": "GET /api/feature-flags/ retorna JSON com estado das flags para o frontend. Cacheável.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Highest"
+    },
+    "labels": [
+      "backend",
+      "defensivo",
+      "api"
+    ],
+    "components": [
+      {
+        "name": "Backend"
+      }
+    ],
+    "storyPoints": 1,
+    "depends_on": [
+      "BE-003"
+    ]
+  },
+  {
+    "summary": "[BE-005] API de escrita de Feature Flags (admin)",
+    "description": "Endpoint protegido para ativar/desativar flags (rollback rápido). Apenas admin/superuser.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "backend",
+      "defensivo",
+      "api"
+    ],
+    "components": [
+      {
+        "name": "Backend"
+      }
+    ],
+    "storyPoints": 1,
+    "depends_on": [
+      "BE-003"
+    ]
+  },
+  {
+    "summary": "[BE-006] Teste isolamento multi-tenant – Properties",
+    "description": "Teste: agência B não vê/altera imóveis da agência A. 404/403 em GET de recurso de outra agência.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Highest"
+    },
+    "labels": [
+      "backend",
+      "testes",
+      "defensivo"
+    ],
+    "components": [
+      {
+        "name": "Backend"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[BE-007] Teste isolamento multi-tenant – Leads",
+    "description": "Teste: agência B não acede a leads da agência A.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Highest"
+    },
+    "labels": [
+      "backend",
+      "testes",
+      "defensivo"
+    ],
+    "components": [
+      {
+        "name": "Backend"
+      }
+    ],
+    "storyPoints": 1,
+    "depends_on": []
+  },
+  {
+    "summary": "[BE-008] Teste resiliência: API sem Redis",
+    "description": "Quando Redis indisponível, endpoints principais retornam 200 com dados válidos (sem cache).\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "backend",
+      "testes",
+      "defensivo"
+    ],
+    "components": [
+      {
+        "name": "Backend"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[BE-009] Documentar passos de rollback no README/runbook",
+    "description": "Secção Rollback em docs/README: desativar flags, validar /api/health, referência script DevOps.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Medium"
+    },
+    "labels": [
+      "backend",
+      "defensivo"
+    ],
+    "components": [
+      {
+        "name": "Backend"
+      }
+    ],
+    "storyPoints": 1,
+    "depends_on": []
+  },
+  {
+    "summary": "[BE-010] Adicionar campo usage ao modelo Property",
+    "description": "Campo opcional usage (sale, long_term_rental, short_term_rental, pre_sale). Migração reversível.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "backend",
+      "arquitetura"
+    ],
+    "components": [
+      {
+        "name": "Backend"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[BE-011] Adicionar campo type_specific_data (JSON) ao Property",
+    "description": "JSONField para dados por tipologia (férias, new_development, etc.). Opcional.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "backend",
+      "arquitetura"
+    ],
+    "components": [
+      {
+        "name": "Backend"
+      }
+    ],
+    "storyPoints": 1,
+    "depends_on": []
+  },
+  {
+    "summary": "[BE-012] Estender PropertyType/ListingType conforme v02",
+    "description": "Alinhar choices à arquitetura v02 (residential, land, short_term_rental, etc.) de forma incremental.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Medium"
+    },
+    "labels": [
+      "backend",
+      "arquitetura"
+    ],
+    "components": [
+      {
+        "name": "Backend"
+      }
+    ],
+    "storyPoints": 5,
+    "depends_on": []
+  },
+  {
+    "summary": "[BE-013] App short_term_rental – modelos",
+    "description": "Criar app Django com modelos para alojamento local (preços sazonais, min noites, taxa limpeza).\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "backend",
+      "arquitetura"
+    ],
+    "components": [
+      {
+        "name": "Backend"
+      }
+    ],
+    "storyPoints": 5,
+    "depends_on": []
+  },
+  {
+    "summary": "[BE-014] API mínima para short-term rental",
+    "description": "Endpoints para listar/filtrar imóveis de férias (ilha, datas, min_noites).\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "backend",
+      "api"
+    ],
+    "components": [
+      {
+        "name": "Backend"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": [
+      "BE-013"
+    ]
+  },
+  {
+    "summary": "[BE-015] App new_developments – modelos (projeto + unidades)",
+    "description": "Modelos NewDevelopment e DevelopmentUnit. Migrações e admin básico.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "backend",
+      "arquitetura"
+    ],
+    "components": [
+      {
+        "name": "Backend"
+      }
+    ],
+    "storyPoints": 5,
+    "depends_on": []
+  },
+  {
+    "summary": "[BE-016] API mínima para novas construções",
+    "description": "GET /api/new-developments/ e detalhe por id. Filtros por ilha e estado.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "backend",
+      "api"
+    ],
+    "components": [
+      {
+        "name": "Backend"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": [
+      "BE-015"
+    ]
+  },
+  {
+    "summary": "[BE-017] App ou endpoints financing – simulador e lead",
+    "description": "POST /api/financing/simulate/ e /api/financing/pre-approval-lead/. Validação e rate limit opcional.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "backend",
+      "api",
+      "arquitetura"
+    ],
+    "components": [
+      {
+        "name": "Backend"
+      }
+    ],
+    "storyPoints": 5,
+    "depends_on": []
+  },
+  {
+    "summary": "[BE-018] Endpoint validação concelhos por ilha",
+    "description": "GET /api/geo/municipalities/?island=X retorna concelhos válidos. Cacheável.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "backend",
+      "api"
+    ],
+    "components": [
+      {
+        "name": "Backend"
+      }
+    ],
+    "storyPoints": 1,
+    "depends_on": []
+  },
+  {
+    "summary": "[BE-019] Validação backend: concelho pertence à ilha",
+    "description": "Serializer/model clean: ValidationError se municipality inválido para a island.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Medium"
+    },
+    "labels": [
+      "backend",
+      "defensivo"
+    ],
+    "components": [
+      {
+        "name": "Backend"
+      }
+    ],
+    "storyPoints": 1,
+    "depends_on": []
+  },
+  {
+    "summary": "[BE-020] WhatsApp webhook documentado e estável",
+    "description": "Documentação do webhook (URL, assinatura, exemplos). Teste de verificação e tratamento de erros.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Medium"
+    },
+    "labels": [
+      "backend",
+      "api"
+    ],
+    "components": [
+      {
+        "name": "Backend"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[BE-021] Fallback WhatsApp → SMS (configuração)",
+    "description": "Config e ponto de integração para envio SMS quando WhatsApp falhar. Provider opcional.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Low"
+    },
+    "labels": [
+      "backend",
+      "defensivo"
+    ],
+    "components": [
+      {
+        "name": "Backend"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[FE-001] Leitura de feature flags (env + API)",
+    "description": "Helper/hook useFeatureFlags() a partir de NEXT_PUBLIC_FF_* e opcionalmente API. Documentar flags.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Highest"
+    },
+    "labels": [
+      "frontend",
+      "defensivo"
+    ],
+    "components": [
+      {
+        "name": "Frontend"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[FE-002] next.config: webpack produção, turbopack só dev",
+    "description": "Build de produção usa webpack; turbopack apenas em development. Documentado.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "frontend",
+      "defensivo"
+    ],
+    "components": [
+      {
+        "name": "Frontend"
+      }
+    ],
+    "storyPoints": 1,
+    "depends_on": []
+  },
+  {
+    "summary": "[FE-003] Revisão Server/Client – página detalhe imóvel",
+    "description": "Evitar hydration mismatch: dados no Server Component; window/browser em 'use client' com props.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "frontend",
+      "defensivo"
+    ],
+    "components": [
+      {
+        "name": "Frontend"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[FE-004] Revisão Server/Client – página pesquisa",
+    "description": "Mesma revisão para search: client components para mapa e interações; dados iniciais no servidor.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "frontend",
+      "defensivo"
+    ],
+    "components": [
+      {
+        "name": "Frontend"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[FE-005] Componente AdaptiveImage",
+    "description": "Imagem que ajusta quality por navigator.connection.effectiveType (2g/3g/4g). Piloto em detalhe imóvel.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Highest"
+    },
+    "labels": [
+      "frontend",
+      "defensivo",
+      "ux"
+    ],
+    "components": [
+      {
+        "name": "Frontend"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[FE-006] Fallback do mapa (Mapbox falha ou timeout)",
+    "description": "Timeout configurável; em falha mostrar lista ou mapa estático. Sem crash.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "frontend",
+      "defensivo",
+      "ux"
+    ],
+    "components": [
+      {
+        "name": "Frontend"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[FE-007] lib/validation/cv-localization.ts",
+    "description": "formatCurrencyCVE e validateMunicipality. Constantes ilhas/concelhos. Testes opcionais.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Highest"
+    },
+    "labels": [
+      "frontend",
+      "defensivo"
+    ],
+    "components": [
+      {
+        "name": "Frontend"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[FE-008] Uso de cv-localization em formulários e exibição",
+    "description": "Integrar formatCurrencyCVE e validateMunicipality em forms e exibição de preços.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "frontend",
+      "defensivo",
+      "ux"
+    ],
+    "components": [
+      {
+        "name": "Frontend"
+      }
+    ],
+    "storyPoints": 1,
+    "depends_on": [
+      "FE-007"
+    ]
+  },
+  {
+    "summary": "[FE-009] Cache crítico (ilhas/concelhos + offline)",
+    "description": "Cache para dados estáticos e página/componente offline. Documentar estratégia.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "frontend",
+      "defensivo"
+    ],
+    "components": [
+      {
+        "name": "Frontend"
+      }
+    ],
+    "storyPoints": 5,
+    "depends_on": []
+  },
+  {
+    "summary": "[FE-010] Queue de leads offline (IndexedDB + envio ao reconectar)",
+    "description": "Guardar lead em IndexedDB se offline; enviar ao ficar online. Toast informativo.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "frontend",
+      "defensivo",
+      "ux"
+    ],
+    "components": [
+      {
+        "name": "Frontend"
+      }
+    ],
+    "storyPoints": 5,
+    "depends_on": []
+  },
+  {
+    "summary": "[FE-011] Página pública /credito-habitacao",
+    "description": "Rota que usa CreditSimulator. Metadata e i18n (PT/EN/FR).\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Highest"
+    },
+    "labels": [
+      "frontend",
+      "ux"
+    ],
+    "components": [
+      {
+        "name": "Frontend"
+      }
+    ],
+    "storyPoints": 1,
+    "depends_on": []
+  },
+  {
+    "summary": "[FE-012] Página Férias – conteúdo e listagem mínima",
+    "description": "Conteúdo estático e listagem quando API existir. Placeholder e link para pesquisa.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Medium"
+    },
+    "labels": [
+      "frontend",
+      "ux"
+    ],
+    "components": [
+      {
+        "name": "Frontend"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[FE-013] Página Obras novas – conteúdo e listagem mínima",
+    "description": "Idem para novas construções. Conteúdo e metadata; listagem se API existir.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Medium"
+    },
+    "labels": [
+      "frontend",
+      "ux"
+    ],
+    "components": [
+      {
+        "name": "Frontend"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[FE-014] Formulário Novo imóvel por tipologia",
+    "description": "Campos condicionais por tipo/uso (residencial, terreno, férias, novo projeto). Alinhado à API.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Medium"
+    },
+    "labels": [
+      "frontend",
+      "ux",
+      "arquitetura"
+    ],
+    "components": [
+      {
+        "name": "Frontend"
+      }
+    ],
+    "storyPoints": 5,
+    "depends_on": []
+  },
+  {
+    "summary": "[FE-015] Revisão labels e mensagens de erro (PT/EN/FR)",
+    "description": "Formulários e erros traduzidos nos três idiomas. Chaves i18n verificadas.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "frontend",
+      "ux"
+    ],
+    "components": [
+      {
+        "name": "Frontend"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[FE-016] Skip link e landmarks em novas páginas",
+    "description": "credito-habitacao, ferias, obras-novas com skip link e main/nav. Navegação por teclado.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Medium"
+    },
+    "labels": [
+      "frontend",
+      "ux"
+    ],
+    "components": [
+      {
+        "name": "Frontend"
+      }
+    ],
+    "storyPoints": 1,
+    "depends_on": []
+  },
+  {
+    "summary": "[SV-001] Checklist defensivo por PR (documento)",
+    "description": "Checklist Fases 1-3 do doc defensivo em docs/ ou .cursor/rules. Referência INSTRUÇÕES_DEFENSIVAS.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Highest"
+    },
+    "labels": [
+      "supervisor",
+      "defensivo",
+      "processo"
+    ],
+    "components": [
+      {
+        "name": "Supervisor"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[SV-002] Regras de escalação – documento",
+    "description": "Documentar quando pedir aprovação humana: DB, multi-tenant, infra, WhatsApp. Ligado ao checklist.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Highest"
+    },
+    "labels": [
+      "supervisor",
+      "defensivo",
+      "processo"
+    ],
+    "components": [
+      {
+        "name": "Supervisor"
+      }
+    ],
+    "storyPoints": 1,
+    "depends_on": []
+  },
+  {
+    "summary": "[SV-003] Template de Health Dashboard",
+    "description": "Estrutura e fontes para dashboard: uptime, error rate, LCP/TTI, WhatsApp, leads, tenants. Referência BE-001.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "supervisor",
+      "defensivo"
+    ],
+    "components": [
+      {
+        "name": "Supervisor"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": [
+      "BE-001"
+    ]
+  },
+  {
+    "summary": "[SV-004] Template de relatório semanal",
+    "description": "Template markdown: resumo, saúde, progresso, bloqueios, riscos, escalações, prioridades. Instruções de preenchimento.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "supervisor",
+      "processo"
+    ],
+    "components": [
+      {
+        "name": "Supervisor"
+      }
+    ],
+    "storyPoints": 1,
+    "depends_on": []
+  },
+  {
+    "summary": "[SV-005] Integrar checklist defensivo ao fluxo de PR",
+    "description": "Template de PR ou CONTRIBUTING com link ao checklist. Opcional: bot que comenta checklist.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Medium"
+    },
+    "labels": [
+      "supervisor",
+      "processo"
+    ],
+    "components": [
+      {
+        "name": "Supervisor"
+      }
+    ],
+    "storyPoints": 1,
+    "depends_on": [
+      "SV-001"
+    ]
+  },
+  {
+    "summary": "[SV-006] Primeira auditoria de qualidade (baseline)",
+    "description": "Relatório: cobertura de testes, áreas sem testes, 3-5 melhorias prioritárias. Partilhar com equipa.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Medium"
+    },
+    "labels": [
+      "supervisor",
+      "qualidade"
+    ],
+    "components": [
+      {
+        "name": "Supervisor"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[QA-001] E2E – Fluxo público: Homepage → Busca → Detalhe → Contacto",
+    "description": "Playwright: homepage, busca, detalhe imóvel, contacto (WhatsApp ou form). Configurável baseURL.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Highest"
+    },
+    "labels": [
+      "qa",
+      "e2e",
+      "defensivo"
+    ],
+    "components": [
+      {
+        "name": "QA"
+      }
+    ],
+    "storyPoints": 5,
+    "depends_on": []
+  },
+  {
+    "summary": "[QA-002] E2E – Fluxo agente: Login → Dashboard → Imóveis → Novo imóvel",
+    "description": "Login, dashboard, listagem imóveis, novo imóvel. Credenciais em env/fixture. Dados isolados.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Highest"
+    },
+    "labels": [
+      "qa",
+      "e2e",
+      "defensivo"
+    ],
+    "components": [
+      {
+        "name": "QA"
+      }
+    ],
+    "storyPoints": 5,
+    "depends_on": []
+  },
+  {
+    "summary": "[QA-003] E2E – Fluxo agente: Leads / Pipeline",
+    "description": "Após login, Leads/Pipeline. Kanban visível; opcional arrastar lead. Estável.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "qa",
+      "e2e"
+    ],
+    "components": [
+      {
+        "name": "QA"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": [
+      "QA-002"
+    ]
+  },
+  {
+    "summary": "[QA-004] E2E – Fluxo condomínios",
+    "description": "Login, Condomínios, listar e abrir condomínio (unidades/quotas). Fixtures documentadas.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "qa",
+      "e2e"
+    ],
+    "components": [
+      {
+        "name": "QA"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[QA-005] Teste segurança – SQL injection nos filtros de busca",
+    "description": "Payloads maliciosos nos params de busca. Resposta 400 ou segura; nunca 500 ou dados de outros tenants.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Highest"
+    },
+    "labels": [
+      "qa",
+      "segurança",
+      "defensivo"
+    ],
+    "components": [
+      {
+        "name": "QA"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[QA-006] Teste segurança – XSS em descrição de imóvel",
+    "description": "Descrição com script/img onerror. No detalhe público não deve executar. Documentar resultado.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Highest"
+    },
+    "labels": [
+      "qa",
+      "segurança",
+      "defensivo"
+    ],
+    "components": [
+      {
+        "name": "QA"
+      }
+    ],
+    "storyPoints": 1,
+    "depends_on": []
+  },
+  {
+    "summary": "[QA-007] Teste segurança – CSRF em formulários contacto/lead",
+    "description": "Verificar token CSRF ou SameSite. Submissão de origem não autorizada deve falhar.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "qa",
+      "segurança"
+    ],
+    "components": [
+      {
+        "name": "QA"
+      }
+    ],
+    "storyPoints": 1,
+    "depends_on": []
+  },
+  {
+    "summary": "[QA-008] Teste isolamento multi-tenant (API + UI)",
+    "description": "Agência B não acede a dados da agência A. API e UI. Pode complementar BE-006/BE-007.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Highest"
+    },
+    "labels": [
+      "qa",
+      "segurança",
+      "defensivo"
+    ],
+    "components": [
+      {
+        "name": "QA"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[QA-009] Teste resiliência – API indisponível",
+    "description": "API em baixo: mensagem clara e retry; sem crash. Teste manual ou automatizado.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "qa",
+      "defensivo",
+      "resiliência"
+    ],
+    "components": [
+      {
+        "name": "QA"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[QA-010] Teste resiliência – Fallback do mapa",
+    "description": "Mapbox falha: fallback ativo (lista/mapa estático). Depende FE-006.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "qa",
+      "defensivo",
+      "resiliência"
+    ],
+    "components": [
+      {
+        "name": "QA"
+      }
+    ],
+    "storyPoints": 1,
+    "depends_on": [
+      "FE-006"
+    ]
+  },
+  {
+    "summary": "[QA-011] Lighthouse – Performance em 3G simulada",
+    "description": "LCP e TTI com throttling 3G. Alvo LCP<2.5s, TTI<4s. Relatório e recomendações.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "qa",
+      "performance",
+      "defensivo"
+    ],
+    "components": [
+      {
+        "name": "QA"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[QA-012] Lighthouse – Acessibilidade (WCAG 2.1 AA)",
+    "description": "Score e issues em homepage, pesquisa, detalhe, login, dashboard. Correções prioritárias.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "qa",
+      "acessibilidade",
+      "ux"
+    ],
+    "components": [
+      {
+        "name": "QA"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[QA-013] Integrar E2E no CI (smoke público)",
+    "description": "Job no CI que corre E2E (ex. Playwright) contra preview/staging. Smoke: homepage e busca. Falha = pipeline falha.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Highest"
+    },
+    "labels": [
+      "qa",
+      "ci",
+      "defensivo"
+    ],
+    "components": [
+      {
+        "name": "QA"
+      }
+    ],
+    "storyPoints": 5,
+    "depends_on": [
+      "QA-001"
+    ]
+  },
+  {
+    "summary": "[QA-014] Smoke E2E para canal agente e admin no CI",
+    "description": "Jobs: E2E agente (login+dashboard), E2E admin (login+dashboard). Credenciais em secrets.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "qa",
+      "ci"
+    ],
+    "components": [
+      {
+        "name": "QA"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": [
+      "QA-002",
+      "QA-013"
+    ]
+  },
+  {
+    "summary": "[DO-001] Script rollback.sh",
+    "description": "Desativar flags, reverter containers, limpar Redis, validar health. Variáveis em env. Testado em staging.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Highest"
+    },
+    "labels": [
+      "devops",
+      "defensivo",
+      "rollback"
+    ],
+    "components": [
+      {
+        "name": "DevOps"
+      }
+    ],
+    "storyPoints": 5,
+    "depends_on": [
+      "BE-001",
+      "BE-005"
+    ]
+  },
+  {
+    "summary": "[DO-002] Runbook de rollback (documento)",
+    "description": "Quando fazer rollback, passos (incl. DO-001), validação, contacto. Referência protocolo crise 5min.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Highest"
+    },
+    "labels": [
+      "devops",
+      "defensivo",
+      "documentação"
+    ],
+    "components": [
+      {
+        "name": "DevOps"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": [
+      "DO-001"
+    ]
+  },
+  {
+    "summary": "[DO-003] Integrar health check no pipeline de deploy",
+    "description": "Após deploy: GET /api/health com retry. Falhar deploy se health não ok.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "devops",
+      "defensivo",
+      "ci"
+    ],
+    "components": [
+      {
+        "name": "DevOps"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": [
+      "BE-001"
+    ]
+  },
+  {
+    "summary": "[DO-004] Alertas pós-deploy (48h) – error rate e uptime",
+    "description": "Alerta error rate >5%; alerta se health falhar N vezes. Documentar dashboards.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "devops",
+      "defensivo",
+      "monitorização"
+    ],
+    "components": [
+      {
+        "name": "DevOps"
+      }
+    ],
+    "storyPoints": 5,
+    "depends_on": []
+  },
+  {
+    "summary": "[DO-005] Alertas – LCP/TTI e WhatsApp delivery",
+    "description": "RUM: LCP>3s, TTI>4s. WhatsApp: taxa entrega <95%. Documentar.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Medium"
+    },
+    "labels": [
+      "devops",
+      "monitorização"
+    ],
+    "components": [
+      {
+        "name": "DevOps"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[DO-006] Processo deploy staging com flag desativada",
+    "description": "Documentar: deploy staging → testes → aprovação → prod com flags desativadas. Um ciclo executado.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "devops",
+      "defensivo",
+      "processo"
+    ],
+    "components": [
+      {
+        "name": "DevOps"
+      }
+    ],
+    "storyPoints": 1,
+    "depends_on": []
+  },
+  {
+    "summary": "[DO-007] Canary deploy (5% tráfego)",
+    "description": "Mecanismo e procedimento para canary. Opcional/futuro.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Medium"
+    },
+    "labels": [
+      "devops",
+      "defensivo"
+    ],
+    "components": [
+      {
+        "name": "DevOps"
+      }
+    ],
+    "storyPoints": 8,
+    "depends_on": []
+  },
+  {
+    "summary": "[DO-008] Backups de base de dados – teste de restore",
+    "description": "Backups configurados; teste de restore em não-prod. Documento de procedimento de restore.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Highest"
+    },
+    "labels": [
+      "devops",
+      "defensivo",
+      "backup"
+    ],
+    "components": [
+      {
+        "name": "DevOps"
+      }
+    ],
+    "storyPoints": 5,
+    "depends_on": []
+  },
+  {
+    "summary": "[DO-009] Health check PostgreSQL e Redis no monitor",
+    "description": "Check conectividade PG e Redis; alerta se falhar. Intervalo configurado.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "devops",
+      "monitorização"
+    ],
+    "components": [
+      {
+        "name": "DevOps"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[UX-001] Documento de Design System (tokens únicos)",
+    "description": "Cores, tipografia, espaçamento, radius em doc e variáveis CSS. Referência ux-ui-designer.md e teal.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Highest"
+    },
+    "labels": [
+      "ux",
+      "design-system"
+    ],
+    "components": [
+      {
+        "name": "UX/UI"
+      }
+    ],
+    "storyPoints": 5,
+    "depends_on": []
+  },
+  {
+    "summary": "[UX-002] Revisão mobile – botões e inputs (thumb-friendly)",
+    "description": "Min 44px toque; espaçamento. Sem alterar API dos componentes.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "ux",
+      "mobile",
+      "acessibilidade"
+    ],
+    "components": [
+      {
+        "name": "UX/UI"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[UX-003] Guia de estados: loading, offline, erro de API",
+    "description": "Doc com Loading, Offline, Error. Microcopy PT/EN/FR (Sem conexão, Guardado para enviar, Tente novamente).\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "ux",
+      "design-system",
+      "defensivo"
+    ],
+    "components": [
+      {
+        "name": "UX/UI"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[UX-004] Especificação ou wireframes – página /credito-habitacao",
+    "description": "Layout, título, CreditSimulator, CTA. Mobile first. Entregável para FE-011.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Medium"
+    },
+    "labels": [
+      "ux",
+      "especificação"
+    ],
+    "components": [
+      {
+        "name": "UX/UI"
+      }
+    ],
+    "storyPoints": 1,
+    "depends_on": []
+  },
+  {
+    "summary": "[UX-005] Especificação – listagem/detalhe Férias e Obras novas",
+    "description": "Férias: listagem e detalhe. Obras: projetos e unidades. Para FE-012, FE-013 e Backend.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Medium"
+    },
+    "labels": [
+      "ux",
+      "especificação"
+    ],
+    "components": [
+      {
+        "name": "UX/UI"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[UX-006] Especificação – formulário novo imóvel por tipologia",
+    "description": "Fluxo e campos por tipo (residencial, terreno, férias, novo projeto). Alinhado v02 e FE-014.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Medium"
+    },
+    "labels": [
+      "ux",
+      "especificação",
+      "arquitetura"
+    ],
+    "components": [
+      {
+        "name": "UX/UI"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[UX-007] Checklist a11y para novos componentes",
+    "description": "Checklist WCAG 2.1 AA: contraste, foco, labels, landmarks. Integrado ao processo.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "ux",
+      "acessibilidade"
+    ],
+    "components": [
+      {
+        "name": "UX/UI"
+      }
+    ],
+    "storyPoints": 1,
+    "depends_on": []
+  },
+  {
+    "summary": "[UX-008] Revisão contraste e foco em páginas críticas",
+    "description": "Elementos com contraste insuficiente e focus visible. Propostas de correção.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Medium"
+    },
+    "labels": [
+      "ux",
+      "acessibilidade"
+    ],
+    "components": [
+      {
+        "name": "UX/UI"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": []
+  },
+  {
+    "summary": "[DS-001] AVM atrás de feature flag (avm_beta)",
+    "description": "Backend e frontend só ativam AVM se flag avm_beta. Desativável no rollback. Documentado.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Highest"
+    },
+    "labels": [
+      "data-science",
+      "defensivo",
+      "avm"
+    ],
+    "components": [
+      {
+        "name": "Data Scientist"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": [
+      "BE-003",
+      "BE-004"
+    ]
+  },
+  {
+    "summary": "[DS-002] Pipeline de dados para AVM",
+    "description": "Extrair Property (e transações) para treino. Feature store ou dataset. Documentação de campos.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "data-science",
+      "avm",
+      "pipeline"
+    ],
+    "components": [
+      {
+        "name": "Data Scientist"
+      }
+    ],
+    "storyPoints": 5,
+    "depends_on": []
+  },
+  {
+    "summary": "[DS-003] Modelo AVM – versão inicial (hedónico + comparables)",
+    "description": "Modelo com validação por ilha. Output: estimativa + intervalo. Serializado e versionado.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "data-science",
+      "avm",
+      "modelo"
+    ],
+    "components": [
+      {
+        "name": "Data Scientist"
+      }
+    ],
+    "storyPoints": 8,
+    "depends_on": []
+  },
+  {
+    "summary": "[DS-004] API POST /api/avm/estimate",
+    "description": "Input: características imóvel. Output: estimate, confidence_interval, comparables. Só se flag ativa. Rate limit.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "High"
+    },
+    "labels": [
+      "data-science",
+      "avm",
+      "api"
+    ],
+    "components": [
+      {
+        "name": "Data Scientist"
+      }
+    ],
+    "storyPoints": 5,
+    "depends_on": [
+      "DS-001",
+      "DS-003"
+    ]
+  },
+  {
+    "summary": "[DS-005] Frontend – uso do AVM no detalhe ou formulário novo imóvel",
+    "description": "Componente que chama AVM; texto Estimativa. Só visível com flag. Fallback se API falhar.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Medium"
+    },
+    "labels": [
+      "data-science",
+      "avm",
+      "frontend"
+    ],
+    "components": [
+      {
+        "name": "Data Scientist"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": [
+      "DS-004",
+      "FE-001"
+    ]
+  },
+  {
+    "summary": "[DS-006] Métricas de uso e qualidade do AVM",
+    "description": "Log de pedidos (sem dados pessoais). Se houver preços realizados: MAE/MAPE. Documentação.\n\nCritérios de aceitação completos em: docs/TICKETS_BACKEND_FRONTEND.md e docs/TICKETS_OUTROS_AGENTES.md",
+    "issueType": {
+      "name": "Task"
+    },
+    "priority": {
+      "name": "Medium"
+    },
+    "labels": [
+      "data-science",
+      "avm",
+      "monitorização"
+    ],
+    "components": [
+      {
+        "name": "Data Scientist"
+      }
+    ],
+    "storyPoints": 2,
+    "depends_on": [
+      "DS-004"
+    ]
+  }
+]

@@ -1,4 +1,4 @@
-import apiClient from './client';
+import apiClient, { ssrGet } from './client';
 import type {
   PropertyDetail,
   PropertyListItem,
@@ -37,8 +37,13 @@ export const propertiesApi = {
     };
     delete params.min_price;
     delete params.max_price;
+
+    // Server: use native fetch to avoid axios's url.parse() (DEP0169)
+    if (typeof window === 'undefined') {
+      return ssrGet<PaginatedResponse<PropertyListItem>>('/properties/', params);
+    }
     const { data } = await apiClient.get<PaginatedResponse<PropertyListItem>>(
-      '/properties/search/',
+      '/properties/',
       { params }
     );
     return data;
@@ -47,6 +52,12 @@ export const propertiesApi = {
   list: async (
     filters?: PropertyFilters
   ): Promise<PaginatedResponse<PropertyListItem>> => {
+    if (typeof window === 'undefined') {
+      return ssrGet<PaginatedResponse<PropertyListItem>>(
+        '/properties/',
+        filters as Record<string, string | number | undefined>
+      );
+    }
     const { data } = await apiClient.get<PaginatedResponse<PropertyListItem>>(
       '/properties/',
       { params: filters }
@@ -55,6 +66,9 @@ export const propertiesApi = {
   },
 
   getById: async (id: string): Promise<PropertyDetail> => {
+    if (typeof window === 'undefined') {
+      return ssrGet<PropertyDetail>(`/properties/${id}/`);
+    }
     const { data } = await apiClient.get<PropertyDetail>(`/properties/${id}/`);
     return data;
   },

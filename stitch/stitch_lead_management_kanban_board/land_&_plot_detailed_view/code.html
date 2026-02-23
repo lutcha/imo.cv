@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Land &amp; Plot Detailed View - imo.cv</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec7f13",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .golden-glow {
+            filter: drop-shadow(0 0 8px rgba(236, 127, 19, 0.8));
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<!-- Top Navigation Bar -->
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 py-3 lg:px-20">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M10.4485 13.8519C10.4749 13.9271 10.6203 14.246 11.379 14.7361C12.298 15.3298 13.7492 15.9145 15.6717 16.3735C18.0007 16.9296 20.8712 17.2655 24 17.2655C27.1288 17.2655 29.9993 16.9296 32.3283 16.3735C34.2508 15.9145 35.702 15.3298 36.621 14.7361C37.3796 14.246 37.5251 13.9271 37.5515 13.8519C37.5287 13.7876 37.4333 13.5973 37.0635 13.2931C36.5266 12.8516 35.6288 12.3647 34.343 11.9175C31.79 11.0295 28.1333 10.4437 24 10.4437C19.8667 10.4437 16.2099 11.0295 13.657 11.9175C12.3712 12.3647 11.4734 12.8516 10.9365 13.2931C10.5667 13.5973 10.4713 13.7876 10.4485 13.8519ZM37.5563 18.7877C36.3176 19.3925 34.8502 19.8839 33.2571 20.2642C30.5836 20.9025 27.3973 21.2655 24 21.2655C20.6027 21.2655 17.4164 20.9025 14.7429 20.2642C13.1498 19.8839 11.6824 19.3925 10.4436 18.7877V34.1275C10.4515 34.1545 10.5427 34.4867 11.379 35.027C12.298 35.6207 13.7492 36.2054 15.6717 36.6644C18.0007 37.2205 20.8712 37.5564 24 37.5564C27.1288 37.5564 29.9993 37.2205 32.3283 36.6644C34.2508 36.2054 35.702 35.6207 36.621 35.027C37.4573 34.4867 37.5485 34.1546 37.5563 34.1275V18.7877ZM41.5563 13.8546V34.1455C41.5563 36.1078 40.158 37.5042 38.7915 38.3869C37.3498 39.3182 35.4192 40.0389 33.2571 40.5551C30.5836 41.1934 27.3973 41.5564 24 41.5564C20.6027 41.5564 17.4164 41.1934 14.7429 40.5551C12.5808 40.0389 10.6502 39.3182 9.20848 38.3869C7.84205 37.5042 6.44365 36.1078 6.44365 34.1455L6.44365 13.8546C6.44365 12.2684 7.37223 11.0454 8.39581 10.2036C9.43325 9.3505 10.8137 8.67141 12.343 8.13948C15.4203 7.06909 19.5418 6.44366 24 6.44366C28.4582 6.44366 32.5797 7.06909 35.657 8.13948C37.1863 8.67141 38.5667 9.3505 39.6042 10.2036C40.6278 11.0454 41.5563 12.2684 41.5563 13.8546Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-black leading-tight tracking-tight">imo.cv</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-300 text-sm font-semibold hover:text-primary transition-colors" href="#">Properties</a>
+<a class="text-slate-600 dark:text-slate-300 text-sm font-semibold hover:text-primary transition-colors" href="#">Invest</a>
+<a class="text-slate-600 dark:text-slate-300 text-sm font-semibold hover:text-primary transition-colors" href="#">Developments</a>
+<a class="text-slate-600 dark:text-slate-300 text-sm font-semibold hover:text-primary transition-colors" href="#">About</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-5 py-2.5 rounded-lg transition-all shadow-sm">
+                    List Property
+                </button>
+<div class="size-10 rounded-full border-2 border-primary/20 p-0.5">
+<img class="size-full rounded-full object-cover" data-alt="User profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVTr5Yy3JYoc1m8Sb3bpw8IxwfRE0I63LUEYRGremutaYIsZIdYFMlmIHHEmulzZA9Xep1WV1SnXdNdlVNHkci9syNu1un2sBPU026TW3O6ESF6nSJU2YMwMb3G5xTMq9jCiDdsbKr8dk9UBvflFhsDe1gUux63KPmdSdk0nTzWKD3BXq3nlbR4bB7XQUU0W3FkOUufxyPdfBDpm420CGqDUWMHKO8aFRpk_UbaamdjNbXJQuFHjSq9by7ABX7t49xiUgI295be3A"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 px-4 py-6 lg:px-20 max-w-[1440px] mx-auto w-full">
+<!-- Breadcrumbs & Utility Actions -->
+<div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+<nav class="flex items-center gap-2 text-sm font-medium text-slate-500">
+<a class="hover:text-primary" href="#">Home</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<a class="hover:text-primary" href="#">Land &amp; Plots</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-slate-900 dark:text-white">Boa Vista - Coastal Prime Plot</span>
+</nav>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all shadow-sm">
+<span class="material-symbols-outlined text-xl text-primary">favorite</span>
+<span class="text-sm font-semibold">Save</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all shadow-sm">
+<span class="material-symbols-outlined text-xl text-primary">share</span>
+<span class="text-sm font-semibold">Share</span>
+</button>
+</div>
+</div>
+<!-- Hero Section: Interactive Photo -->
+<section class="relative group mb-10 overflow-hidden rounded-xl bg-slate-200 dark:bg-slate-800 h-[600px] shadow-2xl">
+<img class="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="High detail drone photograph of a coastal plot in Boa Vista Cape Verde" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbsZD8bkwFYQxQMVydq63772dEzx271d9fXIH0ad8TkRaW1beoXueu7Z59JDO9X3A3u_pHpWZ5byjm-WrxpJK3BQDN4aQ4Cera_chSPVtJEO4G2rTms3X7pOTqP8V8PF4o7-_PjStD8ESK1SYlAFHQBLV1H4mVldRW4gp_dvipLOxZoX5IPMIiX2uidFQcfTML8IizOWTkdwKWTInnusj3kZiXSKVt3V0pg828d4Gs9I3KDXcinXkG8vSwlKzJ-0Pt5qXaXQOt5Ok"/>
+<!-- SVG Plot Boundary Overlay -->
+<svg class="absolute inset-0 size-full pointer-events-none" preserveaspectratio="none" viewbox="0 0 1000 600">
+<path class="golden-glow" d="M250,150 L750,120 L880,450 L120,480 Z" fill="rgba(236, 127, 19, 0.15)" stroke="#ec7f13" stroke-dasharray="10 5" stroke-width="4"></path>
+</svg>
+<!-- Floating Overlays -->
+<div class="absolute top-6 left-6 flex gap-3">
+<span class="bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-lg">
+<span class="material-symbols-outlined text-sm">verified</span> Verified Plot
+                    </span>
+<span class="bg-white/90 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-lg backdrop-blur">
+<span class="material-symbols-outlined text-sm">photo_camera</span> 1/12 Aerial Views
+                    </span>
+</div>
+<div class="absolute bottom-6 left-6 right-6 flex flex-wrap items-end justify-between gap-6">
+<div class="glass-panel p-6 rounded-xl border border-white/20 shadow-2xl max-w-md">
+<h1 class="text-3xl font-black text-slate-900 mb-1 leading-tight">Coastal Prime Plot - Boa Vista</h1>
+<p class="text-slate-600 font-medium mb-4 flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span> Santa Monica Beach, Cape Verde
+                        </p>
+<div class="flex gap-4">
+<div class="pr-4 border-r border-slate-200">
+<p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-1">Area</p>
+<p class="text-xl font-extrabold text-slate-900">4,250 m²</p>
+</div>
+<div class="pr-4 border-r border-slate-200">
+<p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-1">Elevation</p>
+<p class="text-xl font-extrabold text-slate-900">12m AMSL</p>
+</div>
+<div>
+<p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-1">Status</p>
+<p class="text-xl font-extrabold text-green-600">Freehold</p>
+</div>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="bg-white hover:bg-slate-50 text-slate-900 font-bold px-6 py-4 rounded-xl flex items-center gap-2 shadow-xl transition-all active:scale-95">
+<span class="material-symbols-outlined">3d_rotation</span> View in 3D
+                        </button>
+<button class="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-4 rounded-xl flex items-center gap-2 shadow-xl transition-all active:scale-95">
+<span class="material-symbols-outlined">mail</span> Request Documents
+                        </button>
+</div>
+</div>
+</section>
+<!-- Technical Specification Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+<!-- Main Details Section (Left 2/3) -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Tech Spec Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col items-center text-center group hover:border-primary/40 transition-all">
+<div class="size-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl">grass</span>
+</div>
+<h4 class="text-xs uppercase font-bold text-slate-400 tracking-widest mb-1">Soil Type</h4>
+<p class="text-lg font-extrabold dark:text-white">Sandy/Stable</p>
+<p class="text-xs text-slate-500 mt-1">Certified Load Bearing</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col items-center text-center group hover:border-primary/40 transition-all">
+<div class="size-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl">architecture</span>
+</div>
+<h4 class="text-xs uppercase font-bold text-slate-400 tracking-widest mb-1">Build Permission</h4>
+<p class="text-lg font-extrabold dark:text-white">80% Buildability</p>
+<p class="text-xs text-slate-500 mt-1">Tourism/Residential</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col items-center text-center group hover:border-primary/40 transition-all">
+<div class="size-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl">waves</span>
+</div>
+<h4 class="text-xs uppercase font-bold text-slate-400 tracking-widest mb-1">Distance to Coast</h4>
+<p class="text-lg font-extrabold dark:text-white">200m from Shore</p>
+<p class="text-xs text-slate-500 mt-1">Direct Access Pathway</p>
+</div>
+</div>
+<!-- Description Text -->
+<div class="bg-white dark:bg-slate-900 p-8 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<h3 class="text-xl font-extrabold mb-4 dark:text-white">Investment Opportunity</h3>
+<div class="space-y-4 text-slate-600 dark:text-slate-400 leading-relaxed">
+<p>This premium coastal plot in Boa Vista represents a rare opportunity for high-yield development. Located in the rapidly expanding Santa Monica sector, the terrain offers a unique combination of flat building surface and slight elevation ensuring permanent sea views.</p>
+<p>The plot has been fully surveyed by imo.cv partners, confirming stable sandy soil foundations that significantly reduce initial groundwork costs. It falls within the ZDTI (Zone of Integrated Tourism Development), which offers various tax incentives for international investors.</p>
+</div>
+<!-- Mini Checklist -->
+<div class="grid grid-cols-2 mt-8 gap-y-3">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500 font-bold">check_circle</span>
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">Water Network Ready</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500 font-bold">check_circle</span>
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">Power Grid Connection</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500 font-bold">check_circle</span>
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">Legal Registry Clear</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500 font-bold">check_circle</span>
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">Environmental License</span>
+</div>
+</div>
+</div>
+<!-- Map Integration Section -->
+<div class="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm h-80 relative">
+<img class="size-full object-cover grayscale-[0.2]" data-alt="Satellite map view of the plot in Boa Vista" data-location="Boa Vista, Cape Verde" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrsc7Q2SLEltFNAO6xaTroDUoERR53NUKz4iTv8N9WhHUiQZew1xVfMF59GtxxU1zbWYtJM-AM-OJpy1KIsZCWgKP8K8k6J_bj0kzc7Njgr4LOLmL19Jx4-vIzTAq4EEQ6v_KdWNceZffQqVggjNGGRaCLNb1Bp8Y3VhnKUTmLCF7kZA_OuoXJ9WMNCUUUe9hAYo5XbZ9kuwYJmCMS6GWC8Yf3Uzu3AzZ-U5mPI_3KzgWnvmTxe2eoaWxSnxFMUtUFW4aSRfA0D-o"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="size-20 bg-primary/20 rounded-full border-2 border-primary animate-pulse flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl fill-1">location_on</span>
+</div>
+</div>
+<div class="absolute bottom-4 left-4 right-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-3 rounded-lg flex items-center justify-between border border-slate-200 dark:border-slate-700 shadow-lg">
+<div>
+<p class="text-[10px] uppercase font-bold text-slate-500 tracking-widest leading-none mb-1">Coordinates</p>
+<p class="text-sm font-bold">16.1430° N, 22.9100° W</p>
+</div>
+<button class="text-primary font-bold text-xs uppercase hover:underline">Open in Google Maps</button>
+</div>
+</div>
+</div>
+<!-- Sidebar Content (Right 1/3) -->
+<aside class="space-y-6">
+<!-- Sticky Inquiry Card -->
+<div class="sticky top-6 bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xl">
+<div class="mb-6">
+<p class="text-xs uppercase font-black text-slate-400 tracking-widest mb-1 leading-none">Asking Price</p>
+<div class="flex items-baseline gap-2">
+<h2 class="text-4xl font-black text-slate-900 dark:text-white">€850,000</h2>
+<span class="text-slate-500 font-semibold">EUR</span>
+</div>
+</div>
+<div class="flex items-center gap-4 mb-8 p-4 bg-primary/5 rounded-lg border border-primary/10">
+<img class="size-14 rounded-full object-cover" data-alt="Real estate agent profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwr7EYoeN-owu5XuHyi26GvSotz0wuRjmYkRys1ElEn1AA-8_M5ycJjm70QLRtimEd-qvUZ1AB16uJVYIhkXUAOSE5kJPRhdjdYdjhPEupDgA--l2un5N-YbNQRWA0LR2xT9Tp8jWppcz3rgML33joJ_MR1SNNerlo_ODUyTM7cZNl5ByHACNWMDm95p7UiqmXqGxgkFndkIjBnb8p-C7kOwSs_BFZe_ik1qUAhP8NGspuL7CSsS4tSZvmMq7jhFpMj20vh6fUBIk"/>
+<div>
+<p class="text-sm font-bold dark:text-white">Carlos Mendes</p>
+<p class="text-xs text-slate-500">Boa Vista Luxury Land Specialist</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-primary fill-1">stars</span>
+<span class="text-[10px] font-bold text-primary uppercase">Trusted Expert</span>
+</div>
+</div>
+</div>
+<div class="space-y-3">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-lg shadow-lg shadow-primary/20 transition-all">
+                                Request Private Tour
+                            </button>
+<button class="w-full bg-white dark:bg-slate-800 hover:bg-slate-50 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white font-bold py-4 rounded-lg transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl">call</span> Contact Agent
+                            </button>
+</div>
+<div class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800">
+<h4 class="text-xs uppercase font-bold text-slate-400 tracking-widest mb-4">Available Documents</h4>
+<div class="space-y-3">
+<a class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg hover:bg-slate-100 transition-colors group" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">picture_as_pdf</span>
+<span class="text-sm font-medium">Land Registry (PDF)</span>
+</div>
+<span class="material-symbols-outlined text-slate-400 text-sm">download</span>
+</a>
+<a class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg hover:bg-slate-100 transition-colors group" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">explore</span>
+<span class="text-sm font-medium">Topographic Survey</span>
+</div>
+<span class="material-symbols-outlined text-slate-400 text-sm">download</span>
+</a>
+<a class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg hover:bg-slate-100 transition-colors group" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">assignment</span>
+<span class="text-sm font-medium">PDM Report (Municipal)</span>
+</div>
+<span class="material-symbols-outlined text-slate-400 text-sm">download</span>
+</a>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<!-- More Like This Section -->
+<section class="mb-10">
+<h3 class="text-2xl font-black mb-6 dark:text-white">Similar Coastal Plots</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Similar Item 1 -->
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all group">
+<div class="h-48 overflow-hidden relative">
+<img class="size-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Drone view of another coastal land plot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDCqFvE5CcJbzbA7IY3MQcOvR1qPtcCuiA-v__NRjRoWtDEKlu9dnRTu5KvwGKXpt9ZGbWdmuLDMKh-ZNRoxM_Iq8dwJIxNbn38h3kmSpotkU422r3tJlTdYL9U9mpWzS8m_tIlBJYsPl3q-QgoonV3jo5WSdRP5TJOhGY2hxqxBvBU3J2f4th318m33nYr1vTTyJ516BgcY7YbyI11sM0tYVFGGVr1qIiX_VbWcbPnoCMDHPQXaVjkhtgRo2hnvAwDVcP6I5Y8Qk"/>
+<div class="absolute top-3 left-3 bg-white/90 px-2 py-1 rounded-md text-[10px] font-bold text-slate-900">BOA VISTA</div>
+</div>
+<div class="p-4">
+<h4 class="font-bold mb-1 truncate dark:text-white">Praia de Chaves Plot</h4>
+<p class="text-xs text-slate-500 mb-3">3,100 m² • Direct Beachfront</p>
+<p class="text-lg font-black text-primary">€650,000</p>
+</div>
+</div>
+<!-- Similar Item 2 -->
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all group">
+<div class="h-48 overflow-hidden relative">
+<img class="size-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Cliffside land plot overview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiCcjSFfMkKjjG8J6vNCksAq09ip8_nvfViAL9fXzuqPmOVZLGYqIaaI5-4LVcBvytSqGWmugfd4bM3btqd6-G1Njk8Pk9g3chkSrYkcQECDBc5wLDb5L909YjAtOs01VlltvvU3OTL7GieVHx_0w3PTt_LW9hNPu6NIXeMAW9e38x_cF7w7IDTz0waLFs5Kxeltgr4U2AakC_ojQh_jxRDCpP2yVTJjIawYusuwzSrtob7mUMWUdgeBH3ivzhxNNx5rrQ87sKchY"/>
+<div class="absolute top-3 left-3 bg-white/90 px-2 py-1 rounded-md text-[10px] font-bold text-slate-900">SAL</div>
+</div>
+<div class="p-4">
+<h4 class="font-bold mb-1 truncate dark:text-white">Pontão Cliffside Terreno</h4>
+<p class="text-xs text-slate-500 mb-3">5,500 m² • Ocean View</p>
+<p class="text-lg font-black text-primary">€1,200,000</p>
+</div>
+</div>
+<!-- Similar Item 3 -->
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all group">
+<div class="h-48 overflow-hidden relative">
+<img class="size-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Sandy beach plot area" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC32x5HaWabcw46j_EpvOP3Bghh8dg-t314JmP407EIlKSzKm-AyRGy80qRmmZFkKXz5zRyfeIfjc-ko7cShrzozVHPK-XYLHoyEA1f5t0yKggiYGE3TybH8zkZXeIQzAk97jW_9N3snaqELSxUM1VsYiw1uWVfMMiph3G_Vy4LEagADy5NhL-gJSnItPZaEsRonz1lhpKNtzMQEwQvoX6Eir-kHSkAz4GDQU8a0k9Hjcq_KT3NCDIm5RbquMgJXWTK8pUYk6mvfFg"/>
+<div class="absolute top-3 left-3 bg-white/90 px-2 py-1 rounded-md text-[10px] font-bold text-slate-900">MAIO</div>
+</div>
+<div class="p-4">
+<h4 class="font-bold mb-1 truncate dark:text-white">Calheta Pure Sand Lot</h4>
+<p class="text-xs text-slate-500 mb-3">2,200 m² • Eco-Development</p>
+<p class="text-lg font-black text-primary">€420,000</p>
+</div>
+</div>
+<!-- Similar Item 4 -->
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all group">
+<div class="h-48 overflow-hidden relative">
+<img class="size-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Inland rocky plot view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClXTLcWD_PZmEqb8-dX1sbn4N_dRkBhL5URvPD9b35g0zTHv3r-AzMtmNoyOnUuXCWrlqDvHeGKOS_sVGbnhZVzfpIXVEyIR7lXRn9bDkzNIX3bv6bfpIhypqhc3DeMWsJmG0rC2e2z23Y_MnX4_hQMpY_5CbwdaMvwcgXMk1t_MIa8DVKvnF74lg4aGSTk13Ki7stsswOUjTKP3AbzaAAAkmvVEY8TJf1S0M-FsZ6cClTUXLwJ4g8ar3_oPOaO-i4c6Yz-7DXc_Q"/>
+<div class="absolute top-3 left-3 bg-white/90 px-2 py-1 rounded-md text-[10px] font-bold text-slate-900">BOA VISTA</div>
+</div>
+<div class="p-4">
+<h4 class="font-bold mb-1 truncate dark:text-white">Rabil Valley Plot</h4>
+<p class="text-xs text-slate-500 mb-3">12,000 m² • Agricultural/Mixed</p>
+<p class="text-lg font-black text-primary">€290,000</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-900 text-slate-400 py-12 px-6 lg:px-20 border-t border-slate-800">
+<div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between gap-10">
+<div class="max-w-xs">
+<div class="flex items-center gap-3 text-white mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">landscape</span>
+<h2 class="text-2xl font-black">imo.cv</h2>
+</div>
+<p class="text-sm leading-relaxed">The premier marketplace for luxury land and developments in Cape Verde. Trusted by international investors since 2012.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-10">
+<div>
+<h5 class="text-white font-bold mb-4">Marketplace</h5>
+<ul class="space-y-2 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Buy Land</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Residential</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Commercial</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Investments</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-4">Company</h5>
+<ul class="space-y-2 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Legal Info</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy</a></li>
+</ul>
+</div>
+<div class="hidden sm:block">
+<h5 class="text-white font-bold mb-4">Newsletter</h5>
+<div class="flex gap-2">
+<input class="bg-slate-800 border-none rounded px-3 py-2 text-sm w-full focus:ring-1 focus:ring-primary" placeholder="Email" type="email"/>
+<button class="bg-primary text-white p-2 rounded">
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto mt-12 pt-8 border-t border-slate-800 flex flex-wrap justify-between gap-4 text-xs font-medium uppercase tracking-widest">
+<p>© 2024 imo.cv Marketplace. All Rights Reserved.</p>
+<div class="flex gap-6">
+<a class="hover:text-white" href="#">Facebook</a>
+<a class="hover:text-white" href="#">LinkedIn</a>
+<a class="hover:text-white" href="#">Instagram</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

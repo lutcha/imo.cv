@@ -77,20 +77,52 @@ export function SearchBar({
 
   const isHero = variant === 'hero';
   const isSidebar = variant === 'sidebar';
+  const isInline = variant === 'inline';
   const minPriceNum = Math.min(Number(minPrice) || PRICE_SLIDER.min, PRICE_SLIDER.max);
   const maxPriceNum = Math.min(Math.max(Number(maxPrice) || PRICE_SLIDER.max, PRICE_SLIDER.min), PRICE_SLIDER.max);
 
+  /* ─── Inline (header) variant: compact, single row ─── */
+  if (isInline) {
+    return (
+      <form
+        role="search"
+        aria-label={t('search.title') || 'Pesquisar imóveis'}
+        onSubmit={handleSubmit}
+        className="flex items-center gap-2"
+      >
+        <select
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+          className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+          aria-label={t('search.island')}
+        >
+          <option value="">{t('search.placeholderLocation') || 'Ilha, cidade ou zona'}</option>
+          {ISLANDS.map((island) => (
+            <option key={island} value={island}>
+              {island}
+            </option>
+          ))}
+        </select>
+        <Button type="submit" size="sm" aria-label={t('search.searchButton')}>
+          <MagnifyingGlassIcon className="h-4 w-4" aria-hidden />
+          <span className="hidden sm:inline">{t('search.searchButton')}</span>
+        </Button>
+      </form>
+    );
+  }
+
   return (
     <form
+      role="search"
+      aria-label={t('search.title') || 'Pesquisar imóveis'}
       onSubmit={handleSubmit}
       className={cn(
         'flex flex-col gap-3',
-        isHero && 'w-full max-w-4xl rounded-2xl bg-white/95 p-6 shadow-xl dark:bg-gray-800/95',
-        (variant === 'inline' || isHero) && 'sm:flex-row sm:flex-wrap sm:items-end',
+        isHero && 'w-full max-w-4xl rounded-2xl bg-white/95 p-6 shadow-xl dark:bg-gray-800/95 sm:flex-row sm:flex-wrap sm:items-end',
         isSidebar && 'space-y-4'
       )}
     >
-      {/* Tipo: Comprar / Arrendar (para quem quer comprar, arrendar ou ver ofertas) */}
+      {/* Tipo: Comprar / Arrendar */}
       <div className={cn('w-full', isSidebar && 'space-y-2')}>
         <p className="mb-1 text-xs font-medium text-gray-500 dark:text-gray-400">
           {t('search.listingType')}
@@ -98,6 +130,8 @@ export function SearchBar({
         <div className="flex flex-wrap gap-2">
           <button
             type="button"
+            aria-pressed={listingType === 'sale'}
+            aria-label={t('search.buy')}
             onClick={() => setListingType(listingType === 'sale' ? '' : 'sale')}
             className={cn(
               'rounded-lg border-2 px-4 py-2 text-sm font-medium transition',
@@ -110,6 +144,8 @@ export function SearchBar({
           </button>
           <button
             type="button"
+            aria-pressed={listingType === 'rent'}
+            aria-label={t('search.rent')}
             onClick={() => setListingType(listingType === 'rent' ? '' : 'rent')}
             className={cn(
               'rounded-lg border-2 px-4 py-2 text-sm font-medium transition',
@@ -151,10 +187,11 @@ export function SearchBar({
             </label>
             <button
               type="button"
+              aria-label={useSliders ? t('search.exactValues') : t('search.useSliders')}
               onClick={() => setUseSliders((u) => !u)}
               className="text-xs text-primary-blue-600 hover:underline dark:text-primary-blue-400"
             >
-              {useSliders ? 'Valores exatos' : 'Sliders'}
+              {useSliders ? t('search.exactValues') : t('search.useSliders')}
             </button>
           </div>
           {useSliders ? (
@@ -171,6 +208,7 @@ export function SearchBar({
                   value={minPriceNum}
                   onChange={(e) => setMinPrice(e.target.value)}
                   className="w-full accent-primary-blue-600"
+                  aria-label={t('search.priceMin')}
                 />
                 <input
                   type="range"
@@ -180,6 +218,7 @@ export function SearchBar({
                   value={maxPriceNum}
                   onChange={(e) => setMaxPrice(e.target.value)}
                   className="w-full accent-primary-blue-600"
+                  aria-label={t('search.priceMax')}
                 />
               </div>
             </>
@@ -206,7 +245,7 @@ export function SearchBar({
 
       {!isSidebar && (
         <>
-          <div className={cn('flex-1 min-w-[120px]', isSidebar && 'w-full')}>
+          <div className="flex-1 min-w-[120px]">
             <label htmlFor="search-min-price" className="mb-1 block text-xs font-medium text-gray-500 dark:text-gray-400">
               {t('search.priceMin')}
             </label>
@@ -219,7 +258,7 @@ export function SearchBar({
               className="py-2"
             />
           </div>
-          <div className={cn('flex-1 min-w-[120px]', isSidebar && 'w-full')}>
+          <div className="flex-1 min-w-[120px]">
             <label htmlFor="search-max-price" className="mb-1 block text-xs font-medium text-gray-500 dark:text-gray-400">
               {t('search.priceMax')}
             </label>
@@ -285,8 +324,8 @@ export function SearchBar({
           ))}
         </select>
       </div>
-      <Button type="submit" size={isHero ? 'lg' : 'md'} className="shrink-0">
-        <MagnifyingGlassIcon className="h-5 w-5" />
+      <Button type="submit" size={isHero ? 'lg' : 'md'} className="shrink-0" aria-label={t('search.searchButton')}>
+        <MagnifyingGlassIcon className="h-5 w-5" aria-hidden />
         {t('search.searchButton')}
       </Button>
     </form>

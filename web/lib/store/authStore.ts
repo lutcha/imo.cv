@@ -4,7 +4,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { User } from '@/types/user';
 
-interface AuthState {
+export interface AuthState {
   user: User | null;
   accessToken: string | null;
   isHydrated: boolean;
@@ -36,6 +36,10 @@ export const useAuthStore = create<AuthState>()(
     {
       name: 'imocv-auth',
       partialize: (s) => ({ user: s.user, accessToken: s.accessToken }),
+      // skipHydration: true prevents Zustand from running rehydrate() during
+      // the server-side module evaluation (where localStorage doesn't exist).
+      // Rehydration is triggered explicitly by HydrationProvider on the client.
+      skipHydration: true,
       onRehydrateStorage: () => () => {
         useAuthStore.getState().setHydrated();
       },
