@@ -8,6 +8,7 @@ class User(AbstractUser):
         SYSTEM_ADMIN = 'SYSTEM_ADMIN', 'System Admin'
         AGENCY_ADMIN = 'AGENCY_ADMIN', 'Agency Admin'
         AGENT = 'AGENT', 'Agent'
+        CONDOMINIUM_MANAGER = 'CONDOMINIUM_MANAGER', 'Gestor de Condomínio'
         BUYER = 'BUYER', 'Buyer'
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

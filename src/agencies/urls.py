@@ -1,10 +1,11 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import AgencyViewSet
+from .views import AgencyViewSet, AgencyMeView
 
-router = DefaultRouter()  # default trailing_slash='/' works with skipTrailingSlashRedirect:true
+router = DefaultRouter()
 router.register(r'', AgencyViewSet)
 
 urlpatterns = [
+    path('me/', AgencyMeView.as_view(), name='agency-me'),
     path('', include(router.urls)),
 ]

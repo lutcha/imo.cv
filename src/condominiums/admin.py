@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Condominium, Unit, Fee, MaintenanceRequest, Notice
+from .models import Condominium, Unit, Fee, MaintenanceRequest, Notice, CommonArea, Reservation
 
 
 @admin.register(Condominium)
@@ -46,3 +46,26 @@ class NoticeAdmin(admin.ModelAdmin):
     raw_id_fields = ('condominium',)
     date_hierarchy = 'published_at'
     ordering = ('-published_at', '-created_at')
+
+
+# =============================================================================
+# Sprint 2-A: Admin para Reservas
+# =============================================================================
+
+@admin.register(CommonArea)
+class CommonAreaAdmin(admin.ModelAdmin):
+    list_display = ('name', 'condominium', 'capacity', 'requires_payment', 'price_cve', 'is_outdoor', 'is_active')
+    list_filter = ('condominium', 'requires_payment', 'is_outdoor', 'is_active')
+    search_fields = ('name', 'rules')
+    raw_id_fields = ('condominium',)
+    ordering = ('condominium', 'name')
+
+
+@admin.register(Reservation)
+class ReservationAdmin(admin.ModelAdmin):
+    list_display = ('resident_name', 'common_area', 'unit', 'start_datetime', 'end_datetime', 'status')
+    list_filter = ('common_area', 'status')
+    search_fields = ('resident_name', 'resident_phone', 'notes')
+    raw_id_fields = ('common_area', 'unit')
+    date_hierarchy = 'start_datetime'
+    ordering = ('-start_datetime',)

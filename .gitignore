@@ -24,6 +24,8 @@ out/
 .env.local
 .env.*.local
 *.pem
+src/.env.prod
+.env.db.prod
 
 # IDE and OS
 .idea/

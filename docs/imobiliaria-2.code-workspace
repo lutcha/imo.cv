@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"DockerRun.DisableDockerrc": true,
+		"chat.mcp.discovery.enabled": {
+			"claude-desktop": true,
+			"cursor-global": true,
+			"cursor-workspace": true
+		},
+		"chat.mcp.assisted.nuget.enabled": true
+	}
+}

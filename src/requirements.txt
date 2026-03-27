@@ -10,3 +10,6 @@ boto3
 Pillow
 django-environ
 djangorestframework-simplejwt
+gunicorn
+whitenoise
+django-cors-headers

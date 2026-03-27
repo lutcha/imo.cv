@@ -20,7 +20,6 @@ services:
     volumes:
       - ./web:/app
       - /app/node_modules
-      - /app/.next
     ports:
       - "3000:3000"
     environment:

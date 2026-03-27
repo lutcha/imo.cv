@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'standalone',
   // Prevents Next.js from redirecting `/api/backend/foo/` → `/api/backend/foo`
   // which breaks Django's trailing-slash convention and causes 308→301→404 chains.
   skipTrailingSlashRedirect: true,
@@ -20,6 +21,16 @@ const nextConfig = {
     serverActions: {
       bodySizeLimit: '2mb',
     },
+  },
+  // Enable polling so HMR works inside Docker on Windows (inotify not available)
+  webpack: (config, { dev }) => {
+    if (dev) {
+      config.watchOptions = {
+        poll: 1000,
+        aggregateTimeout: 300,
+      };
+    }
+    return config;
   },
   async redirects() {
     return [
