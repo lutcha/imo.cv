@@ -48,7 +48,7 @@ interface AgencyPatchPayload {
 // ---------------------------------------------------------------------------
 
 async function fetchAgencyMe(): Promise<AgencyProfile> {
-  const token = localStorage.getItem('access_token');
+  const token = localStorage.getItem('auth_token');
   const res = await fetch('/api/backend/agencies/me/', {
     headers: token ? { Authorization: `Bearer ${token}` } : {},
   });
@@ -57,7 +57,7 @@ async function fetchAgencyMe(): Promise<AgencyProfile> {
 }
 
 async function patchAgencyMe(payload: AgencyPatchPayload): Promise<AgencyProfile> {
-  const token = localStorage.getItem('access_token');
+  const token = localStorage.getItem('auth_token');
   const res = await fetch('/api/backend/agencies/me/', {
     method: 'PATCH',
     headers: {

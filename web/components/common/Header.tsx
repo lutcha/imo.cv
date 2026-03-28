@@ -29,9 +29,10 @@ const LOCALES = [
 ];
 
 const SOLUTIONS = [
-  { href: '/solucoes/crm', label: 'CRM para Agências', color: '#005baa' },
-  { href: '/solucoes/condominios', label: 'Gestão de Condomínios', color: '#008542' },
-  { href: '/solucoes/market-intelligence', label: 'Market Intelligence', color: '#1e3b8a' },
+  { href: '/ferias', label: 'Férias', color: '#ec7f13' },
+  { href: '/solucoes/condominios', label: 'Condomínios', color: '#008542' },
+  { href: '/simuladores', label: 'Simuladores', color: '#005baa' },
+  { href: '/obras-novas', label: 'Novas Construções', color: '#1e3b8a' },
 ];
 
 function SolucoesDropdown() {
@@ -133,18 +134,6 @@ export function Header({ variant = 'public', transparent = false }: HeaderProps)
                 className="hidden text-sm text-gray-600 hover:text-[#005baa] dark:text-gray-400 dark:hover:text-white sm:inline"
               >
                 {t('nav.rent')}
-              </Link>
-              <Link
-                href="/ferias"
-                className="hidden text-sm text-gray-600 hover:text-[#005baa] dark:text-gray-400 dark:hover:text-white xl:inline"
-              >
-                {t('nav.vacation') ?? 'Férias'}
-              </Link>
-              <Link
-                href="/simuladores"
-                className="hidden text-sm text-gray-600 hover:text-[#005baa] dark:text-gray-400 dark:hover:text-white xl:inline"
-              >
-                Simuladores
               </Link>
               <Link
                 href="/agente/login"
@@ -300,27 +289,6 @@ export function Header({ variant = 'public', transparent = false }: HeaderProps)
                   onClick={() => setMobileOpen(false)}
                 >
                   {t('nav.rent')}
-                </Link>
-                <Link
-                  href="/ferias"
-                  className="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {t('nav.vacation') ?? 'Férias'}
-                </Link>
-                <Link
-                  href="/obras-novas"
-                  className="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {t('nav.newConstruction') ?? 'Novas Construções'}
-                </Link>
-                <Link
-                  href="/simuladores"
-                  className="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Simuladores
                 </Link>
                 <Link
                   href="/agente/login"

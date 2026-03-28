@@ -274,35 +274,44 @@ export function SearchBar({
         </>
       )}
 
-      {/* Área (sidebar): sliders opcionais */}
+      {/* Área (sidebar): number inputs */}
       {isSidebar && (
-        <div className="space-y-1">
-          <label className="text-xs font-medium text-gray-500 dark:text-gray-400">
+        <div className="space-y-2">
+          <p className="text-xs font-medium text-gray-500 dark:text-gray-400">
             {t('search.area')} (m²)
-          </label>
-          <div className="grid grid-cols-2 gap-2">
-            <input
-              type="range"
-              min={AREA_SLIDER.min}
-              max={AREA_SLIDER.max}
-              step={AREA_SLIDER.step}
-              value={minArea || AREA_SLIDER.min}
-              onChange={(e) => setMinArea(e.target.value)}
-              className="w-full accent-primary-blue-600"
-            />
-            <input
-              type="range"
-              min={AREA_SLIDER.min}
-              max={AREA_SLIDER.max}
-              step={AREA_SLIDER.step}
-              value={maxArea || AREA_SLIDER.max}
-              onChange={(e) => setMaxArea(e.target.value)}
-              className="w-full accent-primary-blue-600"
-            />
-          </div>
-          <p className="text-xs text-gray-500 dark:text-gray-400">
-            {t('search.areaMin')}: {minArea || '0'} — {t('search.areaMax')}: {maxArea || '—'}
           </p>
+          <div className="grid grid-cols-2 gap-2">
+            <div>
+              <label htmlFor="search-min-area" className="mb-1 block text-xs text-gray-500 dark:text-gray-400">
+                {t('search.areaMin') || 'Área min. (m²)'}
+              </label>
+              <Input
+                id="search-min-area"
+                type="number"
+                min={0}
+                placeholder="0"
+                value={minArea}
+                onChange={(e) => setMinArea(e.target.value)}
+                className="py-2"
+                aria-label={t('search.areaMin') || 'Área mínima em m²'}
+              />
+            </div>
+            <div>
+              <label htmlFor="search-max-area" className="mb-1 block text-xs text-gray-500 dark:text-gray-400">
+                {t('search.areaMax') || 'Área max. (m²)'}
+              </label>
+              <Input
+                id="search-max-area"
+                type="number"
+                min={0}
+                placeholder="Ex: 200"
+                value={maxArea}
+                onChange={(e) => setMaxArea(e.target.value)}
+                className="py-2"
+                aria-label={t('search.areaMax') || 'Área máxima em m²'}
+              />
+            </div>
+          </div>
         </div>
       )}
 

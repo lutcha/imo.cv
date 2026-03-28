@@ -1,9 +1,11 @@
 import axios from 'axios';
 
 // Browser: proxy through Next.js rewrite at /api/backend → Django /api
-// Server (SSR): direct call to Django, must include /api prefix
+// Server (SSR): route through nginx so the correct Host header reaches django-tenants
 const SSR_API_BASE =
-  (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000') + '/api';
+  typeof window === 'undefined'
+    ? `${process.env.NEXT_INTERNAL_API_URL || 'http://imocv_nginx'}/api/backend`
+    : '/api/backend';
 
 const API_BASE_URL =
   typeof window !== 'undefined' ? '/api/backend' : SSR_API_BASE;
