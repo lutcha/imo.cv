@@ -30,6 +30,7 @@ services:
     container_name: imocv_frontend
     environment:
       - NODE_ENV=production
+      - HOSTNAME=0.0.0.0
       - NEXT_PUBLIC_API_URL=http://backend:8000
       - NEXT_INTERNAL_API_URL=http://backend:8000
       - TENANT_HOST=206.81.20.231
