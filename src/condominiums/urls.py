@@ -32,6 +32,13 @@ router = DefaultRouter(trailing_slash=False)
 router.register(r'', CondominiumViewSet, basename='condominium')
 
 urlpatterns = [
+    # Explicit retrieve/update/delete with optional trailing slash
+    # (router with trailing_slash=False generates ^{pk}$ which misses trailing slash)
+    re_path(
+        rf'^(?P<pk>{UUID})/?$',
+        CondominiumViewSet.as_view({'get': 'retrieve', 'put': 'update', 'patch': 'partial_update', 'delete': 'destroy'}),
+        name='condominium-detail',
+    ),
     re_path(r'^', include(router.urls)),
     # Units
     re_path(

@@ -23,9 +23,9 @@ interface HeaderProps {
 }
 
 const LOCALES = [
-  { code: 'pt' as const, label: 'PT' },
-  { code: 'en' as const, label: 'EN' },
-  { code: 'fr' as const, label: 'FR' },
+  { code: 'pt' as const, label: 'PT', flag: '🇵🇹' },
+  { code: 'en' as const, label: 'EN', flag: '🇬🇧' },
+  { code: 'fr' as const, label: 'FR', flag: '🇫🇷' },
 ];
 
 const SOLUTIONS = [
@@ -34,6 +34,53 @@ const SOLUTIONS = [
   { href: '/simuladores', label: 'Simuladores', color: '#005baa' },
   { href: '/obras-novas', label: 'Novas Construções', color: '#1e3b8a' },
 ];
+
+function LocaleDropdown({ locale, setLocale }: { locale: string; setLocale: (c: 'pt' | 'en' | 'fr') => void }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const current = LOCALES.find((l) => l.code === locale) ?? LOCALES[0];
+
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    }
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, []);
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className="flex items-center gap-1 rounded-lg border border-gray-200 bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 transition hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300"
+        aria-label="Idioma"
+      >
+        <span>{current.flag}</span>
+        <span>{current.label}</span>
+        <ChevronDownIcon className={`h-3 w-3 transition-transform ${open ? 'rotate-180' : ''}`} />
+      </button>
+      {open && (
+        <div className="absolute right-0 top-full z-50 mt-1 w-28 rounded-xl border border-gray-200 bg-white py-1 shadow-lg dark:border-gray-700 dark:bg-gray-900">
+          {LOCALES.map(({ code, label, flag }) => (
+            <button
+              key={code}
+              type="button"
+              onClick={() => { setLocale(code); setOpen(false); }}
+              className={cn(
+                'flex w-full items-center gap-2 px-3 py-2 text-sm transition-colors hover:bg-gray-50 dark:hover:bg-gray-800',
+                locale === code ? 'font-semibold text-[#005baa] dark:text-blue-400' : 'text-gray-700 dark:text-gray-300'
+              )}
+            >
+              <span>{flag}</span>
+              <span>{label}</span>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 function SolucoesDropdown() {
   const [open, setOpen] = useState(false);
@@ -175,29 +222,8 @@ export function Header({ variant = 'public', transparent = false }: HeaderProps)
             </>
           )}
 
-          {/* Locale switcher */}
-          <div
-            className="flex items-center gap-0.5 rounded-lg border border-gray-200 bg-gray-50 p-0.5 dark:border-gray-600 dark:bg-gray-800"
-            role="group"
-            aria-label="Idioma"
-          >
-            {LOCALES.map(({ code, label }) => (
-              <button
-                key={code}
-                type="button"
-                onClick={() => setLocale(code)}
-                aria-pressed={locale === code}
-                className={cn(
-                  'rounded px-2 py-1 text-xs font-medium transition',
-                  locale === code
-                    ? 'bg-white text-[#005baa] shadow dark:bg-gray-700 dark:text-blue-400'
-                    : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white'
-                )}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
+          {/* Locale switcher — compact dropdown */}
+          <LocaleDropdown locale={locale} setLocale={setLocale} />
 
           {/* Dark mode toggle */}
           <button
