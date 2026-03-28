@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 // Browser: proxy through Next.js rewrite at /api/backend → Django /api
-// Server (SSR): route through nginx so the correct Host header reaches django-tenants
+// Server (SSR): call backend directly with the tenant Host header
 const SSR_API_BASE =
   typeof window === 'undefined'
-    ? `${process.env.NEXT_INTERNAL_API_URL || 'http://imocv_nginx'}/api/backend`
+    ? `${process.env.NEXT_INTERNAL_API_URL || 'http://backend:8000'}/api`
     : '/api/backend';
 
 const API_BASE_URL =
@@ -28,8 +28,12 @@ export async function ssrGet<T>(
       if (v !== undefined) urlObj.searchParams.set(k, String(v));
     }
   }
+  const tenantHost = process.env.TENANT_HOST;
   const res = await fetch(urlObj.toString(), {
-    headers: { Accept: 'application/json' },
+    headers: {
+      Accept: 'application/json',
+      ...(tenantHost ? { Host: tenantHost } : {}),
+    },
     cache: 'no-store',
   });
   if (!res.ok) throw new Error(`HTTP ${res.status} – ${path}`);

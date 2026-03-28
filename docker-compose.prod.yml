@@ -31,7 +31,8 @@ services:
     environment:
       - NODE_ENV=production
       - NEXT_PUBLIC_API_URL=http://backend:8000
-      - NEXT_INTERNAL_API_URL=http://imocv_nginx
+      - NEXT_INTERNAL_API_URL=http://backend:8000
+      - TENANT_HOST=206.81.20.231
     depends_on:
       - backend
     restart: unless-stopped
