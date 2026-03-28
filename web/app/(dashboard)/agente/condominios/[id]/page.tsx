@@ -63,10 +63,11 @@ export default function CondominiumDetailPage() {
         enabled: !!condominiumId,
     });
 
-    const { data: unitsData, isLoading: loadingUnits } = useQuery({
+    const { data: unitsData, isLoading: loadingUnits, isError: unitsError } = useQuery({
         queryKey: ['units', condominiumId],
         queryFn: () => condominiumsApi.listUnits(condominiumId),
         enabled: !!condominiumId && activeTab === 'units',
+        retry: 1,
     });
 
     const { data: maintenanceData, isLoading: loadingMaintenance } = useQuery({
@@ -198,7 +199,7 @@ export default function CondominiumDetailPage() {
             {/* Tab Content */}
             <div className="rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
                 {activeTab === 'units' && (
-                    <UnitsTab units={units} condominiumId={condominiumId} />
+                    <UnitsTab units={units} condominiumId={condominiumId} isError={unitsError} />
                 )}
                 {activeTab === 'payments' && (
                     <FeeTracker condominiumId={condominiumId} />
@@ -451,7 +452,7 @@ function ReservationsTab({ condominiumId }: { condominiumId: string }) {
 // Units Tab
 // ---------------------------------------------------------------------------
 
-function UnitsTab({ units, condominiumId }: { units: Unit[]; condominiumId: string }) {
+function UnitsTab({ units, condominiumId, isError }: { units: Unit[]; condominiumId: string; isError?: boolean }) {
     const queryClient = useQueryClient();
     const [showModal, setShowModal] = useState(false);
     const [form, setForm] = useState<Partial<CreateUnitInput>>({
@@ -490,7 +491,11 @@ function UnitsTab({ units, condominiumId }: { units: Unit[]; condominiumId: stri
                 </Button>
             </div>
 
-            {units.length === 0 ? (
+            {isError ? (
+                <p className="py-8 text-center text-sm text-red-500 dark:text-red-400">
+                    Erro ao carregar unidades. Verifique a sua sessão e tente novamente.
+                </p>
+            ) : units.length === 0 ? (
                 <p className="py-8 text-center text-sm text-gray-500 dark:text-gray-400">
                     Nenhuma unidade registada.
                 </p>
