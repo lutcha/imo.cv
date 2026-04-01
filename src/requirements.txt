@@ -3,6 +3,8 @@ djangorestframework
 djangorestframework-gis
 psycopg2-binary
 celery
+django-celery-beat
+flower
 redis
 django-tenants
 django-storages

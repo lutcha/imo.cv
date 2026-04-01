@@ -1,0 +1,149 @@
+name: Deploy — imotech.cv
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:          # permite trigger manual no GitHub UI
+    inputs:
+      bootstrap:
+        description: "Primeiro deploy? (obtém certificados SSL)"
+        type: boolean
+        default: false
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false   # nunca cancelar um deploy em curso
+
+jobs:
+  deploy:
+    name: Deploy to DigitalOcean
+    runs-on: ubuntu-latest
+    environment: production   # requer aprovação manual se configurado no GitHub
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # ── Verificar que CI passou antes de fazer deploy ─────────────────────
+      - name: Check CI status
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const runs = await github.rest.actions.listWorkflowRunsForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              head_sha: context.sha,
+              workflow_id: 'ci.yml',
+              per_page: 1,
+            });
+            const latest = runs.data.workflow_runs[0];
+            if (latest && latest.conclusion === 'failure') {
+              core.setFailed('CI falhou — deploy cancelado.');
+            }
+
+      # ── Deploy via SSH ────────────────────────────────────────────────────
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.2.0
+        env:
+          BOOTSTRAP: ${{ github.event.inputs.bootstrap || 'false' }}
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: ${{ secrets.DO_USER }}
+          key: ${{ secrets.DO_SSH_KEY }}
+          envs: BOOTSTRAP
+          timeout: 600s
+          script: |
+            set -euo pipefail
+            cd /opt/imocv
+
+            echo "── $(date) ── Deploy iniciado por $GITHUB_ACTOR"
+
+            # 1. Pull código
+            git pull origin main
+
+            # 2. Bootstrap SSL (só no primeiro deploy ou quando pedido manualmente)
+            if [[ "$BOOTSTRAP" == "true" ]]; then
+              echo "── Bootstrap SSL: a obter certificados..."
+              bash scripts/deploy.sh --bootstrap
+            fi
+
+            # 3. Build apenas das imagens que mudaram
+            docker compose -f docker-compose.prod.yml build \
+              backend frontend celery-worker celery-beat flower
+
+            # 4. Deploy sem downtime — actualizar serviço a serviço
+            echo "── A actualizar backend..."
+            docker compose -f docker-compose.prod.yml up -d --no-deps backend
+
+            echo "── A aguardar backend ficar saudável..."
+            timeout 60 bash -c 'until docker exec imocv_backend python manage.py check --deploy 2>/dev/null; do sleep 3; done'
+
+            echo "── Migrations..."
+            docker exec imocv_backend python manage.py migrate_schemas --shared
+            docker exec imocv_backend python manage.py migrate_schemas --tenant
+            docker exec imocv_backend python manage.py collectstatic --noinput
+
+            echo "── A actualizar Celery workers..."
+            docker compose -f docker-compose.prod.yml up -d --no-deps \
+              celery-worker celery-beat flower
+
+            echo "── A actualizar frontend..."
+            docker compose -f docker-compose.prod.yml up -d --no-deps frontend
+
+            echo "── A recarregar nginx..."
+            docker compose -f docker-compose.prod.yml up -d --no-deps nginx
+            docker exec imocv_nginx nginx -s reload || true
+
+            # 5. Health check
+            echo "── Health check..."
+            sleep 8
+            HTTP_STATUS=$(curl -sf -o /dev/null -w "%{http_code}" \
+              https://imotech.cv/health || echo "000")
+
+            if [[ "$HTTP_STATUS" == "200" ]]; then
+              echo "✓ Deploy concluído — https://imotech.cv está UP"
+            else
+              echo "✗ Health check retornou $HTTP_STATUS"
+              echo "── Últimos logs:"
+              docker compose -f docker-compose.prod.yml logs --tail=30 backend
+              exit 1
+            fi
+
+      # ── Notificação de sucesso ─────────────────────────────────────────────
+      - name: Notify success
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: commit } = await github.rest.repos.getCommit({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: context.sha,
+            });
+            await github.rest.repos.createCommitComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              commit_sha: context.sha,
+              body: `✅ Deploy em produção concluído — https://imotech.cv\n\n_${commit.commit.message}_`,
+            });
+
+      # ── Rollback automático em caso de falha ──────────────────────────────
+      - name: Rollback on failure
+        if: failure()
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: ${{ secrets.DO_USER }}
+          key: ${{ secrets.DO_SSH_KEY }}
+          timeout: 120s
+          script: |
+            echo "✗ Deploy falhou — a fazer rollback..."
+            cd /opt/imocv
+
+            # Voltar ao commit anterior
+            git checkout HEAD~1 -- docker-compose.prod.yml src/ web/ nginx/
+
+            # Re-arrancar com versão anterior
+            docker compose -f docker-compose.prod.yml up -d \
+              backend frontend celery-worker celery-beat nginx
+
+            echo "⚠ Rollback concluído — versão anterior restaurada"
