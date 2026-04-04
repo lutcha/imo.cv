@@ -11,6 +11,7 @@ from .views import (
     AssemblyViewSet,
     AssemblyTopicViewSet,
     AssemblyVoteViewSet,
+    MonthlyReportView,
     exchange_rates,
     public_condominiums,
 )
@@ -151,6 +152,12 @@ urlpatterns = [
         rf'^(?P<pk>{UUID})/analytics/?$',
         CondominiumViewSet.as_view({'get': 'analytics'}),
         name='condominium-analytics',
+    ),
+    # Relatório Mensal PDF (Sprint 9)
+    re_path(
+        rf'^(?P<pk>{UUID})/report/?$',
+        MonthlyReportView.as_view(),
+        name='condominium-monthly-report',
     ),
     # Assembleia e Votação (Sprint 8)
     re_path(

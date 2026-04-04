@@ -15,3 +15,5 @@ djangorestframework-simplejwt
 gunicorn
 whitenoise
 django-cors-headers
+reportlab
+pytest-django

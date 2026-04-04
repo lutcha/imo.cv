@@ -19,7 +19,9 @@ import {
     ChartBarIcon,
     UsersIcon,
     XMarkIcon,
+    DocumentArrowDownIcon,
 } from '@heroicons/react/24/outline';
+import { useAuthStore } from '@/lib/store/authStore';
 import { cn } from '@/lib/utils/helpers';
 import { formatPrice } from '@/lib/utils/formatters';
 import type { Unit, CreateUnitInput, CommonArea, CreateCommonAreaInput, MaintenanceRequest, MaintenancePriority, MaintenanceStatus, Notice } from '@/types/condominium';
@@ -56,6 +58,33 @@ export default function CondominiumDetailPage() {
     const [editingMaintenance, setEditingMaintenance] = useState<MaintenanceRequest | undefined>(undefined);
     const [showNoticeForm, setShowNoticeForm] = useState(false);
     const [editingNotice, setEditingNotice] = useState<Notice | undefined>(undefined);
+    const [downloadingReport, setDownloadingReport] = useState(false);
+
+    const accessToken = useAuthStore((s) => s.accessToken);
+
+    const downloadReport = async () => {
+        if (!accessToken) return;
+        setDownloadingReport(true);
+        try {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = now.getMonth() + 1;
+            const response = await fetch(
+                `/api/backend/condominiums/${condominiumId}/report/?year=${year}&month=${month}`,
+                { headers: { Authorization: `Bearer ${accessToken}` } },
+            );
+            if (!response.ok) return;
+            const blob = await response.blob();
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `relatorio-${condominiumId}-${month}-${year}.pdf`;
+            a.click();
+            URL.revokeObjectURL(url);
+        } finally {
+            setDownloadingReport(false);
+        }
+    };
 
     const { data: condominium, isLoading: loadingCondo } = useQuery({
         queryKey: ['condominium', condominiumId],
@@ -158,6 +187,14 @@ export default function CondominiumDetailPage() {
                         >
                             <ChartBarIcon className="h-3.5 w-3.5" />
                             Analytics
+                        </button>
+                        <button
+                            onClick={downloadReport}
+                            disabled={downloadingReport}
+                            className="flex items-center gap-1.5 rounded-lg border border-trust-blue-200 bg-trust-blue-50 px-3 py-1.5 text-xs font-medium text-trust-blue-700 hover:bg-trust-blue-100 disabled:opacity-50 dark:border-trust-blue-700 dark:bg-trust-blue-900/20 dark:text-trust-blue-300"
+                        >
+                            <DocumentArrowDownIcon className="h-3.5 w-3.5" />
+                            {downloadingReport ? 'A gerar...' : 'Relatório PDF'}
                         </button>
                         <span className={cn(
                             "inline-flex items-center rounded-full px-3 py-1 text-sm font-bold",

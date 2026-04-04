@@ -64,6 +64,7 @@ SHARED_APPS = (
     'django_tenants',  # mandatory
     'core',
     'agencies',  # This will hold our Tenant/Agency models
+    'notifications',  # In shared: users live in the public schema
     'corsheaders',
 
     'django.contrib.contenttypes',

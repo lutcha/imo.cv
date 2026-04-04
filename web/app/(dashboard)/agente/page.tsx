@@ -12,6 +12,7 @@ import { KpiCard } from '@/components/dashboard/KpiCard';
 import { Button } from '@/components/ui/Button';
 import { analyticsApi } from '@/lib/api/analytics';
 import { useLocale } from '@/lib/i18n/LocaleContext';
+import { formatPrice } from '@/lib/utils/formatters';
 
 export default function AgenteDashboardPage() {
   const { t } = useLocale();
@@ -30,15 +31,19 @@ export default function AgenteDashboardPage() {
       title: t('agent.dashboard.kpiActiveLeads'),
       value: stats != null ? String(stats.active_leads) : '—',
       icon: <UserGroupIcon className="h-6 w-6" />,
+      trend: stats?.active_leads_trend,
+      trendValue: stats?.active_leads_change,
     },
     {
       title: t('agent.dashboard.kpiClosedDeals'),
       value: stats != null ? String(stats.closed_deals_month) : '—',
       icon: <ChartBarIcon className="h-6 w-6" />,
+      trend: stats?.closed_deals_trend,
+      trendValue: stats?.closed_deals_change,
     },
     {
       title: t('agent.dashboard.kpiRevenue'),
-      value: stats != null ? String(stats.revenue_month) : '—',
+      value: stats != null ? formatPrice(stats.revenue_month) : '—',
       icon: <BanknotesIcon className="h-6 w-6" />,
     },
   ];
@@ -66,6 +71,8 @@ export default function AgenteDashboardPage() {
             title={kpi.title}
             value={isLoading ? '…' : kpi.value}
             icon={kpi.icon}
+            trend={kpi.trend}
+            trendValue={kpi.trendValue}
           />
         ))}
       </div>

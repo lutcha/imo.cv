@@ -14,6 +14,7 @@ import { useAuthStore } from '@/lib/store/authStore';
 import { useUIStore } from '@/lib/store/uiStore';
 import { useTranslation } from '@/lib/i18n/LocaleContext';
 import { SearchBar } from './SearchBar';
+import { NotificationBell } from './NotificationBell';
 import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/utils/helpers';
 
@@ -221,6 +222,9 @@ export function Header({ variant = 'public', transparent = false }: HeaderProps)
               </Link>
             </>
           )}
+
+          {/* Notification bell — visible when authenticated */}
+          {user && <NotificationBell />}
 
           {/* Locale switcher — compact dropdown */}
           <LocaleDropdown locale={locale} setLocale={setLocale} />

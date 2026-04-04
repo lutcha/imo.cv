@@ -6,9 +6,13 @@ from rest_framework import viewsets, permissions, status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
 from django.core.cache import cache
+from django.utils import timezone
 from datetime import datetime, time
 import urllib.request
 import json as _json
@@ -601,3 +605,59 @@ class AssemblyVoteViewSet(viewsets.ModelViewSet):
         serializer.is_valid(raise_exception=True)
         serializer.save(topic=topic)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+# =============================================================================
+# Relatório Mensal PDF (Sprint 9)
+# =============================================================================
+
+class MonthlyReportView(APIView):
+    """
+    GET /api/condominiums/{pk}/report/?year=YYYY&month=M
+    Gera e devolve um PDF com o relatório mensal do condomínio.
+    Apenas o gestor do condomínio, AGENCY_ADMIN ou SYSTEM_ADMIN podem aceder.
+    """
+    permission_classes = [IsAuthenticated]
+
+    _ALLOWED_ROLES = {'CONDOMINIUM_MANAGER', 'AGENCY_ADMIN', 'SYSTEM_ADMIN'}
+
+    def get(self, request, pk):
+        condominium = get_object_or_404(Condominium, pk=pk)
+
+        user_role = getattr(request.user, 'role', None)
+        is_manager = (
+            user_role == 'CONDOMINIUM_MANAGER'
+            and condominium.manager_id == request.user.pk
+        )
+        is_admin = user_role in {'AGENCY_ADMIN', 'SYSTEM_ADMIN'} or request.user.is_staff
+
+        if not (is_manager or is_admin):
+            return Response(
+                {'detail': 'Sem permissão para gerar o relatório deste condomínio.'},
+                status=403,
+            )
+
+        try:
+            year = int(request.query_params.get('year', timezone.now().year))
+            month = int(request.query_params.get('month', timezone.now().month))
+        except (TypeError, ValueError):
+            return Response(
+                {'detail': 'Parâmetros year e month devem ser inteiros válidos.'},
+                status=400,
+            )
+
+        if not (1 <= month <= 12):
+            return Response({'detail': 'month deve estar entre 1 e 12.'}, status=400)
+
+        from condominiums.pdf_report import generate_monthly_report
+
+        pdf_bytes = generate_monthly_report(condominium, year, month)
+
+        month_abbr = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun',
+                      'jul', 'ago', 'set', 'out', 'nov', 'dez']
+        safe_name = condominium.name.lower().replace(' ', '-')
+        filename = f'relatorio-{safe_name}-{month_abbr[month - 1]}-{year}.pdf'
+
+        response = HttpResponse(pdf_bytes, content_type='application/pdf')
+        response['Content-Disposition'] = f'attachment; filename="{filename}"'
+        return response

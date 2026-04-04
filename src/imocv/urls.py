@@ -34,4 +34,5 @@ urlpatterns = [
     re_path(r'^api/crm/?', include('crm.urls')),
     re_path(r'^api/analytics/?', include('analytics.urls')),
     re_path(r'^api/condominiums/?', include('condominiums.urls')),
+    re_path(r'^api/notifications/?', include('notifications.urls')),
 ]

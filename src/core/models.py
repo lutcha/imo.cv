@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.conf import settings
 from django_tenants.models import TenantMixin, DomainMixin
 import uuid
 
@@ -60,3 +61,26 @@ class Client(TenantMixin):
 
 class Domain(DomainMixin):
     pass
+
+
+class Notification(models.Model):
+    class Type(models.TextChoices):
+        NEW_LEAD     = 'NEW_LEAD', 'Novo Lead'
+        LEAD_UPDATED = 'LEAD_UPDATED', 'Lead Actualizado'
+        RESERVATION  = 'RESERVATION', 'Nova Reserva'
+        MAINTENANCE  = 'MAINTENANCE', 'Manutenção'
+        FEE_OVERDUE  = 'FEE_OVERDUE', 'Quota em Atraso'
+
+    user       = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='notifications')
+    type       = models.CharField(max_length=30, choices=Type.choices)
+    title      = models.CharField(max_length=200)
+    body       = models.TextField(blank=True)
+    is_read    = models.BooleanField(default=False)
+    action_url = models.CharField(max_length=500, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f'{self.type} — {self.title}'
